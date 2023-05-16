@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jaxb:bindings
+    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_1.xsd"
+    version="2.1">
+
+    <jaxb:globalBindings>
+        <jaxb:javaType name="java.time.LocalDateTime" xmlType="xs:dateTime"
+            parseMethod="cl.duoc.portafolio.dto.XMLGregorianCalendarAdapter.unmarshalDateTime"
+            printMethod="cl.duoc.portafolio.dto.XMLGregorianCalendarAdapter.marshalDateTime" />
+            
+        <jaxb:javaType name="java.time.LocalDate" xmlType="xs:date"
+            parseMethod="cl.duoc.portafolio.dto.XMLGregorianCalendarAdapter.unmarshalDate"
+            printMethod="cl.duoc.portafolio.dto.XMLGregorianCalendarAdapter.marshalDate" />
+    </jaxb:globalBindings>
+
+ </jaxb:bindings>

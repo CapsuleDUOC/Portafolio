@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://duoc.cl/portafolio/dto/v10/FeriaVirtual" targetNamespace="http://duoc.cl/portafolio/dto/v10/FeriaVirtual">
+
+    <complexType name="UsuarioType">
+    	<sequence>
+    		<element name="ID" type="long" maxOccurs="1" minOccurs="0"></element>
+    		<element name="nombre" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="apellido" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="registroInstante" type="dateTime" maxOccurs="1" minOccurs="0"></element>
+    		<element name="tipoIdentificacion" type="tns:TipoIdentificacion" maxOccurs="1" minOccurs="1"></element>
+    		<element name="identificacion" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="telefono" type="string" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <simpleType name="TipoIdentificacion">
+    	<restriction base="string">
+    		<enumeration value="RUN"></enumeration>
+    		<enumeration value="PASAPORTE"></enumeration>
+    		<enumeration value="REGISTRO_SAG"></enumeration>
+    		<enumeration value="PATENTE_MUNICIPAL"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="BitacoraType">
+    	<sequence>
+    		<element name="registro_instante" type="dateTime" maxOccurs="1" minOccurs="1"></element>
+    		<element name="nota" type="string" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="VehiculoType">
+    	<sequence>
+    		<element name="ID" type="long" maxOccurs="1" minOccurs="0"></element>
+    		<element name="tipo" type="tns:TipoVehiculo" maxOccurs="1" minOccurs="1"></element>
+    		<element name="patente" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="marca" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="modelo" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="agno" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="registro_instante" type="dateTime" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <simpleType name="TipoVehiculo">
+    	<restriction base="string">
+    		<enumeration value="AUTOMOVIL"></enumeration>
+    		<enumeration value="MOTOCICLETA"></enumeration>
+    		<enumeration value="CAMIONETA"></enumeration>
+    		<enumeration value="CAMION"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="TransporteType">
+    	<sequence>
+    		<element name="ID" type="long" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="agricultor" type="tns:UsuarioType"
+    			maxOccurs="1" minOccurs="0">
+    		</element>
+    		<element name="transportista" type="tns:UsuarioType"
+    			maxOccurs="1" minOccurs="0">
+    		</element>
+    		<element name="locatario" type="tns:UsuarioType"
+    			maxOccurs="1" minOccurs="0">
+    		</element>
+    		<element name="direccionOrigen" type="tns:DireccionType" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="direccionDestino" type="tns:DireccionType" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="fechaSalida" type="date" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="fechaLlegada" type="date" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="costo" type="long" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="DireccionType">
+    	<sequence>
+    		<element name="ID" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="direccion" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="comuna" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="ciudad" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="ubigeo" type="tns:UbigeoType" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="UbigeoType">
+    	<sequence>
+    		<element name="latitud" type="double"></element>
+    		<element name="longitud" type="double"></element>
+    	</sequence>
+    </complexType>
+
+
+    <simpleType name="TipoOperacion">
+    	<restriction base="string">
+    		<enumeration value="COSECHA"></enumeration>
+    		<enumeration value="DESPACHO"></enumeration>
+    		<enumeration value="VENTA"></enumeration>
+    		<enumeration value="TRANSPORTE"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="ComisionType">
+    	<sequence>
+    		<element name="ID" type="long" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="tipoOperacion" type="tns:TipoOperacion"
+    			maxOccurs="1" minOccurs="1">
+    		</element>
+    		<element name="factor" type="double" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ComisionOperacionType">
+    	<sequence>
+    		<element name="ID" type="long" maxOccurs="1" minOccurs="0"></element>
+    		<element name="usuario" type="tns:UsuarioType" maxOccurs="1" minOccurs="1"></element>
+    		<element name="comision" type="tns:ComisionType" maxOccurs="1" minOccurs="1"></element>
+    		<element name="tipoOperacion" type="tns:TipoOperacion" maxOccurs="1" minOccurs="1"></element>
+    		<element name="operacion" type="tns:OperacionType" maxOccurs="1" minOccurs="1"></element>
+    		<element name="estado" type="tns:EstadoComision" maxOccurs="1" minOccurs="1"></element>
+    		<element name="valor" type="long" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <simpleType name="EstadoComision">
+    	<restriction base="string">
+    		<enumeration value="PENDIENTE"></enumeration>
+    		<enumeration value="PAGADO"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="OperacionType">
+    	<sequence>
+    		<element name="tipo" type="tns:TipoOperacion" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="usuario" type="tns:UsuarioType" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="fecha" type="date" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+
+    		<element name="valor" type="long" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ProductoType">
+    	<sequence>
+    		<element name="ID" type="long" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="nombre" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="tipo" maxOccurs="1" minOccurs="1" type="tns:TipoProducto"></element>
+    		<element name="registroInstante" type="dateTime" maxOccurs="1" minOccurs="0"></element>
+    		<element name="imagen" type="boolean" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <simpleType name="TipoProducto">
+    	<restriction base="string">
+    		<enumeration value="FRUTA"></enumeration>
+    		<enumeration value="VERDURA"></enumeration>
+    		<enumeration value="LEGUMBRE"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="VentaType">
+    	<sequence>
+    		<element name="ID" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="locatario" type="tns:UsuarioType" maxOccurs="1" minOccurs="1"></element>
+    		<element name="cliente" type="tns:UsuarioType" maxOccurs="1" minOccurs="1"></element>
+    		<element name="pedido" type="tns:PedidoType" maxOccurs="1" minOccurs="0"></element>
+    		<element name="monto" type="long" maxOccurs="1" minOccurs="1"></element>
+    		<element name="fecha" type="date" maxOccurs="1" minOccurs="1"></element>
+    		<element name="hora" type="time" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="PedidoType">
+    	<sequence>
+    		<element name="ID" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="despachador" type="tns:UsuarioType" maxOccurs="1" minOccurs="0"></element>
+    		<element name="direccionOrigen" type="tns:DireccionType" maxOccurs="1" minOccurs="1"></element>
+    		<element name="direccionDestino" type="tns:DireccionType" maxOccurs="1" minOccurs="1"></element>
+    		<element name="montoDespacho" type="long" maxOccurs="1" minOccurs="1"></element>
+    		<element name="cantidad" type="long" maxOccurs="1" minOccurs="1"></element>
+    		<element name="unidadMedida" type="tns:UnidadMedida" maxOccurs="1" minOccurs="1"></element>
+    		<element name="fecha" type="date" maxOccurs="1" minOccurs="1"></element>
+    		<element name="hora" type="time" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <simpleType name="UnidadMedida">
+    	<restriction base="string">
+    		<enumeration value="GRAMOS"></enumeration>
+    		<enumeration value="KILOGRAMOS"></enumeration>
+    		<enumeration value="MILILITROS"></enumeration>
+    		<enumeration value="LITROS"></enumeration>
+    		<enumeration value="UNIDADES"></enumeration>
+    	</restriction>
+    </simpleType>
+
+
+
+    <element name="InputAuthLogin">
+    	<complexType>
+    		<sequence>
+    			<element name="username" type="string" maxOccurs="1" minOccurs="1"></element>
+    			<element name="password" type="string" maxOccurs="1" minOccurs="1"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+
+    <element name="InputAuthCrear">
+    	<complexType>
+    		<sequence>
+                <element name="usuario" type="tns:UsuarioType" maxOccurs="1" minOccurs="1"></element>
+                <element name="tipoUsuario" type="tns:TipoUsuario"
+    				maxOccurs="1" minOccurs="1">
+    			</element>
+                <element name="email" type="string" maxOccurs="1"
+    				minOccurs="1">
+    			</element>
+    			<element name="password" type="string" maxOccurs="1"
+    				minOccurs="1">
+    			</element>
+
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <simpleType name="TipoUsuario">
+    	<restriction base="string">
+    		<enumeration value="PROVEEDOR"></enumeration>
+    		<enumeration value="LOCATARIO"></enumeration>
+    		<enumeration value="TRANSPORTISTA"></enumeration>
+    		<enumeration value="CLIENTE"></enumeration>
+    	</restriction>
+    </simpleType>
+
+
+    <element name="OutputAuthCrear">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:UsuarioType">
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="InputUsuarioActualizar">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:UsuarioType">
+    				<sequence>
+    					<element name="direccion" type="string" maxOccurs="unbounded" minOccurs="0"></element>
+    					<element name="vehiculo" type="string" maxOccurs="unbounded" minOccurs="0"></element>
+    				</sequence>
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="OutputUsuarioConsultar">
+    	<complexType>
+    		<sequence>
+    			<element name="registro" type="tns:UsuarioType" maxOccurs="unbounded" minOccurs="0"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <element name="OutputUsuarioObtener">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:UsuarioType">
+    				<sequence>
+    					<element name="direccion"
+    						type="tns:DireccionType" maxOccurs="1" minOccurs="0">
+    					</element>
+                        <element name="vehiculo" type="tns:VehiculoType" maxOccurs="unbounded" minOccurs="0"></element>
+                    </sequence>
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="OutputConsultarBitacora">
+    	<complexType>
+    		<sequence>
+    			<element name="registro" type="tns:BitacoraType" maxOccurs="unbounded" minOccurs="0"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <element name="InputProductoCrear">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:ProductoType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+    
+    <element name="OutputProductoCrear">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:ProductoType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="InputProductoActualizar">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:ProductoType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="OutputProductoObtener">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:ProductoType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="OutputProductoConsultar">
+    	<complexType>
+    		<sequence>
+    			<element name="registro" type="tns:ProductoType" maxOccurs="unbounded" minOccurs="0"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+</schema>
