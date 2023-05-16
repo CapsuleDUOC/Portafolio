@@ -21,10 +21,7 @@ public class JAXBUtil {
 			final SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 
 			final Schema schema = schemaFactory.newSchema(new Source[] {
-					  new StreamSource(JAXBUtil.class.getResourceAsStream("/WEB-INF/xsd/facturacion/Facturacion_v10.xsd")),
-					  new StreamSource(JAXBUtil.class.getResourceAsStream("/WEB-INF/xsd/facturacion/Partner_v10.xsd")),
-					  new StreamSource(JAXBUtil.class.getResourceAsStream("/WEB-INF/xsd/facturacion/Contrato_v10.xsd")),
-					  new StreamSource(JAXBUtil.class.getResourceAsStream("/WEB-INF/xsd/facturacion/Tarea_v10.xsd"))
+					  new StreamSource(JAXBUtil.class.getResourceAsStream("/WEB-INF/xsd/feria-virtual/FeriaVirtual_v10.xsd"))
 					});
 
 		    final Validator validator = schema.newValidator();
