@@ -1,0 +1,37 @@
+<!-- ================================================ -->
+
+<menu font="default/12">
+
+	<project        label="Project">
+		<prjNew      label="New"          key="alt-n" />
+		<prjOpen     label="Open..."      key="alt-o" />
+		<prjSaveAs   label="Save as..."               />
+		<prjSave     label="Save"         key="alt-s" />
+		<separator />
+		<prjRecFiles label="Recent files" type="menu" />
+		<separator />
+		<prjExit     label="Exit"         key="alt-x" />
+	</project>
+
+
+	<config        label="Config">
+		<cfgJdbc    label="Jdbc drivers..." key="alt-j" />
+		<cfgOptions label="Options..."/>
+		<cfgModules label="Modules..."/>
+	</config>
+
+
+	<separator />
+
+
+	<help        label="Help">
+		<hlpAbout label="About..."/>
+		<hlpDocs  label="Druid docs..."          key="alt-h" />
+		<separator />
+		<hlpTip   label="Tip of the day..."/>
+	</help>
+
+</menu>
+
+<!-- ================================================ -->
+

@@ -1,0 +1,39 @@
+David Croy|Patch for PostgreSQL and MySql
+Emanuele Tajariol|Bug report, features
+Paul Evans|Help with docs
+Misko Hevery|Generation modules, bug fixing
+Jim Meyer|Packaging
+Paul Boos|E/R features
+Guillaume Deflache|1.0 to 2.5 converter
+Nuno Rodrigues|Features, beta testing, localization
+Hristo Stoyanov|Xml Features
+Nicolae P Costescu|Features, bug report
+Mirko Caserta|Basic tutorial
+Marco Allegretti|MySql template
+David Hoag|Query import module
+Bruno Vernay|XHTML for docs gen. module
+Antonio Gallardo|Modules localization, Apache OJB Generator, bug fixing
+Randolf C. Richardson|Features
+Tomasz Wysocki|Patch to Java/JDO
+Italo Osorio|Screenshots and flash presentations
+Mark D. Anderson|Features
+Klaus Bertram|Features
+Kymmx|Patch to E/R image generation
+Antonio Petrelli|JDBC import module using Cayenne
+Helmut Reichhold|Several patches
+Marc Schuepbach|Fix to Java/OJB modules
+Doug Redd|Fix to Oracle sql gen module
+Gian Luigi Gragnani|Fix to Docbook template
+Josè Moreira|Features, improvements to Velocity module
+Alessandro Morelli|Features
+Mario Marini|Bug report, SqlServer's adapter
+Damien Boucquey|Features, Patch to Hibernate module
+Marton Tamas|Patch to Castor module
+Vincenzo Romano|Features, help with docs
+Rob Decker|Several patches
+vsellier|List of 'where' criteria in jdbc table editor
+Jim Jonah|Patch to the build script and MySQL module
+Carlos Chàvez|Enhancements to Apache OJB and Java Generator
+Ruslan A. Bondar|Fixes to the PostgreSQL module, SQL highlighting
+Mark Heinze|Enhancements to the Java JDO module
+Paul J. Morris|Enhancements to the PHP code generation module

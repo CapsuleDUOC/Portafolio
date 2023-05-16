@@ -1,0 +1,29 @@
+#xhtmlHeader()
+<head>
+    <!-- ${lang.generatedOn} ${Sys.date} -->
+	<title>${lang.docsForDatabase} : ${db.htmlName}</title>
+	<link rel ="stylesheet" type="text/css" href="../main/stylesheet.css" title="Style" />
+</head>
+
+<body>
+
+	#dbHeader( $lang )
+	<hr/>
+
+	<img alt="${erView.file}" src="../images/er-views/${erView.file}.png" usemap="#entMap" />
+
+	<map id="entMap" name="entMap">
+	#foreach( $ent in $erView.children )
+		#set( $x2 = $ent.x + $ent.width  )
+		#set( $y2 = $ent.y + $ent.height )
+		<area href="${erView.file}_${ent.file}.html" shape="rect"
+		coords="${ent.x},${ent.y},${x2},${y2}" alt="${ent.htmlName}" />
+	#end
+	</map>
+
+	<hr/>
+	#dbHeader( $lang )
+
+</body>
+
+</html>

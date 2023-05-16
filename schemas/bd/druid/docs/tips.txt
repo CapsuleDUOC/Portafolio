@@ -1,0 +1,14 @@
+When a field is pasted into a different DB, its datatype is unset and its fieldattribs are set to the default values of the destination DB.
+When a table is pasted into a different DB, its tablespace is unset.
+The resolution rule for table vars is:|for strings, a single quote is added before and after (if not present).
+During java classes generation, the 'code options' field is used to supply the package.
+During C++/C generation, the 'code options' field is written before class definitions (if not empty) and can be used, for eg., to provide an #include statement.
+All dialogs can be closed using the escape key.
+To disable the "Tip of the day" dialog select "config -> options" from the menubar.
+To have JDBC access you first need to add your DBMS driver. Select "config -> jdbc drivers" from the menubar
+To add a new record in a table (with JDBC) press the 'new' button twice. The first time to create a blank row and the second time to add the record to the database.
+If you are using PostgreSQL, try to add "BEGIN WORK;" in the PreSql and "COMMIT;" in the PostSql fields of your database
+To move a tree node, simply select it and drag it to the new location
+In the 'examples' directory you can find some druid projects
+In trees, you can use the [DEL] key to remove nodes
+In trees, you can use the [CTRL-X],[CTRL-C], [CTRL-V] keys to cut, copy & paste

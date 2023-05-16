@@ -1,0 +1,39 @@
+#**
+
+    Bruno 15-10-2003
+
+*### This is to avoid spaces in the beginning of the file.
+##
+    <section id="sequence_${sequence.getNCNamePart()}">
+        <title>${lang.sequence} : ${sequence.Name}</title>
+        #if (${sequence.Descr} != "")
+            <para>${sequence.xmlDescr}</para>
+        #end
+        <table>
+          <title>${lang.attribs}</title>
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry>${lang.increment}</entry>
+                <entry>${lang.minValue}</entry>
+                <entry>${lang.maxValue}</entry>
+                <entry>${lang.start}</entry>
+                <entry>${lang.cache}</entry>
+                <entry>${lang.cycle}</entry>
+                <entry>${lang.order}</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>${sequence.increment}</entry>
+                <entry>${sequence.minValue}</entry>
+                <entry>${sequence.maxValue}</entry>
+                <entry>${sequence.start}</entry>
+                <entry>${sequence.cache}</entry>
+                <entry>${sequence.isCycleSet}</entry>
+                <entry>${sequence.isOrderSet}</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+    </section>

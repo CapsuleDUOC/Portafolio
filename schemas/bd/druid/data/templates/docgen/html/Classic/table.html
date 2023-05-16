@@ -1,0 +1,306 @@
+#macro( header $lang )
+	<table class="navBar">
+		<tr>
+			<td><a href="../main/index.html">${lang.index.toUpperCase()}</a></td>
+			<td><a href="../main/revisions.html">${lang.revisions.toUpperCase()}</a></td>
+			<td width="30%" />
+			<td><a href="#Overview">${lang.overview.toUpperCase()}</a></td>
+			<td><a href="#FieldSummary">${lang.fieldSummary.toUpperCase()}</a></td>
+		</tr>
+
+		<tr>
+			<td><a href="../main/datatypes.html">${lang.datatypes.toUpperCase()}</a></td>
+			<td></td>
+			<td width="30%" />
+			<td><a href="#SqlSummary">${lang.sqlSummary.toUpperCase()}</a></td>
+			<td><a href="#Triggers">${lang.triggers.toUpperCase()}</a></td>
+		</tr>
+	</table>
+#end
+##-------------------------------------------------------------------------------
+#macro( buildName $field )
+	#if ( $field.isPrimaryKey )
+		<b>
+	#end
+
+	#if ( $field.isForeignKey )
+		<i>
+	#end
+
+	${field.htmlName}
+
+	#if ( $field.isForeignKey )
+		</i>
+	#end
+
+	#if ( $field.isPrimaryKey )
+		</b>
+	#end
+#end
+##-------------------------------------------------------------------------------
+#macro( buildType $lang $var )
+	#if( $var.isTypeBool )
+		${lang.var_bool}
+	#elseif ( $var.isTypeString )
+		${lang.var_string}
+	#elseif ( $var.isTypeInt )
+		${lang.var_integer}
+	#elseif ( $var.isTypeLong )
+		${lang.var_long}
+	#elseif ( $var.isTypeChar )
+		${lang.var_char}
+	#elseif ( $var.isTypeFloat )
+		${lang.var_float}
+	#elseif ( $var.isTypeDouble )
+		Double
+	#else
+		${lang.var_unknown}
+	#end
+#end
+##===============================================================================
+#xhtmlHeader()
+<head>
+	<!-- ${lang.generatedOn} ${Sys.date} -->
+	<title>${lang.docsForDatabase} : ${db.htmlName}</title>
+	<link rel="stylesheet" type="text/css" href="../main/stylesheet.css" title="style" />
+</head>
+
+<body>
+
+	#header( $lang )
+	<hr />
+
+	<a name="Overview"></a>
+
+	<table width="100%" border="1" cellspacing="0" cellpadding="2">
+		<tr class="title"><td>${lang.table} : ${table.htmlName}</td></tr>
+	</table>
+
+	${table.htmlDescr}
+
+	#set ( $refs = $table.referringTables )
+
+	#if ( !$refs.isEmpty() )
+		<p><b>${lang.seeAlso}:</b></p>
+		<blockquote>
+
+		#foreach ( $ref in $refs)
+			<a href="${ref.file}.html">${ref.htmlName}</a><br/>
+		#end
+
+		</blockquote>
+	#end
+
+	<p/>
+
+	##-------------------------------------------------------------------
+
+	<a name="FieldSummary" />
+
+	<table width="100%" border="1" cellspacing="0" cellpadding="2">
+		<tr class="paragr"><td colspan="3">${lang.fieldSummary}</td></tr>
+
+		<tr class="header">
+			<th width="20%">${lang.name}</th>
+			<th width="20%">${lang.type}</th>
+			<th width="60%">${lang.description}</th>
+		</tr>
+
+		#foreach ( $field in $table.fields )
+			<tr>
+				<td>#buildName( $field )</td>
+
+				<td>
+					#if ( $field.isForeignKey )
+						<a href="${field.foreignTable.file}.html">
+					#end
+
+					${field.type}
+
+					#if ( $field.isForeignKey )
+						</a>
+					#end
+				</td>
+
+				<td>$Html.makeGood( ${field.htmlDescr} )</td>
+			</tr>
+		#end
+	</table>
+
+	<p/>
+
+	##-------------------------------------------------------------------
+
+	#set ( $fattribs = $db.fieldAttribs     )
+	#set ( $i        = $fattribs.size() + 2 )
+
+	<a name="SqlSummary" />
+
+	<table width="100%" border="1" cellspacing="0" cellpadding="2">
+		<tr class="paragr"><td colspan="${i}">${lang.sqlSummary}</td></tr>
+
+		<tr class="header">
+			<th width="50%">${lang.name}</th>
+			<th width="50%">${lang.type}</th>
+
+			#foreach( $attr in $fattribs )
+				<th width="40">${attr.htmlName}</th>
+			#end
+		</tr>
+
+		#foreach( $field in $table.fields )
+			<tr>
+				<td>#buildName( $field )</td>
+				<td>${field.sqlType}</td>
+
+				#foreach( $attr in $fattribs )
+					#set( $val = $field.getFieldAttribVal( $attr ) )
+					#if( $val.isBool )
+						#set( $img = "set.gif")
+						#if( $val.value == "false" )
+							#set( $img = "unset.gif" )
+						#end
+						<td align="center"><img alt="${img}" src="../images/${img}" /></td>
+					#elseif( $val.isInt)
+						<td align="right">${val.value}</td>
+					#else
+						<td>$Html.makeGood( ${val.value} )</td>
+					#end
+				#end
+			</tr>
+		#end
+
+	</table>
+
+	<p/>
+
+	##-------------------------------------------------------------------
+
+	#set( $fks = "" )
+
+	#foreach( $field in $table.fields )
+		#if( $field.isForeignKey )
+			#set ( $fk = "<tr><td>${field.htmlName}</td><td>${field.type}</td><td>${field.onUpdateAction}</td><td>${field.onDeleteAction}</td></tr>" )
+			#set ( $fks = "$fks $fk" )
+		#end
+	#end
+
+	#if ( $fks != "" )
+		<table width="100%" border="1" cellspacing="0" cellpadding="2">
+			<tr class="paragr"><td colspan="4">${lang.foreignKeys}</td></tr>
+			<tr class="header">
+				<th width="25%">${lang.field}</th>
+				<th width="25%">${lang.import}</th>
+				<th width="25%">${lang.onUpdate}</th>
+				<th width="25%">${lang.onDelete}</th>
+			</tr>
+
+			$fks
+
+		</table>
+		<p/>
+	#end
+
+	##-------------------------------------------------------------------
+
+	<a name="Vars" />
+
+	#set ( $tabVars = $table.vars )
+
+	#if ( !$tabVars.isEmpty() )
+		<table width="100%" border="1" cellspacing="0" cellpadding="2">
+			<tr class="paragr"><td colspan="4">${lang.tableVars}</td></tr>
+			<tr class="header">
+				<th width="20%">${lang.name}</th>
+				<th width="20%">${lang.type}</th>
+				<th width="20%">${lang.value}</th>
+				<th width="50%">${lang.description}</th>
+			</tr>
+
+			#foreach( $var in $tabVars )
+				<tr>
+					<td>${var.htmlName}</td>
+					<td>#buildType( $lang $var )</td>
+					<td>$Html.makeGood( ${var.htmlValue} )</td>
+					<td>$Html.makeGood( ${var.htmlDescr} )</td>
+				</tr>
+			#end
+
+		</table>
+		<p/>
+	#end
+
+	##-------------------------------------------------------------------
+
+	#if ( ${table.sqlCommands} != "" )
+		<table width="100%" border="1" cellspacing="0" cellpadding="2">
+			<tr class="paragr"><td>${lang.sqlCommands}</td></tr>
+			<tr><td><pre class="sql">${table.sqlCommands}</pre></td></tr>
+		</table>
+		<p/>
+	#end
+
+	##-------------------------------------------------------------------
+
+	<a name="Triggers" />
+
+	#set ( $triggers = $table.triggers )
+
+	#if ( !$triggers.isEmpty() )
+	<table width="100%" border="1" cellspacing="0" cellpadding="2">
+		<tr class="paragr"><td colspan="2">${lang.triggers}</td></tr>
+		<tr class="header">
+			<th width="30%">${lang.name}</th>
+			<th width="70%">${lang.table_docsCode}</th>
+		</tr>
+
+		#foreach( $trigger in $triggers )
+			<tr>
+				<td><b>${trigger.htmlName}</b></td>
+				<td>${trigger.htmlDescr}<p/>
+					<pre class="sql">${trigger.activString} ${trigger.activEvent}
+FOR EACH ${trigger.forEachString}
+#if(${trigger.when} != "")WHEN(${trigger.htmlWhen})
+#end
+
+${trigger.htmlCode}</pre>
+				</td>
+			</tr>
+		#end
+
+	</table>
+
+	<p/>
+	#end
+
+	##-------------------------------------------------------------------
+
+	<a name="Rules" />
+
+	#set ( $rules = $table.rules )
+
+	#if ( !$rules.isEmpty() )
+		<table width="100%" border="1" cellspacing="0" cellpadding="2">
+			<tr class="paragr"><td colspan="2">${lang.rules}</td></tr>
+			<tr class="header">
+				<th width="30%">${lang.name}</th>
+				<th width="70%">${lang.table_docsRule}</th>
+			</tr>
+
+			#foreach( $rule in $rules )
+				<tr>
+					<td><b>${rule.htmlName}</b></td>
+					<td>${rule.htmlDescr}<p/><pre class="sql">${rule.htmlRule}</pre></td>
+				</tr>
+			#end
+		</table>
+	#end
+
+	##-------------------------------------------------------------------
+	
+	<hr />
+	#header( $lang )
+
+</body>
+
+</html>

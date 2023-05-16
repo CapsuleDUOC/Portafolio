@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<generator>
+	<properties>
+		<descr>Ascii summary</descr>
+		<longDescr>Simple summary for tables</longDescr>
+	</properties>
+
+	<commands>
+		<apply template="template.vm" output="summary.txt"/>
+	</commands>
+</generator>

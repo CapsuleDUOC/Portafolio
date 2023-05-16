@@ -1,0 +1,43 @@
+#macro( scan $e $indent )
+##
+##
+#if( $e.isDatabase )
+${indent}<database name="$e.xmlName" descr="$e.xmlDescr">
+#foreach ($child in $e.children)
+#scan( ${child} "${indent}   ")
+#end
+${indent}</database>
+##
+##
+#elseif ($e.isFolder)
+${indent}<folder name="$e.xmlName" descr="$e.xmlDescr">
+#foreach ($child in $e.children)
+#scan( ${child} "${indent}   ")
+#end
+${indent}</folder>
+##
+##
+#elseif ($e.isTable)
+${indent}<table name="$e.xmlName" descr="$e.xmlDescr">
+#foreach ($child in $e.children)
+   ${indent}<field name="$child.xmlName" descr="$child.xmlDescr" type="$child.type" sqlType="$child.sqlType" isPrimaryKey="$child.isPrimaryKey" isNotNull="$child.isNotNull" isUnique="$child.isUnique" isForeignKey="$child.isForeignKey" />
+#end
+${indent}</table>
+##
+##
+#elseif ($e.isView)
+${indent}<view name="$e.xmlName" descr="$e.xmlDescr" sqlCode="$e.xmlCode" />
+##
+##
+#elseif ($e.isProcedure)
+${indent}<procedure name="$e.xmlName" descr="$e.xmlDescr" sqlCode="$e.xmlCode" />
+##
+##
+#elseif ($e.isFunction)
+${indent}<function name="$e.xmlName" descr="$e.xmlDescr" sqlCode="$e.xmlCode" />
+#end
+#end
+<?xml version="1.0" encoding="UTF-8"?>
+
+#scan( $db "" )
+

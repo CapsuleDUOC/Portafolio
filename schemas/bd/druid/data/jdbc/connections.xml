@@ -1,0 +1,285 @@
+<?xml version="1.0" ?>
+
+<connections>
+
+	<!-- ================================================================= -->
+
+	<db name="Axion">
+		<url>
+			jdbc:axiondb:{Database}[:{Directory}]
+		</url>
+
+		<driver>http://axion.tigris.org</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="Borland">
+		<url>
+			jdbc:borland:dslocal:{File}
+		</url>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="Cache">
+		<url>
+			jdbc:Cache://{Server}:{Port}/{Namespace}
+		</url>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="Cloudscape">
+		<url>
+			jdbc:cloudscape:rmi:{Database file}
+		</url>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="DaffodilDB">
+		<url name="Server">
+			jdbc:daffodilDB://{Server=localhost}:{Port=3456}/{Database};create=false
+		</url>
+		
+		<url name="Embedded">
+			jdbc:daffodilDB_embedded:{Database};path={Path};create=false
+		</url>
+		
+		<driver>http://www.daffodildb.com</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="FrontBase">
+		<url>
+			jdbc:FrontBase://{Server}:{Port}/{Database}
+		</url>
+
+		<driver>http://www.frontbase.com</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="HSQLDB">
+		<url name="In Memory">
+			jdbc:hsqldb:.
+		</url>
+
+		<url name="Server">
+			jdbc:hsqldb:{Database}
+		</url>
+
+		<url name="Standalone">
+			jdbc:hsqldb:hsql://{Server}[:{Port=1476}]
+		</url>
+
+		<url name="Web Server">
+			jdbc:hsqldb:http://{Server}[:{Port=1476}]
+		</url>
+
+		<driver>http://sourceforge.net/projects/hsqldb</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="HypersonicSQL">
+		<url>
+			jdbc:HypersonicSQL:{Database}
+		</url>
+
+		<driver>http://sourceforge.net/projects/hsqldb</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="IBM DB2">
+		<url>
+			jdbc:db2://{Server}:{Port}/{Database}
+		</url>
+
+		<driver>http://www-3.ibm.com/software/data/db2/</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="Informix">
+		<url>
+			jdbc:informix-sqli://{Server}:{Port}/{Database}:informixserver={DB Server Name}
+		</url>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="Interbase/Firebird">
+		<url>
+			jdbc:interbase://{Server}/{Database file}
+		</url>
+
+		<driver>http://sourceforge.net/projects/firebird</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="IstantDB">
+		<url>
+			jdbc:idb:{Database file}
+		</url>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="JDBC ODBC Bridge">
+		<url>
+			jdbc:odbc:{Alias}
+		</url>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="JTDS">
+		<url>
+			jdbc:freetds:sqlserver://{Server}[:{Port=4100}]/{Database}
+		</url>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="Mckoi">
+		<url>
+			jdbc:mckoi://{Server}[:{Port=9157}][/{Schema}]/
+		</url>
+
+		<driver>http://mckoi.com/database</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="Microsoft SQL Server">
+		<url>
+			jdbc:microsoft:sqlserver://{Server}:{Port=1433};DatabaseName={Database}
+		</url>
+
+		<driver>http://www.microsoft.com/downloads</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="Mimer">
+		<url>
+			jdbc:mimer://{Server}:{Port}/{Database}
+		</url>
+
+		<driver>http://developer.mimer.com/downloads/index.htm</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="MySQL">
+		<url>
+			jdbc:mysql://{Server}[:{Port=3306}]/{Database}
+		</url>
+
+		<driver>http://www.mysql.com/products/connector-j/</driver>
+		<driver>http://www.caucho.com/projects/jdbc-mysql/index.xtp</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="Oracle">
+		<url name="OCI Driver">
+			jdbc:oracle:oci8:@{Sid}
+		</url>
+
+		<url name="Thin Driver">
+			jdbc:oracle:thin:@{Server}[:{Port=1521}]:{Sid}
+		</url>
+
+		<driver>http://otn.oracle.com/software/tech/java/sqlj_jdbc/index.html</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="Pervasive">
+		<url>
+			jdbc:pervasive://{Server}:{Port}/{Database}
+		</url>
+
+		<driver>http://www.pervasive.com/downloads</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="Pointbase">
+		<url name="Embedded">
+			jdbc:pointbase:embedded:{Database}
+		</url>
+
+		<url name="Server">
+			jdbc:pointbase:server://{Server}[:{Port}]/{Database}
+		</url>
+
+		<driver>http://www.pointbase.com/home.shtml</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="PostgreSQL">
+		<url name="Standard">
+			jdbc:postgresql://{Server}[:{Port=5432}]/{Database}
+		</url>
+
+		<url name="Local">
+			jdbc:postgresql:{Database}
+		</url>
+
+		<driver>http://jdbc.postgresql.org</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="RMI">
+		<url>
+			jdbc:jdbc:rmi:{Server}/{Database url}
+		</url>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="SAP DB">
+		<url>
+			jdbc:sapdb:[//{Server}/]{Database}
+		</url>
+
+		<driver>http://www.sapdb.org/sap_db_jdbc.htm</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+	<db name="Sybase AS">
+		<url name="Anywhere">
+			jdbc:sybase:Tds:{Server}:{Port=2638}?ServiceName={Database}
+		</url>
+		
+		<url name="Enterprise">
+			jdbc:sybase:Tds:{Server}:{Port=2638}/{Database}
+		</url>
+
+		<driver>http://www.sybase.com/products/middleware/jconnectforjdbc</driver>
+	</db>
+
+	<!-- ================================================================= -->
+	
+	<db name="ThinkSQL">
+		<url>
+			jdbc:thinksql://{Server}:{Port=9075}
+		</url>
+
+		<driver>http://thinksql.com/index.html</driver>
+	</db>
+
+	<!-- ================================================================= -->
+
+</connections>
+

@@ -1,0 +1,43 @@
+##===============================================================================
+
+#macro( dbHeader $lang )
+	<table class="navBar">
+		<tr>
+			<td><a href="../main/index.html">${lang.index.toUpperCase()}</a></td>
+			<td><a href="../main/revisions.html">${lang.revisions.toUpperCase()}</a></td>
+			<td><a href="../main/datatypes.html">${lang.datatypes.toUpperCase()}</a></td>
+		</tr>
+	</table>
+#end
+
+##===============================================================================
+
+#macro( xhtmlHeader )
+## Warning : main-index.html has his own frameset type header !
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+#end
+
+##===============================================================================
+
+#macro( objectHeader $lang )
+	<table class="navBar">
+		<tr>
+			<td><a href="../main/index.html">${lang.index.toUpperCase()}</a></td>
+			<td><a href="../main/revisions.html">${lang.revisions.toUpperCase()}</a></td>
+			<td width="30%" />
+			<td><a href="#Overview">${lang.overview.toUpperCase()}</a></td>
+		</tr>
+
+		<tr>
+			<td><a href="../main/datatypes.html">${lang.datatypes.toUpperCase()}</a></td>
+			<td />
+			<td width="30%" />
+			<td><a href="#Code">${lang.sqlCode.toUpperCase()}</a></td>
+		</tr>
+	</table>
+#end
+
+##===============================================================================

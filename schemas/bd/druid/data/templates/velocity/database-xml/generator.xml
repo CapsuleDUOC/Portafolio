@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<generator>
+	<properties>
+		<descr>Database in XML</descr>
+		<longDescr>Exports the database in XML form. Exports folders, tables, fields</longDescr>
+	</properties>
+
+	<commands>
+		<apply template="template.vm" output="database.xml"/>
+	</commands>
+</generator>

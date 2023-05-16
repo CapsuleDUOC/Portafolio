@@ -1,0 +1,5426 @@
+#LyX 1.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 221
+\textclass book
+\begin_preamble
+\usepackage {times}
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme times
+\graphics default
+\paperfontsize 12
+\spacing single 
+\papersize a4paper
+\paperpackage widemarginsa4
+\use_geometry 0
+\use_amsmath 0
+\use_natbib 0
+\use_numerical_citations 0
+\paperorientation portrait
+\leftmargin 1cm
+\topmargin 1.5cm
+\rightmargin 1cm
+\bottommargin 1.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language swedish
+\quotes_times 2
+\papercolumns 1
+\papersides 2
+\paperpagestyle headings
+\bullet 1
+	0
+	8
+	-1
+\end_bullet
+\bullet 2
+	0
+	8
+	-1
+\end_bullet
+\bullet 3
+	0
+	8
+	-1
+\end_bullet
+
+\layout Title
+\added_space_top vfill \added_space_bottom vfill 
+
+\noun on 
+DRUID ESSENTIALS
+\layout Author
+
+Andrea Carboni
+\layout Date
+
+Rev 4, 29-nov-2003
+\layout Standard
+
+
+\begin_inset LatexCommand \tableofcontents{}
+
+\end_inset 
+
+
+\layout Chapter
+
+Getting started
+\layout Section
+
+Requirements
+\layout Standard
+
+Druid is a java application so it needs a java virtual machine to work (JVM).
+ You can download the JVM from one of the following sites:
+\layout Itemize
+
+Sun (
+\begin_inset LatexCommand \url[http://java.sun.com/j2se]{}
+
+\end_inset 
+
+)
+\layout Itemize
+
+Blackdown (
+\begin_inset LatexCommand \url[http://www.blackdown.org]{}
+
+\end_inset 
+
+)
+\layout Itemize
+
+IBM (
+\begin_inset LatexCommand \url{www.ibm.com}
+
+\end_inset 
+
+)
+\layout Itemize
+
+Bea (
+\begin_inset LatexCommand \url{www.bea.com}
+
+\end_inset 
+
+)
+\layout Itemize
+
+Kaffe (
+\begin_inset LatexCommand \url{www.kaffe.org}
+
+\end_inset 
+
+)
+\layout Itemize
+
+Sable (
+\begin_inset LatexCommand \url{www.sablevm.org}
+
+\end_inset 
+
+)
+\layout Standard
+
+Druid works with JRE 1.4 so it must be installed and the java executable
+ must be in your path.
+ Once the JVM is installed you may install the Druid package.
+ Make sure you have at least 32 MB of free memory.
+ If you plan to work with big databases (more than 100 tables) 64 MB of
+ free memory are a requirement.
+\layout Section
+
+Installation
+\layout Standard
+
+Issue the command:
+\layout LyX-Code
+
+
+\begin_inset Formula java -jar druid-x.x-install.jar
+
+\end_inset 
+
+
+\layout Standard
+
+to start the installer and follow the instructions.
+ On some platforms, you can just point on the jar icon and click to install
+ the package.
+\layout Section
+
+Starting Druid
+\layout Standard
+
+Issue the command:
+\layout LyX-Code
+
+
+\begin_inset Formula java -jar <druid directory>/druid.jar
+
+\end_inset 
+
+
+\layout Standard
+
+You don't need to be into the Druid's directory and you don't have to setup
+ the classpath.
+ On some platforms, you can just point on the druid.jar icon and click to
+ run the program.
+ Many platforms (Windows, KDE etc...) let you associate the jar extension to
+ the JVM.
+ This way you can run Druid with a mouse click.
+ 
+\layout Section
+
+JDBC Drivers
+\layout Standard
+
+Druid is able to connect to a DBMS via JDBC to extract/rebuild the database
+ schema.
+ If you plan to use this feature you have to download and install the proper
+ jdbc driver.
+ The driver must be:
+\layout Itemize
+
+A pure java type 4 thin driver
+\layout Itemize
+
+Compliant to the JDBC 2.1 API specifications
+\layout Standard
+
+Usually, each DBMS has associated a JDBC driver, so you can download it
+ from the same site.
+ A list of drivers is available on the java home page.
+ If the driver is not compliant to the JDBC API Druid can still use it but
+ you could not be able to do some operations.
+\layout Subsection
+
+Installing a JDBC driver 
+\layout Standard
+
+If you want to install a new JDBC driver follow these steps:
+\layout Itemize
+
+Open the menu and select 
+\begin_inset Quotes eld
+\end_inset 
+
+
+\family sans 
+Options \SpecialChar \menuseparator
+ Jdbc drivers
+\family default 
+
+\begin_inset Quotes erd
+\end_inset 
+
+ to open the driver dialog
+\layout Itemize
+
+Press the 
+\begin_inset Quotes eld
+\end_inset 
+
+
+\family sans 
+new
+\family default 
+
+\begin_inset Quotes erd
+\end_inset 
+
+ button to Open the file dialog
+\layout Itemize
+
+Browse your file system and select the jar of the driver you want to install
+\layout Standard
+
+If there are no errors Druid will add the driver to its list.
+\layout Section
+
+License
+\layout Standard
+
+The product is released under the GPL license.
+ I want to give the product to the community hoping that it will be useful,
+ so you can use any part of it as you want (obviously without any warranty).
+ The full license is located in the 
+\begin_inset Quotes eld
+\end_inset 
+
+
+\begin_inset Formula docs/COPYING.TXT
+
+\end_inset 
+
+
+\begin_inset Quotes erd
+\end_inset 
+
+ file.
+\layout Chapter
+
+Overview
+\layout Section
+
+Introduction
+\layout Standard
+
+Many firms have plenty of data which needs to be stored somewhere.
+ This data can be subdivided into "groups" (called tables) where each group
+ contains data of the same type (for example a group of users, another of
+ patients, another of employees and so on).
+ With all this data to manage arises the figure of the Database Administrator
+ (DBA) : a person with strong knowledge of data managment.
+ Recently, the work of the DBA is increased, because databases have become
+ very large with hundreds of tables causing many headaches to the DBA.
+ To solve this problem software tools have appeared, each with its own pros
+ and cons, to help the DBA.
+\layout Section
+
+What Druid is
+\layout Standard
+
+Druid is a cross platform tool written in java, which simplifies many repetitive
+ tasks making database creation / maintanance as fast as possible.
+ With Druid you can create your own db, add tables, add fields to a table,
+ move fields and tables from a place to another and generate the sql-script
+ that builds your db (that is, creates all the tables).
+ The main purpose of Druid is not just to manage tables and generate scripts.
+ An important aspect of a database is its documentation.
+ Druid lets the DBA specify all relevant information for tables and fields
+ and then it generates full html/pdf output describing the purpose of each
+ table and field.
+ Last, but not least, Druid has many facilities for the developer of database
+ applications: data dictionaries, summaries, class generation and much more.
+\layout Section
+
+Features
+\layout Standard
+
+Here is a list of features present in Druid:
+\layout Subsection
+
+Basic features
+\layout Itemize
+
+
+\series bold 
+DBMS independence
+\begin_deeper 
+\layout Standard
+
+Druid pushes DBMS independence to its limits.
+ Datatypes are completly customizable and are not built into the Druid's
+ core.
+ If you need a particular datatype, present only in a specific DBMS, you
+ can add it to your project.
+ The only thing you must tell Druid is if the datatype is constant or variable
+ (see chapter
+\noun on 
+ 
+\begin_inset LatexCommand \ref{cha:Datatypes}
+
+\end_inset 
+
+
+\noun default 
+ for more information).
+ You can also customize field attribs (like primary keys, unique, not null)
+ and add attribs present only in specific DBMS (like the less used sql's
+ DEFERRABLE attrib present in Oracle).
+ This lets you use the full power of your DBMS (see chapter 
+\noun on 
+
+\begin_inset LatexCommand \ref{cha:Field-Attributes}
+
+\end_inset 
+
+
+\noun default 
+ for more information).
+ If this is not enough for you, Druid lets you add your own custom sql code
+ for tables and the databases in general.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Strong datatypes
+\begin_deeper 
+\layout Standard
+
+Druid's datatypes can have a domain.
+ The user can specify a range or a set of values the datatype must belong
+ to.
+ Domain checks are added to the sql-script file to offer the best protection
+ against data faults.
+ Other operations include datatypes merging, remapping and usage.
+ Serial types are also handled.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Several databases in the same project
+\series default 
+ 
+\series bold 
+in
+\series default 
+ 
+\series bold 
+hierarchical view
+\begin_deeper 
+\layout Standard
+
+You can create and edit as many databases as you want.
+ In the project view, are listed all the project's databases and can switch
+ from one to another with a simple mouse click.
+ All the project's elements are listed in the project view and are grouped
+ hierarchically.
+ Druid lets you use folders to group tables and other folders.
+ This is very useful when the database becomes large.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Cut, Copy and Paste for every database's entity
+\begin_deeper 
+\layout Standard
+
+When editing a database, it is common practice to move a field from one
+ table to another or to add fields with the same structure.
+ It is also common to add a new table that is very similar to an existing
+ one.
+ Druid lets you cut, copy and paste every database's entity thereby speeding
+ up database both creation and maintenance.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Data generation
+\begin_deeper 
+\layout Standard
+
+Druid can generate a rich set of documents: Data dictionary, summary files,
+ database documentation(in both html and pdf format).
+ Futhermore, Druid creates files or classes (in Java, C, C++) to store a
+ fields' length.
+ The developer can also define variables for a table and let Druid generate
+ the code to include in the table's class (table vars are described in 
+\noun on 
+tables and fields
+\noun default 
+).
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Command line interface
+\begin_deeper 
+\layout Standard
+
+Druid can be run by a command line interface to generate data without using
+ the GUI.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Handled objects
+\begin_deeper 
+\layout Standard
+
+Druid handles tables, fields, views, indexes, procedures, functions, sequences,
+ field constraints, triggers and lets you add revisions.
+ You can add DBMS specific features too.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Full plug-in architecture
+\begin_deeper 
+\layout Standard
+
+Each Druid's module is separate from the main program.
+ Developers with particular needs can easily write new modules by themselves.
+\end_deeper 
+\layout Subsection
+
+JDBC features
+\layout Itemize
+
+
+\series bold 
+Advanced driver management
+\begin_deeper 
+\layout Standard
+
+Drivers are installed with a simple file dialog.
+ Druid takes care of loading each driver and testing if it is a jdbc driver.
+ When you connect to a database you don't have to specify a driver.
+ Druid scans all loaded drivers and automatically chooses the best driver.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+All database information is retrieved
+\begin_deeper 
+\layout Standard
+
+You can view all database information, from general info (datatypes, result-sets
+, keywords) to specific info (table structure and references).
+ Almost all objects are handled (tables, views, synonyms, procedures, functions,
+ schemas, sequences).
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Execute queries
+\begin_deeper 
+\layout Standard
+
+Druid has a sql navigator that lets you create several queries and execute
+ them.
+ Results are displayed in a grid fashion and can be saved into a file.
+ Druid can save data in several file formats (eg.
+ tab delimited).
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Edit table's records
+\begin_deeper 
+\layout Standard
+
+Druid has a powerful record editor.
+ You can insert / modify / delete records using a simple grid.
+ It is possible to edit a record individually to edit large data.
+ Results can be saved to a file in various formats or can be exported in
+ a special file format (the Druid data format) that can be reimported later.
+ This works for all drivers, whether they have updatable result-sets or
+ not.
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Structure exchange / reverse engineering
+\begin_deeper 
+\layout Standard
+
+It is possible to import the full database structure into Druid for reverse
+ engineering
+\begin_inset Foot
+collapsed true
+
+\layout Standard
+
+Druid's ability to retrieve all the database schema depends on the JDBC
+ driver.
+ If the driver is fully compliant to the JDBC 2.1 API then Druid can retrieve
+ all the information.
+\end_inset 
+
+.
+ You can also send your Druid project to the jdbc db to rebuild it 
+\begin_inset Quotes eld
+\end_inset 
+
+on the fly
+\begin_inset Quotes erd
+\end_inset 
+
+ and perform some basic operation on the jdbc db (drop objects, refresh).
+ 
+\end_deeper 
+\layout Subsection
+
+E/R features
+\layout Itemize
+
+
+\series bold 
+Use of the IDEF1X notation
+\begin_deeper 
+\layout Standard
+
+You can draw a particular E/R diagram to represent relationships between
+ entities (a table or a set of tables).
+ Each entity can be documented and fully customized.
+ The created diagrams can be saved to disk or printed and become part of
+ the final documentation.
+\end_deeper 
+\layout Chapter
+
+
+\begin_inset LatexCommand \label{cha:Datatypes}
+
+\end_inset 
+
+Datatypes
+\layout Section
+
+Types, sweet types
+\layout Standard
+
+Datatypes are a fundamental concept that a DBA must know and master.
+ Each piece of information stored in a database must have a type.
+ Even though is not mandatory to use several types (it is possible to create
+ a db with only a string type), the use of them gives one more dimension
+ to the db structure allowing the DBA to classify the data.
+ Common sql types are : integer, date, char and varchar, decimal.
+ In addition to these types, several DBMS implement some types which are
+ not compliant with sql-92 in order to fill specific cases.
+ Examples of this include blob, clob and counter.
+ With all these types, a tool for handling tables should implement them
+ all, because the tool's developer doesn't know which DBMS will be used.
+ 
+\layout Section
+
+Types supported by Druid
+\layout Standard
+
+As stated before, Druid is completely DBMS independent regarding datatypes
+ because it uses an original approach.
+ Consider all types you know : int, smallint, date, varchar, blob etc...
+ As you can see, these types can be subdivided into two classes.
+ The first class, called by Druid "Constant Types", contains types like
+ int, smallint, blob, date.
+ These are types that are auto-contained, that is, the type is concrete
+ and be instanciated.
+ Note that the word "constant" doesn't refer to the type itself.
+ A blob is a type of variable size, but Druid considers it constant.
+ The second class, called "Variable Types", contains types like char, varchar,
+ numeric and decimal.
+ As you can see, these types are abstract because you can't use them "as
+ is".
+ You must supply one or more values to make them concrete.
+ For example, you cannot use a varchar, but you can use a varchar(24).
+ You cannot use a numeric, but can use a numeric(10,4) (however, in some
+ DBMSs if you don't supply a value a default one is choosen).
+ 
+\layout Standard
+
+All types I have found until now can be classified as constant or variable,
+ so giving the user the possibility of adding types for both classes leads
+ to a tool that is datatypes independent.
+ The Druid's GUI for datatypes has a tree structure with two branches, constant
+ size and variable size, that represent the type's class.
+ Adding a child to the constant branch, makes the type constant.
+ The same goes for the variable branch.
+ In figure 
+\begin_inset LatexCommand \ref{fig:example-datatypes}
+
+\end_inset 
+
+ you can see the datatype panel with some types defined.
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/datatypes1.png
+	scale 50
+	subcaptionText "An example of datatypes"
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:example-datatypes}
+
+\end_inset 
+
+An example of datatypes
+\end_inset 
+
+
+\layout Section
+
+Aliases
+\layout Standard
+
+An alias is another name for a datatype.
+ The use of aliases is convenient for constant types and is mandatory for
+ variable types.
+ The best approach to explain how aliases work is to start with an example.
+ 
+\layout Standard
+\added_space_top defskip \noindent 
+Suppose you want to create a DB to store information about people.
+ Consider these fields: 
+\layout Standard
+\added_space_top medskip \added_space_bottom medskip \align center 
+
+\begin_inset  Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features>
+<column alignment="left" valignment="top" leftline="true" width="0">
+<column alignment="left" valignment="top" leftline="true" rightline="true" width="0">
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Field
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Description
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+code
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Used as primary key to identify the person
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+name
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+the person's name
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+surname
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+the person's surname
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+birthdate
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+obvious
+\end_inset 
+</cell>
+</row>
+<row bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+height
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+the person's height (in inches , feet or whatever you want)
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset 
+
+
+\layout Standard
+\noindent 
+The first thing to do is to estimate a maximum size for name and surname
+ fields (in chars).
+ Let it be 24.
+ To add this type in your Druid project do these steps (I assume you have
+ already created a database): 
+\layout Itemize
+
+Select the database node (in the project view, on the left of the window)
+\layout Itemize
+
+Select the 
+\family sans 
+
+\begin_inset Quotes eld
+\end_inset 
+
+datatypes
+\begin_inset Quotes erd
+\end_inset 
+
+
+\family default 
+ tab in the right panel
+\layout Itemize
+
+Right click in the 
+\begin_inset Quotes eld
+\end_inset 
+
+
+\family sans 
+variable size
+\family default 
+
+\begin_inset Quotes erd
+\end_inset 
+
+ folder and choose "
+\family sans 
+Add basic type
+\family default 
+" from the popup menu
+\layout Itemize
+
+Click on its name and change it from 
+\family sans 
+"Unnamed"
+\family default 
+ to 
+\family sans 
+"varchar"
+\family default 
+.
+ At this point you have created your first variable type!
+\layout Itemize
+
+Right click on it and choose "
+\family sans 
+Add alias
+\family default 
+"
+\layout Itemize
+
+Click on its name and change it from 
+\family sans 
+"Unnamed"
+\family default 
+ to string
+\layout Itemize
+
+Put the value 24 in the size's box
+\layout Standard
+
+Now you have a variable type (
+\family sans 
+varchar
+\family default 
+) and an alias (
+\family sans 
+string
+\family default 
+).
+ This alias will be used for both name and surname fields.
+ Note that you cannot use the 
+\family sans 
+"varchar"
+\family default 
+.
+ When Druid generates the sql-script it will resolve the alias (
+\family sans 
+string
+\family default 
+ in this case) this way: 
+\layout Itemize
+
+It takes the basic type's name (
+\family sans 
+varchar
+\family default 
+ in this case)
+\layout Itemize
+
+It combines this name with the alias size (including the two braces) building
+ "
+\family sans 
+varchar(24)
+\family default 
+"
+\layout Itemize
+
+It substitutes the alias name (
+\family sans 
+string
+\family default 
+) with "
+\family sans 
+varchar(24)
+\family default 
+"
+\layout Standard
+
+At this point we have built a type for both name and surname.
+ Let's build a type for height.
+ The first step is to choose a sql type to store it.
+ Suppose we have a height with decimal values (like meters).
+ In this case a "
+\family sans 
+numeric(2,2)
+\family default 
+" sql-type is appropriate, let's build it with Druid.
+ The steps are the same for the string type.
+ The difference is that the basic type is now 
+\family sans 
+"numeric"
+\family default 
+ and the alias is, for eg., 
+\family sans 
+"height"
+\family default 
+ with it's size "
+\family sans 
+2,2
+\family default 
+".
+ With the previously mentioned resolution rule, Druid will substitute the
+ 
+\family sans 
+"height"
+\family default 
+ type with "
+\family sans 
+numeric(2,2)
+\family default 
+".
+ Note that Druid doesn't care about what you type in the size box.
+ If you type "
+\family sans 
+2,3,4
+\family default 
+" Druid will substitute 
+\family sans 
+"height"
+\family default 
+ with "
+\family sans 
+numeric(2,3,4)
+\family default 
+".
+ This gives you the maximum flexibility, even though the type check is demanded
+ by the DBMS.
+ 
+\layout Standard
+
+Now, let's talk about constant types.
+ We want to define the 
+\family sans 
+"date"
+\family default 
+ type.
+ The steps are similar to those for the variable types: 
+\layout Itemize
+
+Right click in the "
+\family sans 
+Constant size
+\family default 
+" folder and choose "
+\family sans 
+Add basic type
+\family default 
+" from the popup menu
+\layout Itemize
+
+Click on it's name and change it from 
+\family sans 
+"Unnamed"
+\family default 
+ to 
+\family sans 
+"date"
+\layout Standard
+
+For the code field we will use a different approach to show how constant
+ aliases work.
+ The basic type for the code field is an 
+\family sans 
+"int"
+\family default 
+.
+ This is usual for primary keys.
+ Repeating the steps performed to add the 
+\family sans 
+"date"
+\family default 
+ type we can add the 
+\family sans 
+"int"
+\family default 
+ type.
+ Now we can use this int type, but let's go further.
+ In many cases, when creating a database, we are forced to attach several
+ meanings to the same datatype (called semantics).
+ Take the sql int type for example.
+ You can use the int type for : primary keys (in this case the int is a
+ serial for you), bits, a custom datatype packed into an int or to store
+ numbers in general (like height, width, weight and so on).
+ If you could give a different name to these uses of the int type the database
+ would be more readable.
+ This can be accomplished with constant aliases and in this case we can
+ perform the following steps: 
+\layout Itemize
+
+Right click on the 
+\family sans 
+"int"
+\family default 
+ type and choose "
+\family sans 
+Add alias
+\family default 
+"
+\layout Itemize
+
+Rename the alias to 
+\family sans 
+"Serial"
+\family default 
+ (don't confuse this with Postgresql' serial type)
+\layout Standard
+
+At this point we have the 
+\family sans 
+"Serial"
+\family default 
+ type that can be used for the code field.
+ Note that both 
+\family sans 
+"int"
+\family default 
+ and 
+\family sans 
+"Serial"
+\family default 
+ types can be used because they are concrete.
+ 
+\layout Standard
+\added_space_top defskip \noindent 
+The resolution rule for constant aliases is (for constant basic types the
+ type's name is used): 
+\layout Itemize
+
+Take the basic type's name (
+\family sans 
+
+\begin_inset Quotes eld
+\end_inset 
+
+int
+\begin_inset Quotes erd
+\end_inset 
+
+
+\family default 
+ in this case)
+\layout Itemize
+
+Substitute the alias name (
+\family sans 
+Serial
+\family default 
+) with 
+\family sans 
+"int"
+\layout Standard
+
+Again, Druid doesn't care about what data you add.
+ The datatype check is demanded by the DBMS.
+ 
+\layout Section
+
+Domains
+\layout Standard
+
+A datatype is usually associated with a domain.
+ From a math point of view, given a variable, a domain is the set of values
+ that the variable can assume.
+ These values represent a constraint for the variable and specialize the
+ variable's type.
+ For example, suppose you want to define a datatype to represent the age
+ of people.
+ A good choice is the int type but, without constraints, a user can insert
+ a negative age (which should not be allowed).
+ In this case we can define a domain telling the DBMS to check if the value
+ is inside (or outside) the range.
+ 
+\layout Standard
+\added_space_top defskip \noindent 
+Druid lets you specify one of five domains for a datatype.
+ These are: 
+\layout Itemize
+
+
+\series bold 
+None
+\begin_deeper 
+\layout Standard
+
+This domain doesn't perform any check on the datatype and can be used if
+ the domain is not important or not necessary.
+ It is commonly used to text and dates.
+ 
+\layout Standard
+
+There is no check rule.
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Lower case text
+\begin_deeper 
+\layout Standard
+
+This domain is used only for text types and checks the case of the input
+ text.
+ If the user tries to insert (or update) text which contains upper letters
+ the DBMS raises an error.
+\layout Standard
+
+The check rule is : 
+\family sans 
+field = LOWER(field)
+\family default 
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Upper case text
+\begin_deeper 
+\layout Standard
+
+Same as above, but for uppercase text.
+ 
+\layout Standard
+
+The check rule is : 
+\family sans 
+field = UPPER(field)
+\family default 
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Range of values
+\begin_deeper 
+\layout Standard
+
+Usable for ordered datatypes (like int, decimal, numeric, dates etc...).
+ The user can define a range and ask the DBMS to perform a check if the
+ value falls either outside or inside the range.
+ In figure 
+\begin_inset LatexCommand \ref{fig:example-domain-range}
+
+\end_inset 
+
+ you can see an Age datatype using this kind of domain.
+ The range is 0..120 (including both 0 and 120).
+ If you need to check the range outside the given one, then mark the "Outside"
+ checkbox.
+ In this case, if the checkbox is set, the DBMS raises a check error if
+ the value is inside the range 0..120 (including both 0 and 120).
+\layout Standard
+
+The check rule is : 
+\family sans 
+field [NOT] BETWEEN min AND max
+\family default 
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Set of values
+\begin_deeper 
+\layout Standard
+
+This domain lets the user specify a set of values the value must belong
+ to and it is used for text types (like char and varchar).
+ The DBMS raises a check error if the value the user is trying to insert
+ doesn't belong to the given set.
+ In figure 
+\begin_inset LatexCommand \ref{fig:example-domain-set}
+
+\end_inset 
+
+ you can see an use of this domain.
+ Suppose you want a datatype to represent european countries.
+ The type is a varchar, but if you want to be sure that all records contain
+ valid countries you must list them.
+ Note that Druid automatically adds the two single quotes.
+\layout Standard
+
+The check rule is : 
+\family sans 
+field IN('value-1', 'value-2', ...
+ 'value-n')
+\family default 
+ 
+\end_deeper 
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/datatypes2.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:example-domain-range}
+
+\end_inset 
+
+An example of the range domain
+\end_inset 
+
+
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/datatypes3.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:example-domain-set}
+
+\end_inset 
+
+An example of the set domain
+\end_inset 
+
+
+\layout Section
+
+Datatypes operations
+\layout Standard
+
+There are some operations on datatypes that Druid can perform.
+ These operations automate some long tasks and let the database designer
+ to easily adjust the schema.
+\layout Subsection
+
+Remapping
+\layout Standard
+
+It may happen that a datatype is placed in the wrong class (constant instead
+ of variable or vice versa) or in the wrong subclass (basic instead of alias
+ or vice versa).
+ This may be due to several reasons:
+\layout Itemize
+
+A wrong database design
+\layout Itemize
+
+A change in the project requirements / specs
+\layout Standard
+
+Druid lets you move a datatype from one class to another, remapping it if
+ needed.
+ This operation is transparently performed when you use the cut and paste
+ facility.
+ When you cut a constant type and then paste it into a variable type, Druid
+ transforms the type into a variable alias.
+ Note, however, that the remapping is a lossy operation because the destination
+ type might not have all the attribs of the source type.
+ So, you can safely remap a constant type to a variable alias, but if you
+ remap a variable alias to a constant alias you lose the 'size' attrib.
+\layout Standard
+
+This feature is also very useful when importing a db structure into Druid
+ via jdbc.
+ If Druid doesn't map the type correctly, you can remap it manually.
+ 
+\layout Subsection
+
+Merging
+\layout Standard
+
+In some cases you may want to scan all table fields and change a certain
+ datatype into another.
+ This may be due to the fact that you want to remove the source datatype
+ or because the datatype doesn't fit a new need (for example, you have a
+ 
+\family sans 
+clob
+\family default 
+ type and you need to store binary data in it).
+ To change the datatype you have to scan the fields of all tables and, when
+ you find the target datatype, change it into the new type.
+ When you work with a big database this operation becomes a tedious and
+ time consuming task.
+\layout Standard
+
+To solve this problem Druid lets you change all instances of one datatype
+ into another.
+ This feature is activated by selecting a datatype and choosing "
+\family sans 
+Merge with
+\family default 
+..." from the popup-menu.
+ Druid displays a dialog showing all datatypes and asks you to select a
+ target one (with the right mouse button).
+ When the operation is completed, the source datatype is not used anymore
+ and may be safely removed.
+ 
+\layout Subsection
+
+Usage
+\layout Standard
+
+When selecting a datatype (other than the basic, variable type) you may
+ select the 
+\family sans 
+'Usage
+\family default 
+...' option from the popup menu.
+ This feature lets you know all tables and fields that use the selected
+ datatype.
+ Note, however, that the list doesn't include fields that are foreign keys.
+ 
+\layout Section
+
+The "DD equiv." box
+\layout Standard
+
+In this box you may put a string that represents the type (like 
+\family sans 
+"integer"
+\family default 
+, 
+\family sans 
+"string"
+\family default 
+, 
+\family sans 
+"date"
+\family default 
+).
+ This string will be used when Druid generates the data dictionary (see
+ chapter 
+\noun on 
+
+\begin_inset LatexCommand \ref{cha:Data-generation}
+
+\end_inset 
+
+
+\noun default 
+ for more information).
+ 
+\layout Section
+
+Examples
+\layout Standard
+
+Here are some examples of useful datatypes:
+\layout Standard
+\added_space_top medskip \added_space_bottom medskip \align center 
+
+\begin_inset  Tabular
+<lyxtabular version="3" rows="9" columns="4">
+<features>
+<column alignment="left" valignment="top" leftline="true" width="0">
+<column alignment="left" valignment="top" leftline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" rightline="true" width="0">
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Field
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Description
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Domain
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Basic type
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family sans 
+Serial
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+A datatype to indicate a serial counter
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+None
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family sans 
+int
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family sans 
+TDate
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+A custom date represented as an int
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+None
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family sans 
+int
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family sans 
+Byte
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+A datatype to store a single byte
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Range (0..255)
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family sans 
+numeric(1)
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family sans 
+Quantity
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+A generic quantity type
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+None
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family sans 
+numeric(10,4)
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family sans 
+Char
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+A single char
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+None
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family sans 
+char(1)
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family sans 
+Bool
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+A boolean type
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Set ("y", "n")
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family sans 
+char(1)
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family sans 
+Name
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+A generic 
+\family default 
+\series default 
+\shape default 
+\size default 
+\emph default 
+\bar default 
+\noun default 
+\color default
+uppercase 
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+name
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+Upper case
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family sans 
+varchar(24)
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family sans 
+Memo
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+A type to store notes
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+None
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family sans 
+varchar(4000)
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset 
+
+
+\layout Chapter
+
+
+\begin_inset LatexCommand \label{cha:Field-Attributes}
+
+\end_inset 
+
+Field Attributes
+\layout Section
+
+Introduction
+\layout Standard
+
+Simply speaking, attribs are those "keywords" you put after a field when
+ you create a table.
+ Common attribs are "
+\family sans 
+NOT NULL
+\family default 
+", 
+\family sans 
+"UNIQUE"
+\family default 
+, "
+\family sans 
+PRIMARY KEY
+\family default 
+", 
+\family sans 
+"DEFAULT"
+\family default 
+ and they may refer to either a single field or a group of them.
+ The main issue with attribs is that if you want to develop a tool like
+ druid you have to make a big choice between remaining compliant with the
+ SQL-92 standard or specializing the tool for a particular DBMS.
+ If you choose to develop a general tool, users cannot use some advanced
+ features of their DBMS.
+ If you specialize your tool, another question needs to be answered: which
+ DBMS should I choose? Both choices have their pros and cons.
+\layout Standard
+
+This problem has been addressed allowing custom attribs.
+ If you look closely at them, you can figure out that all attribs have the
+ same structure, so it becomes easy to build a structure to handle them
+ all.
+ This way, if you need to use a particular attrib of your DBMS you may add
+ it to Druid (one example is the sql's 
+\family sans 
+"DEFERRABLE"
+\family default 
+ attrib used by Oracle).
+\layout Standard
+
+Furthermore, users can create custom attribs for special purposes in order
+ to have custom data in the data dictionary or to create indices.
+ 
+\layout Section
+
+Druid's attrib structure
+\layout Standard
+
+A druid's attrib is composed of the following parts: 
+\layout Itemize
+
+
+\series bold 
+Name
+\begin_deeper 
+\layout Standard
+
+This name is used by the GUI to refer the attrib.
+ It should be short because it is used as a table's column header.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Sql name
+\begin_deeper 
+\layout Standard
+
+This name is used by the sql-script generator and represents the attrib's
+ name in standard sql.
+ For a primary key you may use "PrKey" for the name, and "primary key" for
+ the sql name.
+ Note that you can use this field to create an attrib which represents a
+ complex sql option that uses a special feature of a DBMS.
+ For indexes, this field is used to store a custom template for the index
+ name.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Type
+\begin_deeper 
+\layout Standard
+
+For attrib types look at section 
+\begin_inset LatexCommand \ref{sub:attrib-types}
+
+\end_inset 
+
+.
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Scope
+\begin_deeper 
+\layout Standard
+
+For scope types look at section 
+\begin_inset LatexCommand \ref{sub:scope-types}
+
+\end_inset 
+
+.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Description
+\begin_deeper 
+\layout Standard
+
+This is simply a description to remind you the purpose of the attrib.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Use in data dictionary
+\begin_deeper 
+\layout Standard
+
+When you create a new attrib you may or may not want it in the generated
+ data dictionary.
+ If this flag is set the data dictionary generator adds the attrib's column
+ (which can be a boolean value or a string depending on the attrib's type).
+ For example, you may wish to define a custom attrib that is present only
+ in your data dictionary, but not in your sql-script.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Use in summary
+\begin_deeper 
+\layout Standard
+
+Same as above.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Width
+\begin_deeper 
+\layout Standard
+
+This is a GUI parameter and specifies the width of the attrib's column in
+ the table editor.
+ Some attribs (for e.g.
+ bool attribs, like 
+\family sans 
+unique
+\family default 
+ and 
+\family sans 
+not null
+\family default 
+) may require less video space than others (for eg.
+ the 
+\family sans 
+default
+\family default 
+ attrib, which must contain a value).
+ 
+\end_deeper 
+\layout Standard
+
+Note that Druid has no concept of primary keys.
+ For Druid a primary key is just an attrib like all the others, but to maintain
+ future compatibility I recommend you put it at the first position.
+\layout Standard
+
+The order of attribs you create is reflected in the table editor.
+ 
+\layout Subsection
+
+
+\begin_inset LatexCommand \label{sub:attrib-types}
+
+\end_inset 
+
+Attrib types
+\layout Standard
+
+An attrib can be of type 
+\family sans 
+bool
+\family default 
+, 
+\family sans 
+int
+\family default 
+ or 
+\family sans 
+string
+\family default 
+.
+ The type specifies if the attrib takes a parameter or not.
+ For example, the 
+\family sans 
+"unique"
+\family default 
+ attrib has no parameters, while the 
+\family sans 
+"default"
+\family default 
+ attrib must be followed by a string or an int.
+ Here follows an explanation of attrib types: 
+\layout Itemize
+
+
+\series bold 
+bool
+\begin_deeper 
+\layout Standard
+
+Is used for attribs that don't take parameters.
+ Examples are 
+\family sans 
+"UNIQUE"
+\family default 
+, "
+\family sans 
+NOT NULL
+\family default 
+", "
+\family sans 
+PRIMARY KEY
+\family default 
+", 
+\family sans 
+"DEFERRABLE"
+\family default 
+ and indices.
+ This type is represented with a checkbox in the field editing GUI.
+ When a field has an associated attrib of this type (that is, the checkbox
+ is set), the attrib's sql-name is added after the field's declaration.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+String and Int
+\begin_deeper 
+\layout Standard
+
+These types are used for attribs that take parameters (an example is the
+ 
+\family sans 
+"DEFAULT"
+\family default 
+ attrib) and are represented with editable text in the field editing GUI.
+ When a field has an associated attrib of these types (that is, the editable
+ text is not empty), the attrib's sql-name and the given value are added
+ after the field's declaration.
+ An int type is added "as is", while a string type is added with single
+ quotes.
+ These two types are basically the same and the difference is that a check
+ is performed on the int type to see if the given data is a proper int.
+ 
+\end_deeper 
+\layout Standard
+
+As stated before, the attrib's type changes the attrib's appearance in the
+ GUI.
+ Figure 
+\begin_inset LatexCommand \ref{fig:example-fieldattribs}
+
+\end_inset 
+
+ shows the table editing GUI with the bool and string types in action.
+ 
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/fieldattr1.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:example-fieldattribs}
+
+\end_inset 
+
+An table with several field attribs
+\end_inset 
+
+
+\layout Subsection
+
+
+\begin_inset LatexCommand \label{sub:scope-types}
+
+\end_inset 
+
+Scope types
+\layout Standard
+
+A scope is a concept used to classify an attrib.
+ Depending on the scope, the attrib can influence a single field, a group
+ of field or the entire table.
+ Druid defines the following scopes: 
+\layout Itemize
+
+
+\series bold 
+Field
+\begin_deeper 
+\layout Standard
+
+This scope is used for attribs that affect only a single field.
+ Examples of such attribs are: 
+\family sans 
+"unique"
+\family default 
+, "
+\family sans 
+not null
+\family default 
+", 
+\family sans 
+"default"
+\family default 
+.
+ These are attribs that follow the field's declaration (with or without
+ parameters).
+ An attrib that belongs to this scope can be of any type (bool, int or string).
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Table
+\begin_deeper 
+\layout Standard
+
+Used for attribs that affect groups of fields.
+ Examples are: "
+\family sans 
+primary key
+\family default 
+" and 
+\family sans 
+"unique"
+\family default 
+ for multiple fields.
+ When several fields have set one attrib of this scope, the sql generation
+ puts together the attrib's sql-name and the field names to form something
+ like "
+\family sans 
+primary key(field1, field2)
+\family default 
+" or "
+\family sans 
+unique(field1, field2)
+\family default 
+".
+ Attribs of this scope are generated after all field declarations.
+ As you can imagine, an attrib that belongs to this scope can be of bool
+ type only.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Index
+\begin_deeper 
+\layout Standard
+
+This scope is used to define new table indices.
+ Here the sql-name can be used to supply a template for the index name.
+ A usefull template is {table}IDX{cnt} where table will be replaced with
+ the table's name and cnt is a generic counter.
+ See 
+\begin_inset LatexCommand \ref{sub:Template-names}
+
+\end_inset 
+
+ for a complete list of substitutions.
+ The type must be bool.
+ With this template, given a 
+\family sans 
+"Patients"
+\family default 
+ table, the sql generator will generate the following indexes: 
+\family sans 
+"PatientsNDX1"
+\family default 
+, 
+\family sans 
+"PatientsNDX2"
+\family default 
+, 
+\family sans 
+"PatientsNDX3"
+\family default 
+ and so on.
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Unique Index
+\begin_deeper 
+\layout Standard
+
+Same as above, but for unique indices.
+ A custom template replaces the standard one.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Custom
+\begin_deeper 
+\layout Standard
+
+This is not a proper sql scope.
+ It refers to attribs used for special purposes.
+ For example, when developing an application that requires some data to
+ be attached to each field.
+ The usage of this scope is well explained with an example.
+\layout Standard
+
+Suppose you are developing a client-server application.
+ The server may supply an operation like "add values v1,v2,v3 in the table
+ X".
+ A problem arises when table X contains fields that must not be modified
+ from outside (that is from clients), because they are for internal use.
+ In this case, the server must check if each input field can be modified.
+ To do this, it must know if a field can be modified or not for each table.
+ Druid solves this problem by letting you define an attrib like "can be
+ modified", with type = bool and scope = custom.
+ Then, in the field editing GUI you can set this attrib for each field.
+ At last, you let Druid generate a data dictionary for each table in the
+ database containing the rows for "table-name", "field-name" and "access
+ modality".
+ At this point your server can load this data dictionary and implement its
+ access policy.
+ 
+\end_deeper 
+\layout Standard
+
+Figure 
+\begin_inset LatexCommand \ref{fig:example-fieldattribs-types-scopes}
+
+\end_inset 
+
+ shows some field attribs with different types and scope.
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/fieldattr2.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:example-fieldattribs-types-scopes}
+
+\end_inset 
+
+Field attribs with several types and scopes
+\end_inset 
+
+
+\layout Section
+
+Summary
+\layout Standard
+
+The following table summarizes the attrib's structure.
+ Each column is a type and each row is a scope.
+ Each cell explains the attrib's properties for the given type and scope.
+ 
+\layout Standard
+\added_space_top medskip \added_space_bottom medskip \align center 
+
+\begin_inset  Tabular
+<lyxtabular version="3" rows="6" columns="4">
+<features>
+<column alignment="block" valignment="center" leftline="true" width="2cm">
+<column alignment="block" valignment="top" leftline="true" width="3.5cm">
+<column alignment="block" valignment="top" leftline="true" width="3.5cm">
+<column alignment="block" valignment="top" leftline="true" rightline="true" width="3.5cm">
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Bool
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Int
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+String
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Field
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+A
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+ttribs for a single field that may or may not follow the field declaration
+ (like 
+\family sans 
+\series default 
+\shape default 
+\size default 
+\emph default 
+\bar default 
+\noun default 
+\color default
+"NOT
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+ 
+\family sans 
+\series default 
+\shape default 
+\size default 
+\emph default 
+\bar default 
+\noun default 
+\color default
+NULL"
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+, 
+\family sans 
+\series default 
+\shape default 
+\size default 
+\emph default 
+\bar default 
+\noun default 
+\color default
+"UNIQUE"
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+,
+\family default 
+\series default 
+\shape default 
+\size default 
+\emph default 
+\bar default 
+\noun default 
+\color default
+ 
+\family sans 
+
+\begin_inset Quotes sld
+\end_inset 
+
+DEFERRABLE
+\family default 
+
+\begin_inset Quotes srd
+\end_inset 
+
+)
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+Like the string type but for numbers
+\end_inset 
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+A
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+ttribs for a single field that may or may not follow the field declaration,
+ but that require a string
+\family default 
+\series default 
+\shape default 
+\size default 
+\emph default 
+\bar default 
+\noun default 
+\color default
+ 
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+value after them (like 
+\family sans 
+\series default 
+\shape default 
+\size default 
+\emph default 
+\bar default 
+\noun default 
+\color default
+"DEFAULT"
+\family default 
+)
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Table
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+A
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+ttribs for groups of fields (like 
+\family sans 
+\series default 
+\shape default 
+\size default 
+\emph default 
+\bar default 
+\noun default 
+\color default
+"PRIMARY
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+ 
+\family sans 
+\series default 
+\shape default 
+\size default 
+\emph default 
+\bar default 
+\noun default 
+\color default
+KEY"
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+ and 
+\family sans 
+\series default 
+\shape default 
+\size default 
+\emph default 
+\bar default 
+\noun default 
+\color default
+"UNIQUE"
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+)
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+(meaningless)
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+(meaningless)
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Index
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Specify an 
+\family sans 
+INDEX
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+(meaningless)
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+(meaningless)
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Unique
+\series default 
+ 
+\series bold 
+Index
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Specify a unique 
+\family sans 
+INDEX
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+(meaningless)
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+(meaningless)
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Custom
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Custom properties.
+ For example, you can define the 
+\family sans 
+"canInsert"
+\family default 
+ and 
+\family sans 
+"canUpdate"
+\family default 
+ attribs to declare the attrib's access restrictions.
+ Then your server app can load the generated data dictionary and use this
+ info to restrict a client's access.
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Custom number to associate to a field
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Custom text to associate to a field
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset 
+
+
+\layout Section
+
+Examples
+\layout Standard
+\added_space_top medskip \added_space_bottom medskip \align center 
+
+\begin_inset  Tabular
+<lyxtabular version="3" rows="11" columns="5">
+<features>
+<column alignment="center" valignment="top" leftline="true" width="0">
+<column alignment="block" valignment="top" leftline="true" width="3.5cm">
+<column alignment="center" valignment="top" leftline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" width="0">
+<column alignment="block" valignment="top" leftline="true" rightline="true" width="5.5cm">
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Name
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Sql
+\series default 
+ 
+\series bold 
+Name
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Type
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Scope
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Description
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+PrKey
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+primary key
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+bool
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+table
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+The primary key of a table
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+PrKeyS
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+primary key
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+bool
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+field
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+A primary key composed of only one field (rarely used)
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Unq
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+unique
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+bool
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+field
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+Unique attrib for a single field
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+UnqM
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+unique
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+bool
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+table
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+Unique attrib for a group of fields
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+NotN
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+not null
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+bool
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+field
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+The not null attrib
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Dfr
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+deferrable
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+bool
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+field
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+D
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+eferrable attrib 
+\family default 
+\series default 
+\shape default 
+\size default 
+\emph default 
+\bar default 
+\noun default 
+\color default
+used in Oracle
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Def
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+default
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+string
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+field
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+The default string value of a field
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Idx
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+{table}IDX{cnt}
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+bool
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+index
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+A simple index on a group of fields
+\family default 
+\series default 
+\shape default 
+\size default 
+\emph default 
+\bar default 
+\noun default 
+\color default
+ with a classic template for its name.
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+IdxU
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+{table}_{fields}
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+bool
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+index-u
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+A unique index using a different template.
+ {fields} will be replaced with all field names separated by an underscore
+ '_'.
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Ins
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+(meaningless)
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+bool
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+custom
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family roman 
+\series medium 
+\shape up 
+\size normal 
+\emph off 
+\bar no 
+\noun off 
+\color none
+A bool attrib to store custom data.
+ In this example "Ins" means insertable with a bool type of yes/no
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset 
+
+
+\layout Chapter
+
+
+\begin_inset LatexCommand \label{cha:Database-objects}
+
+\end_inset 
+
+Database objects
+\layout Section
+
+Introduction
+\layout Standard
+
+Druid has no limits to the complexity of the database.
+ You may add as many entities as you want (tables, fields, etc...) and when
+ the database complexity raises you may use folders to organize your entities.
+ Regarding entity names you have complete freedom (that is druid makes no
+ checks) but a few rules should be followed in order to obtain consistent
+ data: 
+\layout Itemize
+
+Don't use spaces to separate names.
+ For example the name "Patient Data" is not valid because the sql-script
+ that gets generated is not valid.
+ 
+\layout Itemize
+
+Some names (like "Data") could be considered as sql keywords.
+\layout Itemize
+
+More entities with the same name can cause problems to some modules (like
+ the XHTML one) because they use the entity's name to create files on the
+ file system.
+\layout Section
+
+Documentation
+\layout Standard
+
+Almost every druid's object can be documented.
+ After selecting it (a table, a field, a folder etc...) you should be able
+ to see the 
+\family sans 
+Docs
+\family default 
+ tab in the right side (see figure 
+\begin_inset LatexCommand \ref{fig:example-docs}
+
+\end_inset 
+
+).
+ Here you can write all docs you want, change the font, color, alignment,
+ add images and more.
+ However, keep in mind that the doc editor have some bugs.
+ For example, if you add an image to an empty doc the image is not shown.
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/docs.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:example-docs}
+
+\end_inset 
+
+An example of the docs editor
+\end_inset 
+
+
+\layout Section
+
+The Database
+\layout Subsection
+
+Revisions
+\layout Standard
+
+When working with a database, it is useful to keep track of changes.
+ A facility offered by Druid is the project build, which is incremented
+ during each save, but the user has no control over it.
+ Revisions have been introduced to fit this purpose.
+ They are like comments the user adds to keep track of the current database
+ development and don't affect the project.
+\layout Standard
+\added_space_top defskip \noindent 
+Basically a revision has this structure: 
+\layout Itemize
+
+
+\series bold 
+Version
+\begin_deeper 
+\layout Standard
+
+Here you can store a string representing a database version.
+ Common strings are: "0.1", "v 0.3 alpha", "0.9 pre1" and so on.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Date
+\begin_deeper 
+\layout Standard
+
+The date of the revision.
+ This field is added automatically by druid, but you can modify it.
+ This field is a string and is not restricted to dates.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Description
+\begin_deeper 
+\layout Standard
+
+A description of the current database status.
+ Here you can indicate what was added / removed / changed with respect to
+ the previous revision.
+ 
+\end_deeper 
+\layout Subsection
+
+Extra sql fields
+\layout Standard
+
+Druid is a database independant tool but in most cases the user will want
+ to use some special features of his DBMS.
+ To accomplish this, two sql fields have been introduced: 
+\layout Itemize
+
+
+\series bold 
+Pre sql
+\begin_deeper 
+\layout Standard
+
+The sql code you put here is added to the sql script BEFORE the sql that
+ creates the tables.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Post sql
+\begin_deeper 
+\layout Standard
+
+The sql code you put here is appended to the sql script, that is AFTER the
+ sql that creates the tables.
+ 
+\end_deeper 
+\layout Standard
+
+With some DBMSs (like PostgreSQL) you can place "
+\family sans 
+BEGIN WORK
+\family default 
+;" in the pre-sql field and 
+\family sans 
+"COMMIT
+\family default 
+;" in the post-sql field.
+ Using these commands the sql script is executed as a whole or not at all.
+ This way, if the script fails you don't have to delete all created objects
+ manually (works greatly on PostgreSQL because PostgreSQL's 
+\family sans 
+serial
+\family default 
+ type creates a sequence, which must be deleted separately).
+ 
+\layout Section
+
+Folders
+\layout Standard
+
+Folders are what their name indicate and can contain any kind of objects.
+ Their purpose is to:
+\layout Itemize
+
+Keep related tables together
+\layout Itemize
+
+Structure a big database hierarchically so that tables can be easily found
+\layout Section
+
+Tables
+\layout Subsection
+
+Fields
+\layout Standard
+
+Table's fields can be edited using the tree view on the left side or, more
+ easily, using the 
+\family sans 
+Fields
+\family default 
+ tab of the table node.
+ Beside the field's name there is its datatype and all field attribs you
+ have defined in the database.
+ To change the datatype simply click on it to rise the Datatype selector,
+ from which you can choose another type or a foreign key to another table.
+\layout Subsection
+
+
+\begin_inset LatexCommand \label{sec:Table-vars}
+
+\end_inset 
+
+Table vars
+\layout Standard
+
+Table vars are a feature used mostly by developers.
+ To explain what they are and how they work let's consider the following
+ scenario: 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Scenario:
+\series default 
+ You have to design a client (that can be an application, an applet or a
+ web page) that accepts user input and sends it to a DBMS.
+ One data that the client can accept is the user's name, which is represented
+ as a varchar(24) in the database.
+ If the user enters a text longer than 24 characters the DBMS rises an error
+ and you don't want this to happen.
+ The only way to prevent this (I suppose that the textfield you are using
+ doesn't let you specify a maximum size) is to add a few lines of code that
+ perform a check between the text's lenght and 24.
+ However, hardcoding 24 is not a recommended way to do this because this
+ value may change.
+ The best solution is to use a constant that is auto-generated and that
+ follows the database changes.
+\layout Standard
+
+Given this scenario it should be clear what table vars are.
+ When you create a table which has fields of variable size (that is its
+ datatype is of variable class) you can ask druid to generate a file or
+ a set of files (depending of the programming language you have choosen)
+ which contain(s) the constants.
+\layout Standard
+\added_space_top defskip \noindent 
+Example : If you create the table 
+\family sans 
+'Users'
+\family default 
+ with the fields:
+\layout Itemize
+
+
+\family sans 
+code
+\family default 
+ (int)
+\layout Itemize
+
+
+\family sans 
+surname
+\family default 
+ (varchar(32))
+\layout Itemize
+
+
+\family sans 
+name
+\family default 
+ (varchar(24)) 
+\layout Standard
+
+Druid will generate the following code (I suppose that the java language
+ has been selected):
+\layout LyX-Code
+
+public class Users 
+\layout LyX-Code
+
+{ 
+\begin_deeper 
+\layout LyX-Code
+
+public static final int SURNAME_SIZE = 32; 
+\layout LyX-Code
+
+public static final int NAME_SIZE = 24; 
+\end_deeper 
+\layout LyX-Code
+
+}
+\layout Standard
+
+Obviously, there is no constant for the 
+\family sans 
+'code'
+\family default 
+ field because its size is constant.
+ 
+\layout Standard
+
+In addition to these vars (that are automatically generated) the developer
+ may manually add some vars to accomplish specific tasks.
+ Let's consider this scenario:
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Scenario:
+\series default 
+ You have the previously created table 
+\family sans 
+'Users'
+\family default 
+ with one more field: 
+\family sans 
+userType
+\family default 
+ (int).
+ This field contains the type of the user and may contain the following
+ values: 
+\begin_deeper 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+0
+\series default 
+ For a global administrator
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+1
+\series default 
+ For a local administrator
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+2
+\series default 
+ For a simple user
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+3
+\series default 
+ Other (for example a guest)
+\end_deeper 
+\layout Standard
+
+When you write your client application it is not a good idea to hardcode
+ these numbers because they may change and because your code gets not readable
+ to others.
+ The best solution is to use constants.
+ Druid let you define several variables for a table and puts their code
+ together with the auto generated vars.
+ To add a variable simply select a table, select the 
+\family sans 
+'Vars'
+\family default 
+ tab and press the 
+\family sans 
+'new'
+\family default 
+ button.
+ Figure 
+\begin_inset LatexCommand \ref{fig:table-vars}
+
+\end_inset 
+
+ illustrates the four variables (or constants) of our scenario.
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/tables1.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:table-vars}
+
+\end_inset 
+
+Constants for a generic 
+\begin_inset Quotes sld
+\end_inset 
+
+
+\family sans 
+Users
+\family default 
+
+\begin_inset Quotes srd
+\end_inset 
+
+ table
+\end_inset 
+
+
+\layout Standard
+\added_space_top defskip \noindent 
+Each variable has the following attribs: 
+\layout Itemize
+
+
+\series bold 
+Name
+\begin_deeper 
+\layout Standard
+
+This is the name of the variable.
+ You refer to the variable using this name.
+ 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Type
+\begin_deeper 
+\layout Standard
+
+The variable's datatype.
+ Druid supports the 'bool', 'string' and 'int' types 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Value
+\begin_deeper 
+\layout Standard
+
+This is the value you want to give to the variable 
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Description
+\begin_deeper 
+\layout Standard
+
+This description will be used as a comment during code generation.
+ 
+\end_deeper 
+\layout Standard
+
+Referring to the previous scenario, druid will generate the following code:
+ 
+\layout LyX-Code
+
+public class Users
+\layout LyX-Code
+
+{
+\begin_deeper 
+\layout LyX-Code
+
+public static final int SURNAME_SIZE = 32; 
+\layout LyX-Code
+
+public static final int NAME_SIZE = 24;
+\end_deeper 
+\layout LyX-Code
+
+\begin_deeper 
+\layout LyX-Code
+
+//--- a global administrator 
+\layout LyX-Code
+
+public static final int GLOBAL = 0;
+\end_deeper 
+\layout LyX-Code
+
+\begin_deeper 
+\layout LyX-Code
+
+//--- a local administrator 
+\layout LyX-Code
+
+public static final int LOCAL = 1;
+\end_deeper 
+\layout LyX-Code
+
+\begin_deeper 
+\layout LyX-Code
+
+//--- a simple user 
+\layout LyX-Code
+
+public static final int USER = 2;
+\end_deeper 
+\layout LyX-Code
+
+\begin_deeper 
+\layout LyX-Code
+
+//--- other (for example a guest) 
+\layout LyX-Code
+
+public static final int OTHER = 3; 
+\end_deeper 
+\layout LyX-Code
+
+}
+\layout Subsection
+
+Triggers
+\layout Subsection
+
+Rules
+\layout Subsection
+
+Sql commands
+\layout Standard
+
+It may happen that a vendor ships an application that uses a DBMS to work.
+ Applications like this one must create their working database and it is
+ common, after the creation, to fill the database with default data.
+ This data is usually shipped together with the sql script in the application's
+ package.
+ When the application is under development, these data should reflect every
+ change made in the db.
+ Druid lets you define these data as INSERT(...) commands.
+ In the 
+\family sans 
+Extra\SpecialChar \menuseparator
+Sql
+\family default 
+ 
+\family sans 
+commads
+\family default 
+ panel of a table node you can add as many INSERT statements as you need.
+ During the sql script generation, these commands will be appended at the
+ end of the table's schema.
+\layout Subsection
+
+
+\begin_inset LatexCommand \label{sub:Template-names}
+
+\end_inset 
+
+Template names
+\layout Standard
+
+If you select a table node, in the 
+\family sans 
+Optisons\SpecialChar \menuseparator
+General
+\family default 
+ tab you can see the 
+\family sans 
+Template
+\family default 
+ 
+\family sans 
+for
+\family default 
+ 
+\family sans 
+names
+\family default 
+ panel.
+ Here, and in each sql generation module, you can define the templates for
+ the names to generate.
+ You can see three textfields:
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Primary\SpecialChar ~
+keys
+\series default 
+ template for primary keys
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Foreign\SpecialChar ~
+keys
+\series default 
+ template for foreign keys
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Other
+\series default 
+ template for other table constraint (like unique)
+\layout Standard
+
+If the template is empty it won't get generated.
+ A tipical primary key constraint name is <table-name>_PK.
+ To use such template simply type:
+\layout LyX-Code
+
+{table}_PK
+\layout Standard
+
+Other recognized keywords are:
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+{table}
+\series default 
+ will be replaced with the table's name.
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+{fields}
+\series default 
+ will be replaced with the names of the fields that form the index (separated
+ by 
+\begin_inset Quotes sld
+\end_inset 
+
+_
+\begin_inset Quotes srd
+\end_inset 
+
+).
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+{cnt}
+\series default 
+ will be replaced with a counter that represents a progressive number.
+\layout Subsection
+
+Multiple FKeys
+\layout Standard
+
+Support for multiple foreign keys is automatic.
+ The general rule is:
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Rule:
+\series default 
+ Druid merges a table's fkeys when its fields refer different fields of
+ the same target table.
+ These fields must be one after the other in the table's schema.
+\layout Standard
+
+This is difficult to explain in words.
+ Maybe looking at the algorithm may help: 
+\layout Itemize
+
+Druid scans all fields of a table and collects all fields that refer to
+ other tables (retrieves all foreign keys).
+\layout Itemize
+
+Then Druid scans all collected fields and sees if the current field and
+ the next one refer to the same table but to different fields.
+ If this is the case then the two (or more) fields are merged together.
+\layout Standard
+
+Let's look at some examples: 
+\layout Standard
+\added_space_top medskip \added_space_bottom medskip \align center 
+
+\begin_inset  Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features>
+<column alignment="block" valignment="top" leftline="true" width="3.8cm">
+<column alignment="block" valignment="top" leftline="true" width="4.5cm">
+<column alignment="block" valignment="top" leftline="true" rightline="true" width="4cm">
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Example
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+FKey generated
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\series bold 
+Notes
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+\noindent 
+
+\family typewriter 
+Table B 
+\layout Standard
+\noindent 
+
+\family typewriter 
+( 
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+code 
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+field1 A(code) 
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+field2 A(code)
+\layout Standard
+
+
+\family typewriter 
+)
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+fkey (field1)
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+refer A(code)
+\layout Standard
+
+\SpecialChar ~
+
+\layout Standard
+
+
+\family typewriter 
+fkey (field2)
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+refer A(code)
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Both field1 and field2 refer to the same field.
+ 
+\layout Standard
+
+No merging required.
+\end_inset 
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+Table B 
+\layout Standard
+
+
+\family typewriter 
+( 
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+code 
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+field1 A(code1)
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+field2 A(code2)
+\layout Standard
+
+
+\family typewriter 
+)
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+fkey (field1,field2)
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+refer A(code1,code2)
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Field1 and field2 refer to different fields of the same table.
+ 
+\layout Standard
+
+Merging occurs.
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+Table B 
+\layout Standard
+
+
+\family typewriter 
+( 
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+code 
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+field1 A(code1) 
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+field2 A(code2) 
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+field3 A(code1) 
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+field4 A(code2)
+\layout Standard
+
+
+\family typewriter 
+)
+\layout LyX-Code
+
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+fkey (field1,field2)
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+refer A(code1,code2)
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+
+\layout Standard
+
+
+\family typewriter 
+fkey (field3,field4)
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+refer A(code1,code2)
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Field1 and field2 are merged but field3 refers to a field already referenced.
+ 
+\layout Standard
+
+In this case field3 starts a new foreign key group.
+ 
+\layout Standard
+
+Field4 is merged with the previous group (formed only by field3).
+\end_inset 
+</cell>
+</row>
+<row bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+Table B 
+\layout Standard
+
+
+\family typewriter 
+( 
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+code 
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+field1 A(code1) 
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+field2 A(code1) 
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+field3 A(code2) 
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+field4 A(code3) 
+\layout Standard
+
+
+\family typewriter 
+)
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+fkey (field1) 
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+refer A(code1)
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+
+\layout Standard
+
+
+\family typewriter 
+fkey (field2,field3,field4)
+\layout Standard
+
+
+\family typewriter 
+\SpecialChar ~
+\SpecialChar ~
+refer A(code1,code2,code3)
+\end_inset 
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Field2 starts a new group.
+ 
+\layout Standard
+
+Field3 and field4 can be added to this group because they reference different
+ fields.
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset 
+
+
+\layout Section
+
+Views
+\layout Standard
+
+Views are supported, but without GUI facilities.
+ Adding a view is similar to adding a table: just right click on a database
+ or a folder and select "
+\family sans 
+Add view
+\family default 
+" from the popup menu.
+ At this point, you can see your view's node in the project view (on the
+ left) and you can edit the sql code in the work panel (on the right).
+ 
+\layout Standard
+\added_space_top defskip \noindent 
+During sql generation, views are added at the end of the database tables
+ and a ";" is added if it is missing.
+ 
+\layout Section
+
+Procedures and functions
+\layout Standard
+
+Support for these objects is limited and is the same as for views.
+ To add a procedure do a right click on a database or a folder and select
+ 
+\begin_inset Quotes sld
+\end_inset 
+
+
+\family sans 
+Add procedure
+\family default 
+
+\begin_inset Quotes srd
+\end_inset 
+
+ from the popup menu (same as for functions).
+\layout Section
+
+Sequences
+\layout Standard
+
+Sequences are objects that generate progressive numbers, often used for
+ primary keys.
+ Druid handles the following aspects of a sequence:
+\layout Itemize
+
+
+\series bold 
+Increment
+\begin_deeper 
+\layout Standard
+
+The value to add to the current value to obtain the next
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Min value
+\begin_deeper 
+\layout Standard
+
+Minimum value allowed
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Max value
+\begin_deeper 
+\layout Standard
+
+Maximum value allowed
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Start
+\begin_deeper 
+\layout Standard
+
+The initial sequence value
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Cache
+\begin_deeper 
+\layout Standard
+
+Specify how many values must be kept in memory for faster access
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Cycle
+\begin_deeper 
+\layout Standard
+
+Indicates that the sequence must continue to generate numbers when it reaches
+ it maximum or its minimum value
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Order
+\begin_deeper 
+\layout Standard
+
+Specify that sequence numbers are generated in order of request (less used)
+\end_deeper 
+\layout Standard
+
+Usually all options can be omitted and some (like cache, order) are not
+ accepted by all DBMSs.
+\layout Standard
+\added_space_top defskip \noindent 
+To add a sequence do a right click on a database or a folder and select
+ 
+\begin_inset Quotes sld
+\end_inset 
+
+
+\family sans 
+Add sequence
+\family default 
+
+\begin_inset Quotes srd
+\end_inset 
+
+ from the popup menu.
+\layout Section
+
+Notes
+\layout Standard
+
+The purpose of a Notes object is to contain the documentation that don't
+ fit into a particular object.
+ It is not used during normal operations and contributes only when generating
+ docs.
+ Each note has a type that classify the note itself.
+ The type can be 
+\family sans 
+info
+\family default 
+, 
+\family sans 
+alert
+\family default 
+ or 
+\family sans 
+danger
+\family default 
+ and you choose between them depending on your needs.
+\layout Standard
+\added_space_top defskip \noindent 
+To add a note do a right click on a database or a folder and select 
+\begin_inset Quotes sld
+\end_inset 
+
+
+\family sans 
+Add notes
+\family default 
+
+\begin_inset Quotes srd
+\end_inset 
+
+ from the popup menu.
+\layout Chapter
+
+
+\begin_inset LatexCommand \label{cha:Data-generation}
+
+\end_inset 
+
+Data generation
+\layout Section
+
+What gets generated ?
+\layout Standard
+
+Once you have developed the database schema, you certainly need to create
+ this schema into your DBMS.
+ Usually this work is done by a sql script that creates the schema objects
+ one after another using sql commands.
+ At this point the main work is finished but there are several secondary
+ works that are part of the database and that can help during developing.
+ Druid can automatically generate the following kind of files: 
+\layout Itemize
+
+
+\series bold 
+The sql file
+\begin_deeper 
+\layout Standard
+
+This is the file I talked about.
+ This is an ascii file with sql commands that create the database objects.
+ You have several modules to generate the sql script, one for each database
+ you use.
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Documentation
+\begin_deeper 
+\layout Standard
+
+The documentation is an important aspect of the database.
+ It explains the purpose of tables and fields, why a field exists, various
+ relationships between objects and so on.
+ You can generate the documentation in several formats, depending on your
+ needs.
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Code
+\begin_deeper 
+\layout Standard
+
+An important aspect that Druid takes into account is the generation of programmi
+ng aids.
+ Druid can generate source files / classes in several programming languages.
+ To see how this feature can be used see section 
+\begin_inset LatexCommand \ref{sec:Table-vars}
+
+\end_inset 
+
+ or the 
+\noun on 
+module
+\family sans 
+\noun default 
+ 
+\family default 
+\noun on 
+reference
+\family sans 
+\noun default 
+ 
+\family default 
+\noun on 
+manual
+\noun default 
+.
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Summary
+\begin_deeper 
+\layout Standard
+
+As its name suggest, a summary is a short description of your database schema.
+ You can use it as a fast reference.
+\end_deeper 
+\layout Itemize
+
+
+\series bold 
+Data dictionary
+\begin_deeper 
+\layout Standard
+
+This is an ascii file that contains the database data dictionary, that is
+ a list of table names and fields.
+ It is mainly used for programming and its format depends on the module
+ that generated it.
+ The standard ascii module generates a file that can be easily parsed and
+ stored into a database table.
+\end_deeper 
+\layout Standard
+
+If you select 
+\family sans 
+Config
+\family default 
+\SpecialChar \menuseparator
+
+\family sans 
+Modules
+\family default 
+ from the main menu, you open the 
+\family sans 
+Loaded
+\family default 
+ 
+\family sans 
+modules
+\family default 
+ dialog that show all loaded modules.
+ In the 
+\family sans 
+Data
+\family default 
+ 
+\family sans 
+Generation
+\family default 
+ folder are located all modules that concern data generation.
+ You should see a dialog like the one in figure 
+\begin_inset LatexCommand \ref{fig:datagen-modules}
+
+\end_inset 
+
+.
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/datagen1.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:datagen-modules}
+
+\end_inset 
+
+The data generation modules
+\end_inset 
+
+
+\layout Standard
+
+Druid has a plug-in architecture for modules.
+ This means that you can download and install modules after the Druid main
+ program has been installed.
+ Every Druid package comes with all modules available so you don't have
+ to download them separately.
+ In any case, to know more see the 
+\noun on 
+module reference manual
+\noun default 
+.
+\layout Section
+
+
+\begin_inset LatexCommand \label{sec:datagen-adding-modules}
+
+\end_inset 
+
+Adding modules to a project
+\layout Standard
+
+To generate a kind of data file you need to add the proper module to your
+ project.
+ To do this, select the database node and then the 
+\family sans 
+Generation
+\family default 
+ tab.
+ You would see a panel with two tabs: 
+\family sans 
+Options
+\family default 
+ and 
+\family sans 
+Modules
+\family default 
+.
+ Select the second one and you will see something like figure 
+\begin_inset LatexCommand \ref{fig:datagen-modpanel}
+
+\end_inset 
+
+.
+ Here you have a set of folders, one for each kind of module.
+ To add a module to your project simply do a right click on a Folder, choose
+ 
+\family sans 
+Add
+\family default 
+ 
+\family sans 
+module
+\family default 
+ and the module you want to add.
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/datagen2.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:datagen-modpanel}
+
+\end_inset 
+
+The generation module panel
+\end_inset 
+
+
+\layout Standard
+
+Once you have added a module you can configure it using the panel on the
+ right, which is divided into two parts.
+ The top part is common to all modules and contains or a path or a filename
+ (it depends on the module) where to generate data.
+ The bottom part contains all options specific to a module so it can or
+ cannot be present.
+ Figure 
+\begin_inset LatexCommand \ref{fig:datagen-sqlgenmod}
+
+\end_inset 
+
+ shows the xhtml docs generation module with its options at the bottom of
+ the right panel.
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/datagen3.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:datagen-sqlgenmod}
+
+\end_inset 
+
+The sql generation module
+\end_inset 
+
+
+\layout Section
+
+Data generation
+\layout Standard
+
+Data can be generated from the 
+\family sans 
+Data
+\family default 
+ 
+\family sans 
+generation
+\family default 
+ 
+\family sans 
+panel
+\family default 
+ (see 
+\begin_inset LatexCommand \ref{sec:datagen-adding-modules}
+
+\end_inset 
+
+).
+ You can do a right click on a node and choose 
+\family sans 
+Generate
+\family default 
+ to activate all modules that are children of the selected node.
+ For example, referring to figure 
+\begin_inset LatexCommand \ref{fig:datagen-sqlgenmod}
+
+\end_inset 
+
+ if you do a right click on the xhtml module you will activate only that
+ module.
+ If you do a right click on the 
+\family sans 
+Docs
+\family default 
+ node, you will activate the xhtml module and all other docs modules.
+ If you do a right click on the 
+\family sans 
+Data
+\family default 
+ 
+\family sans 
+Generation
+\family default 
+ node, you will activate all modules added to the project.
+\layout Section
+
+Customization
+\layout Standard
+
+Some modules can be easily customized in what they generate.
+ For example the html docs generation module uses some templates that you
+ can change.
+ See the 
+\noun on 
+module
+\noun default 
+ 
+\noun on 
+reference
+\noun default 
+ 
+\noun on 
+manual
+\noun default 
+ for more information.
+\layout Chapter
+
+
+\begin_inset LatexCommand \label{cha:The-command-line}
+
+\end_inset 
+
+The command line interface
+\layout Section
+
+Introduction
+\layout Standard
+
+When several developers / dbas work on the same project each person handles
+ only one part of it.
+ It is a common common practice that a DBA maintains the database, modifing
+ tables and fields, while other developers use the new database structure
+ supplied by the DBA.
+ They may receive the sql-script that generates the database or the database
+ itself in another format (for example a Druid file).
+ In the last case developers must run the program used to create the database
+ and regenerate the script file.
+ Druid simplifies this task supplying a command line interface which allows
+ developers to drive some Druid's action without running the GUI.
+ This feature is best used in scripts.
+ 
+\layout Section
+
+Parameters
+\layout Standard
+
+Druid takes several parameters, which may have an arbitrary order.
+ Each parameters has the following structure (note the "-" prefix):
+\layout Quote
+
+
+\family typewriter 
+\noun on 
+-<param>[:<value>{,<value>}]
+\layout Standard
+
+So, common parameters have this form:
+\layout Quote
+
+
+\family typewriter 
+\noun on 
+-param
+\layout Quote
+
+
+\family typewriter 
+\noun on 
+-param:value
+\layout Quote
+
+
+\family typewriter 
+\noun on 
+-param:value,value
+\layout Quote
+
+
+\family typewriter 
+\noun on 
+-param:value, ...
+ , value
+\layout Standard
+
+Druid accepts the following parameters: 
+\layout List
+\labelwidthstring 00.00.0000
+
+-
+\family sans 
+\series bold 
+proj
+\family default 
+\series default 
+ Indicates a Druid project and must be supplied.
+\begin_deeper 
+\layout Standard
+
+Example: 
+\family typewriter 
+\noun on 
+-proj:database.druid 
+\end_deeper 
+\layout List
+\labelwidthstring 00.00.0000
+
+-
+\family sans 
+\series bold 
+gen
+\family default 
+\series default 
+ If given, this parameter tells Druid to generate the database data.
+ Some values must be supplied in order to specify what must be generated.
+ Accepted values are:
+\begin_deeper 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\family sans 
+\series bold 
+sql
+\family default 
+\series default 
+ generates the sql-script
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\family sans 
+\series bold 
+docs
+\family default 
+\series default 
+ generates docs
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\family sans 
+\series bold 
+datad
+\family default 
+\series default 
+ generates the data dictionary
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\family sans 
+\series bold 
+summ
+\family default 
+\series default 
+ generate the summary
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\family sans 
+\series bold 
+code
+\family default 
+\series default 
+ generate the code classes / file
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\family sans 
+\series bold 
+generic
+\family default 
+\series default 
+ generate data related to generic modules
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\family sans 
+\series bold 
+template
+\family default 
+\series default 
+ generate data from templates
+\layout Standard
+
+Remember that the output files / dirs are those specified in the Druid file.
+\layout Standard
+
+Example: 
+\family typewriter 
+\noun on 
+-gen:sql,html,summ 
+\end_deeper 
+\layout List
+\labelwidthstring 00.00.0000
+
+-
+\family sans 
+\series bold 
+db
+\family default 
+\series default 
+ A Druid file can contain several databases.
+ This parameters indicates the database to work on.
+ The value must be an integer starting from 0 (for the first database).
+ If the Druid file contains n databases then 'value' must be in the range
+ 0..n-1.
+ If this parameter is not given, Druid performs its operations on all databases.
+\begin_deeper 
+\layout Standard
+
+Example: 
+\family typewriter 
+\noun on 
+-db:2 
+\end_deeper 
+\layout List
+\labelwidthstring 00.00.0000
+
+-
+\family sans 
+\series bold 
+help
+\family default 
+\series default 
+ Shows a brief summary of commands.
+ 
+\layout Section
+
+Starting with a specific project file
+\layout Standard
+
+If only the -proj parameter is supplied, Druid starts the GUI and opens
+ the given project.
+ Example:
+\layout LyX-Code
+
+java -jar druid.jar -proj:myproject.druid
+\layout Chapter
+
+Ant integration
+\layout Standard
+
+Druid can be run as an ant task.
+ Here is an example of 
+\noun on 
+build.xml
+\noun default 
+ file that calls druid:
+\layout LyX-Code
+
+<project name="test" default="test">
+\layout LyX-Code
+
+\layout LyX-Code
+
+   <taskdef name="druid"
+\layout LyX-Code
+
+         classpath="/my/src/druid-project/druid/libs/ant-task.jar"
+\layout LyX-Code
+
+         classname="druid.AntTask" />
+\layout LyX-Code
+
+\layout LyX-Code
+
+   <target name="test"> 
+\layout LyX-Code
+
+      <druid command = "-gen:sql -db:0 -proj:/.../database.druid" /> 
+\layout LyX-Code
+
+   </target>
+\layout LyX-Code
+
+\layout LyX-Code
+
+</project>
+\layout Standard
+
+As you can see, the 
+\family sans 
+taskdef
+\family default 
+ tag defines the task named 
+\family sans 
+druid
+\family default 
+.
+ Then, the 
+\family sans 
+druid
+\family default 
+ tag is used to run druid.
+ 
+\family sans 
+command
+\family default 
+ is the only accepted attribute and must reflect the full command line that
+ would be issued in a shell.
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Note
+\series default 
+ This druid version doesn't accept paths that contain spaces in the command
+ attrib.
+\the_end

@@ -1,0 +1,222 @@
+#**
+
+    Bruno 15-10-2003
+
+*### This is to avoid spaces in the beginning of the file.
+##
+<section id="table_${table.getNCNamePart()}">
+      <title>${lang.table} : ${table.Name}</title>
+      #if (${table.descr}!="")
+          <para><${table.xmlDescr}></para>
+      #end
+      <para>
+        #set ( $referringTables = ${table.getReferringTables()} )
+        #if  ( !$referringTables.isEmpty() )
+            <emphasis>${lang.seeAlso} : </emphasis>
+            #foreach($refTable in $referringTables)
+              <link linkend="table_${refTable.getNCNamePart()}">${refTable.Name}</link> ;
+            #end
+            .
+        #end
+      </para>
+      <table>
+        <title>${lang.fieldSummary}</title>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry>${lang.name}</entry>
+              <entry>${lang.type}</entry>
+              <entry>${lang.description}</entry>
+            </row>
+          </thead>
+          <tbody>
+          #foreach($field in ${table.getFields()})
+            <row>
+              <entry>
+                <emphasis>
+                  <link linkend="field_${table.getNCNamePart()}.${field.getNCNamePart()}">${field.Name}</link>
+                </emphasis>
+              </entry>
+              <entry>
+              #if(${field.getIsPrimaryKey()})
+                  PK,
+              #end
+              #if(${field.getIsForeignKey()})
+                  FK,
+              #end
+              ##<link linkend="datatype_${field.getBasicType()}">${field.getSqlType()}</link>
+              ${field.getSqlType()}
+                  #if ( ${field.getSqlType()} != ${field.getType()})
+                    #if( $field.isForeignKey )
+                        #set ($ft = ${field.getForeignTable()})
+                        #set ($ff = ${field.getForeignField()})
+                        : <link linkend="table_${ft.getNCNamePart()}">${ft.getName()}</link>(
+                        <link linkend="field_${ft.getNCNamePart()}.${ff.getNCNamePart()}">${ff.getName()}</link>)
+                    #else
+                        : <link linkend="datatype_${field.getType()}">${field.getType()}</link>
+                    #end
+                  #end
+              .
+              </entry>
+              <entry>${field.xmlDescr}</entry>
+            </row>
+          #end
+          </tbody>
+        </tgroup>
+      </table>
+      <section>
+        <title>${lang.field}</title>
+        #foreach($field in ${table.getFields()})
+         <section id="field_${table.getNCNamePart()}.${field.getNCNamePart()}">
+          <title>${field.Name}</title>
+          <para>${field.xmlDescr}</para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                <emphasis>SQL Type : </emphasis>
+                ##<link linkend="datatype_${field.getBasicType()}">${field.getSqlType()}</link> ;
+                ${field.getSqlType()} ;
+                #if( $field.isForeignKey )
+                    #set ($ft = ${field.getForeignTable()})
+                    #set ($ff = ${field.getForeignField()})
+                    <emphasis>Reference : </emphasis>
+                        <link linkend="table_${ft.getNCNamePart()}">${ft.getName()}</link>(
+                        <link linkend="field_${ft.getNCNamePart()}.${ff.getNCNamePart()}">${ff.getName()}</link>).
+                #else
+                    <emphasis>Local Type : </emphasis><link linkend="datatype_${field.getType()}">${field.getType()}</link>.
+                #end
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Attributs :
+                <itemizedlist>
+                #foreach( $attr in $fattribs )
+                    #set( $val = $field.getFieldAttribVal( $attr ) )
+                    #set( $name = ${attr.descr} )
+                    #if($name == "")
+                        #set( $name = ${attr.sqlName} )
+                    #end
+                    #if($name == "")
+                        #set( $name = ${attr.Name} )
+                    #end
+                    <listitem>
+                        <para>
+                          #if (${val.value} == "true")
+                            <emphasis>${name}</emphasis> : True.
+                          #elseif (${val.value} == "false")
+                            ${name} : False.
+                          #elseif (${val.value} == "")
+                            ${name} : <emphasis>Empty</emphasis>.
+                          #else
+                            <emphasis>${name}</emphasis> : ${val.value}.
+                          #end
+                      </para>
+                    </listitem>
+                #end
+                </itemizedlist>
+              </para>
+            </listitem>
+            #if( $field.isForeignKey )
+            <listitem>
+              <para>Actions
+               <itemizedlist>
+                <listitem>
+                 <para><emphasis>On update : </emphasis><programlisting><![CDATA[${field.onUpdateAction}]]></programlisting></para>
+                </listitem>
+                <listitem>
+                 <para><emphasis>On delete : </emphasis><programlisting><![CDATA[${field.onDeleteAction}]]></programlisting></para>
+                </listitem>
+               </itemizedlist>
+              </para>
+            </listitem>
+            #end
+          </itemizedlist>
+         </section>
+        #end  ##foreach($field in ${table.getFields()})
+      </section>
+      #set ( $vars = $table.vars )
+	  #if ( !$vars.isEmpty() )
+      <section>
+        <title>${lang.tableVars}</title>
+          <table>
+            <title>${lang.tableVars}</title>
+            <tgroup cols="4">
+              <thead>
+                <row>
+                  <entry>${lang.name}</entry>
+                  <entry>${lang.type}</entry>
+                  <entry>${lang.value}</entry>
+                  <entry>${lang.description}</entry>
+                </row>
+              </thead>
+              <tbody>
+              #foreach( $var in $vars )
+                <row>
+                  <entry>${var.name}</entry>
+                  <entry>#buildType( $var )</entry>
+                  <entry>${var.value}</entry>
+                  <entry>${var.xmlDescr}</entry>
+                </row>
+              #end
+              </tbody>
+            </tgroup>
+          </table>
+      </section>
+      #end ##if ( !$vars.isEmpty() )
+
+
+    #set ( $sqlCommands = $table.sqlCommands )
+	#if ( $sqlCommands != "" )
+    <section>
+      <title>${lang.sqlCommands}</title>
+      <para>
+         <programlisting><![CDATA[${sqlCommands}]]></programlisting>
+      </para>
+    </section>
+    #end ##if ( $sqlCommands != ""  )
+
+
+
+    #set ( $triggers = $table.triggers )
+	#if ( !$triggers.isEmpty() )
+    <section>
+      <title>${lang.triggers}</title>
+      <para>
+       <itemizedlist>
+       #foreach( $trigger in triggers )
+        <listitem>
+         <para><emphasis>${trigger.Name} : </emphasis>
+         ${trigger.xmlDescr}
+         <programlisting><![CDATA[${trigger.activString} ${trigger.activEvent}
+FOR EACH ${trigger.forEachString}
+#if(${trigger.when} != "")WHEN(${trigger.When})
+#end
+
+${trigger.Code}]]></programlisting></para>
+        </listitem>
+       #end
+       </itemizedlist>
+      </para>
+    </section>
+    #end ##if ( !$triggers.isEmpty() )
+
+    #set ( $rules = $table.rules )
+	#if ( !$rules.isEmpty() )
+    <section>
+      <title>${lang.rules}</title>
+      <para>
+       <itemizedlist>
+       #foreach( $rule in rules )
+        <listitem>
+         <para><emphasis>${rule.Name} : </emphasis>
+         ${rule.xmlDescr}
+         <programlisting><![CDATA[${rule.Rule}]]></programlisting></para>
+        </listitem>
+       #end
+       </itemizedlist>
+      </para>
+    </section>
+    #end ##if ( !$rules.isEmpty() )
+
+    </section>

@@ -1,0 +1,57 @@
+#xhtmlHeader()
+<head>
+    <!-- ${lang.generatedOn} ${Sys.date} -->
+	<title>${lang.docsForDatabase} : ${db.htmlName}</title>
+	<link rel="stylesheet" type="text/css" href="../main/stylesheet.css" title="style" />
+</head>
+
+<body>
+	<table width="100%" border="1" cellspacing="0" cellpadding="2">
+		<tr class="title"><td>${folder.htmlName}</td></tr>
+	</table>
+	<br/>
+	<table cellspacing="0" cellpadding="0">
+		#foreach( $child in $folder.children )
+			#set( $dir = "../objects/")
+			#set( $image  = "?" )
+			#set( $target = "docFrame" )
+
+			#if( $child.isTable)
+				#set( $image = "table.png" )
+
+			#elseif( $child.isView)
+				#set( $image = "view.png" )
+
+			#elseif( $child.isProcedure)
+				#set( $image = "procedure.png" )
+
+			#elseif( $child.isFunction)
+				#set( $image = "function.gif" )
+
+			#elseif( $child.isSequence)
+				#set( $image = "sequence.png" )
+
+			#elseif( $child.isNotes)
+				#if( $child.isInfo)
+					#set( $image = "info.png" )
+				#elseif( $child.isAlert)
+					#set( $image = "alert.png" )
+				#else
+					#set( $image = "danger.png" )
+				#end
+
+			#elseif( $child.isFolder)
+				#set( $dir    = "" )
+				#set( $image  = "folder.png" )
+				#set( $target = "objectsFrame" )
+			#end
+
+			<tr class="navTree">
+			<td><img alt="${image}" align="middle" src="../images/${image}" /></td>
+			<td><a href="${dir}${child.file}.html" target="${target}">${child.htmlName}</a></td>
+			</tr>
+		#end
+	</p>
+</body>
+
+</html>

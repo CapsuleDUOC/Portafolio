@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project version="2">
+	<attribs>
+		<attrib name="build">16</attrib>
+		<attrib name="serial">483</attrib>
+	</attribs>
+	<database>
+		<attribs>
+			<attrib name="name">CastorExample</attrib>
+			<attrib name="preSql"/>
+			<attrib name="postSql"/>
+			<attrib name="ddUseDDEquiv">false</attrib>
+			<attrib name="codeUseBuild">true</attrib>
+			<attrib name="summUseDDEquiv">true</attrib>
+		</attribs>
+		<revisions>
+			<list>
+				<header>
+					<elem>version</elem>
+					<elem>date</elem>
+					<elem>descr</elem>
+				</header>
+			</list>
+		</revisions>
+		<fieldAttribs>
+			<list>
+				<header>
+					<elem>id</elem>
+					<elem>name</elem>
+					<elem>sqlName</elem>
+					<elem>type</elem>
+					<elem>scope</elem>
+					<elem>useInDD</elem>
+					<elem>useInSumm</elem>
+					<elem>width</elem>
+					<elem>descr</elem>
+				</header>
+			</list>
+		</fieldAttribs>
+		<modsConfig>
+			<GenericGenModule>
+				<castor>
+					<output>/my/src/druid-project/test/castor.xml</output>
+				</castor>
+			</GenericGenModule>
+		</modsConfig>
+		<modsUsage/>
+		<dataTypes>
+			<constFolder>
+				<type>
+					<attribs>
+						<attrib name="name">integer</attrib>
+						<attrib name="ddEquiv">int</attrib>
+						<attrib name="id">9</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+			</constFolder>
+			<varFolder>
+				<type>
+					<attribs>
+						<attrib name="name">varchar</attrib>
+					</attribs>
+					<aliases>
+						<alias>
+							<attribs>
+								<attrib name="name">string</attrib>
+								<attrib name="ddEquiv">String</attrib>
+								<attrib name="id">10</attrib>
+								<attrib name="size">24</attrib>
+							</attribs>
+							<domain>
+								<attribs>
+									<attrib name="minValue"/>
+									<attrib name="outRange">false</attrib>
+									<attrib name="maxValue"/>
+									<attrib name="type">none</attrib>
+								</attribs>
+								<list>
+									<header>
+										<elem>value</elem>
+									</header>
+								</list>
+							</domain>
+						</alias>
+					</aliases>
+				</type>
+			</varFolder>
+		</dataTypes>
+		<queries/>
+		<erViews/>
+		<objects>
+			<folder>
+				<attribs>
+					<attrib name="name">Customer</attrib>
+				</attribs>
+				<modsConfig/>
+				<table>
+					<vars>
+						<list>
+							<header>
+								<elem>name</elem>
+								<elem>type</elem>
+								<elem>value</elem>
+								<elem>descr</elem>
+							</header>
+							<row>
+								<elem>ID</elem>
+								<elem>i</elem>
+								<elem>null</elem>
+								<elem/>
+							</row>
+							<row>
+								<elem>name</elem>
+								<elem>s</elem>
+								<elem>null</elem>
+								<elem/>
+							</row>
+						</list>
+					</vars>
+					<triggers/>
+					<rules/>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="name">Customer</attrib>
+						<attrib name="id">6</attrib>
+						<attrib name="tempPK"/>
+						<attrib name="tempFK"/>
+						<attrib name="tempOther"/>
+						<attrib name="sqlCommands"/>
+					</attribs>
+					<modsConfig/>
+					<field>
+						<fieldAttribs>
+							<attribs/>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">ID</attrib>
+							<attrib name="id">122</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">9</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs/>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">Name</attrib>
+							<attrib name="id">123</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">10</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+				</table>
+				<table>
+					<vars>
+						<list>
+							<header>
+								<elem>name</elem>
+								<elem>type</elem>
+								<elem>value</elem>
+								<elem>descr</elem>
+							</header>
+						</list>
+					</vars>
+					<triggers/>
+					<rules/>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="name">Address</attrib>
+						<attrib name="id">7</attrib>
+						<attrib name="tempPK"/>
+						<attrib name="tempFK"/>
+						<attrib name="tempOther"/>
+						<attrib name="sqlCommands"/>
+					</attribs>
+					<modsConfig/>
+					<field>
+						<fieldAttribs>
+							<attribs/>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">ID</attrib>
+							<attrib name="id">8</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">9</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs/>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="refField">122</attrib>
+							<attrib name="name">CustomerID</attrib>
+							<attrib name="id">28</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">6</attrib>
+							<attrib name="type">0</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs/>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">Address</attrib>
+							<attrib name="id">29</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">10</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs/>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">City</attrib>
+							<attrib name="id">31</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">10</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs/>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">State</attrib>
+							<attrib name="id">32</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">10</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs/>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">Zip</attrib>
+							<attrib name="id">33</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">10</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+				</table>
+			</folder>
+			<folder>
+				<attribs>
+					<attrib name="name">Invoice</attrib>
+				</attribs>
+				<modsConfig/>
+				<table>
+					<vars>
+						<list>
+							<header>
+								<elem>name</elem>
+								<elem>type</elem>
+								<elem>value</elem>
+								<elem>descr</elem>
+							</header>
+						</list>
+					</vars>
+					<triggers/>
+					<rules/>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="name">Invoice</attrib>
+						<attrib name="id">4</attrib>
+						<attrib name="tempPK"/>
+						<attrib name="tempFK"/>
+						<attrib name="tempOther"/>
+						<attrib name="sqlCommands"/>
+					</attribs>
+					<modsConfig/>
+					<field>
+						<fieldAttribs>
+							<attribs/>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">ID</attrib>
+							<attrib name="id">220</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">9</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs/>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="refField">122</attrib>
+							<attrib name="name">CustomerID</attrib>
+							<attrib name="id">221</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">6</attrib>
+							<attrib name="type">0</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs/>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">InvoiceNO</attrib>
+							<attrib name="id">222</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">10</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+				</table>
+				<table>
+					<vars>
+						<list>
+							<header>
+								<elem>name</elem>
+								<elem>type</elem>
+								<elem>value</elem>
+								<elem>descr</elem>
+							</header>
+						</list>
+					</vars>
+					<triggers/>
+					<rules/>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="name">LineItem</attrib>
+						<attrib name="id">5</attrib>
+						<attrib name="tempPK"/>
+						<attrib name="tempFK"/>
+						<attrib name="tempOther"/>
+						<attrib name="sqlCommands"/>
+					</attribs>
+					<modsConfig/>
+					<field>
+						<fieldAttribs>
+							<attribs/>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">ID</attrib>
+							<attrib name="id">223</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">9</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs/>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="refField">220</attrib>
+							<attrib name="name">InvoiceID</attrib>
+							<attrib name="id">224</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">4</attrib>
+							<attrib name="type">0</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs/>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">Description</attrib>
+							<attrib name="id">225</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">10</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs/>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">Qty</attrib>
+							<attrib name="id">226</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">10</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs/>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">Cost</attrib>
+							<attrib name="id">227</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">10</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+				</table>
+			</folder>
+		</objects>
+		<docs>
+			<p>
+				<t>...</t>
+			</p>
+		</docs>
+	</database>
+</project>

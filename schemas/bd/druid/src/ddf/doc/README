@@ -1,0 +1,18 @@
+================================================================================
+INSTALLATION
+================================================================================
+
+The library can be added to your code in two ways:
+
+- Copy the library inside the JRE, into the lib/ext dir (for JRE 1.4 and above)
+
+- Add the library to the classpath:
+   java -cp druid-ddf.jar <your class>
+
+================================================================================
+LICENSE
+================================================================================
+
+The library is released under the Lesser GPL license. See COPYING.LIB-2.1 for
+more information.
+

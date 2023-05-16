@@ -1,0 +1,132 @@
+=============================================================================
+=== Version 3.13 on 01-Jun-2012
+=============================================================================
+
+- Sql generation modules: added possibility to specify alternate drop table
+  and drop sequence statements
+
+- DDF:
+	- Incremented version to 3. Now, timestamps are read/written in UTC timezone.
+	  Version 1 and 2 are still read using the default timezone.
+
+- Bugs fixed:
+	- Sql generation: DROP sequences statements got generated even though the
+	  "generate sequence" flag was unchecked.
+
+- Changes:
+	- For Oracle DBMSs, the DATE type is converted into a timestamp
+	- Improved JDBC's metadata retrieval (this allows to get metadata from Vertica DB)
+	- Added a template for MySQL 5 databases.
+
+- New PHP code generation features (added by Paul J. Morris):
+	- Addition of substantial new code generation capabilities for PHP. This has been under
+	  development for some years and about the time of the release of druid 3.9 underwent
+	  refactoring to split out the database specific code into a set of decorator classes.
+	  The refactoring is not complete.  The code mostly works, but issues remain and more
+	  updating, refactoring, and testing are needed, in particular the generated code has
+	  not been tested with newer versions of dojo, the mysql decorator hasn't been fully
+	  refactored (the mysqli decorator is used instead), and some data model constructs
+	  (e.g. field names that are PHP reserved words, entities with a pair of primary keys
+	  and no other attributes) don't produce valid PHP code. The PHP code generation can,
+	  depending on the user's selections, span the range from the original light weight
+	  proxy object classes to an almost complete database driven web site with classes that
+	  support CRUD and use an extendable model-view-controller framework (where model and
+	  views are generated, including views providing JSON support for picklists and ajax
+	  editing using (an older version of) the dojo framework. The functionality is documented
+	  in a php_code_generation addition to the manuals directory.
+	- Added support for full text indexes - primarily the MySQL feature, with picklists and
+	  sql generation in core druid.  Added a druid.core.DataLib.isIndexed() method to allow
+	  detection of indexed fields from code generation modules.  Added additional MySQL database
+	  types (merge, memmory, csv, blackhole, etc).  Added druid.core.DataLib.isUnsigned() method
+	  to allow detection of unsigned integer data types.  Added Change and Done buttons to
+	  DataTypeSelector dialog, allowing dialog to be closed from the Done button.
+	- Added a getkeySelectDistinctJSONFilteredMethod to the PHP code generation 
+	  to allow generation of a backing method to work with current dojo (1.6.1) 
+	  FilteringSelect controls. Implemented and tested in mysqli decorator, implemented 
+	  but didn't test in oracle and postgres decorators.  Added only a stub in dbo and 
+	  mysql decorators.
+	- Fixed PHP code generation for MySQLi to allow for the construction of valid PHP class 
+	  files for all table structures found in the Specify Software Project's Specify6 schema 
+	  (and the generated code passes all unit tests). Generated code is now valid PHP for 
+	  classes built from associative entities that lack a single auto-incrementing primary 
+	  key, and valid when a prefix or suffix is specified in the UI (the prefix being applied
+	  to the class file names, but not to the database table names).  Similar changes are 
+	  needed for the other PHP decorators.
+
+=============================================================================
+=== Version 3.12 on 13-May-2011
+=============================================================================
+
+- DDF
+	- designed a new format to handle both insert, update and delete of records
+	- DDF code has been put into a separate selfcontained jar (LGPL license) to
+	  allow reuse outside of Druid
+
+- JDBC
+	- Added header (list of query fields) to CSV export
+	- SQL Navigator
+		- max rows has now a default value of 100, is never disabled, max value is now 50000
+		- Added explain plan functionality for Oracle
+	- Table data editor
+		- max rows has now a default value of 100, is never disabled, max value is now 50000
+
+- MySQLModule
+	- Added a table's flag to specify the AUTO_INCREMENT option for primary keys
+
+- OracleModule
+	- Added a table's flag to automatically generate a sequence for primary keys
+	- Added possibility to specify an alternate drop table statement
+
+=============================================================================
+=== Version 3.11 on 06-Nov-2010
+=============================================================================
+
+- Added DROP VIEW IF EXISTS to MySql generation module
+
+- Added "Table references" summary module to generate, for each table, all
+  tables with fkeys to this one.
+
+- ER-VIEW
+	- Added confirmation dialog when removing views, entities and er-colors
+	- Added referencing tables to entity's tooltip
+	- Added menuitem to add all tables referencing a given entity as separate entities
+	- Fixed bug in the treeview: the cut & delete operations where inverted if
+	  selected from the drop down menu
+	- Fixed bug in the treeview: the paste operation did not remap the color-id
+	- Improved look
+		- separated fkeys from field list
+		- attributes are now optional
+		- text and title backgrounds are now optional
+	- Added possibilities to add colors from a color set (theme)
+	- Added possibility to import entities singularly
+
+- Code and PDF generation: now a relative path provided in the output panel is considered
+  relative to the project's path.
+
+- Added "ghost tables": these tables represents external tables that should not be included
+  in the generated SQL
+
+- JDBC
+	- now the table's data panel remembers the "where" string when the table is selected again
+
+- Bugs fixed:
+	- 2974538 : wrong paragraph indexing in PDF generation (thanks to cboudy)
+	- 2930229 : Postgres SQL generation: bigserial was not converted to bigint (thanks to Jaret Ward)
+	- 2705237 : PHP code generation: Removed closing tag (thanks to Bernie Schelberg)
+
+=============================================================================
+=== Version 3.10 on 20-Sep-2009
+=============================================================================
+
+- Improved DDF module
+   - Import : In case of errors, a dialog pops up asking for an action (retry,
+     skip, skip all, abort)
+   - Added import and export of boolean datatypes
+   - Added progress bar both when importing and exporting
+
+- Added patch to fix a bug with MySQL JDBC connections. In case of errors, Druid
+  had to be restarted. Thanks to Paul J. Morris.
+
+- Sql diff: fixed fieldAttrib lookup that caused problems with indexes
+
+=============================================================================

@@ -1,0 +1,56 @@
+#macro( header $file $lang)
+	<table class="navBar">
+		<tr>
+			<td><a href="../main/index.html">${lang.index.toUpperCase()}</a></td>
+			<td><a href="../main/revisions.html">${lang.revisions.toUpperCase()}</a></td>
+			<td width="30%" />
+			<td><a href="#Overview">${lang.overview.toUpperCase()}</a></td>
+		</tr>
+
+		<tr>
+			<td><a href="../main/datatypes.html">${lang.datatypes.toUpperCase()}</a></td>
+			<td><a href="../main/tablespaces.html">${lang.tablespaces.toUpperCase()}</a></td>
+			<td width="30%" />
+			<td><a href="${file}.html">${lang.erView.toUpperCase()}</a></td>
+		</tr>
+	</table>
+#end
+##===============================================================================
+#xhtmlHeader()
+<head>
+    <!-- ${lang.generatedOn} ${Sys.date} -->
+	<title>${lang.docsForDatabase} : ${db.htmlName}</title>
+	<link rel ="stylesheet" type="text/css" href="../main/stylesheet.css" title="Style" />
+</head>
+
+<body>
+
+	#header(${erEntity.parent.file} $lang)
+	<hr/>
+
+	<a name="Overview"></a>
+
+	<table width="100%" border="1" cellspacing="0" cellpadding="2">
+		<tr class="title"><td>${lang.erEntity} : ${erEntity.htmlName}</td></tr>
+	</table>
+
+	<table>
+		<tr>
+			<td width="20%"><img alt="${erEntity.parent.file} - ${erEntity.file}" src="../images/er-views/${erEntity.parent.file}_${erEntity.file}.png" /></td>
+			<td valign="top">${erEntity.htmlDescr}</td>
+		</tr>
+	</table>
+
+	<p><b>${lang.usedTables}</b></p>
+	<blockquote>
+		#foreach( $table in $erEntity.tables )
+			<a href="../objects/${table.file}.html">${table.htmlName}</a><br/>
+		#end
+	</blockquote>
+
+	<hr/>
+	#header(${erEntity.parent.file} $lang)
+
+</body>
+
+</html>

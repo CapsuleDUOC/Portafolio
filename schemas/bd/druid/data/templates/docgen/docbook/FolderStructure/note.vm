@@ -1,0 +1,23 @@
+#**
+
+    Bruno 15-10-2003
+
+*### This is to avoid spaces in the beginning of the file.
+##
+    <section id="note_${note.getNCNamePart()}">
+        #if( $note.isInfo )
+            #set( $image = "Info : " )
+        #elseif( $note.isAlert )
+            #set( $image = "Alert : " )
+        #elseif( $note.isDanger )
+            #set( $image = "Danger : " )
+        #else
+            #set( $image = "? : " )
+        #end
+        <title>${lang.notes} : $image ${note.Name}</title>
+        #if (${note.Descr} != "")
+            <para>${note.xmlDescr}</para>
+        #else
+            <para>...</para>  ## We don't want to break docbook ...
+        #end
+    </section>

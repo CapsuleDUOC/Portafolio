@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project version="1">
+	<attribs>
+		<attrib name="name" value="-UnNamed-"/>
+		<attrib name="build" value="5"/>
+		<attrib name="serial" value="42"/>
+	</attribs>
+	<database>
+		<attribs>
+			<attrib name="name" value="PostgreSQL db"/>
+			<attrib name="preSql" value="BEGIN WORK;
+"/>
+			<attrib name="postSql" value="COMMIT;
+"/>
+			<attrib name="ddUseDDEquiv" value="false"/>
+			<attrib name="codeUseBuild" value="true"/>
+			<attrib name="summUseDDEquiv" value="true"/>
+		</attribs>
+		<revisions>
+			<list>
+				<header>
+					<elem name="version"/>
+					<elem name="date"/>
+					<elem name="descr"/>
+				</header>
+			</list>
+		</revisions>
+		<fieldAttribs>
+			<list>
+				<header>
+					<elem name="id"/>
+					<elem name="name"/>
+					<elem name="sqlName"/>
+					<elem name="type"/>
+					<elem name="scope"/>
+					<elem name="useInDD"/>
+					<elem name="useInSumm"/>
+					<elem name="width"/>
+					<elem name="descr"/>
+				</header>
+				<row>
+					<elem value="15"/>
+					<elem value="PrKey"/>
+					<elem value="primary key"/>
+					<elem value="b"/>
+					<elem value="t"/>
+					<elem value="false"/>
+					<elem value="true"/>
+					<elem value="60"/>
+					<elem value="Primary key for a table"/>
+				</row>
+				<row>
+					<elem value="16"/>
+					<elem value="Unq"/>
+					<elem value="unique"/>
+					<elem value="b"/>
+					<elem value="f"/>
+					<elem value="false"/>
+					<elem value="true"/>
+					<elem value="60"/>
+					<elem value="Unique for a single field"/>
+				</row>
+				<row>
+					<elem value="17"/>
+					<elem value="NotN"/>
+					<elem value="not null"/>
+					<elem value="b"/>
+					<elem value="f"/>
+					<elem value="false"/>
+					<elem value="true"/>
+					<elem value="60"/>
+					<elem value=""/>
+				</row>
+				<row>
+					<elem value="338"/>
+					<elem value="MUnq"/>
+					<elem value="unique"/>
+					<elem value="b"/>
+					<elem value="t"/>
+					<elem value="false"/>
+					<elem value="true"/>
+					<elem value="60"/>
+					<elem value="Unique for several fields"/>
+				</row>
+				<row>
+					<elem value="339"/>
+					<elem value="Def"/>
+					<elem value="default"/>
+					<elem value="s"/>
+					<elem value="f"/>
+					<elem value="false"/>
+					<elem value="true"/>
+					<elem value="60"/>
+					<elem value="Field's default value "/>
+				</row>
+				<row>
+					<elem value="340"/>
+					<elem value="Idx1"/>
+					<elem value="{table}IDX{cnt}"/>
+					<elem value="b"/>
+					<elem value="i"/>
+					<elem value="false"/>
+					<elem value="true"/>
+					<elem value="60"/>
+					<elem value="An index"/>
+				</row>
+			</list>
+		</fieldAttribs>
+		<modsConfig/>
+		<modsUsage/>
+		<dataTypes>
+			<constFolder>
+				<type>
+					<attribs>
+						<attrib name="name" value="bool"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="382"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="box"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="383"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="cidr"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="384"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="circle"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="385"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="date"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="386"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="decimal"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="35"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="float4"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="388"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="float8"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="389"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="inet"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="387"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="int2"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="390"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="int4"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="391"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="int8"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="392"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="interval"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="37"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="line"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="393"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="lseg"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="394"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="money"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="395"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="numeric"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="38"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="path"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="396"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="point"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="397"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="polygon"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="398"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="serial"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="36"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="time"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="400"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="timetz"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="404"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="timestamp"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="401"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="timestamptz"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="42"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="char"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="402"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="text"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="403"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="name"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="39"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="bytea"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="40"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="macaddr"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="41"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+			</constFolder>
+			<varFolder>
+				<type>
+					<attribs>
+						<attrib name="name" value="char"/>
+					</attribs>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="varchar"/>
+					</attribs>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="bit varying"/>
+					</attribs>
+					<aliases/>
+				</type>
+			</varFolder>
+		</dataTypes>
+		<queries/>
+		<erViews/>
+		<objects/>
+	</database>
+</project>

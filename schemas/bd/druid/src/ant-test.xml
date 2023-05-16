@@ -1,0 +1,29 @@
+<!--
+==============================================================================
+=== Build file to test druid's AntTask class
+===
+=== Author : Andrea Carboni <acarboni@users.sourceforge.net>
+==============================================================================
+-->
+
+<project name="test" default="test">
+
+	<!-- =============================================================== -->
+	<!-- set global properties for this build                            -->
+	<!-- developers should adapt the properties to their needs           -->
+
+	<property name="build.compiler" value="jikes" />
+
+	<taskdef name="druid" classpath="/my/src/druid-project/druid/libs/ant-task.jar"
+	                      classname="druid.AntTask" />
+
+	<!-- =============================================================== -->
+
+	<target name="test">
+		<druid command = "-gen:sql -db:0 -proj:/my/src/druid-project/test-diff-3.druid" />
+	</target>
+
+	<!-- =============================================================== -->
+
+</project>
+

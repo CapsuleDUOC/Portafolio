@@ -1,0 +1,17 @@
+<!-- ================================================ -->
+
+<menu font="default/12">
+
+	<diff           label="Diff">
+		<saveText    label="Save text diff"        key="alt-t" />
+		<saveScript  label="Save migration script" key="alt-s" />
+		<separator />
+		<invDiff     label="Invert diff"           key="alt-i" type="check" />
+		<separator />
+		<exit        label="Exit" key="alt-x" />
+	</diff>
+
+</menu>
+
+<!-- ================================================ -->
+

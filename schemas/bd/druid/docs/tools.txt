@@ -1,0 +1,4 @@
+Velocity template engine|http://jakarta.apache.org/velocity
+JEdit syntax package|http://sourceforge.net/projects/jedit-syntax
+iText PDF library|http://www.lowagie.com/iText
+IzPack installer|http://www.izforge.com/izpack

@@ -1,0 +1,13 @@
+#**
+
+    Bruno 15-10-2003
+
+*### This is to avoid spaces in the beginning of the file.
+##
+<section id="view_${view.getNCNamePart()}">
+    <title>${lang.view} : ${view.Name}</title>
+    #if (${view.Descr} != "")
+        <para>${view.xmlDescr}</para>
+    #end
+    <programlisting><![CDATA[${view.Code}]]></programlisting>
+</section>

@@ -1,0 +1,38 @@
+<!--
+==============================================================================
+=== Build file to allow ant (http://jakarta.apache.org/ant/) to be used
+=== to build the Druid project.
+===
+=== Author : Andrea Carboni <acarboni@users.sourceforge.net>
+==============================================================================
+-->
+
+<project name="druid" default="installer">
+
+	<!-- =============================================================== -->
+	<!-- set global properties for this build                            -->
+	<!-- developers should adapt the properties to their needs           -->
+
+	<property name="izpack.dir" value="/my/progs/IzPack-4.3.5" />
+
+	<taskdef name="izpack" classpath="${izpack.dir}/lib/compiler.jar"
+	                       classname="com.izforge.izpack.ant.IzPackTask" />
+
+	<!-- =============================================================== -->
+
+	<target name="installer">
+		<delete	dir = "classes/druid"   />
+		<delete	dir = "classes/factory" />
+		<delete	dir = "classes/mod"     />
+
+		<izpack		input         = "installer.xml"
+					output        = "../../druid-3.13-install.jar"
+					installerType = "standard"
+					basedir       = ".."
+					izPackDir     = "${izpack.dir}" />
+	</target>
+
+	<!-- =============================================================== -->
+
+</project>
+

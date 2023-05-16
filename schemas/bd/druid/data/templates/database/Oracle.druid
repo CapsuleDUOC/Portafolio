@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project version="1">
+	<attribs>
+		<attrib name="name" value="-UnNamed-"/>
+		<attrib name="build" value="9"/>
+		<attrib name="serial" value="388"/>
+	</attribs>
+	<database>
+		<attribs>
+			<attrib name="name" value="Oracle db"/>
+			<attrib name="preSql" value=""/>
+			<attrib name="postSql" value=""/>
+			<attrib name="ddUseDDEquiv" value="false"/>
+			<attrib name="codeUseBuild" value="true"/>
+			<attrib name="summUseDDEquiv" value="true"/>
+		</attribs>
+		<revisions>
+			<list>
+				<header>
+					<elem name="version"/>
+					<elem name="date"/>
+					<elem name="descr"/>
+				</header>
+			</list>
+		</revisions>
+		<fieldAttribs>
+			<list>
+				<header>
+					<elem name="id"/>
+					<elem name="name"/>
+					<elem name="sqlName"/>
+					<elem name="type"/>
+					<elem name="scope"/>
+					<elem name="useInDD"/>
+					<elem name="useInSumm"/>
+					<elem name="width"/>
+					<elem name="descr"/>
+				</header>
+				<row>
+					<elem value="15"/>
+					<elem value="PrKey"/>
+					<elem value="primary key"/>
+					<elem value="b"/>
+					<elem value="t"/>
+					<elem value="false"/>
+					<elem value="true"/>
+					<elem value="60"/>
+					<elem value="Primary key for a table"/>
+				</row>
+				<row>
+					<elem value="339"/>
+					<elem value="Def"/>
+					<elem value="default"/>
+					<elem value="s"/>
+					<elem value="f"/>
+					<elem value="false"/>
+					<elem value="true"/>
+					<elem value="60"/>
+					<elem value="Field's default value "/>
+				</row>
+				<row>
+					<elem value="16"/>
+					<elem value="Unq"/>
+					<elem value="unique"/>
+					<elem value="b"/>
+					<elem value="f"/>
+					<elem value="false"/>
+					<elem value="true"/>
+					<elem value="60"/>
+					<elem value="Unique for a single field"/>
+				</row>
+				<row>
+					<elem value="17"/>
+					<elem value="NotN"/>
+					<elem value="not null"/>
+					<elem value="b"/>
+					<elem value="f"/>
+					<elem value="false"/>
+					<elem value="true"/>
+					<elem value="60"/>
+					<elem value=""/>
+				</row>
+				<row>
+					<elem value="338"/>
+					<elem value="MUnq"/>
+					<elem value="unique"/>
+					<elem value="b"/>
+					<elem value="t"/>
+					<elem value="false"/>
+					<elem value="true"/>
+					<elem value="60"/>
+					<elem value="Unique for several fields"/>
+				</row>
+				<row>
+					<elem value="382"/>
+					<elem value="Drf"/>
+					<elem value="deferrable"/>
+					<elem value="b"/>
+					<elem value="f"/>
+					<elem value="false"/>
+					<elem value="true"/>
+					<elem value="60"/>
+					<elem value=""/>
+				</row>
+				<row>
+					<elem value="383"/>
+					<elem value="WRowId"/>
+					<elem value="with rowid"/>
+					<elem value="b"/>
+					<elem value="f"/>
+					<elem value="false"/>
+					<elem value="true"/>
+					<elem value="60"/>
+					<elem value=""/>
+				</row>
+				<row>
+					<elem value="384"/>
+					<elem value="Scope"/>
+					<elem value="scope is"/>
+					<elem value="s"/>
+					<elem value="f"/>
+					<elem value="false"/>
+					<elem value="true"/>
+					<elem value="60"/>
+					<elem value=""/>
+				</row>
+				<row>
+					<elem value="340"/>
+					<elem value="Idx1"/>
+					<elem value="{table}IDX{cnt}"/>
+					<elem value="b"/>
+					<elem value="i"/>
+					<elem value="false"/>
+					<elem value="true"/>
+					<elem value="60"/>
+					<elem value="An index"/>
+				</row>
+			</list>
+		</fieldAttribs>
+		<modsConfig/>
+		<modsUsage/>
+		<dataTypes>
+			<constFolder>
+				<type>
+					<attribs>
+						<attrib name="name" value="long"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="5"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="date"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="7"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="long raw"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="6"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="clob"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="385"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="nclob"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="386"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="blob"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="387"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="bfile"/>
+						<attrib name="ddEquiv" value=""/>
+						<attrib name="id" value="388"/>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue" value=""/>
+							<attrib name="outRange" value="false"/>
+							<attrib name="maxValue" value=""/>
+							<attrib name="type" value="none"/>
+						</attribs>
+						<list>
+							<header>
+								<elem name="value"/>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+			</constFolder>
+			<varFolder>
+				<type>
+					<attribs>
+						<attrib name="name" value="varchar2"/>
+					</attribs>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="nvarchar2"/>
+					</attribs>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="number"/>
+					</attribs>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="raw"/>
+					</attribs>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="char"/>
+					</attribs>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name" value="nchar"/>
+					</attribs>
+					<aliases/>
+				</type>
+			</varFolder>
+		</dataTypes>
+		<queries/>
+		<erViews/>
+		<objects/>
+	</database>
+</project>

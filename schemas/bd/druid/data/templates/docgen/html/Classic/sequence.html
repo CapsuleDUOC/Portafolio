@@ -1,0 +1,66 @@
+#macro( header $lang )
+	<table class="navBar">
+		<tr>
+			<td><a href="../main/index.html">${lang.index.toUpperCase()}</a></td>
+			<td><a href="../main/revisions.html">${lang.revisions.toUpperCase()}</a></td>
+			<td width="40%" />
+			<td><a href="#Overview">${lang.overview.toUpperCase()}</a></td>
+		</tr>
+
+		<tr>
+			<td><a href="../main/datatypes.html">${lang.datatypes.toUpperCase()}</a></td>
+			<td></td>
+			<td width="40%" />
+			<td><a href="#Attribs">${lang.attribs.toUpperCase()}</a></td>
+		</tr>
+	</table>
+#end
+##===============================================================================
+#macro( image $b $lang )
+	#if( $b )
+		<img alt="x" src="../images/set.gif" />
+	#else
+		<img alt="-" src="../images/unset.gif" />
+	#end
+#end
+##===============================================================================
+#xhtmlHeader()
+<head>
+	<!-- ${lang.generatedOn} ${Sys.date} -->
+	<title>${lang.docsForDatabase} : ${db.htmlName}</title>
+	<link rel ="stylesheet" type="text/css" href="../main/stylesheet.css" title="Style" />
+</head>
+
+<body>
+
+	#header( $lang )
+	<hr/>
+
+	<a name="Overview"></a>
+
+	<table width="100%" border="1" cellspacing="0" cellpadding="2">
+		<tr class="title"><td>${lang.sequence} : ${sequence.htmlName}</td></tr>
+	</table>
+
+	${sequence.htmlDescr}
+
+	<a name="Attribs" />
+
+	<table width="100%" border="1" cellspacing="0" cellpadding="2">
+		<tr class="paragr"><td colspan="2">${lang.attribs}</td></tr>
+
+		<tr><td width="40%">${lang.increment}</td><td>$Html.makeGood( ${sequence.increment} )</td></tr>
+		<tr><td>${lang.minValue}</td><td>$Html.makeGood( ${sequence.minValue} )</td></tr>
+		<tr><td>${lang.maxValue}</td><td>$Html.makeGood( ${sequence.maxValue} )</td></tr>
+		<tr><td>${lang.start}</td><td>$Html.makeGood( ${sequence.start} )</td></tr>
+		<tr><td>${lang.cache}</td><td>$Html.makeGood( ${sequence.cache} )</td></tr>
+		<tr><td>${lang.cycle}</td><td>#image( ${sequence.isCycleSet} $lang)</td></tr>
+		<tr><td>${lang.order}</td><td>#image( ${sequence.isOrderSet} $lang)</td></tr>
+	</table>
+
+	<hr/>
+	#header( $lang )
+
+</body>
+
+</html>

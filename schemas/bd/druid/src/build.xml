@@ -1,0 +1,250 @@
+<!--
+==============================================================================
+=== Build file to allow ant (http://jakarta.apache.org/ant/) to be used
+=== to build the Druid project.
+===
+=== Author : Andrea Carboni <acarboni@users.sourceforge.net>
+==============================================================================
+-->
+
+<project name="druid" default="all">
+	<property name="ddf_version" value="1.1.0"/>
+
+	<!-- =============================================================== -->
+
+	<target name="all"   depends="clean, make" />
+	<target name="clean" depends="clean-ddf, clean-druid, clean-factory, clean-modules" />
+	<target name="make"  depends="make-ddf, make-druid, make-factory, make-modules" />
+
+	<!-- =============================================================== -->
+	<!-- ==== DDF HANDLING === -->
+	<!-- =============================================================== -->
+
+	<target name="clean-ddf">
+		<delete	dir  = "classes" />
+		<mkdir   dir  = "classes" />
+		<delete	file = "../libs/druid-ddf-${ddf_version}.jar" />
+	</target>
+
+	<!-- =============================================================== -->
+
+	<target name="make-ddf">
+		<javac		srcdir   = "java"
+					debug    = "on"
+					optimize = "on"
+					destdir  = "classes"
+					extdirs  = "../libs"
+					includes = "ddf/**"/>
+
+		<jar		jarfile  = "../libs/druid-ddf-${ddf_version}.jar"
+					basedir  = "classes"
+					includes = "ddf/**"/>
+					
+		<delete	dir  = ".ddf" />
+		<mkdir   dir  = ".ddf/druid-ddf-${ddf_version}" />
+		<mkdir   dir  = ".ddf/druid-ddf-${ddf_version}/lib" />
+		<mkdir   dir  = ".ddf/druid-ddf-${ddf_version}/src" />
+
+		<copy todir=".ddf/druid-ddf-${ddf_version}">
+			<fileset dir="ddf"/>
+		</copy>
+
+		<copy todir=".ddf/druid-ddf-${ddf_version}/src">
+			<fileset dir="java">
+				<include name="ddf/**"/>
+			</fileset>
+		</copy>
+
+		<copy file="../libs/druid-ddf-${ddf_version}.jar" todir=".ddf/druid-ddf-${ddf_version}/lib"/>
+
+		<tar destfile=".ddf/ddf.tar" basedir=".ddf"/>
+		<gzip destfile="../druid-ddf-${ddf_version}.tgz" src=".ddf/ddf.tar"/>
+		<delete	dir  = ".ddf" />
+	</target>
+
+	<!-- =============================================================== -->
+	<!-- ==== DRUID HANDLING === -->
+	<!-- =============================================================== -->
+
+	<target name="clean-druid">
+		<!-- the mkdir is needed to build druid after installing the distro
+			  (this dir will be missing) -->
+
+		<delete dir  = "classes" />
+		<mkdir  dir  = "classes" />
+
+		<delete	file = "../druid.jar" />
+		<delete	file = "../libs/druid-core.jar" />
+		<delete	file = "../libs/ant-task.jar" />
+	</target>
+
+	<!-- =============================================================== -->
+
+	<target name="make-druid">
+		<javac		srcdir   = "java"
+					debug    = "on"
+					optimize = "on"
+					destdir  = "classes"
+					extdirs  = "../libs"
+					includes = "druid/**"/>
+
+		<jar		jarfile  = "../druid.jar"
+					basedir  = "classes"
+					manifest = "MANIFEST"
+					includes = "druid/Druid.class, druid/boot/**" />
+
+		<jar		jarfile  = "../libs/druid-core.jar"
+					basedir  = "classes"
+					includes = "druid/**"
+					excludes = "druid/Druid.class, druid/AntTask.class, druid/boot/**" />
+
+		<jar		jarfile  = "../libs/ant-task.jar"
+					basedir  = "classes"
+					includes = "druid/Druid.class, druid/AntTask.class, druid/boot/**" />
+	</target>
+
+	<!-- =============================================================== -->
+	<!-- ==== FACTORY HANDLING === -->
+	<!-- =============================================================== -->
+
+	<target name="clean-factory">
+		<delete	dir  = "classes" />
+		<mkdir  dir  = "classes" />
+		<delete	file = "../libs/druid-factory.jar" />
+	</target>
+
+	<!-- =============================================================== -->
+
+	<target name="make-factory">
+		<javac	srcdir   = "java"
+					debug    = "on"
+					optimize = "on"
+					destdir  = "classes"
+					extdirs  = "../libs"
+					includes = "factory/**" />
+
+		<jar		jarfile  = "../libs/druid-factory.jar"
+					basedir  = "classes"
+					includes = "factory/**" />
+	</target>
+
+	<!-- =============================================================== -->
+	<!-- ==== MODULES HANDLING === -->
+	<!-- =============================================================== -->
+
+	<target name="clean-modules">
+		<delete	dir = "classes" />
+		<mkdir  dir = "classes" />
+		<delete>
+			<fileset dir = "../modules" includes = "**/*.jar" />
+		</delete>
+	</target>
+
+	<!-- =============================================================== -->
+
+	<target name="make-modules">
+		<javac	srcdir   = "java"
+					debug    = "on"
+					optimize = "on"
+					destdir  = "classes"
+					extdirs  = "../libs"
+					includes = "mod/**" />
+
+		<!-- data generation modules -->
+
+		<jar		jarfile  = "../modules/gen-code.jar"
+					basedir  = "classes"
+					includes = "mod/datagen/code/**" />
+
+		<jar		jarfile  = "../modules/gen-datadict.jar"
+					basedir  = "classes"
+					includes = "mod/datagen/datadict/**" />
+
+		<jar		jarfile  = "../modules/gen-docs.jar"
+					basedir  = "classes"
+					includes = "mod/datagen/docs/**" />
+
+		<jar		jarfile  = "../modules/gen-persistence.jar"
+					basedir  = "classes"
+					includes = "mod/datagen/generic/**" />
+
+		<jar		jarfile  = "../modules/gen-summary.jar"
+					basedir  = "classes"
+					includes = "mod/datagen/summary/**" />
+
+		<jar		jarfile  = "../modules/gen-template.jar"
+					basedir  = "classes"
+					includes = "mod/datagen/template/**" />
+
+		<!-- dbms specific -->
+
+		<jar		jarfile  = "../modules/dbms-mysql.jar"
+					basedir  = "classes"
+					includes = "mod/dbms/mysql/**" />
+
+		<jar		jarfile  = "../modules/dbms-oracle.jar"
+					basedir  = "classes"
+					includes = "mod/dbms/oracle/**" />
+
+		<jar		jarfile  = "../modules/dbms-postgresql.jar"
+					basedir  = "classes"
+					includes = "mod/dbms/postgresql/**" />
+
+		<jar		jarfile  = "../modules/dbms-standard.jar"
+					basedir  = "classes"
+					includes = "mod/dbms/standard/**" />
+
+		<jar		jarfile  = "../modules/dbms-db2.jar"
+					basedir  = "classes"
+					includes = "mod/dbms/db2/**" />
+
+		<jar		jarfile  = "../modules/dbms-hsqldb.jar"
+					basedir  = "classes"
+					includes = "mod/dbms/hsqldb/**" />
+
+		<jar		jarfile  = "../modules/dbms-mckoi.jar"
+					basedir  = "classes"
+					includes = "mod/dbms/mckoi/**" />
+
+		<jar		jarfile  = "../modules/dbms-sqlserver.jar"
+					basedir  = "classes"
+					includes = "mod/dbms/sqlserver/**" />
+
+		<jar		jarfile  = "../modules/dbms-daffodildb.jar"
+					basedir  = "classes"
+					includes = "mod/dbms/daffodil/**" />
+
+		<!-- treeview modules -->
+
+		<jar		jarfile  = "../modules/db-stats.jar"
+					basedir  = "classes"
+					includes = "mod/treeview/dbstats/**" />
+
+		<jar		jarfile  = "../modules/query-import.jar"
+					basedir  = "classes"
+					includes = "mod/treeview/queryimport/**" />
+
+		<jar		jarfile  = "../modules/sql-diff.jar"
+					basedir  = "classes"
+					includes = "mod/treeview/sqldiff/**" />
+
+		<jar		jarfile  = "../modules/iolinks.jar"
+					basedir  = "classes"
+					includes = "mod/treeview/iolinks/**" />
+
+		<!-- jdbc modules -->
+
+		<jar		jarfile  = "../modules/jdbc.jar"
+					basedir  = "classes"
+					includes = "mod/jdbc/**" />
+
+		<!-- database io modules -->
+
+		<jar		jarfile  = "../modules/dbio.jar"
+					basedir  = "classes"
+					includes = "mod/dbio/**" />
+	</target>
+
+	<!-- =============================================================== -->
+
+</project>

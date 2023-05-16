@@ -1,0 +1,31 @@
+REM Use one of these examples. Remove comments and trailing semicolon
+
+REM First example for Oracle ************************************
+ 
+DECLARE 
+  recs NUMBER;
+BEGIN 
+  SELECT COUNT(*) INTO recs 
+    FROM ALL_TABLES
+    WHERE TABLE_NAME = '{table}' AND OWNER = '{schema}';
+  IF recs = 0 THEN 
+    NULL;  
+  ELSE 
+    EXECUTE IMMEDIATE 'DROP TABLE {schema}.{table} CASCADE CONSTRAINTS PURGE';
+  END IF; 
+END
+
+REM Second example for Oracle ************************************
+
+DECLARE 
+  recs NUMBER;
+BEGIN 
+  SELECT COUNT(*) INTO recs 
+    FROM TAB
+  WHERE TNAME = '{table}';
+  IF recs = 0 THEN 
+    NULL;  
+  ELSE 
+    EXECUTE IMMEDIATE 'DROP TABLE {fqtable} CASCADE CONSTRAINTS PURGE';
+  END IF; 
+END

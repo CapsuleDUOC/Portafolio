@@ -1,0 +1,59 @@
+#macro( header $lang )
+	<table class="navBar">
+		<tr>
+			<td><a href="../main/index.html">${lang.index.toUpperCase()}</a></td>
+			<td><a href="../main/revisions.html">${lang.revisions.toUpperCase()}</a></td>
+			<td width="30%" />
+			<td><a href="#Overview">${lang.overview.toUpperCase()}</a></td>
+		</tr>
+
+		<tr>
+			<td><a href="../main/datatypes.html">${lang.datatypes.toUpperCase()}</a></td>
+			<td></td>
+			<td width="30%" />
+			<td></td>
+		</tr>
+	</table>
+#end
+##===============================================================================
+#xhtmlHeader()
+<head>
+	<!-- ${lang.generatedOn} ${Sys.date} -->
+	<title>${lang.docsForDatabase} : ${db.htmlName}</title>
+	<link rel="stylesheet" type="text/css" href="../main/stylesheet.css" title="style" />
+</head>
+
+<body>
+
+	#header( $lang )
+	<hr/>
+
+	<a name="Overview"></a>
+
+#if( $notes.isInfo )
+	#set( $image = "info.png" )
+#elseif( $notes.isAlert )
+	#set( $image = "alert.png" )
+#elseif( $notes.isDanger )
+	#set( $image = "danger.png" )
+#else
+	#set( $image = "?" )
+#end
+
+	<table width="100%" border="1" cellspacing="0" cellpadding="2">
+		<tr class="title"><TD>${lang.notes} : ${notes.htmlName}</Td></tr>
+	</table>
+
+	<table cellspacing="20" >
+		<tr>
+			<td valign="top"><img alt="${image}" src="../images/large/${image}" /></td>
+			<td>${notes.htmlDescr}</td>
+		</tr>
+	</table>
+
+	<hr/>
+	#header( $lang )
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<installation version="1.0">
+    <info>
+        <appname>Druid</appname>
+        <appversion>3.13</appversion>
+        <authors>
+            <author name="Andrea Carboni" email="acarboni@users.sourceforge.net"/>
+        </authors>
+        <url>http://sourceforge.net/projects/druid</url>
+    </info>
+
+	 <guiprefs height="480" resizable="no" width="640"/>
+
+	 <locale>
+       <langpack iso3="eng" />
+	 </locale>
+
+	 <resources>
+	 	<res id="LicencePanel.licence" src="docs/COPYING.txt" />
+	 </resources>
+
+	 <panels>
+        <panel classname="HelloPanel"/>
+        <panel classname="LicencePanel"/>
+        <panel classname="TargetPanel"/>
+        <panel classname="PacksPanel"/>
+        <panel classname="InstallPanel"/>
+        <panel classname="FinishPanel"/>
+    </panels>
+
+    <packs>
+		<pack name="Binary" required="yes">
+			<description>The basic Druid components, libraries and templates</description>
+
+			<fileset dir="." targetdir="$INSTALL_PATH">
+				<include name="data/**" />
+				<include name="docs/**" />
+				<include name="examples/**" />
+				<include name="images/**" />
+				<include name="libs/**" />
+				<include name="modules/**" />
+			</fileset>
+
+            <file src="druid.jar" targetdir="$INSTALL_PATH"/>
+        </pack>
+
+        <pack name="Development" required="no">
+            <description>Java sources, Lyx files and images to generate the pdf docs</description>
+
+				<fileset dir="." targetdir="$INSTALL_PATH">
+					<include name="src/**" />
+				</fileset>
+        </pack>
+    </packs>
+</installation>

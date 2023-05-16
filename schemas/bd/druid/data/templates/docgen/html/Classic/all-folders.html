@@ -1,0 +1,27 @@
+#xhtmlHeader()
+<head>
+	<!-- ${lang.generatedOn} ${Sys.date} -->
+	<title>${lang.docsForDatabase} : ${db.htmlName}</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css" title="style" />
+</head>
+
+<body>
+	<table width="100%" border="1" cellspacing="0" cellpadding="2">
+		<tr class="title"><td>${lang.folders}</td></tr>
+	</table>
+
+	<p class="navTree">
+		#foreach( $child in $db.allFolders )
+			#set( $i = $child.depth - 2 )
+			#set( $i = $i * 6 )
+			$Html.getSpaces( $i )
+			<img alt="${lang.folder}" align="middle" src="../images/folder.png" />
+			<a href="../folders/${child.file}.html" target="objectsFrame">${child.htmlName}</a>
+			<br/>
+		#end
+	</p>
+
+	<a href="all-objects.html" target="objectsFrame">[${lang.allObjects.toUpperCase()}]</a>
+</body>
+
+</html>

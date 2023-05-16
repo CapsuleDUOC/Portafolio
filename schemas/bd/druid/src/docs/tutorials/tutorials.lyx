@@ -1,0 +1,1373 @@
+#LyX 1.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 221
+\textclass book
+\begin_preamble
+\usepackage {times}
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme times
+\graphics default
+\paperfontsize 12
+\spacing single 
+\papersize a4paper
+\paperpackage widemarginsa4
+\use_geometry 0
+\use_amsmath 0
+\use_natbib 0
+\use_numerical_citations 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language swedish
+\quotes_times 2
+\papercolumns 1
+\papersides 2
+\paperpagestyle headings
+
+\layout Title
+\added_space_top vfill \added_space_bottom vfill 
+DRUID TUTORIALS
+\layout Author
+
+Andrea Carboni, Mirko Caserta
+\layout Date
+
+Rev 2, 25-sep-2003
+\layout Standard
+
+
+\begin_inset LatexCommand \tableofcontents{}
+
+\end_inset 
+
+
+\layout Chapter
+
+Basic tutorial
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Author
+\series default 
+ Mirko Caserta
+\layout Section
+
+Introduction
+\layout Standard
+
+Learn how to use the basic Druid's concepts.
+ After this tutorial you will be able to: 
+\layout Itemize
+
+Add a new database
+\layout Itemize
+
+Add tables and fields
+\layout Itemize
+
+Add references to other tables
+\layout Itemize
+
+Generate the db documentation
+\layout Itemize
+
+Generate the sql-script to create the database
+\layout Itemize
+
+Establish a JDBC connection to a database
+\layout Itemize
+
+Create a simple E/R diagram
+\layout Section
+
+Druid at a glance
+\layout Standard
+
+Don't let the first screen make a fool of you (figure 
+\begin_inset LatexCommand \ref{fig:druid-startup}
+
+\end_inset 
+
+).
+ It looks like there's nothing to do; well, that is what it looks like,
+ not what Druid can really do for you! For now, close the 
+\begin_inset Quotes sld
+\end_inset 
+
+Did you know
+\begin_inset Quotes erd
+\end_inset 
+
+ window.
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/druidFirstScreen.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:druid-startup}
+
+\end_inset 
+
+Druid at startup
+\end_inset 
+
+
+\layout Standard
+
+Let's right-click the split-pane on the left and select 
+\family sans 
+Add
+\family default 
+ 
+\family sans 
+Database
+\family default 
+ (figure 
+\begin_inset LatexCommand \ref{fig:adding-database}
+
+\end_inset 
+
+).
+ Selecting this option we're effectively adding a new database to the project.
+ We'll learn later that you can add more than just one db to the project.
+ 
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/addDatabase.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:adding-database}
+
+\end_inset 
+
+Adding a new database
+\end_inset 
+
+
+\layout Standard
+
+At this point you should get to the 
+\family sans 
+Database
+\family default 
+ 
+\family sans 
+Wizard
+\family default 
+ dialog (figure 
+\begin_inset LatexCommand \ref{fig:database-wizard}
+
+\end_inset 
+
+) which allows you to choose between the three options:
+\layout Itemize
+
+Create an empty database
+\layout Itemize
+
+Create a minimal database
+\layout Itemize
+
+Create a database from a template
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/dbwizard.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:database-wizard}
+
+\end_inset 
+
+The database wizard
+\end_inset 
+
+
+\layout Standard
+\added_space_top defskip \noindent 
+The first option should be considered for expert users only since the created
+ db will really be empty, without data types and other nifty things that
+ are no-doubt useful at the beginning stage.
+\layout Standard
+\added_space_top defskip \noindent 
+The second option can be chosen with no worries and it'll put at our disposal
+ some basic data types defined by the SQL-92 standard.
+ 
+\layout Standard
+\added_space_top defskip \noindent 
+The third option is definitely useful if we're working with one of the RDBMS
+ included in the list (InterBase, Oracle and PostgreSQL; hopefully more
+ will be added soon) since it'll automatically put at our disposal the appropria
+te data types supported by these applications.
+ For our example we're going to use the third option with the PostgreSQL
+ variant since under Linux it's a more often adopted solution.
+ 
+\layout Standard
+\added_space_top defskip \noindent 
+At this point we should have in the left side split-pane a root node which
+ corresponds to the database we're operating on and in the split-pane on
+ the right a handful of tabs that we're going to examine with calm while
+ we'll get into the related issues.
+ The data types we got, having chosen the PostgreSQL template from the wizard,
+ are showed in figure 
+\begin_inset LatexCommand \ref{fig:postgres-datatypes}
+
+\end_inset 
+
+.
+ 
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/datatypes.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:postgres-datatypes}
+
+\end_inset 
+
+PostgreSQL datatypes
+\end_inset 
+
+
+\layout Section
+
+An hypothetical database: the 
+\begin_inset Quotes sld
+\end_inset 
+
+Fate Bene Fratelli
+\begin_inset Quotes srd
+\end_inset 
+
+ Hospital db
+\layout Standard
+
+For our examples we're going to use an hypothetical db which will hold some
+ basic info about my favourite hospital (which really exists in Rome, Italy).
+ Let's double-click the db root node in the left side split-pane and rename
+ the db as 
+\begin_inset Quotes sld
+\end_inset 
+
+fatebenefratelli
+\begin_inset Quotes srd
+\end_inset 
+
+.
+ We're going to use three tables, defined as follows: 
+\layout LyX-Code
+\align block 
+CREATE TABLE doctors 
+\layout LyX-Code
+\align block 
+(       
+\layout LyX-Code
+\align block 
+   id        int4,       
+\layout LyX-Code
+\align block 
+   name      varchar(32)   not null,       
+\layout LyX-Code
+\align block 
+   surname   varchar(32)   not null,
+\layout LyX-Code
+\align block 
+      
+\layout LyX-Code
+\align block 
+   primary key(id),       
+\layout LyX-Code
+\align block 
+   unique(name,surname) 
+\layout LyX-Code
+\align block 
+);
+\layout LyX-Code
+\align block 
+\layout LyX-Code
+\added_space_top defskip \added_space_bottom defskip \align block 
+CREATE INDEX doctorsNDX1 ON doctors(surname);
+\layout LyX-Code
+\align block 
+\layout LyX-Code
+\align block 
+CREATE TABLE patients 
+\layout LyX-Code
+\align block 
+(       
+\layout LyX-Code
+\align block 
+   id         int4,       
+\layout LyX-Code
+\align block 
+   name       varchar(32)     not null,       
+\layout LyX-Code
+\align block 
+   surname    varchar(32)     not null,
+\layout LyX-Code
+\align block 
+ 
+\layout LyX-Code
+\align block 
+   primary key(id),       unique(name,surname) 
+\layout LyX-Code
+\align block 
+);
+\layout LyX-Code
+\align block 
+\layout LyX-Code
+\added_space_top defskip \added_space_bottom defskip \align block 
+CREATE INDEX patientsNDX1 ON patients(surname);
+\layout LyX-Code
+\align block 
+\layout LyX-Code
+\align block 
+CREATE TABLE prescriptions 
+\layout LyX-Code
+\align block 
+(       
+\layout LyX-Code
+\align block 
+   doctorid     int4            not null,       
+\layout LyX-Code
+\align block 
+   patientid    int4            not null,       
+\layout LyX-Code
+\align block 
+   medicine     varchar(64)     not null,       
+\layout LyX-Code
+\align block 
+   quantity     varchar(32)     not null,       
+\layout LyX-Code
+\align block 
+   when         timestamp       not null,
+\layout LyX-Code
+\align block 
+   
+\layout LyX-Code
+\align block 
+   primary key(doctorid,patientid,when),       
+\layout LyX-Code
+\align block 
+   foreign key(doctorid) references doctors(id) on delete CASCADE,
+\layout LyX-Code
+\align block 
+   foreign key(patientid) references patients(id) on delete CASCADE 
+\layout LyX-Code
+\align block 
+);
+\layout LyX-Code
+\align block 
+\layout LyX-Code
+\added_space_top defskip \added_space_bottom defskip \align block 
+CREATE INDEX prescriptionsNDX1 ON prescriptions(patientid); 
+\layout Standard
+
+Those who are used to the SQL lingo are not going to have troubles understanding
+ that the 
+\family sans 
+doctors
+\family default 
+ and 
+\family sans 
+patients
+\family default 
+ tables are identical and contain basic information about those persons.
+ The 
+\family sans 
+prescriptions
+\family default 
+ table is the 
+\emph on 
+glue
+\emph default 
+ between the other two tables and is supposed to keep the patients alive
+ (though I would never enter an hospital which uses such a stupid and badly
+ structured db!).
+ 
+\layout Section
+
+Defining available data types
+\layout Standard
+
+Before we start structuring the database, we'll probably need to add/modify
+ the available datatypes.
+ This is possible by selecting the db root node and, in the split-pane on
+ the right side, selecting 
+\family sans 
+Data
+\family default 
+ 
+\family sans 
+Types
+\family default 
+.
+ Basically, we can add data types of constant or variable dimensions.
+ 
+\layout Standard
+
+A constant data type might be 
+\family sans 
+INTEGER
+\family default 
+ or 
+\family sans 
+INT4
+\family default 
+ since the RDBMS is supposed to always use 4 bytes in order to store fields
+ declared using this type.
+ A variable type is instead a type which lets us specify the bytes length
+ storage space.
+ For instance, the 
+\family sans 
+CHAR
+\family default 
+ data type, even being constant by its nature, allows us to specify the
+ number of chars (and that really means bytes) that the field will be able
+ to hold.
+ The same applies to the 
+\family sans 
+VARCHAR
+\family default 
+ datatype which, instead, tries to optimize the storage space used by a
+ string; for instance, if we define a field of type 
+\family sans 
+VARCHAR
+\family default 
+(16), the RDBMS is probably going to store the string 
+\begin_inset Quotes sld
+\end_inset 
+
+foo
+\begin_inset Quotes srd
+\end_inset 
+
+ using only 4 bytes of which: 3 are used to store the string and 1 is used
+ to store its length in bytes.
+ By the way, all this talk about constant and variable types has been introduced
+ only in order to let you understand what Druid intends for constant and
+ variable data types.
+ 
+\layout Standard
+
+Adding a constant data type is as simple as right-clicking the 
+\family sans 
+Constant
+\family default 
+ 
+\family sans 
+Size
+\family default 
+ node and selecting 
+\family sans 
+Add
+\family default 
+ 
+\family sans 
+basic
+\family default 
+ 
+\family sans 
+datatype
+\family default 
+.
+ We should see a parent node appearing which we can rename by double-clicking
+ on it.
+ 
+\layout Standard
+
+Adding a variable data type is the same as adding a constant type.
+ You should only (if you wish to specify the byte length) right-click on
+ the newly added node and select 
+\family sans 
+Add
+\family default 
+ 
+\family sans 
+alias
+\family default 
+.
+ If we want, for instance, create a 
+\family sans 
+VARCHAR
+\family default 
+(128) data type, we should add an alias to the 
+\family sans 
+VARCHAR
+\family default 
+ data type, rename it to, say, 
+\family sans 
+varchar128
+\family default 
+ and specify in the right side panel (it's called 
+\family sans 
+Var
+\family default 
+ 
+\family sans 
+Alias
+\family default 
+) the value we wish to declare into the 
+\family sans 
+size
+\family default 
+ text-box (in this case: 128).
+ 
+\layout Section
+
+How to create the structure of a db with Druid
+\layout Standard
+
+Let's start adding tables.
+ Right-click the db root node and select 
+\family sans 
+Add
+\family default 
+ 
+\family sans 
+table
+\family default 
+.
+ We'll see a child node appearing which we'll be going to rename with the
+ table's right name by double-clicking it.
+ At this point, in the right side split-pane, select the 
+\family sans 
+fields
+\family default 
+ tab (it should be selected by default) and let's click the 
+\family sans 
+new
+\family default 
+ button for each field we have to add.
+ Then let's rename the fields by clicking on them in the 
+\family sans 
+name
+\family default 
+ column.
+ Now, let's specify the data type for each field by clicking into the appropriat
+e grid cell in the 
+\family sans 
+type
+\family default 
+ column.
+ You should now see a pop-up window with all the available data types.
+ In order to choose one, right-click it and select 
+\family sans 
+choose this datatype
+\family default 
+.
+ 
+\layout Standard
+
+If the field in question is a FK to an 
+\family sans 
+id
+\family default 
+ which is found in another table, you should scroll down the pop-up window
+ until the node which represents the database, then open the node corresponding
+ to the table which holds the target id, then 
+\family sans 
+Choose field as Fkey
+\family default 
+ by right-clicking on the 
+\family sans 
+id
+\family default 
+ in question (figure 
+\begin_inset LatexCommand \ref{fig:choosing-foreignkey}
+
+\end_inset 
+
+).
+ This way we can tell Druid that the field in question is really a foreign
+ key.
+ 
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/datatypeselector.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:choosing-foreignkey}
+
+\end_inset 
+
+Choosing a foreign key for a field
+\end_inset 
+
+
+\layout Standard
+
+At this point you'll get a further pop-up window where you might specify
+ the action to take for instance 
+\family sans 
+ON
+\family default 
+ 
+\family sans 
+UPDATE
+\family default 
+ and 
+\family sans 
+ON
+\family default 
+ 
+\family sans 
+DELETE
+\family default 
+ (figure 
+\begin_inset LatexCommand \ref{fig:specifing-fkey-actions}
+
+\end_inset 
+
+).
+ The most common option is to specify 
+\family sans 
+CASCADE
+\family default 
+ for 
+\family sans 
+ON
+\family default 
+ 
+\family sans 
+DELETE
+\family default 
+ because, for instance, if we delete a patient, we might want not to keep
+ track of his prescriptions (in a real hospital application this shouldn't
+ happen though, since they'll want to keep track of the whole history a
+ patient has had).
+ In order to confirm the choice, you just need to close the pop-up window.
+ 
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/datatypeselector2.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:specifing-fkey-actions}
+
+\end_inset 
+
+Specifing the foreign keys actions
+\end_inset 
+
+
+\layout Standard
+
+Now, let's get back to the tables definition: the meaning of the other columns
+ of the grid is as follows: 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+PrKey
+\series default 
+ the field is a primary key; you can even check this box on more than a
+ field in the case of a multiple fields primary key, as in our 
+\family sans 
+prescriptions
+\family default 
+ table example where we do have three PK fields: 
+\family sans 
+doctorid
+\family default 
+, 
+\family sans 
+patientid
+\family default 
+ and 
+\family sans 
+when
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Unique
+\series default 
+ the field is of type 
+\family sans 
+UNIQUE
+\family default 
+, ie: there cannot be two tuples/rows in this table holding the same values
+ in this field.
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+NotN
+\series default 
+ 
+\family sans 
+NOT
+\family default 
+ 
+\family sans 
+NULL
+\family default 
+, that is: you should necessarily specify a value for this field at the
+ moment you're adding data into this table 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+MUnq
+\series default 
+ Multiple Unique; allows you to group fields which should hold unique values
+ inside the table
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Def
+\series default 
+ allows you to specify a default value which gets into the field in the
+ case the INSERT omits an explicit input
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Idx1
+\series default 
+ Creates an index for this field
+\layout Standard
+
+You're allowed to modify the number and meaning of the fields' attributes
+ by selecting the root db node and going to the 
+\family sans 
+Field
+\family default 
+ 
+\family sans 
+Attribs
+\family default 
+ tab.
+ The use of 
+\family sans 
+PrKey
+\family default 
+, 
+\family sans 
+Unique
+\family default 
+, etc, is completely parametrized and, so, easily adaptable to the syntax
+ of your RDBMS of choice.
+ This allows the use of Druid even with RDBMS which are not fully SQL-92
+ compiant or have proprietary extensions and functionalities.
+ Furthermore, these attributes can refer to the field or the table.
+ Well, you can do almost everything! 
+\layout Section
+
+Handling the documentation, ie: the lifetime of an application is directly
+ proportional to the quantity and quality of the produced documentation
+\layout Standard
+
+One of the most valuable things in a heavy weight project is the availability
+ of its documentation.
+ Rise your hands those of you who have never worked with a database whose
+ structure was (to be fair and honest) cryptic? Uhmmmm, it looks like no
+ hands are up.
+ I can tell you that, in my personal experience in the IT world, one of
+ the most important things I've learnt the hard way is that a correct and
+ up-to-date documentation is an essential requisite for the life and the
+ development of an application.
+ So: do document, do document and then do document all over again.
+ The time you'll spend during the documentation process will result invaluable
+ once you have to put your hands on the project months or even weeks later.
+ So: do document! Have I already said that? I just wanted to make sure the
+ idea was clear enough ;-).
+ 
+\layout Standard
+
+Druid allows you to handle the project documentation in an excellent way.
+ For each node in the left side split-pane, including the single table fields
+ (you can expand the node of a table by clicking on it) you're going to
+ have a tab named 
+\family sans 
+Docs
+\family default 
+ in the right side split-pane where you can add comments essential for the
+ understanding of the structure.
+ 
+\layout Standard
+
+Once you're done with the documentation work, you can automatically generate
+ an XML or HTML output.
+ The generated HTML files are in the classic 
+\family sans 
+javadoc
+\family default 
+ style and extremely easy to navigate.
+ Let's see how to setup HTML output generation.
+\layout Itemize
+
+Select the database root node
+\layout Itemize
+
+Into the right side split-pane select the 
+\family sans 
+Generation
+\family default 
+ tab
+\layout Itemize
+
+Now select the 
+\family sans 
+Modules
+\family default 
+ tab
+\layout Itemize
+
+Right-click the 
+\family sans 
+Docs
+\family default 
+ folder
+\layout Itemize
+
+Select 
+\family sans 
+Add module
+\family default 
+, then 
+\family sans 
+Browsable XHTML
+\layout Itemize
+
+In the 
+\family sans 
+Output
+\family default 
+ 
+\family sans 
+directory
+\family default 
+ panel, specify the directory where the documentation will end up
+\layout Itemize
+
+Right-click the 
+\family sans 
+Browsable XHTML
+\family default 
+ node in the 
+\family sans 
+Docs
+\family default 
+ folder
+\layout Itemize
+
+Select 
+\family sans 
+Generate
+\layout Standard
+
+Now, point your favourite web browser on the index.html file which can be
+ found in the directory we have previously specified and here is the index
+ of the documentation (figure 
+\begin_inset LatexCommand \ref{fig:generated-docs}
+
+\end_inset 
+
+)! 
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/htmldocs.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:generated-docs}
+
+\end_inset 
+
+The generated docs
+\end_inset 
+
+
+\layout Standard
+
+The XHTML documentation generated by Druid reminds much of the 
+\emph on 
+javadoc
+\emph default 
+ style and is much precise, filled with details and well-structured.
+ Just a side note before we go on: for particularly complex projects, Druid
+ allows you to subdivide the tables inside folders.
+ You can (well, you should!) add folders by right clicking the root db node
+ and selecting 
+\family sans 
+Add folder
+\family default 
+.
+ You can even drag'n'drop tables from one folder to the other in a transparent
+ fashion.
+ 
+\layout Section
+
+Generating the SQL script for the db creation
+\layout Standard
+
+One of the main features of Druid is its completely automated handling of
+ links resolution and conflicts.
+ If, for instance, something is not clear in the db structure, Druid is
+ going to negate us the possibility to generate documentation or SQL scripts
+ pointing us to the problem which has to be solved.
+ Particularly funny (and maybe even useful) is the 
+\family sans 
+Statistics
+\family default 
+ feature, which you can access with the usual right-click on the root db
+ node.
+ 
+\layout Standard
+
+To generate an SQL script for use by the RDBMS in order to create the database,
+ the procedure to follow is similar to the one we've seen for generating
+ the documentation: 
+\layout Itemize
+
+Select the root db node
+\layout Itemize
+
+In the right side split-pane select the 
+\family sans 
+Generation
+\family default 
+ tab
+\layout Itemize
+
+Select the 
+\family sans 
+Modules
+\family default 
+ tab now
+\layout Itemize
+
+Right-click the 
+\family sans 
+SQL script
+\family default 
+ folder
+\layout Itemize
+
+Select 
+\family sans 
+Add module
+\family default 
+, then 
+\family sans 
+PostgreSQL
+\layout Itemize
+
+Select the 
+\family sans 
+PostgreSQL
+\family default 
+ node added above
+\layout Itemize
+
+In the 
+\family sans 
+Output
+\family default 
+ 
+\family sans 
+file
+\family default 
+ panel, specify the file where the script will be output
+\layout Itemize
+
+In the 
+\family sans 
+General
+\family default 
+ tab you can choose the output order of the objects: sequential or optimized,
+ moreover you can specify if you wish to include the comments (can be added
+ using the 
+\family sans 
+Extra\SpecialChar \menuseparator
+General\SpecialChar \menuseparator
+Sql
+\family default 
+ 
+\family sans 
+comment
+\family default 
+ panel)
+\layout Itemize
+
+Right-click the 
+\family sans 
+PostgreSQL
+\family default 
+ node, then select 
+\family sans 
+Generate
+\layout Standard
+
+Let's have a look at our file: we'll find our nicely formatted script.
+\layout Section
+
+Using the JDBC drivers to access the database
+\layout Standard
+
+Through Druid you can directly access the databases you're working on using
+ one or more JDBC drivers.
+ In order to add a driver, let's go to the 
+\family sans 
+Config
+\family default 
+ menu and select 
+\family sans 
+JDBC
+\family default 
+ 
+\family sans 
+drivers
+\family default 
+.
+ Let's click the 
+\family sans 
+new
+\family default 
+ button and browse to the jar file which contains the driver we need.
+ Here we can see how Druid is able to work at the same time with different
+ JDBC drivers; in this case I've installed the PostgreSQL and MySQL drivers
+ (figure 
+\begin_inset LatexCommand \ref{fig:installed-jdbc-drivers}
+
+\end_inset 
+
+).
+ 
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/jdbcdrivers.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:installed-jdbc-drivers}
+
+\end_inset 
+
+The installed JDBC drivers
+\end_inset 
+
+
+\layout Standard
+
+Once you've completed this very simple operation it is possible to connect
+ to a database by selecting the root db node, then the 
+\family sans 
+JDBC
+\family default 
+ tab.
+ In order to make the connection it is sufficient to specify the typical
+ JDBC URL and a 
+\family sans 
+username
+\family default 
+ plus 
+\family sans 
+password
+\family default 
+.
+ Figure 
+\begin_inset LatexCommand \ref{fig:jdbc-session}
+
+\end_inset 
+
+ ahows how Druid presents itself after having established a JDBC connection.
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/jdbcconnection.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:jdbc-session}
+
+\end_inset 
+
+A JDBC session
+\end_inset 
+
+
+\layout Standard
+
+Once you've established the connection, you can handle the creation and
+ modification of the tables directly from Druid.
+ In order to create/recreate the structure of the database, right-click
+ the root db node, then select 
+\family sans 
+Rebuild in jdbc DB
+\family default 
+.
+ The same applies to the single tables.
+ Be aware anyway that each rebuild via JDBC deletes all data in the database
+ or table you're reconstructing.
+ 
+\layout Standard
+
+Also in the 
+\family sans 
+JDBC
+\family default 
+ tab, we have useful functionalities for importing existing entities from
+ the db (if for instance we are working on a db we want to import the structure
+ of), directly manipulate the tables' data just like in MS Access and to
+ execute arbitrary SQL queries.
+ 
+\layout Section
+
+Creating E/R diagrams
+\layout Standard
+
+E/R stands for 
+\begin_inset Quotes sld
+\end_inset 
+
+Entity/Relationship
+\begin_inset Quotes srd
+\end_inset 
+
+.
+ It is one of those things who can make people real happy, those just like
+ me who do really love documentation.
+ Creating one of these diagrams with Druid is extremely simple: 
+\layout Itemize
+
+Select the root db node
+\layout Itemize
+
+Select the 
+\family sans 
+E/R
+\family default 
+ 
+\family sans 
+Views
+\family default 
+ tab
+\layout Itemize
+
+Right-click into the left side split-pane (inside the 
+\family sans 
+E/R Views
+\family default 
+ tab)
+\layout Itemize
+
+Select 
+\family sans 
+Add E/R View
+\layout Itemize
+
+Double-click to rename the diagram
+\layout Itemize
+
+In the right side split-pane right-click and select 
+\family sans 
+Add
+\family default 
+ 
+\family sans 
+entity
+\layout Itemize
+
+Check one table, then click the 
+\family sans 
+OK
+\family default 
+ button
+\layout Itemize
+
+Repeat the 
+\family sans 
+Add
+\family default 
+ 
+\family sans 
+entity
+\family default 
+ for each table you wish to add
+\layout Standard
+
+Druid will take care of automatically creating the links for dependencies
+ and foreign keys.
+ Once you're done with the diagram, you can save it as a PNG image or, more
+ simply, print it (the related options are accessible by right-clicking
+ the name of the diagram).
+ Figure 
+\begin_inset LatexCommand \ref{fig:er-view}
+
+\end_inset 
+
+ shows how an E/R diagram created with Druid presents itself.
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename images/erview.png
+	scale 50
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:er-view}
+
+\end_inset 
+
+An E/R view of the database
+\end_inset 
+
+
+\the_end

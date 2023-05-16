@@ -1,0 +1,48 @@
+<theme>
+	<name>Standard</name>
+	
+	<legendColor name="Normal entity">
+		<color type="name"   color="  0,  0,  0"/>
+		<color type="nameBg" color="180,230,255"/>
+		<color type="text"   color="  0,  0,  0"/>
+		<color type="textBg" color="230,230,180"/>
+		<color type="bg"     color="255,255,200"/>
+		<color type="border" color="  0,  0,  0"/>
+	</legendColor>
+	
+	<legendColor name="Grayed entity">
+		<color type="name"   color="  0,  0,  0"/>
+		<color type="nameBg" color="170,210,230"/>
+		<color type="text"   color="  0,  0,  0"/>
+		<color type="textBg" color="210,210,170"/>
+		<color type="bg"     color="230,230,180"/>
+		<color type="border" color="  0,  0,  0"/>
+	</legendColor>
+	
+	<legendColor name="Extern entity">
+		<color type="name"   color="  0,  0,  0"/>
+		<color type="nameBg" color="180,230,255"/>
+		<color type="text"   color="  0,  0,  0"/>
+		<color type="textBg" color="180,190,230"/>
+		<color type="bg"     color="210,220,255"/>
+		<color type="border" color="  0,  0,  0"/>
+	</legendColor>
+	
+	<legendColor name="Relationship">
+		<color type="name"   color="  0,  0,  0"/>
+		<color type="nameBg" color="200,100,100"/>
+		<color type="text"   color="  0,  0,  0"/>
+		<color type="textBg" color="255,150,150"/>
+		<color type="bg"     color="255,200,170"/>
+		<color type="border" color="  0,  0,  0"/>
+	</legendColor>
+	
+	<legendColor name="Read only">
+		<color type="name"   color="  0,  0,  0"/>
+		<color type="nameBg" color="100,200,100"/>
+		<color type="text"   color="  0,  0,  0"/>
+		<color type="textBg" color="180,240,160"/>
+		<color type="bg"     color="200,255,180"/>
+		<color type="border" color="  0,  0,  0"/>
+	</legendColor>
+</theme>

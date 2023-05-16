@@ -1,0 +1,83 @@
+#**
+
+    Changes :
+        - Bruno 11-10-2003 : Construct folders'id with full folder path : "FolderPath"
+
+*### This is to avoid spaces in the beginning of the file.
+##
+## macro can't be recursiv in Velocity, can't they ??
+##
+
+<section id="${FolderPath}_${Folder.getNCNamePart()}">
+    <title>${Folder.name}</title>
+    #if (${Folder.Descr} != "")
+        <para>${Folder.xmlDescr}</para>
+    #end
+
+    #set( $firstFolder = "true" )
+    #set( $childFolders = [] )
+
+    #set( $firstListItem = "true" )
+    #foreach( $child in $Folder.children )
+        #set( $image = "unknow" )
+        #set( $name  = "unknow" )
+        #if( $child.isTable)
+            #set( $image = "table" )
+            #set( $name = ${lang.table} )
+        #elseif( $child.isView)
+            #set( $image = "view" )
+            #set( $name = ${lang.view} )
+        #elseif( $child.isProcedure)
+            #set( $image = "procedure" )
+            #set( $name = ${lang.procedure} )
+        #elseif( $child.isFunction)
+            #set( $image = "function" )
+            #set( $name = ${lang.function} )
+        #elseif( $child.isSequence)
+            #set( $image = "sequence" )
+            #set( $name = ${lang.sequence} )
+        #elseif( $child.isNotes)
+            #set( $image = "note" )
+            #set( $name = ${lang.notes} )
+            #if( $child.isInfo)
+                #set( $name = "$name info" )
+            #elseif( $child.isAlert)
+                #set( $name = "$name alert" )
+            #else
+                #set( $name = "$name danger" )
+            #end
+        #elseif( $child.isFolder)
+            #if ( $firstFolder == "true" )
+                #set( $firstFolder = "false" )
+                #set( $childFolders = [ $child ] )
+                #set ( $FolderPath = "${FolderPath}_${Folder.getNCNamePart()}" )
+        #else
+                ## dummy foo to hise the returned value "True"
+                #set ($foo = $childFolders.add( $child ))
+            #end
+        #end
+        #if( !$child.isFolder)
+	    #if( $firstListItem == "true" )
+		#set( $firstListItem = "false" )
+		<itemizedlist>
+	    #end
+            <listitem><para>
+                $name : <link linkend="${image}_${child.getNCNamePart()}">${child.Name}</link>
+            </para></listitem>
+        #end
+    #end ##foreach( $child in $Folder.children )
+    #if( $firstListItem == "false" )
+	    </itemizedlist>
+    #end
+
+    ##to allow empty folder not to break docbook :
+    #if(( $firstListItem == "true" ) && ( $firstFolder == "true" ))
+	<para>...</para>
+    #end
+
+    #foreach( $child in $childFolders )
+        #set ( $Folder = $child )
+        #parse("folders.vm")
+    #end
+
+</section>

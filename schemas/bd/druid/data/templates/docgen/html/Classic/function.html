@@ -1,0 +1,33 @@
+#xhtmlHeader()
+<head>
+    <!-- ${lang.generatedOn} ${Sys.date} -->
+	<title>${lang.docsForDatabase} : ${db.htmlName}</title>
+	<link rel ="stylesheet" type="text/css" href="../main/stylesheet.css" title="Style" />
+</head>
+
+<body>
+
+	#objectHeader( $lang )
+	<hr/>
+
+	<a name="Overview"></a>
+
+	<table width="100%" border="1" cellspacing="0" cellpadding="2">
+		<tr class="title"><td>${lang.function} : ${function.htmlName}</td></tr>
+	</table>
+
+	${function.htmlDescr}
+
+	<a name="Code" />
+
+	<table width="100%" border="1" cellspacing="0" cellpadding="2">
+		<tr class="paragr"><td>${lang.sqlCode}</td></tr>
+		<tr class="sql"><td><pre>${function.htmlCode}</pre></td></tr>
+	</table>
+
+	<hr/>
+	#objectHeader( $lang )
+
+</body>
+
+</html>

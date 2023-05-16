@@ -1,0 +1,347 @@
+#LyX 1.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 221
+\textclass book
+\begin_preamble
+\usepackage {times}
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme times
+\graphics default
+\paperfontsize 12
+\spacing single 
+\papersize a4paper
+\paperpackage widemarginsa4
+\use_geometry 0
+\use_amsmath 0
+\use_natbib 0
+\use_numerical_citations 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 2
+\paperpagestyle headings
+
+\layout Title
+\added_space_top vfill \added_space_bottom vfill 
+DRUID FAQ
+\layout Author
+
+Andrea Carboni
+\layout Date
+
+Rev 4, 25-Dec-2003
+\layout Standard
+
+
+\begin_inset LatexCommand \tableofcontents{}
+
+\end_inset 
+
+
+\layout Chapter
+
+Frequently Asked Questions
+\layout Section
+
+General
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Question
+\series default 
+ 
+\emph on 
+An unexpected exception has been detected in native code outside the VM...
+\begin_deeper 
+\layout Standard
+
+This is a crash of the Java Virtual Machine and is not due to Druid.
+ 
+\end_deeper 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Question
+\series default 
+ 
+\emph on 
+I get Out of memory when...
+\begin_deeper 
+\layout Standard
+
+Generally speaking, Druid uses from 35 Mb (an empty instance) to 60 Mb (with
+ 100 tables and 500 fields).
+ If you encounter this error try to run Druid this way:
+\layout LyX-Code
+
+java -mx512m -jar druid.jar
+\layout Standard
+
+If you have less than 512 megabytes then use a different number.
+ Some users had problems under Linux with Druid that was using more than
+ 1 gigabyte of memory.
+ This is unusual and maybe is due to a particular combination of glibc /
+ jvm / kernel.
+\layout Standard
+
+However, during normal operations and default jvm settings, Druid complains
+ about memory when you have more than 500 tables and 2500 fields.
+ You get aware of this because some operations (for example project load/save)
+ become slow.
+ In this case, or if you want a faster response, user the -mx option above
+ to increase memory.
+\end_deeper 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Question
+\series default 
+ 
+\emph on 
+When I select 
+\family sans 
+Project
+\family default 
+\SpecialChar \menuseparator
+
+\family sans 
+New
+\family default 
+ from the menu, no project is shown.
+ Is it a bug?
+\begin_deeper 
+\layout Standard
+
+No.
+ A project is a collection of databases.
+ When you run Druid and the main frame appears you have an empty project.
+ Right click on the project-view panel and add a new database.
+ When you select 
+\family sans 
+Project
+\family default 
+\emph on 
+\SpecialChar \menuseparator
+
+\family sans 
+\emph default 
+New
+\family default 
+ from the menu, Druid creates a new empty project and waits for new databases
+ to be created.
+\end_deeper 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Question
+\series default 
+ 
+\emph on 
+The last druid release doesn't open an old project file.
+ Is it a bug?
+\begin_deeper 
+\layout Standard
+
+No.
+ Every druid release is capable of loading only a project saved by the previous
+ one.
+ The druid's releases are: 2.7, 3.0-PRE, 3.0-INT, etc...
+ So, a 2.7 project file can be opened with the 3.0-PRE release and not with
+ the 3.0-INT release.
+ To load it with the 3.0-INT do the following:
+\layout Itemize
+
+Open the project with the 3.0-PRE release and save it
+\layout Itemize
+
+Reopen it with the 3.0-INT release 
+\end_deeper 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Question
+\series default 
+ 
+\emph on 
+Druid doesn't save my project.
+ Is it too big ?
+\begin_deeper 
+\layout Standard
+
+Druid is limited only by memory available.
+ With the standard jvm setting (64 MB) it works fine up to 400 tables and
+ 2000 fields (tested).
+ To handle more data, try to start the jvm with more memory, like this:
+\layout LyX-Code
+
+java -mx256m -jar druid.jar
+\layout Standard
+
+In any case, other users experienced problems during saving.
+ This was, in linux systems, due to the glibc-2.3 and latest jdks.
+\end_deeper 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Question
+\series default 
+ 
+\emph on 
+I want to reverse engineer my database and then generate SQL for PostgreSQL,
+ Oracle, MySQL etc...
+ Can I do that ?
+\begin_deeper 
+\layout Standard
+
+Druid can do all you need.
+ The only relevant aspect is that druid works with physical models only.
+ That is, if you import a schema from oracle then you cannot export the
+ same schema into postgresql or another db that doesn't support blobs, clobs
+ etc...
+ Furthermore, the druid's jdbc import capability depends strongly on the
+ 'goodness' of the jdbc driver you use.
+\end_deeper 
+\layout Section
+
+PostgreSQL
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Question
+\series default 
+ 
+\emph on 
+Does Druid work with PostgreSQL ?
+\begin_deeper 
+\layout Standard
+
+Yes.
+\end_deeper 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Question
+\series default 
+ 
+\emph on 
+May I use Druid with the PostgreSQL jdbc driver ?
+\begin_deeper 
+\layout Standard
+
+Yes, but you have to use a version >= 7.3 of the JDBC driver.
+\end_deeper 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Question
+\series default 
+ 
+\emph on 
+How do I use the serial type ?
+\begin_deeper 
+\layout Standard
+
+The 
+\series bold 
+serial
+\series default 
+ type is an alias for the 
+\series bold 
+int
+\series default 
+ type that generates a sequence too.
+ Add the serial type as a basic constant type, the postgres sql module will
+ convert the serial to int when it encounters a foreign key.
+\end_deeper 
+\layout Section
+
+Linux
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Question
+\series default 
+ 
+\emph on 
+Permissions issues
+\begin_deeper 
+\layout Standard
+
+When running Druid with an user other than 
+\emph on 
+root
+\emph default 
+ make sure that the user has read permissions on the Druid's directory.
+ Druid needs to scan the data directory too.
+ This can be accomplished issuing the following command:
+\layout LyX-Code
+
+chown -R <user>:<group> <druid-directory>
+\end_deeper 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Question
+\series default 
+ 
+\emph on 
+When I run Druid over X, it is much slower than when it runs locally.
+\begin_deeper 
+\layout Standard
+
+Select from the menu 
+\family sans 
+Config
+\family default 
+\SpecialChar \menuseparator
+
+\family sans 
+Options
+\family default 
+ and turn off antialiasing.
+\end_deeper 
+\layout List
+\labelwidthstring 00.00.0000
+
+
+\series bold 
+Question
+\series default 
+ 
+\emph on 
+GLibc issues
+\begin_deeper 
+\layout Standard
+
+There is an incompatibility between the JVM 1.4.x and distributions that have
+ the glibc 2.3 (tipically RedHat 8.0 / 9.0).
+ In these systems Druid can behave strangely, specially during save.
+\the_end

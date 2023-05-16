@@ -1,0 +1,27 @@
+#foreach($table in $db.allTables)
+==================================================================
+===
+=== $table.name
+===
+==================================================================
+
+Description
+
+$table.descr
+
+#foreach($field in $table.fields)
+------------------------------------------------------------------
+--- $field.name
+------------------------------------------------------------------
+
+Type         : $field.type
+SqlType      : $field.sqlType
+IsForeignKey : $field.isForeignKey
+IsPrimaryKey : $field.isPrimaryKey
+
+Description
+
+$field.descr
+
+#end
+#end

@@ -1,0 +1,1187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project version="2">
+	<attribs>
+		<attrib name="build">10</attrib>
+		<attrib name="serial">889</attrib>
+	</attribs>
+	<database>
+		<attribs>
+			<attrib name="name">fatebenefratelli</attrib>
+			<attrib name="preSql">BEGIN WORK;
+</attrib>
+			<attrib name="postSql">COMMIT;
+</attrib>
+			<attrib name="ddUseDDEquiv">false</attrib>
+			<attrib name="codeUseBuild">true</attrib>
+			<attrib name="summUseDDEquiv">true</attrib>
+		</attribs>
+		<revisions>
+			<list>
+				<header>
+					<elem>version</elem>
+					<elem>date</elem>
+					<elem>descr</elem>
+				</header>
+			</list>
+		</revisions>
+		<fieldAttribs>
+			<list>
+				<header>
+					<elem>id</elem>
+					<elem>name</elem>
+					<elem>sqlName</elem>
+					<elem>type</elem>
+					<elem>scope</elem>
+					<elem>useInDD</elem>
+					<elem>useInSumm</elem>
+					<elem>width</elem>
+					<elem>descr</elem>
+				</header>
+				<row>
+					<elem>15</elem>
+					<elem>PrKey</elem>
+					<elem>primary key</elem>
+					<elem>b</elem>
+					<elem>t</elem>
+					<elem>false</elem>
+					<elem>true</elem>
+					<elem>60</elem>
+					<elem>Primary key for a table</elem>
+				</row>
+				<row>
+					<elem>16</elem>
+					<elem>Unq</elem>
+					<elem>unique</elem>
+					<elem>b</elem>
+					<elem>f</elem>
+					<elem>false</elem>
+					<elem>true</elem>
+					<elem>60</elem>
+					<elem>Unique for a single field</elem>
+				</row>
+				<row>
+					<elem>17</elem>
+					<elem>NotN</elem>
+					<elem>not null</elem>
+					<elem>b</elem>
+					<elem>f</elem>
+					<elem>false</elem>
+					<elem>true</elem>
+					<elem>60</elem>
+					<elem/>
+				</row>
+				<row>
+					<elem>338</elem>
+					<elem>MUnq</elem>
+					<elem>unique</elem>
+					<elem>b</elem>
+					<elem>t</elem>
+					<elem>false</elem>
+					<elem>true</elem>
+					<elem>60</elem>
+					<elem>Unique for several fields</elem>
+				</row>
+				<row>
+					<elem>339</elem>
+					<elem>Def</elem>
+					<elem>default</elem>
+					<elem>s</elem>
+					<elem>f</elem>
+					<elem>false</elem>
+					<elem>true</elem>
+					<elem>60</elem>
+					<elem>Field's default value </elem>
+				</row>
+				<row>
+					<elem>340</elem>
+					<elem>Idx1</elem>
+					<elem/>
+					<elem>b</elem>
+					<elem>i</elem>
+					<elem>false</elem>
+					<elem>true</elem>
+					<elem>60</elem>
+					<elem>An index</elem>
+				</row>
+			</list>
+		</fieldAttribs>
+		<modsConfig/>
+		<modsUsage>
+			<module name="DocsGenModule.html"/>
+			<module name="SqlGenModule.stdSql"/>
+		</modsUsage>
+		<dataTypes>
+			<constFolder>
+				<type>
+					<attribs>
+						<attrib name="name">bool</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">382</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">box</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">383</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">cidr</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">384</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">circle</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">385</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">date</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">386</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">inet</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">387</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">float4</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">388</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">float8</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">389</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">int2</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">390</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">int4</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">391</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">int8</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">392</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">line</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">393</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">lseg</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">394</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">money</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">395</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">path</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">396</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">point</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">397</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">polygon</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">398</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">serial</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">399</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">time</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">400</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">timespan</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">401</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">timestamp</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">495</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">char</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">402</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">text</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">403</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">name</attrib>
+						<attrib name="ddEquiv"/>
+						<attrib name="id">404</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+			</constFolder>
+			<varFolder>
+				<type>
+					<attribs>
+						<attrib name="name">char</attrib>
+					</attribs>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">varchar</attrib>
+					</attribs>
+					<aliases>
+						<alias>
+							<attribs>
+								<attrib name="name">varchar16</attrib>
+								<attrib name="ddEquiv"/>
+								<attrib name="id">40</attrib>
+								<attrib name="size">16</attrib>
+							</attribs>
+							<domain>
+								<attribs>
+									<attrib name="minValue"/>
+									<attrib name="outRange">false</attrib>
+									<attrib name="maxValue"/>
+									<attrib name="type">none</attrib>
+								</attribs>
+								<list>
+									<header>
+										<elem>value</elem>
+									</header>
+								</list>
+							</domain>
+						</alias>
+						<alias>
+							<attribs>
+								<attrib name="name">varchar32</attrib>
+								<attrib name="ddEquiv"/>
+								<attrib name="id">41</attrib>
+								<attrib name="size">32</attrib>
+							</attribs>
+							<domain>
+								<attribs>
+									<attrib name="minValue"/>
+									<attrib name="outRange">false</attrib>
+									<attrib name="maxValue"/>
+									<attrib name="type">none</attrib>
+								</attribs>
+								<list>
+									<header>
+										<elem>value</elem>
+									</header>
+								</list>
+							</domain>
+						</alias>
+						<alias>
+							<attribs>
+								<attrib name="name">varchar64</attrib>
+								<attrib name="ddEquiv"/>
+								<attrib name="id">42</attrib>
+								<attrib name="size">64</attrib>
+							</attribs>
+							<domain>
+								<attribs>
+									<attrib name="minValue"/>
+									<attrib name="outRange">false</attrib>
+									<attrib name="maxValue"/>
+									<attrib name="type">none</attrib>
+								</attribs>
+								<list>
+									<header>
+										<elem>value</elem>
+									</header>
+								</list>
+							</domain>
+						</alias>
+						<alias>
+							<attribs>
+								<attrib name="name">varchar128</attrib>
+								<attrib name="ddEquiv"/>
+								<attrib name="id">43</attrib>
+								<attrib name="size">128</attrib>
+							</attribs>
+							<domain>
+								<attribs>
+									<attrib name="minValue"/>
+									<attrib name="outRange">false</attrib>
+									<attrib name="maxValue"/>
+									<attrib name="type">none</attrib>
+								</attribs>
+								<list>
+									<header>
+										<elem>value</elem>
+									</header>
+								</list>
+							</domain>
+						</alias>
+					</aliases>
+				</type>
+			</varFolder>
+		</dataTypes>
+		<queries/>
+		<erViews>
+			<erView>
+				<attribs>
+					<attrib name="fieldsStyle">p</attrib>
+					<attrib name="nameSize">15</attrib>
+					<attrib name="nameStyle">bi</attrib>
+					<attrib name="name">-UnNamed-</attrib>
+					<attrib name="details">co</attrib>
+					<attrib name="fieldsSize">10</attrib>
+					<attrib name="fieldsFamily">Helvetica</attrib>
+					<attrib name="nameFamily">Helvetica</attrib>
+				</attribs>
+				<modsConfig/>
+				<docs>
+					<p>
+						<t>...</t>
+					</p>
+				</docs>
+				<legend>
+					<attribs>
+						<attrib name="name">-UnNamed-</attrib>
+						<attrib name="fontStyle">p</attrib>
+						<attrib name="fontFamily">Helvetica</attrib>
+						<attrib name="fontSize">10</attrib>
+						<attrib name="location">se</attrib>
+					</attribs>
+					<color>
+						<attribs>
+							<attrib name="name">-UnNamed-</attrib>
+							<attrib name="id">730</attrib>
+						</attribs>
+						<values>
+							<name red="0" green="0" blue="0"/>
+							<nameBg red="180" green="230" blue="255"/>
+							<text red="0" green="0" blue="0"/>
+							<textBg red="230" green="230" blue="180"/>
+							<bg red="255" green="255" blue="200"/>
+							<border red="0" green="0" blue="0"/>
+						</values>
+					</color>
+				</legend>
+				<erEntity>
+					<attribs>
+						<attrib name="name">doctors</attrib>
+						<attrib name="colorId">730</attrib>
+						<attrib name="locY">17</attrib>
+						<attrib name="details">-</attrib>
+						<attrib name="locX">20</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="34"/>
+					</tables>
+				</erEntity>
+				<erEntity>
+					<attribs>
+						<attrib name="name">patients</attrib>
+						<attrib name="colorId">730</attrib>
+						<attrib name="locY">149</attrib>
+						<attrib name="details">-</attrib>
+						<attrib name="locX">27</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="252"/>
+					</tables>
+				</erEntity>
+				<erEntity>
+					<attribs>
+						<attrib name="name">prescriptions</attrib>
+						<attrib name="colorId">730</attrib>
+						<attrib name="locY">16</attrib>
+						<attrib name="details">-</attrib>
+						<attrib name="locX">218</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="36"/>
+					</tables>
+				</erEntity>
+			</erView>
+		</erViews>
+		<objects>
+			<table>
+				<vars>
+					<list>
+						<header>
+							<elem>name</elem>
+							<elem>type</elem>
+							<elem>value</elem>
+							<elem>descr</elem>
+						</header>
+					</list>
+				</vars>
+				<triggers/>
+				<rules/>
+				<attribs>
+					<attrib name="comment"/>
+					<attrib name="name">doctors</attrib>
+					<attrib name="id">34</attrib>
+					<attrib name="tempPK"/>
+					<attrib name="tempFK"/>
+					<attrib name="tempOther"/>
+					<attrib name="sqlCommands"/>
+				</attribs>
+				<modsConfig/>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="17">true</attrib>
+							<attrib name="16">true</attrib>
+							<attrib name="15">true</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">id</attrib>
+						<attrib name="id">37</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">391</attrib>
+					</attribs>
+					<modsConfig/>
+					<docs>
+						<p>
+							<t>Doctor's id</t>
+						</p>
+					</docs>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">true</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">name</attrib>
+						<attrib name="id">38</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">41</attrib>
+					</attribs>
+					<modsConfig/>
+					<docs>
+						<p>
+							<t>Doctor's name</t>
+						</p>
+					</docs>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">true</attrib>
+							<attrib name="340">true</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">surname</attrib>
+						<attrib name="id">39</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">41</attrib>
+					</attribs>
+					<modsConfig/>
+					<docs>
+						<p>
+							<t>Doctor's surname</t>
+						</p>
+					</docs>
+				</field>
+			</table>
+			<table>
+				<vars>
+					<list>
+						<header>
+							<elem>name</elem>
+							<elem>type</elem>
+							<elem>value</elem>
+							<elem>descr</elem>
+						</header>
+					</list>
+				</vars>
+				<triggers/>
+				<rules/>
+				<attribs>
+					<attrib name="comment"/>
+					<attrib name="name">patients</attrib>
+					<attrib name="id">252</attrib>
+					<attrib name="tempPK"/>
+					<attrib name="tempFK"/>
+					<attrib name="tempOther"/>
+					<attrib name="sqlCommands"/>
+				</attribs>
+				<modsConfig/>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="17">true</attrib>
+							<attrib name="16">true</attrib>
+							<attrib name="15">true</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">id</attrib>
+						<attrib name="id">253</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">391</attrib>
+					</attribs>
+					<modsConfig/>
+					<docs>
+						<p>
+							<t>Patient's id</t>
+						</p>
+					</docs>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">true</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">name</attrib>
+						<attrib name="id">254</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">41</attrib>
+					</attribs>
+					<modsConfig/>
+					<docs>
+						<p>
+							<t>Patient's name (may be unknown)</t>
+						</p>
+					</docs>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">true</attrib>
+							<attrib name="340">true</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">surname</attrib>
+						<attrib name="id">255</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">41</attrib>
+					</attribs>
+					<modsConfig/>
+					<docs>
+						<p>
+							<t>Patient's surname (may be unknown)</t>
+						</p>
+					</docs>
+				</field>
+			</table>
+			<table>
+				<vars>
+					<list>
+						<header>
+							<elem>name</elem>
+							<elem>type</elem>
+							<elem>value</elem>
+							<elem>descr</elem>
+						</header>
+					</list>
+				</vars>
+				<triggers/>
+				<rules/>
+				<attribs>
+					<attrib name="comment"/>
+					<attrib name="name">prescriptions</attrib>
+					<attrib name="id">36</attrib>
+					<attrib name="tempPK"/>
+					<attrib name="tempFK"/>
+					<attrib name="tempOther"/>
+					<attrib name="sqlCommands"/>
+				</attribs>
+				<modsConfig/>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">true</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="refField">37</attrib>
+						<attrib name="name">doctorid</attrib>
+						<attrib name="id">264</attrib>
+						<attrib name="onDelete">c</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">34</attrib>
+						<attrib name="type">0</attrib>
+					</attribs>
+					<modsConfig/>
+					<docs>
+						<p>
+							<t>Identifies the doctor</t>
+						</p>
+					</docs>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">true</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">true</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="refField">253</attrib>
+						<attrib name="name">patientid</attrib>
+						<attrib name="id">265</attrib>
+						<attrib name="onDelete">c</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">252</attrib>
+						<attrib name="type">0</attrib>
+					</attribs>
+					<modsConfig/>
+					<docs>
+						<p>
+							<t>Identifies the patient</t>
+						</p>
+					</docs>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">medicine</attrib>
+						<attrib name="id">266</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">42</attrib>
+					</attribs>
+					<modsConfig/>
+					<docs>
+						<p>
+							<t>Medicine that the patient must take</t>
+						</p>
+					</docs>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">quantity</attrib>
+						<attrib name="id">267</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">41</attrib>
+					</attribs>
+					<modsConfig/>
+					<docs>
+						<p>
+							<t>Quantity of the medicine</t>
+						</p>
+					</docs>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">true</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">when</attrib>
+						<attrib name="id">418</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">495</attrib>
+					</attribs>
+					<modsConfig/>
+					<docs>
+						<p>
+							<t>When the medicine should be taken</t>
+						</p>
+					</docs>
+				</field>
+			</table>
+		</objects>
+	</database>
+</project>

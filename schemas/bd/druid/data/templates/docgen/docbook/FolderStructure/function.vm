@@ -1,0 +1,13 @@
+#**
+
+    Bruno 15-10-2003
+
+*### This is to avoid spaces in the beginning of the file.
+##
+<section id="function_${function.getNCNamePart()}">
+    <title>${lang.function} : ${function.Name}</title>
+    #if (${function.Descr} != "")
+        <para>${function.xmlDescr}</para>
+    #end
+    <programlisting><![CDATA[${function.Code}]]></programlisting>
+</section>
