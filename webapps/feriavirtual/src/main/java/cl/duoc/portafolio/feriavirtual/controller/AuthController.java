@@ -30,8 +30,8 @@ public class AuthController {
 	ResponseEntity<Boolean> login(@RequestBody InputAuthLogin inputDTO) {
 
 		JAXBUtil.validarSchema(InputAuthLogin.class, inputDTO);
-
-		String token = "ESTO ES UN TOKEN";
+		
+		String token = usuarioService.authenticate(inputDTO.getUsername(), inputDTO.getPassword());
 
 		return ResponseEntity.ok().header("Authorizarion", "Bearer " + token).build();
 	}

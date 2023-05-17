@@ -1,7 +1,5 @@
 package cl.duoc.portafolio.feriavirtual.service;
 
-import java.util.List;
-
 import cl.duoc.portafolio.dto.v10.feriavirtual.InputAuthCrear;
 import cl.duoc.portafolio.feriavirtual.domain.Usuario;
 
@@ -13,6 +11,8 @@ public interface UsuarioService {
 	
 	Usuario obtener(final String identificacion);
 	
-	List<Usuario> consultar();
+	String authenticate(final String username, final String password);
+	
+	Iterable<Usuario> consultar();
 
 }

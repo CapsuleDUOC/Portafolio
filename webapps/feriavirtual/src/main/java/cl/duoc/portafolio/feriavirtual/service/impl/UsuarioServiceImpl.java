@@ -1,11 +1,17 @@
 package cl.duoc.portafolio.feriavirtual.service.impl;
 
 import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import cl.duoc.portafolio.dto.v10.feriavirtual.InputAuthCrear;
 import cl.duoc.portafolio.dto.v10.feriavirtual.TipoUsuario;
@@ -17,6 +23,8 @@ import cl.duoc.portafolio.feriavirtual.repository.UsuarioAuthRepository;
 import cl.duoc.portafolio.feriavirtual.repository.UsuarioBitacoraRepository;
 import cl.duoc.portafolio.feriavirtual.repository.UsuarioRepository;
 import cl.duoc.portafolio.feriavirtual.service.UsuarioService;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
@@ -24,6 +32,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 	private UsuarioRepository usuarioRepository;
 	private UsuarioAuthRepository usuarioAuthRepository;
 	private UsuarioBitacoraRepository bitacoraRepository;
+
+	@Value("${jwt.secret}")
+	private String jwtSecret;
 
 	public UsuarioServiceImpl(final UsuarioRepository usuarioRepository,
 			final UsuarioAuthRepository usuarioAuthRepository, final UsuarioBitacoraRepository bitacoraRepository) {
@@ -42,11 +53,40 @@ public class UsuarioServiceImpl implements UsuarioService {
 		bitacora.setRegistroInstante(LocalDateTime.now());
 		bitacora.setRegistro("Se crea usuario con tipo [" + inputDTO.getTipoUsuario().name() + "]");
 		bitacoraRepository.save(bitacora);
-		
+
 		String salt = BCrypt.gensalt();
 		crearAuth(usuario, inputDTO.getEmail(), BCrypt.hashpw(inputDTO.getPassword(), salt));
 
 		return usuario;
+	}
+
+	@Override
+	public String authenticate(String username, String password) {
+
+		Optional<UsuarioAuth> _auth = usuarioAuthRepository.findByEmail(username);
+		if (!_auth.isPresent()) {
+
+			// TODO RESPONSE HTTP 401
+			throw new IllegalArgumentException("Usuario no existe");
+		}
+
+		if (!BCrypt.checkpw(password, _auth.get().getPassword())) {
+			// TODO RESPONSE HTTP 401
+			throw new IllegalArgumentException("Contraseña inválida");
+		}
+
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.HOUR_OF_DAY, 12);
+		
+		Map<String, Object> claims = new HashMap<String, Object>();
+		claims.put("ROLES", _auth.get().getUsuario().getRoles());
+		
+		final String jwtToken = Jwts.builder().setSubject(username).addClaims(claims).setIssuedAt(new Date()).setExpiration(cal.getTime())
+				.signWith(SignatureAlgorithm.HS512,
+						jwtSecret.getBytes()).compact();
+
+		return jwtToken;
+
 	}
 
 	private Usuario crearUsuario(final UsuarioType usuarioType, final TipoUsuario tipoUsuario) {
@@ -86,19 +126,23 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	public Usuario obtener(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Usuario> _usuario = usuarioRepository.findById(id);
+		Assert.isTrue(_usuario.isPresent(), "No existe usuario");
+		
+		return _usuario.get();
 	}
 
 	@Override
 	public Usuario obtener(String identificacion) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Usuario> _usuario = usuarioRepository.findByIdentificacion(identificacion);
+		Assert.isTrue(_usuario.isPresent(), "No existe usuario");
+		
+		return _usuario.get();
 	}
 
 	@Override
-	public List<Usuario> consultar() {
-		// TODO Auto-generated method stub
-		return null;
+	public Iterable<Usuario> consultar() {
+		
+		return usuarioRepository.findAll();
 	}
 }
