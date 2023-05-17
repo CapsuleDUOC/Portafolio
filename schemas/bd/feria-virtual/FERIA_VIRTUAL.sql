@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : FERIA_VIRTUAL
 -- ===
--- === Build : 57
+-- === Build : 59
 -- ======================================================================
 
 CREATE TABLE archivo
@@ -61,7 +61,7 @@ CREATE TABLE usuario_auth
     usuario_id     bigint,
     email          varchar(50)    unique not null,
     password       varchar(255)   not null,
-    ultimo_acceso  datetime       not null,
+    ultimo_acceso  datetime,
     token          text,
 
     primary key(id),
@@ -76,9 +76,10 @@ CREATE INDEX usuario_authIDX1 ON usuario_auth(id);
 
 CREATE TABLE usuario_bitacora
   (
-    id          bigint         unique not null auto_increment,
-    usuario_id  bigint         not null,
-    registro    varchar(255)   not null,
+    id                 bigint         unique not null auto_increment,
+    usuario_id         bigint         not null,
+    registro           varchar(255)   not null,
+    registro_instante  datetime       not null,
 
     primary key(id),
 

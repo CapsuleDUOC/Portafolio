@@ -2,8 +2,8 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">57</attrib>
-		<attrib name="serial">52180</attrib>
+		<attrib name="build">60</attrib>
+		<attrib name="serial">52185</attrib>
 	</attribs>
 	<database>
 		<attribs>
@@ -60,6 +60,11 @@
 					<elem>0.8</elem>
 					<elem>2023-05-13 22:31:25</elem>
 					<elem>ajuste usuario_auth user null, y user identificacion unique</elem>
+				</row>
+				<row>
+					<elem>0.9</elem>
+					<elem>2023-05-16 21:04:24</elem>
+					<elem>ajusta user_auth con ultimo acceso null para cuando se crea, agrega datetime a botacora usuario</elem>
 				</row>
 			</list>
 		</revisions>
@@ -201,7 +206,7 @@
 		<modsConfig>
 			<SqlGenModule>
 				<mysql>
-					<output>C:\Users\Cloudh\Documents\FERIA_VIRTUAL.sql</output>
+					<output>C:\Users\Cloudh\git\Portafolio\schemas\bd\feria-virtual\FERIA_VIRTUAL.sql</output>
 				</mysql>
 			</SqlGenModule>
 		</modsConfig>
@@ -2894,7 +2899,7 @@
 							<attrib name="85">false</attrib>
 							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
+							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
 							<attrib name="15">false</attrib>
 							<attrib name="339"/>
@@ -3069,6 +3074,34 @@
 						<attrib name="onUpdate">n</attrib>
 						<attrib name="refTable">0</attrib>
 						<attrib name="type">33</attrib>
+					</attribs>
+					<modsConfig/>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="86">false</attrib>
+							<attrib name="85">false</attrib>
+							<attrib name="84">false</attrib>
+							<attrib name="83">false</attrib>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="name">registro_instante</attrib>
+						<attrib name="refField">0</attrib>
+						<attrib name="matchType">s</attrib>
+						<attrib name="id">52183</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">46</attrib>
 					</attribs>
 					<modsConfig/>
 				</field>

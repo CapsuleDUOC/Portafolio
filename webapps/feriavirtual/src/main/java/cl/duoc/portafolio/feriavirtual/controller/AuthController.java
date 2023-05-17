@@ -31,7 +31,7 @@ public class AuthController {
 
 		JAXBUtil.validarSchema(InputAuthLogin.class, inputDTO);
 
-		String token = "";
+		String token = "ESTO ES UN TOKEN";
 
 		return ResponseEntity.ok().header("Authorizarion", "Bearer " + token).build();
 	}
