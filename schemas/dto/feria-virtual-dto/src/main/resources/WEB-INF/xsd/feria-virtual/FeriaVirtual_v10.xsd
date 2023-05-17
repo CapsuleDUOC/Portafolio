@@ -3,13 +3,22 @@
 
     <complexType name="UsuarioType">
     	<sequence>
-    		<element name="ID" type="long" maxOccurs="1" minOccurs="0"></element>
-    		<element name="nombre" type="string" maxOccurs="1" minOccurs="1"></element>
-    		<element name="apellido" type="string" maxOccurs="1" minOccurs="1"></element>
-    		<element name="registroInstante" type="dateTime" maxOccurs="1" minOccurs="0"></element>
-    		<element name="tipoIdentificacion" type="tns:TipoIdentificacion" maxOccurs="1" minOccurs="1"></element>
-    		<element name="identificacion" type="string" maxOccurs="1" minOccurs="1"></element>
-    		<element name="telefono" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="ID" type="long" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+            <element name="tipoIdentificacion" type="tns:TipoIdentificacion" maxOccurs="1" minOccurs="1">
+    		</element>
+            <element name="identificacion" type="string" maxOccurs="1" minOccurs="1">
+    		</element>
+            <element name="estado" type="tns:EstadoUsuario" maxOccurs="1" minOccurs="1"></element>
+            <element name="nombre" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+            <element name="telefono" type="string" maxOccurs="1" minOccurs="0">
+    		</element>
+            <element name="registroInstante" type="dateTime"
+    			maxOccurs="1" minOccurs="0">
+    		</element>
     	</sequence>
     </complexType>
 
@@ -82,7 +91,7 @@
 
     <complexType name="DireccionType">
     	<sequence>
-    		<element name="ID" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="ID" type="long" maxOccurs="1" minOccurs="0"></element>
     		<element name="direccion" type="string" maxOccurs="1" minOccurs="1"></element>
     		<element name="comuna" type="string" maxOccurs="1" minOccurs="1"></element>
     		<element name="ciudad" type="string" maxOccurs="1" minOccurs="1"></element>
@@ -242,10 +251,13 @@
 
     <simpleType name="TipoUsuario">
     	<restriction base="string">
+    		<enumeration value="SUPER_ADMIN"></enumeration>
+    		<enumeration value="ADMIN"></enumeration>
     		<enumeration value="PROVEEDOR"></enumeration>
     		<enumeration value="LOCATARIO"></enumeration>
     		<enumeration value="TRANSPORTISTA"></enumeration>
     		<enumeration value="CLIENTE"></enumeration>
+    		
     	</restriction>
     </simpleType>
 
@@ -264,8 +276,14 @@
     		<complexContent>
     			<extension base="tns:UsuarioType">
     				<sequence>
-    					<element name="direccion" type="string" maxOccurs="unbounded" minOccurs="0"></element>
-    					<element name="vehiculo" type="string" maxOccurs="unbounded" minOccurs="0"></element>
+    					<element name="direcciones"
+    						type="tns:DireccionType" maxOccurs="unbounded"
+    						minOccurs="0">
+    					</element>
+    					<element name="vehiculos"
+    						type="tns:VehiculoType" maxOccurs="unbounded" minOccurs="0">
+    					</element>
+    					<element name="propiedades" type="tns:PropiedadType" maxOccurs="unbounded" minOccurs="0"></element>
     				</sequence>
     			</extension>
     		</complexContent>
@@ -285,11 +303,15 @@
     		<complexContent>
     			<extension base="tns:UsuarioType">
     				<sequence>
-    					<element name="direccion"
-    						type="tns:DireccionType" maxOccurs="1" minOccurs="0">
+    					<element name="direcciones"
+    						type="tns:DireccionType" maxOccurs="unbounded"
+    						minOccurs="0">
     					</element>
-                        <element name="vehiculo" type="tns:VehiculoType" maxOccurs="unbounded" minOccurs="0"></element>
-                    </sequence>
+    					<element name="vehiculos"
+    						type="tns:VehiculoType" maxOccurs="unbounded" minOccurs="0">
+    					</element>
+    					<element name="propiedades" type="tns:PropiedadType" maxOccurs="unbounded" minOccurs="0"></element>
+    				</sequence>
     			</extension>
     		</complexContent>
     	</complexType>
@@ -342,4 +364,18 @@
     		</sequence>
     	</complexType>
     </element>
+
+    <simpleType name="EstadoUsuario">
+    	<restriction base="string">
+    		<enumeration value="ACTIVO"></enumeration>
+    		<enumeration value="INACTIVO"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="PropiedadType">
+    	<sequence>
+    		<element name="llave" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="valor" type="string" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
 </schema>

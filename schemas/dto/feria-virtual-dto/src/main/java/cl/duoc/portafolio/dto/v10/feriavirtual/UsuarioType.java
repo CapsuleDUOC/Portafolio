@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.05.16 a las 01:49:46 PM CLT 
+// Generado el: 2023.05.17 a las 06:32:00 PM CLT 
 //
 
 
@@ -30,12 +30,12 @@ import org.w3._2001.xmlschema.Adapter1;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="ID" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
- *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="apellido" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="registroInstante" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
  *         &lt;element name="tipoIdentificacion" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}TipoIdentificacion"/&gt;
  *         &lt;element name="identificacion" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="estado" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}EstadoUsuario"/&gt;
+ *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="telefono" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="registroInstante" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -47,12 +47,12 @@ import org.w3._2001.xmlschema.Adapter1;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "UsuarioType", propOrder = {
     "id",
-    "nombre",
-    "apellido",
-    "registroInstante",
     "tipoIdentificacion",
     "identificacion",
-    "telefono"
+    "estado",
+    "nombre",
+    "telefono",
+    "registroInstante"
 })
 @XmlSeeAlso({
     OutputUsuarioObtener.class,
@@ -64,19 +64,20 @@ public class UsuarioType {
     @XmlElement(name = "ID")
     protected Long id;
     @XmlElement(required = true)
-    protected String nombre;
-    @XmlElement(required = true)
-    protected String apellido;
-    @XmlElement(type = String.class)
-    @XmlJavaTypeAdapter(Adapter1 .class)
-    @XmlSchemaType(name = "dateTime")
-    protected LocalDateTime registroInstante;
-    @XmlElement(required = true)
     @XmlSchemaType(name = "string")
     protected TipoIdentificacion tipoIdentificacion;
     @XmlElement(required = true)
     protected String identificacion;
+    @XmlElement(required = true)
+    @XmlSchemaType(name = "string")
+    protected EstadoUsuario estado;
+    @XmlElement(required = true)
+    protected String nombre;
     protected String telefono;
+    @XmlElement(type = String.class)
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "dateTime")
+    protected LocalDateTime registroInstante;
 
     /**
      * Obtiene el valor de la propiedad id.
@@ -100,78 +101,6 @@ public class UsuarioType {
      */
     public void setID(Long value) {
         this.id = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad nombre.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getNombre() {
-        return nombre;
-    }
-
-    /**
-     * Define el valor de la propiedad nombre.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setNombre(String value) {
-        this.nombre = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad apellido.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getApellido() {
-        return apellido;
-    }
-
-    /**
-     * Define el valor de la propiedad apellido.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setApellido(String value) {
-        this.apellido = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad registroInstante.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public LocalDateTime getRegistroInstante() {
-        return registroInstante;
-    }
-
-    /**
-     * Define el valor de la propiedad registroInstante.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setRegistroInstante(LocalDateTime value) {
-        this.registroInstante = value;
     }
 
     /**
@@ -223,6 +152,54 @@ public class UsuarioType {
     }
 
     /**
+     * Obtiene el valor de la propiedad estado.
+     * 
+     * @return
+     *     possible object is
+     *     {@link EstadoUsuario }
+     *     
+     */
+    public EstadoUsuario getEstado() {
+        return estado;
+    }
+
+    /**
+     * Define el valor de la propiedad estado.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link EstadoUsuario }
+     *     
+     */
+    public void setEstado(EstadoUsuario value) {
+        this.estado = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad nombre.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * Define el valor de la propiedad nombre.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setNombre(String value) {
+        this.nombre = value;
+    }
+
+    /**
      * Obtiene el valor de la propiedad telefono.
      * 
      * @return
@@ -244,6 +221,30 @@ public class UsuarioType {
      */
     public void setTelefono(String value) {
         this.telefono = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad registroInstante.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public LocalDateTime getRegistroInstante() {
+        return registroInstante;
+    }
+
+    /**
+     * Define el valor de la propiedad registroInstante.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRegistroInstante(LocalDateTime value) {
+        this.registroInstante = value;
     }
 
 }

@@ -13,31 +13,31 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para EstadoComision.
+ * <p>Clase Java para EstadoUsuario.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * <pre>
- * &lt;simpleType name="EstadoComision"&gt;
+ * &lt;simpleType name="EstadoUsuario"&gt;
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *     &lt;enumeration value="PENDIENTE"/&gt;
- *     &lt;enumeration value="PAGADO"/&gt;
+ *     &lt;enumeration value="ACTIVO"/&gt;
+ *     &lt;enumeration value="INACTIVO"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
  * 
  */
-@XmlType(name = "EstadoComision")
+@XmlType(name = "EstadoUsuario")
 @XmlEnum
-public enum EstadoComision {
+public enum EstadoUsuario {
 
-    PENDIENTE,
-    PAGADO;
+    ACTIVO,
+    INACTIVO;
 
     public String value() {
         return name();
     }
 
-    public static EstadoComision fromValue(String v) {
+    public static EstadoUsuario fromValue(String v) {
         return valueOf(v);
     }
 

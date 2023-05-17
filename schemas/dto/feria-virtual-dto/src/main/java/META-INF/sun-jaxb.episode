@@ -6,7 +6,7 @@
 Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 Visite https://eclipse-ee4j.github.io/jaxb-ri 
 Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-Generado el: 2023.05.16 a las 01:49:46 PM CLT 
+Generado el: 2023.05.17 a las 06:32:00 PM CLT 
 
   -->
       
@@ -48,18 +48,6 @@ Generado el: 2023.05.16 a las 01:49:46 PM CLT
                 
         </bindings>
             
-        <bindings if-exists="true" scd="tns:OutputUsuarioConsultar">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputUsuarioConsultar"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:OutputUsuarioObtener">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputUsuarioObtener"/>
-                
-        </bindings>
-            
         <bindings if-exists="true" scd="~tns:DireccionType">
                   
             <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.DireccionType"/>
@@ -69,6 +57,24 @@ Generado el: 2023.05.16 a las 01:49:46 PM CLT
         <bindings if-exists="true" scd="~tns:VehiculoType">
                   
             <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.VehiculoType"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:PropiedadType">
+                  
+            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.PropiedadType"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:OutputUsuarioConsultar">
+                  
+            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputUsuarioConsultar"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:OutputUsuarioObtener">
+                  
+            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputUsuarioObtener"/>
                 
         </bindings>
             
@@ -171,6 +177,12 @@ Generado el: 2023.05.16 a las 01:49:46 PM CLT
         <bindings if-exists="true" scd="~tns:TipoIdentificacion">
                   
             <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.TipoIdentificacion"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:EstadoUsuario">
+                  
+            <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.EstadoUsuario"/>
                 
         </bindings>
             

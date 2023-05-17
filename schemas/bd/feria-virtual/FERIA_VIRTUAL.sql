@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : FERIA_VIRTUAL
 -- ===
--- === Build : 59
+-- === Build : 65
 -- ======================================================================
 
 CREATE TABLE archivo
@@ -24,11 +24,11 @@ CREATE INDEX archivoIDX1 ON archivo(id);
 CREATE TABLE usuario
   (
     id                   bigint        unique not null auto_increment,
-    nombre               varchar(25)   not null,
-    apellido             varchar(25)   not null,
-    registro_instante    datetime      not null,
     tipo_identificacion  varchar(25)   not null,
     identificacion       varchar(25)   unique not null,
+    nombre               varchar(25)   not null,
+    estado               varchar(25)   not null,
+    registro_instante    datetime      not null,
     telefono             varchar(25)   not null,
 
     primary key(id)
@@ -110,7 +110,7 @@ CREATE TABLE usuario_propiedad
     id          bigint        not null auto_increment,
     usuario_id  bigint        not null,
     llave       varchar(25)   not null,
-    valor       varchar(50),
+    valor       text,
 
     primary key(id),
 
@@ -125,6 +125,7 @@ CREATE INDEX usuario_propiedadIDX1 ON usuario_propiedad(id);
 CREATE TABLE vehiculo
   (
     id                 bigint        unique not null auto_increment,
+    usuario_id         bigint        not null,
     tipo               varchar(25)   not null,
     patente            varchar(10)   unique not null,
     marca              varchar(25)   not null,
@@ -132,7 +133,9 @@ CREATE TABLE vehiculo
     agno               varchar(4)    not null,
     registro_instante  datetime      not null,
 
-    primary key(id)
+    primary key(id),
+
+    foreign key(usuario_id) references usuario(id)
   )
  ENGINE = InnoDB;
 
@@ -149,20 +152,6 @@ CREATE TABLE vehiculo_archivo
 
     foreign key(vehiculo_id) references vehiculo(id),
     foreign key(archivo_id) references archivo(id)
-  )
- ENGINE = InnoDB;
-
--- ======================================================================
-
-CREATE TABLE usuario_vehiculo
-  (
-    usuario_id   bigint,
-    vehiculo_id  bigint,
-
-    unique(usuario_id,vehiculo_id),
-
-    foreign key(usuario_id) references usuario(id),
-    foreign key(vehiculo_id) references vehiculo(id)
   )
  ENGINE = InnoDB;
 
@@ -211,29 +200,20 @@ CREATE INDEX cosechaIDX1 ON cosecha(id);
 CREATE TABLE direccion
   (
     id           bigint        unique not null auto_increment,
+    usuario_id   bigint        not null,
     direccion    varchar(50)   not null,
     comuna       varchar(50)   not null,
     ciudad       varchar(50)   not null,
     ubigeo_lat   double,
     ubigeo_long  double,
 
-    primary key(id)
+    primary key(id),
+
+    foreign key(usuario_id) references usuario(id)
   )
  ENGINE = InnoDB;
 
 CREATE INDEX direccionIDX1 ON direccion(id);
-
--- ======================================================================
-
-CREATE TABLE usuario_direccion
-  (
-    agricultor_id  bigint   not null,
-    direccion_id   bigint   not null,
-
-    foreign key(agricultor_id) references usuario(id),
-    foreign key(direccion_id) references direccion(id)
-  )
- ENGINE = InnoDB;
 
 -- ======================================================================
 

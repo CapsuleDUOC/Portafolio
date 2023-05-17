@@ -47,8 +47,8 @@ public class AuthController {
 		outputDTO.setID(usuario.getId());
 		outputDTO.setIdentificacion(usuario.getIdentificacion());
 		outputDTO.setTipoIdentificacion(usuario.getTipoIdentificacion());
+		outputDTO.setEstado(usuario.getEstado());
 		outputDTO.setNombre(usuario.getNombre());
-		outputDTO.setApellido(usuario.getApellido());
 		outputDTO.setTelefono(usuario.getTelefono());
 		outputDTO.setRegistroInstante(usuario.getRegistroInstante());
 		

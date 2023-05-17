@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.05.16 a las 01:49:46 PM CLT 
+// Generado el: 2023.05.17 a las 06:32:00 PM CLT 
 //
 
 
@@ -77,22 +77,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link OutputUsuarioConsultar }
-     * 
-     */
-    public OutputUsuarioConsultar createOutputUsuarioConsultar() {
-        return new OutputUsuarioConsultar();
-    }
-
-    /**
-     * Create an instance of {@link OutputUsuarioObtener }
-     * 
-     */
-    public OutputUsuarioObtener createOutputUsuarioObtener() {
-        return new OutputUsuarioObtener();
-    }
-
-    /**
      * Create an instance of {@link DireccionType }
      * 
      */
@@ -106,6 +90,30 @@ public class ObjectFactory {
      */
     public VehiculoType createVehiculoType() {
         return new VehiculoType();
+    }
+
+    /**
+     * Create an instance of {@link PropiedadType }
+     * 
+     */
+    public PropiedadType createPropiedadType() {
+        return new PropiedadType();
+    }
+
+    /**
+     * Create an instance of {@link OutputUsuarioConsultar }
+     * 
+     */
+    public OutputUsuarioConsultar createOutputUsuarioConsultar() {
+        return new OutputUsuarioConsultar();
+    }
+
+    /**
+     * Create an instance of {@link OutputUsuarioObtener }
+     * 
+     */
+    public OutputUsuarioObtener createOutputUsuarioObtener() {
+        return new OutputUsuarioObtener();
     }
 
     /**

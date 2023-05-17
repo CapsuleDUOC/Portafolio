@@ -11,22 +11,21 @@ package cl.duoc.portafolio.dto.v10.feriavirtual;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para anonymous complex type.
+ * <p>Clase Java para PropiedadType complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType&gt;
+ * &lt;complexType name="PropiedadType"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="username" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="llave" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="valor" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,64 +35,63 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "username",
-    "password"
+@XmlType(name = "PropiedadType", propOrder = {
+    "llave",
+    "valor"
 })
-@XmlRootElement(name = "InputAuthLogin")
-public class InputAuthLogin {
+public class PropiedadType {
 
     @XmlElement(required = true)
-    protected String username;
+    protected String llave;
     @XmlElement(required = true)
-    protected String password;
+    protected String valor;
 
     /**
-     * Obtiene el valor de la propiedad username.
+     * Obtiene el valor de la propiedad llave.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getUsername() {
-        return username;
+    public String getLlave() {
+        return llave;
     }
 
     /**
-     * Define el valor de la propiedad username.
+     * Define el valor de la propiedad llave.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setUsername(String value) {
-        this.username = value;
+    public void setLlave(String value) {
+        this.llave = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad password.
+     * Obtiene el valor de la propiedad valor.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getPassword() {
-        return password;
+    public String getValor() {
+        return valor;
     }
 
     /**
-     * Define el valor de la propiedad password.
+     * Define el valor de la propiedad valor.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setPassword(String value) {
-        this.password = value;
+    public void setValor(String value) {
+        this.valor = value;
     }
 
 }

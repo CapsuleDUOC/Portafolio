@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.05.16 a las 01:49:46 PM CLT 
+// Generado el: 2023.05.17 a las 06:32:00 PM CLT 
 //
 
 
@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="ID" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="ID" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
  *         &lt;element name="direccion" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="comuna" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="ciudad" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
@@ -48,7 +48,7 @@ import javax.xml.bind.annotation.XmlType;
 public class DireccionType {
 
     @XmlElement(name = "ID")
-    protected String id;
+    protected Long id;
     @XmlElement(required = true)
     protected String direccion;
     @XmlElement(required = true)
@@ -62,10 +62,10 @@ public class DireccionType {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Long }
      *     
      */
-    public String getID() {
+    public Long getID() {
         return id;
     }
 
@@ -74,10 +74,10 @@ public class DireccionType {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Long }
      *     
      */
-    public void setID(String value) {
+    public void setID(Long value) {
         this.id = value;
     }
 

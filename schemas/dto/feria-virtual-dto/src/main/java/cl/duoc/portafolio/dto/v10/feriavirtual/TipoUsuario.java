@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.05.16 a las 01:49:46 PM CLT 
+// Generado el: 2023.05.17 a las 06:32:00 PM CLT 
 //
 
 
@@ -19,6 +19,8 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;simpleType name="TipoUsuario"&gt;
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *     &lt;enumeration value="SUPER_ADMIN"/&gt;
+ *     &lt;enumeration value="ADMIN"/&gt;
  *     &lt;enumeration value="PROVEEDOR"/&gt;
  *     &lt;enumeration value="LOCATARIO"/&gt;
  *     &lt;enumeration value="TRANSPORTISTA"/&gt;
@@ -32,6 +34,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum TipoUsuario {
 
+    SUPER_ADMIN,
+    ADMIN,
     PROVEEDOR,
     LOCATARIO,
     TRANSPORTISTA,

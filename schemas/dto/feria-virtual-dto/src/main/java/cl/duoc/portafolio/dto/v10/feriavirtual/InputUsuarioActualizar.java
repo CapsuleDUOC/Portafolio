@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.05.16 a las 01:49:46 PM CLT 
+// Generado el: 2023.05.17 a las 06:32:00 PM CLT 
 //
 
 
@@ -26,8 +26,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;extension base="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}UsuarioType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="direccion" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&gt;
- *         &lt;element name="vehiculo" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="direcciones" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}DireccionType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="vehiculos" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}VehiculoType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="propiedades" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}PropiedadType" maxOccurs="unbounded" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
@@ -38,73 +39,104 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "direccion",
-    "vehiculo"
+    "direcciones",
+    "vehiculos",
+    "propiedades"
 })
 @XmlRootElement(name = "InputUsuarioActualizar")
 public class InputUsuarioActualizar
     extends UsuarioType
 {
 
-    protected List<String> direccion;
-    protected List<String> vehiculo;
+    protected List<DireccionType> direcciones;
+    protected List<VehiculoType> vehiculos;
+    protected List<PropiedadType> propiedades;
 
     /**
-     * Gets the value of the direccion property.
+     * Gets the value of the direcciones property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the direccion property.
+     * This is why there is not a <CODE>set</CODE> method for the direcciones property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getDireccion().add(newItem);
+     *    getDirecciones().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link String }
+     * {@link DireccionType }
      * 
      * 
      */
-    public List<String> getDireccion() {
-        if (direccion == null) {
-            direccion = new ArrayList<String>();
+    public List<DireccionType> getDirecciones() {
+        if (direcciones == null) {
+            direcciones = new ArrayList<DireccionType>();
         }
-        return this.direccion;
+        return this.direcciones;
     }
 
     /**
-     * Gets the value of the vehiculo property.
+     * Gets the value of the vehiculos property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the vehiculo property.
+     * This is why there is not a <CODE>set</CODE> method for the vehiculos property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getVehiculo().add(newItem);
+     *    getVehiculos().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link String }
+     * {@link VehiculoType }
      * 
      * 
      */
-    public List<String> getVehiculo() {
-        if (vehiculo == null) {
-            vehiculo = new ArrayList<String>();
+    public List<VehiculoType> getVehiculos() {
+        if (vehiculos == null) {
+            vehiculos = new ArrayList<VehiculoType>();
         }
-        return this.vehiculo;
+        return this.vehiculos;
+    }
+
+    /**
+     * Gets the value of the propiedades property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the propiedades property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getPropiedades().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link PropiedadType }
+     * 
+     * 
+     */
+    public List<PropiedadType> getPropiedades() {
+        if (propiedades == null) {
+            propiedades = new ArrayList<PropiedadType>();
+        }
+        return this.propiedades;
     }
 
 }
