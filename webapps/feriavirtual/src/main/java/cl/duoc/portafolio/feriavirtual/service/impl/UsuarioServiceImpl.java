@@ -33,7 +33,9 @@ import cl.duoc.portafolio.feriavirtual.repository.IUsuarioDAO;
 import cl.duoc.portafolio.feriavirtual.repository.UsuarioAuthRepository;
 import cl.duoc.portafolio.feriavirtual.repository.UsuarioBitacoraRepository;
 import cl.duoc.portafolio.feriavirtual.repository.UsuarioRepository;
+import cl.duoc.portafolio.feriavirtual.service.DireccionService;
 import cl.duoc.portafolio.feriavirtual.service.UsuarioService;
+import cl.duoc.portafolio.feriavirtual.service.VehiculoService;
 import cl.duoc.portafolio.feriavirtual.util.SearchCriteria;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -46,17 +48,22 @@ public class UsuarioServiceImpl implements UsuarioService {
 	private UsuarioAuthRepository usuarioAuthRepository;
 	private UsuarioBitacoraRepository bitacoraRepository;
 	private IUsuarioDAO usuarioDAO;
+	private DireccionService direccionService;
+	private VehiculoService vehiculoService;
 
 	@Value("${jwt.secret}")
 	private String jwtSecret;
 
 	public UsuarioServiceImpl(final UsuarioRepository usuarioRepository,
 			final UsuarioAuthRepository usuarioAuthRepository, final UsuarioBitacoraRepository bitacoraRepository,
-			final IUsuarioDAO usuarioDAO) {
+			final IUsuarioDAO usuarioDAO, final DireccionService direccionService,
+			final VehiculoService vehiculoService) {
 		this.usuarioRepository = usuarioRepository;
 		this.usuarioAuthRepository = usuarioAuthRepository;
 		this.bitacoraRepository = bitacoraRepository;
 		this.usuarioDAO = usuarioDAO;
+		this.direccionService = direccionService;
+		this.vehiculoService = vehiculoService;
 	}
 
 	@Override
@@ -180,47 +187,26 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	public Boolean actualizar(Usuario usuario, InputUsuarioActualizar inputDTO) {
-		
+
+		for (Direccion direccion : usuario.getDirecciones())
+			direccionService.eliminar(usuario, direccion);
+
+		for (Vehiculo vehiculo : usuario.getVehiculos())
+			vehiculoService.eliminar(usuario, vehiculo);
+
 		usuario.setEstado(inputDTO.getEstado());
 		usuario.setNombre(inputDTO.getNombre());
 		usuario.setTelefono(inputDTO.getTelefono());
-		usuario.setDirecciones(new ArrayList<>());
-		usuario.setVehiculos(new ArrayList<>());
-		
-		Direccion direccion;
-		for (DireccionType direccionType : inputDTO.getDirecciones()) {
-			
-			direccion = new Direccion();
-			direccion.setUsuario(usuario);
-			direccion.setDireccion(direccionType.getDireccion());
-			direccion.setComuna(direccionType.getComuna());
-			direccion.setCiudad(direccionType.getCiudad());
-			
-			if (direccionType.getUbigeo() != null) {
-				direccion.setUbigeoLat(direccionType.getUbigeo().getLatitud());
-				direccion.setUbigeoLong(direccionType.getUbigeo().getLongitud());
-			}
-			
-			usuario.getDirecciones().add(direccion);
-		}
-		
-		Vehiculo vehiculo;
-		for (VehiculoType vehiculoType : inputDTO.getVehiculos()) {
-			
-			vehiculo = new Vehiculo();
-			vehiculo.setUsuario(usuario);
-			vehiculo.setTipo(vehiculoType.getTipo());
-			vehiculo.setPatente(vehiculoType.getPatente());
-			vehiculo.setMarca(vehiculoType.getMarca());
-			vehiculo.setModelo(vehiculoType.getModelo());
-			vehiculo.setAgno(vehiculoType.getAgno());
-			vehiculo.setRegistroInstante(LocalDateTime.now());
-		}
-		
-		for (PropiedadType propiedadType : inputDTO.getPropiedades()) {
+
+		for (PropiedadType propiedadType : inputDTO.getPropiedades())
 			usuario.getPropiedades().put(propiedadType.getLlave(), propiedadType.getValor());
-		}
-		
+
+		for (DireccionType direccionType : inputDTO.getDirecciones())
+			direccionService.crear(usuario, direccionType);
+
+		for (VehiculoType vehiculoType : inputDTO.getVehiculos())
+			vehiculoService.crear(usuario, vehiculoType);
+
 		usuarioRepository.save(usuario);
 		return true;
 	}
