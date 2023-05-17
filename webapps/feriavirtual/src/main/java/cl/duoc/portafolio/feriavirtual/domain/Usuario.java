@@ -12,6 +12,9 @@ import javax.persistence.ElementCollection;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapKeyColumn;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -42,10 +45,14 @@ public class Usuario {
 
 	private LocalDateTime registroInstante;
 
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
+	@JsonManagedReference
 	private List<Direccion> direcciones = new ArrayList<>();
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
+	@JsonManagedReference
 	private List<Vehiculo> vehiculos = new ArrayList<>();
 
 	@ElementCollection(fetch = FetchType.LAZY)
