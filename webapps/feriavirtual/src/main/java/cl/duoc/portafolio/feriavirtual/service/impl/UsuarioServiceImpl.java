@@ -106,8 +106,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 		Map<String, Object> claims = new HashMap<String, Object>();
 		claims.put("ROLES", _auth.get().getUsuario().getRoles());
 
-		final String jwtToken = Jwts.builder().setSubject(username).addClaims(claims).setIssuedAt(new Date())
-				.setExpiration(cal.getTime()).signWith(SignatureAlgorithm.HS512, jwtSecret.getBytes()).compact();
+		final String jwtToken = Jwts.builder().setIssuer(_auth.get().getUsuario().getIdentificacion())
+				.setSubject(username).addClaims(claims).setIssuedAt(new Date()).setExpiration(cal.getTime())
+				.signWith(SignatureAlgorithm.HS512, jwtSecret.getBytes()).compact();
 
 		return jwtToken;
 
@@ -189,30 +190,27 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	public Boolean actualizar(Usuario usuario, InputUsuarioActualizar inputDTO) {
-		
+
 		log.info("ID: " + usuario.getId());
-		
+
 		usuario.setEstado(inputDTO.getEstado());
 		usuario.setNombre(inputDTO.getNombre());
 		usuario.setTelefono(inputDTO.getTelefono());
 
-		
 		for (PropiedadType propiedadType : inputDTO.getPropiedades())
 			usuario.getPropiedades().put(propiedadType.getLlave(), propiedadType.getValor());
-		
+
 		usuario = usuarioRepository.save(usuario);
-		
-		
+
 		for (Direccion direccion : direccionService.consultar(usuario, null, null, null, 0, 100))
 			direccionService.eliminar(usuario, direccion);
-		
+
 		for (DireccionType direccionType : inputDTO.getDirecciones())
 			direccionService.crear(usuario, direccionType);
-		
-		
+
 		for (Vehiculo vehiculo : vehiculoService.consultar(usuario, null, null, null, null, null, 0, 100))
 			vehiculoService.eliminar(usuario, vehiculo);
-		
+
 		for (VehiculoType vehiculoType : inputDTO.getVehiculos()) {
 			vehiculoService.crear(usuario, vehiculoType);
 		}
