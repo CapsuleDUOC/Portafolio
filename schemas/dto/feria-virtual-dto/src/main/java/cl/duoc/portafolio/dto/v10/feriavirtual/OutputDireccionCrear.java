@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
- *     &lt;extension base="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}ProductoType"&gt;
+ *     &lt;extension base="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}DireccionType"&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -32,9 +32,9 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
-@XmlRootElement(name = "InputProductoCrear")
-public class InputProductoCrear
-    extends ProductoType
+@XmlRootElement(name = "OutputDireccionCrear")
+public class OutputDireccionCrear
+    extends DireccionType
 {
 
 

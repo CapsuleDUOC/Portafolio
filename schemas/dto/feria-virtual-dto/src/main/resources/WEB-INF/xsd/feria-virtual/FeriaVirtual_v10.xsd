@@ -378,4 +378,84 @@
     		<element name="valor" type="string" maxOccurs="1" minOccurs="1"></element>
     	</sequence>
     </complexType>
+
+    <element name="InputDireccionCrear">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:DireccionType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+    
+    <element name="InputDireccionActualizar">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:DireccionType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+    
+    <element name="InputVehiculoCrear">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:VehiculoType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+    
+    <element name="InputVehiculoActualizar">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:VehiculoType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="OutputDireccionCrear">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:DireccionType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+    
+    <element name="OutputDireccionConsultar">
+    	<complexType>
+    		<sequence>
+    			<element name="registro" type="tns:DireccionType" maxOccurs="unbounded" minOccurs="0"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+    
+    <element name="OutputDireccionObtener">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:DireccionType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="OutputVehiculoCrear">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:VehiculoType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+    
+    <element name="OutputVehiculoObtener">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:VehiculoType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+    
+    <element name="OutputVehiculoConsultar">
+    	<complexType>
+    		<sequence>
+    			<element name="registro" type="tns:VehiculoType" maxOccurs="unbounded" minOccurs="0"></element>
+    		</sequence>
+    	</complexType>
+    </element>
 </schema>

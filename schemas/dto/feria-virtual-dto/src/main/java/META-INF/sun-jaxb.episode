@@ -6,7 +6,7 @@
 Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 Visite https://eclipse-ee4j.github.io/jaxb-ri 
 Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-Generado el: 2023.05.17 a las 06:32:00 PM CLT 
+Generado el: 2023.05.18 a las 04:05:52 PM CLT 
 
   -->
       
@@ -126,15 +126,75 @@ Generado el: 2023.05.17 a las 06:32:00 PM CLT
                 
         </bindings>
             
-        <bindings if-exists="true" scd="~tns:TransporteType">
+        <bindings if-exists="true" scd="tns:InputDireccionCrear">
                   
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.TransporteType"/>
+            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputDireccionCrear"/>
                 
         </bindings>
             
         <bindings if-exists="true" scd="~tns:UbigeoType">
                   
             <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.UbigeoType"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:InputDireccionActualizar">
+                  
+            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputDireccionActualizar"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:InputVehiculoCrear">
+                  
+            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputVehiculoCrear"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:InputVehiculoActualizar">
+                  
+            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputVehiculoActualizar"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:OutputDireccionCrear">
+                  
+            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputDireccionCrear"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:OutputDireccionConsultar">
+                  
+            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputDireccionConsultar"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:OutputDireccionObtener">
+                  
+            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputDireccionObtener"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:OutputVehiculoCrear">
+                  
+            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputVehiculoCrear"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:OutputVehiculoObtener">
+                  
+            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputVehiculoObtener"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:OutputVehiculoConsultar">
+                  
+            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputVehiculoConsultar"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:TransporteType">
+                  
+            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.TransporteType"/>
                 
         </bindings>
             

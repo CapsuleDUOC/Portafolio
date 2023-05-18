@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="registro" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}ProductoType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="registro" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}DireccionType" maxOccurs="unbounded" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -39,10 +39,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "registro"
 })
-@XmlRootElement(name = "OutputProductoConsultar")
-public class OutputProductoConsultar {
+@XmlRootElement(name = "OutputDireccionConsultar")
+public class OutputDireccionConsultar {
 
-    protected List<ProductoType> registro;
+    protected List<DireccionType> registro;
 
     /**
      * Gets the value of the registro property.
@@ -62,13 +62,13 @@ public class OutputProductoConsultar {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ProductoType }
+     * {@link DireccionType }
      * 
      * 
      */
-    public List<ProductoType> getRegistro() {
+    public List<DireccionType> getRegistro() {
         if (registro == null) {
-            registro = new ArrayList<ProductoType>();
+            registro = new ArrayList<DireccionType>();
         }
         return this.registro;
     }

@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.05.17 a las 06:32:00 PM CLT 
+// Generado el: 2023.05.18 a las 04:05:52 PM CLT 
 //
 
 
@@ -181,11 +181,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TransporteType }
+     * Create an instance of {@link InputDireccionCrear }
      * 
      */
-    public TransporteType createTransporteType() {
-        return new TransporteType();
+    public InputDireccionCrear createInputDireccionCrear() {
+        return new InputDireccionCrear();
     }
 
     /**
@@ -194,6 +194,86 @@ public class ObjectFactory {
      */
     public UbigeoType createUbigeoType() {
         return new UbigeoType();
+    }
+
+    /**
+     * Create an instance of {@link InputDireccionActualizar }
+     * 
+     */
+    public InputDireccionActualizar createInputDireccionActualizar() {
+        return new InputDireccionActualizar();
+    }
+
+    /**
+     * Create an instance of {@link InputVehiculoCrear }
+     * 
+     */
+    public InputVehiculoCrear createInputVehiculoCrear() {
+        return new InputVehiculoCrear();
+    }
+
+    /**
+     * Create an instance of {@link InputVehiculoActualizar }
+     * 
+     */
+    public InputVehiculoActualizar createInputVehiculoActualizar() {
+        return new InputVehiculoActualizar();
+    }
+
+    /**
+     * Create an instance of {@link OutputDireccionCrear }
+     * 
+     */
+    public OutputDireccionCrear createOutputDireccionCrear() {
+        return new OutputDireccionCrear();
+    }
+
+    /**
+     * Create an instance of {@link OutputDireccionConsultar }
+     * 
+     */
+    public OutputDireccionConsultar createOutputDireccionConsultar() {
+        return new OutputDireccionConsultar();
+    }
+
+    /**
+     * Create an instance of {@link OutputDireccionObtener }
+     * 
+     */
+    public OutputDireccionObtener createOutputDireccionObtener() {
+        return new OutputDireccionObtener();
+    }
+
+    /**
+     * Create an instance of {@link OutputVehiculoCrear }
+     * 
+     */
+    public OutputVehiculoCrear createOutputVehiculoCrear() {
+        return new OutputVehiculoCrear();
+    }
+
+    /**
+     * Create an instance of {@link OutputVehiculoObtener }
+     * 
+     */
+    public OutputVehiculoObtener createOutputVehiculoObtener() {
+        return new OutputVehiculoObtener();
+    }
+
+    /**
+     * Create an instance of {@link OutputVehiculoConsultar }
+     * 
+     */
+    public OutputVehiculoConsultar createOutputVehiculoConsultar() {
+        return new OutputVehiculoConsultar();
+    }
+
+    /**
+     * Create an instance of {@link TransporteType }
+     * 
+     */
+    public TransporteType createTransporteType() {
+        return new TransporteType();
     }
 
     /**
