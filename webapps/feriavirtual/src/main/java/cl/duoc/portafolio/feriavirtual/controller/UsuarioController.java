@@ -27,17 +27,24 @@ import cl.duoc.portafolio.dto.v10.feriavirtual.VehiculoType;
 import cl.duoc.portafolio.feriavirtual.domain.Direccion;
 import cl.duoc.portafolio.feriavirtual.domain.Usuario;
 import cl.duoc.portafolio.feriavirtual.domain.Vehiculo;
+import cl.duoc.portafolio.feriavirtual.service.DireccionService;
 import cl.duoc.portafolio.feriavirtual.service.UsuarioService;
+import cl.duoc.portafolio.feriavirtual.service.VehiculoService;
 
 @RestController
 @RequestMapping("/usuario/v10")
 public class UsuarioController {
 
 	private UsuarioService usuarioService;
+	private VehiculoService vehiculoService;
+	private DireccionService direccionService;
 
 	@Autowired
-	public UsuarioController(final UsuarioService usuarioService) {
+	public UsuarioController(final UsuarioService usuarioService, final VehiculoService vehiculoService,
+			final DireccionService direccionService) {
 		this.usuarioService = usuarioService;
+		this.vehiculoService = vehiculoService;
+		this.direccionService = direccionService;
 	}
 
 	@GetMapping("/{id}")
@@ -53,10 +60,12 @@ public class UsuarioController {
 		outputDTO.setNombre(usuario.getNombre());
 		outputDTO.setTelefono(usuario.getTelefono());
 		outputDTO.setRegistroInstante(usuario.getRegistroInstante());
-		
+
+		List<Vehiculo> vehiculos = vehiculoService.consultar(usuario, null, null, null, null, null, 0, 100);
+
 		VehiculoType vehiculoType;
-		for (Vehiculo vehiculo : usuario.getVehiculos()) {
-			vehiculoType  = new VehiculoType();
+		for (Vehiculo vehiculo : vehiculos) {
+			vehiculoType = new VehiculoType();
 			vehiculoType.setID(vehiculo.getId());
 			vehiculoType.setMarca(vehiculo.getMarca());
 			vehiculoType.setModelo(vehiculo.getModelo());
@@ -64,35 +73,37 @@ public class UsuarioController {
 			vehiculoType.setPatente(vehiculo.getPatente());
 			vehiculoType.setRegistroInstante(vehiculo.getRegistroInstante());
 			vehiculoType.setTipo(vehiculo.getTipo());
-			
+
 			outputDTO.getVehiculos().add(vehiculoType);
 		}
-		
+
+		List<Direccion> direcciones = direccionService.consultar(usuario, null, null, null, 0, 100);
+
 		DireccionType direccionType;
-		for (Direccion direccion : usuario.getDirecciones()) {
+		for (Direccion direccion : direcciones) {
 			direccionType = new DireccionType();
 			direccionType.setID(direccion.getId());
 			direccionType.setDireccion(direccion.getDireccion());
 			direccionType.setComuna(direccion.getComuna());
 			direccionType.setCiudad(direccion.getCiudad());
-			
+
 			if (direccion.getUbigeoLat() != null && direccion.getUbigeoLong() != null) {
 				UbigeoType ubigeoType = new UbigeoType();
 				ubigeoType.setLatitud(direccion.getUbigeoLat());
 				ubigeoType.setLongitud(direccion.getUbigeoLong());
-				
+
 				direccionType.setUbigeo(ubigeoType);
 			}
-			
+
 			outputDTO.getDirecciones().add(direccionType);
 		}
-		
+
 		PropiedadType propiedadType;
 		for (Entry<String, String> propiedad : usuario.getPropiedades().entrySet()) {
 			propiedadType = new PropiedadType();
 			propiedadType.setLlave(propiedad.getKey());
 			propiedadType.setValor(propiedad.getValue());
-			
+
 			outputDTO.getPropiedades().add(propiedadType);
 		}
 
@@ -115,9 +126,11 @@ public class UsuarioController {
 		outputDTO.setTelefono(usuario.getTelefono());
 		outputDTO.setRegistroInstante(usuario.getRegistroInstante());
 
+		List<Vehiculo> vehiculos = vehiculoService.consultar(usuario, null, null, null, null, null, 0, 100);
+
 		VehiculoType vehiculoType;
-		for (Vehiculo vehiculo : usuario.getVehiculos()) {
-			vehiculoType  = new VehiculoType();
+		for (Vehiculo vehiculo : vehiculos) {
+			vehiculoType = new VehiculoType();
 			vehiculoType.setID(vehiculo.getId());
 			vehiculoType.setMarca(vehiculo.getMarca());
 			vehiculoType.setModelo(vehiculo.getModelo());
@@ -125,35 +138,37 @@ public class UsuarioController {
 			vehiculoType.setPatente(vehiculo.getPatente());
 			vehiculoType.setRegistroInstante(vehiculo.getRegistroInstante());
 			vehiculoType.setTipo(vehiculo.getTipo());
-			
+
 			outputDTO.getVehiculos().add(vehiculoType);
 		}
-		
+
+		List<Direccion> direcciones = direccionService.consultar(usuario, null, null, null, 0, 100);
+
 		DireccionType direccionType;
-		for (Direccion direccion : usuario.getDirecciones()) {
+		for (Direccion direccion : direcciones) {
 			direccionType = new DireccionType();
 			direccionType.setID(direccion.getId());
 			direccionType.setDireccion(direccion.getDireccion());
 			direccionType.setComuna(direccion.getComuna());
 			direccionType.setCiudad(direccion.getCiudad());
-			
+
 			if (direccion.getUbigeoLat() != null && direccion.getUbigeoLong() != null) {
 				UbigeoType ubigeoType = new UbigeoType();
 				ubigeoType.setLatitud(direccion.getUbigeoLat());
 				ubigeoType.setLongitud(direccion.getUbigeoLong());
-				
+
 				direccionType.setUbigeo(ubigeoType);
 			}
-			
+
 			outputDTO.getDirecciones().add(direccionType);
 		}
-		
+
 		PropiedadType propiedadType;
 		for (Entry<String, String> propiedad : usuario.getPropiedades().entrySet()) {
 			propiedadType = new PropiedadType();
 			propiedadType.setLlave(propiedad.getKey());
 			propiedadType.setValor(propiedad.getValue());
-			
+
 			outputDTO.getPropiedades().add(propiedadType);
 		}
 

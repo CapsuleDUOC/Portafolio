@@ -6,16 +6,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapKeyColumn;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -45,16 +40,6 @@ public class Usuario {
 	private String telefono;
 
 	private LocalDateTime registroInstante;
-
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
-	@JsonManagedReference
-	private List<Direccion> direcciones = new ArrayList<>();
-	
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
-	@JsonManagedReference
-	private List<Vehiculo> vehiculos = new ArrayList<>();
 
 	@ElementCollection(fetch = FetchType.LAZY)
 	@CollectionTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"))

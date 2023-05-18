@@ -40,7 +40,9 @@ import cl.duoc.portafolio.feriavirtual.util.SearchCriteria;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.swagger.models.auth.In;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
 
@@ -187,27 +189,34 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	public Boolean actualizar(Usuario usuario, InputUsuarioActualizar inputDTO) {
-
-		for (Direccion direccion : usuario.getDirecciones())
-			direccionService.eliminar(usuario, direccion);
-
-		for (Vehiculo vehiculo : usuario.getVehiculos())
-			vehiculoService.eliminar(usuario, vehiculo);
-
+		
+		log.info("ID: " + usuario.getId());
+		
 		usuario.setEstado(inputDTO.getEstado());
 		usuario.setNombre(inputDTO.getNombre());
 		usuario.setTelefono(inputDTO.getTelefono());
 
+		
 		for (PropiedadType propiedadType : inputDTO.getPropiedades())
 			usuario.getPropiedades().put(propiedadType.getLlave(), propiedadType.getValor());
-
+		
+		usuario = usuarioRepository.save(usuario);
+		
+		
+		for (Direccion direccion : direccionService.consultar(usuario, null, null, null, 0, 100))
+			direccionService.eliminar(usuario, direccion);
+		
 		for (DireccionType direccionType : inputDTO.getDirecciones())
 			direccionService.crear(usuario, direccionType);
-
-		for (VehiculoType vehiculoType : inputDTO.getVehiculos())
+		
+		
+		for (Vehiculo vehiculo : vehiculoService.consultar(usuario, null, null, null, null, null, 0, 100))
+			vehiculoService.eliminar(usuario, vehiculo);
+		
+		for (VehiculoType vehiculoType : inputDTO.getVehiculos()) {
 			vehiculoService.crear(usuario, vehiculoType);
+		}
 
-		usuarioRepository.save(usuario);
 		return true;
 	}
 }
