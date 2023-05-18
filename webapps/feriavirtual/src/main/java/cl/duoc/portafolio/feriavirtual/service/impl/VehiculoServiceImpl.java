@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import cl.duoc.portafolio.dto.v10.feriavirtual.InputVehiculoActualizar;
 import cl.duoc.portafolio.dto.v10.feriavirtual.TipoVehiculo;
 import cl.duoc.portafolio.dto.v10.feriavirtual.VehiculoType;
 import cl.duoc.portafolio.feriavirtual.domain.Usuario;
@@ -92,5 +93,18 @@ public class VehiculoServiceImpl implements VehiculoService {
 		Optional<Vehiculo> _vehiculo = vehiculoRepository.findByUsuarioAndPatente(usuario, patente);
 		Assert.isTrue(_vehiculo.isPresent(), "No existe el vehiculo para el Usuario [" + usuario.getIdentificacion() + "]");
 		return _vehiculo.get();
+	}
+
+	@Override
+	public Boolean actualizar(Vehiculo vehiculo, InputVehiculoActualizar inputDTO) {
+		
+		vehiculo.setMarca(inputDTO.getMarca());
+		vehiculo.setModelo(inputDTO.getModelo());
+		vehiculo.setAgno(inputDTO.getAgno());
+		vehiculo.setPatente(inputDTO.getPatente());
+		vehiculo.setTipo(inputDTO.getTipo());
+		
+		vehiculoRepository.save(vehiculo);
+		return true;
 	}
 }

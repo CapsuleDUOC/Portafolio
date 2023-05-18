@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import cl.duoc.portafolio.dto.v10.feriavirtual.DireccionType;
+import cl.duoc.portafolio.dto.v10.feriavirtual.InputDireccionActualizar;
 import cl.duoc.portafolio.feriavirtual.domain.Direccion;
 import cl.duoc.portafolio.feriavirtual.domain.Usuario;
 import cl.duoc.portafolio.feriavirtual.repository.DireccionRepository;
@@ -31,8 +32,6 @@ public class DireccionServiceImpl implements DireccionService {
 
 	@Override
 	public Direccion crear(final Usuario usuario, final DireccionType direccionType) {
-
-		// TODO REVVISAR SI EXISTE CAMPO UNIQUE EN BD PARA DESARROLLAR VALIDACION
 
 		Direccion direccion = new Direccion();
 		direccion.setUsuario(usuario);
@@ -78,6 +77,22 @@ public class DireccionServiceImpl implements DireccionService {
 		Optional<Direccion> _direccion = direccionRepository.findByUsuarioAndId(usuario, id);
 		Assert.isTrue(_direccion.isPresent(), "No existe la direccion para el usuario [" + usuario.getIdentificacion() + "]");
 		return _direccion.get();
+	}
+
+	@Override
+	public Boolean actualizar(Direccion direccion, InputDireccionActualizar inputDTO) {
+		
+		direccion.setDireccion(inputDTO.getDireccion());
+		direccion.setComuna(inputDTO.getComuna());
+		direccion.setCiudad(inputDTO.getCiudad());
+		
+		if (inputDTO.getUbigeo() != null) {
+			direccion.setUbigeoLat(inputDTO.getUbigeo().getLatitud());
+			direccion.setUbigeoLong(inputDTO.getUbigeo().getLongitud());
+		}
+		
+		direccionRepository.save(direccion);
+		return true;
 	}
 
 }

@@ -27,7 +27,7 @@ public class AuthController {
 	}
 
 	@PostMapping("/login")
-	ResponseEntity<Boolean> login(@RequestBody InputAuthLogin inputDTO) {
+	ResponseEntity<Boolean> login(@RequestBody final InputAuthLogin inputDTO) {
 
 		JAXBUtil.validarSchema(InputAuthLogin.class, inputDTO);
 		
@@ -37,7 +37,7 @@ public class AuthController {
 	}
 	
 	@PostMapping
-	ResponseEntity<OutputAuthCrear> crear(@RequestBody InputAuthCrear inputDTO) {
+	ResponseEntity<OutputAuthCrear> crear(@RequestBody final InputAuthCrear inputDTO) {
 		
 		JAXBUtil.validarSchema(InputAuthCrear.class, inputDTO);
 		

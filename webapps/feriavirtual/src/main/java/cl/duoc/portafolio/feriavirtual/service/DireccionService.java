@@ -3,6 +3,7 @@ package cl.duoc.portafolio.feriavirtual.service;
 import java.util.List;
 
 import cl.duoc.portafolio.dto.v10.feriavirtual.DireccionType;
+import cl.duoc.portafolio.dto.v10.feriavirtual.InputDireccionActualizar;
 import cl.duoc.portafolio.feriavirtual.domain.Direccion;
 import cl.duoc.portafolio.feriavirtual.domain.Usuario;
 
@@ -16,4 +17,6 @@ public interface DireccionService {
 			final Integer offset, final Integer limit);
 
 	Direccion obtener(final Usuario usuario, final Long id);
+
+	Boolean actualizar(final Direccion direccion, final InputDireccionActualizar inputDTO);
 }
