@@ -13,7 +13,11 @@ public interface VehiculoService {
 
 	Boolean eliminar(final Usuario usuario, final Vehiculo vehiculo);
 
-	List<Vehiculo> consultar(Usuario usuario, TipoVehiculo tipoVehiculo, String marca, String modelo, String agno,
-			String patente, Integer limit, Integer offset);
+	List<Vehiculo> consultar(final Usuario usuario, final TipoVehiculo tipoVehiculo, final String marca, final String modelo, final String agno,
+			final String patente, final Integer limit, final Integer offset);
+	
+	Vehiculo obtener(final Usuario usuario, final Long id);
+	
+	Vehiculo obtener(final Usuario usuario, final String patente);
 
 }

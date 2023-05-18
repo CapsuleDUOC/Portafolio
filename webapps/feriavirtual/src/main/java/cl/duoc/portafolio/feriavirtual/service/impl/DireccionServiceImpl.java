@@ -2,6 +2,7 @@ package cl.duoc.portafolio.feriavirtual.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -70,6 +71,13 @@ public class DireccionServiceImpl implements DireccionService {
 			params.add(new SearchCriteria("ciudad", null, SearchCriteria.OPERATION.like, ciudad, null));
 
 		return direccionDAO.search(params, PageRequest.of(offset, limit));
+	}
+
+	@Override
+	public Direccion obtener(Usuario usuario, Long id) {
+		Optional<Direccion> _direccion = direccionRepository.findByUsuarioAndId(usuario, id);
+		Assert.isTrue(_direccion.isPresent(), "No existe la direccion para el usuario [" + usuario.getIdentificacion() + "]");
+		return _direccion.get();
 	}
 
 }

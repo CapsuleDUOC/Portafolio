@@ -15,4 +15,5 @@ public interface DireccionService {
 	List<Direccion> consultar(final Usuario usuario, final String direccion, final String comuna, final String ciudad,
 			final Integer offset, final Integer limit);
 
+	Direccion obtener(final Usuario usuario, final Long id);
 }

@@ -32,7 +32,7 @@ import cl.duoc.portafolio.feriavirtual.service.UsuarioService;
 import cl.duoc.portafolio.feriavirtual.service.VehiculoService;
 
 @RestController
-@RequestMapping("/usuario/v10")
+@RequestMapping("/admin/usuario/v10")
 public class UsuarioController {
 
 	private UsuarioService usuarioService;

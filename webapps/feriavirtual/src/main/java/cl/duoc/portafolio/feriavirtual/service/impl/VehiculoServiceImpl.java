@@ -3,6 +3,7 @@ package cl.duoc.portafolio.feriavirtual.service.impl;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -33,7 +34,9 @@ public class VehiculoServiceImpl implements VehiculoService {
 	@Override
 	public Vehiculo crear(Usuario usuario, VehiculoType vehiculoType) {
 
-		// TODO REVISAR SI PATENTE ES UNIQUE EN BD PARA INVLUIR VALIDACION
+		Optional<Vehiculo> _vehiculo = vehiculoRepository.findByUsuarioAndPatente(usuario, vehiculoType.getPatente());
+		if (_vehiculo.isPresent())
+			return _vehiculo.get();
 
 		Vehiculo vehiculo = new Vehiculo();
 		vehiculo.setUsuario(usuario);
@@ -75,5 +78,19 @@ public class VehiculoServiceImpl implements VehiculoService {
 			params.add(new SearchCriteria("patente", null, SearchCriteria.OPERATION.like, patente, null));
 
 		return vehiculoDAO.search(params, PageRequest.of(offset, limit));
+	}
+
+	@Override
+	public Vehiculo obtener(Usuario usuario, Long id) {
+		Optional<Vehiculo> _vehiculo = vehiculoRepository.findByUsuarioAndId(usuario, id);
+		Assert.isTrue(_vehiculo.isPresent(), "No existe el vehiculo para el Usuario [" + usuario.getIdentificacion() + "]");
+		return _vehiculo.get();
+	}
+
+	@Override
+	public Vehiculo obtener(Usuario usuario, String patente) {
+		Optional<Vehiculo> _vehiculo = vehiculoRepository.findByUsuarioAndPatente(usuario, patente);
+		Assert.isTrue(_vehiculo.isPresent(), "No existe el vehiculo para el Usuario [" + usuario.getIdentificacion() + "]");
+		return _vehiculo.get();
 	}
 }
