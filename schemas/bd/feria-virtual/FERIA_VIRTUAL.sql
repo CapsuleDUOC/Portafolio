@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : FERIA_VIRTUAL
 -- ===
--- === Build : 65
+-- === Build : 66
 -- ======================================================================
 
 CREATE TABLE archivo
@@ -125,7 +125,7 @@ CREATE INDEX usuario_propiedadIDX1 ON usuario_propiedad(id);
 CREATE TABLE vehiculo
   (
     id                 bigint        unique not null auto_increment,
-    usuario_id         bigint        not null,
+    usuario_id         bigint        unique not null,
     tipo               varchar(25)   not null,
     patente            varchar(10)   unique not null,
     marca              varchar(25)   not null,

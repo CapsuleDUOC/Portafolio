@@ -2,7 +2,7 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">65</attrib>
+		<attrib name="build">66</attrib>
 		<attrib name="serial">52691</attrib>
 	</attribs>
 	<database>
@@ -70,6 +70,11 @@
 					<elem>0.91</elem>
 					<elem>2023-05-17 17:50:32</elem>
 					<elem>borro tablas usuario_direccion y usuario_vehiculo. la relacion es uno a muchos</elem>
+				</row>
+				<row>
+					<elem>0.92</elem>
+					<elem>2023-05-18 15:25:31</elem>
+					<elem>mudifica vehiculo: patente y usuario en multi unique</elem>
 				</row>
 			</list>
 		</revisions>
@@ -3423,7 +3428,7 @@
 							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
+							<attrib name="16">true</attrib>
 							<attrib name="15">false</attrib>
 							<attrib name="339"/>
 							<attrib name="338">false</attrib>
