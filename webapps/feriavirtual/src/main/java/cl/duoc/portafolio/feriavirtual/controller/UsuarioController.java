@@ -177,11 +177,11 @@ public class UsuarioController {
 	}
 
 	@GetMapping
-	ResponseEntity<OutputUsuarioConsultar> consultar(@RequestParam(name = "nombre") final String nombre,
-			@RequestParam(name = "tipoIdentificacion") final TipoIdentificacion tipoIdentificacion,
-			@RequestParam(name = "identificacion") final String identificacion,
-			@RequestParam(name = "estado") final EstadoUsuario estado,
-			@RequestParam(name = "telefono") final String telefono,
+	ResponseEntity<OutputUsuarioConsultar> consultar(@RequestParam(name = "nombre", required = false) final String nombre,
+			@RequestParam(name = "tipoIdentificacion", required = false) final TipoIdentificacion tipoIdentificacion,
+			@RequestParam(name = "identificacion", required = false) final String identificacion,
+			@RequestParam(name = "estado", required = false) final EstadoUsuario estado,
+			@RequestParam(name = "telefono", required = false) final String telefono,
 			@RequestParam(name = "offset", defaultValue = "0") Integer offset,
 			@RequestParam(name = "limit", defaultValue = "100") Integer limit) {
 

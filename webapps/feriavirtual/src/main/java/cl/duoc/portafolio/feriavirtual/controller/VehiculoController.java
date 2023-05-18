@@ -29,7 +29,7 @@ import cl.duoc.portafolio.feriavirtual.service.UsuarioService;
 import cl.duoc.portafolio.feriavirtual.service.VehiculoService;
 
 @RestController
-@RequestMapping("/{clienteIdentificacion}/vehiculo/v10")
+@RequestMapping("/{usuarioIdentificacion}/vehiculo/v10")
 public class VehiculoController {
 
 	private UsuarioService usuarioService;
@@ -43,17 +43,22 @@ public class VehiculoController {
 	
 	@PostMapping
 	ResponseEntity<OutputVehiculoCrear> crear(
-			@PathVariable(name = "clienteIdentificacion") final String clienteIdentificacion,
+			@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
 			@RequestBody final InputVehiculoCrear inputDTO) {
 
 		JAXBUtil.validarSchema(InputVehiculoCrear.class, inputDTO);
 
-		final Usuario usuario = usuarioService.obtener(clienteIdentificacion);
+		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
 		final Vehiculo vehiculo = vehiculoService.crear(usuario, inputDTO);
 
 		final OutputVehiculoCrear outputDTO = new OutputVehiculoCrear();
-		
-		//TODO MAPEAR DTO
+		outputDTO.setID(vehiculo.getId());
+		outputDTO.setMarca(vehiculo.getMarca());
+		outputDTO.setModelo(vehiculo.getModelo());
+		outputDTO.setAgno(vehiculo.getAgno());
+		outputDTO.setPatente(vehiculo.getPatente());
+		outputDTO.setTipo(vehiculo.getTipo());
+		outputDTO.setRegistroInstante(vehiculo.getRegistroInstante());
 
 		return ResponseEntity.created(
 				ServletUriComponentsBuilder.fromCurrentRequest().path(vehiculo.getId().toString()).build().toUri())
@@ -61,12 +66,12 @@ public class VehiculoController {
 	}
 
 	@PostMapping("/{id}")
-	ResponseEntity<Boolean> actualizar(@PathVariable(name = "clienteIdentificacion") final String clienteIdentificacion,
+	ResponseEntity<Boolean> actualizar(@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
 			@PathVariable(name = "id") final Long id, @RequestBody final InputVehiculoActualizar inputDTO) {
 
 		JAXBUtil.validarSchema(InputVehiculoActualizar.class, inputDTO);
 
-		final Usuario usuario = usuarioService.obtener(clienteIdentificacion);
+		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
 		final Vehiculo vehiculo = vehiculoService.obtener(usuario, id);
 		final Boolean actualizar = vehiculoService.actualizar(vehiculo, inputDTO);
 
@@ -75,16 +80,16 @@ public class VehiculoController {
 
 	@GetMapping
 	ResponseEntity<OutputVehiculoConsultar> consultar(
-			@PathVariable(name = "clienteIdentificacion") final String clienteIdentificacion,
-			@RequestParam(name = "tipoVehiculo") final TipoVehiculo tipoVehiculo,
-			@RequestParam(name = "partMarca") final String partMarca,
-			@RequestParam(name = "partModelo") final String partModelo,
-			@RequestParam(name = "agno") final String agno,
-			@RequestParam(name = "patente") final String patente,
+			@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
+			@RequestParam(name = "tipoVehiculo", required = false) final TipoVehiculo tipoVehiculo,
+			@RequestParam(name = "partMarca", required = false) final String partMarca,
+			@RequestParam(name = "partModelo", required = false) final String partModelo,
+			@RequestParam(name = "agno", required = false) final String agno,
+			@RequestParam(name = "patente", required = false) final String patente,
 			@RequestParam(name = "offset", defaultValue = "0") Integer offset,
 			@RequestParam(name = "limit", defaultValue = "100") Integer limit) {
 
-		final Usuario usuario = usuarioService.obtener(clienteIdentificacion);
+		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
 		List<Vehiculo> vehiculos = vehiculoService.consultar(usuario, tipoVehiculo, partMarca, partModelo, agno,
 				patente, offset, limit);
 
@@ -109,10 +114,10 @@ public class VehiculoController {
 
 	@GetMapping("/{id}")
 	ResponseEntity<OutputVehiculoObtener> obtener(
-			@PathVariable(name = "clienteIdentificacion") final String clienteIdentificacion,
+			@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
 			@PathVariable(name = "id") final Long id) {
 
-		final Usuario usuario = usuarioService.obtener(clienteIdentificacion);
+		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
 		final Vehiculo vehiculo = vehiculoService.obtener(usuario, id);
 
 		final OutputVehiculoObtener outputDTO = new OutputVehiculoObtener();
@@ -129,10 +134,10 @@ public class VehiculoController {
 
 	@DeleteMapping("/{id}")
 	ResponseEntity<Boolean> eliminar(
-			@PathVariable(name = "clienteIdentificacion") final String clienteIdentificacion,
+			@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
 			@PathVariable(name = "id") final Long id) {
 
-		final Usuario usuario = usuarioService.obtener(clienteIdentificacion);
+		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
 		final Vehiculo vehiculo = vehiculoService.obtener(usuario, id);
 		final Boolean eliminar = vehiculoService.eliminar(usuario, vehiculo);
 		

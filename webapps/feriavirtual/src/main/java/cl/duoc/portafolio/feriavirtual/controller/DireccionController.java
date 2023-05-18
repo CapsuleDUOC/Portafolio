@@ -28,7 +28,7 @@ import cl.duoc.portafolio.feriavirtual.service.DireccionService;
 import cl.duoc.portafolio.feriavirtual.service.UsuarioService;
 
 @RestController
-@RequestMapping("/{clienteIdentificacion}/direccion/v10")
+@RequestMapping("/{usuarioIdentificacion}/direccion/v10")
 public class DireccionController {
 
 	private UsuarioService usuarioService;
@@ -42,12 +42,12 @@ public class DireccionController {
 
 	@PostMapping
 	ResponseEntity<OutputDireccionCrear> crear(
-			@PathVariable(name = "clienteIdentificacion") final String clienteIdentificacion,
+			@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
 			@RequestBody final InputDireccionCrear inputDTO) {
 
 		JAXBUtil.validarSchema(InputDireccionCrear.class, inputDTO);
 
-		final Usuario usuario = usuarioService.obtener(clienteIdentificacion);
+		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
 		final Direccion direccion = direccionService.crear(usuario, inputDTO);
 
 		final OutputDireccionCrear outputDTO = new OutputDireccionCrear();
@@ -69,12 +69,12 @@ public class DireccionController {
 	}
 
 	@PostMapping("/{id}")
-	ResponseEntity<Boolean> actualizar(@PathVariable(name = "clienteIdentificacion") final String clienteIdentificacion,
+	ResponseEntity<Boolean> actualizar(@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
 			@PathVariable(name = "id") final Long id, @RequestBody final InputDireccionActualizar inputDTO) {
 
 		JAXBUtil.validarSchema(InputDireccionActualizar.class, inputDTO);
 
-		final Usuario usuario = usuarioService.obtener(clienteIdentificacion);
+		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
 		final Direccion direccion = direccionService.obtener(usuario, id);
 		final Boolean actualizar = direccionService.actualizar(direccion, inputDTO);
 
@@ -83,14 +83,14 @@ public class DireccionController {
 
 	@GetMapping
 	ResponseEntity<OutputDireccionConsultar> consultar(
-			@PathVariable(name = "clienteIdentificacion") final String clienteIdentificacion,
-			@RequestParam(name = "partDireccion") final String partDireccion,
-			@RequestParam(name = "partComuna") final String partComuna,
-			@RequestParam(name = "partCiudad") final String partCiudad,
+			@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
+			@RequestParam(name = "partDireccion", required = false) final String partDireccion,
+			@RequestParam(name = "partComuna", required = false) final String partComuna,
+			@RequestParam(name = "partCiudad", required = false) final String partCiudad,
 			@RequestParam(name = "offset", defaultValue = "0") Integer offset,
 			@RequestParam(name = "limit", defaultValue = "100") Integer limit) {
 
-		final Usuario usuario = usuarioService.obtener(clienteIdentificacion);
+		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
 		List<Direccion> direcciones = direccionService.consultar(usuario, partDireccion, partComuna, partCiudad, offset,
 				limit);
 
@@ -119,10 +119,10 @@ public class DireccionController {
 
 	@GetMapping("/{id}")
 	ResponseEntity<OutputDireccionObtener> obtener(
-			@PathVariable(name = "clienteIdentificacion") final String clienteIdentificacion,
+			@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
 			@PathVariable(name = "id") final Long id) {
 
-		final Usuario usuario = usuarioService.obtener(clienteIdentificacion);
+		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
 		final Direccion direccion = direccionService.obtener(usuario, id);
 
 		final OutputDireccionObtener outputDTO = new OutputDireccionObtener();
@@ -143,10 +143,10 @@ public class DireccionController {
 
 	@DeleteMapping("/{id}")
 	ResponseEntity<Boolean> eliminar(
-			@PathVariable(name = "clienteIdentificacion") final String clienteIdentificacion,
+			@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
 			@PathVariable(name = "id") final Long id) {
 
-		final Usuario usuario = usuarioService.obtener(clienteIdentificacion);
+		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
 		final Direccion direccion = direccionService.obtener(usuario, id);
 		final Boolean eliminar = direccionService.eliminar(usuario, direccion);
 		
