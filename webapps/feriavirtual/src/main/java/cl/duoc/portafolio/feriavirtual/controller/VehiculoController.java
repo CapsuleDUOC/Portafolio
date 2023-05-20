@@ -21,7 +21,6 @@ import cl.duoc.portafolio.dto.v10.feriavirtual.OutputVehiculoConsultar;
 import cl.duoc.portafolio.dto.v10.feriavirtual.OutputVehiculoCrear;
 import cl.duoc.portafolio.dto.v10.feriavirtual.OutputVehiculoObtener;
 import cl.duoc.portafolio.dto.v10.feriavirtual.TipoVehiculo;
-import cl.duoc.portafolio.dto.v10.feriavirtual.UbigeoType;
 import cl.duoc.portafolio.dto.v10.feriavirtual.VehiculoType;
 import cl.duoc.portafolio.feriavirtual.domain.Usuario;
 import cl.duoc.portafolio.feriavirtual.domain.Vehiculo;

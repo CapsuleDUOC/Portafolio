@@ -39,7 +39,6 @@ import cl.duoc.portafolio.feriavirtual.service.VehiculoService;
 import cl.duoc.portafolio.feriavirtual.util.SearchCriteria;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.swagger.models.auth.In;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

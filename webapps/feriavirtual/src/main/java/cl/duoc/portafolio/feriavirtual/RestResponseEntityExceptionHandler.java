@@ -1,8 +1,6 @@
 package cl.duoc.portafolio.feriavirtual;
 
 import java.nio.file.AccessDeniedException;
-import java.util.concurrent.atomic.AtomicLong;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.http.HttpHeaders;
