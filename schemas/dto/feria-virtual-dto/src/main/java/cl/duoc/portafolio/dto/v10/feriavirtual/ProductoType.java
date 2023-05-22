@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.05.21 a las 09:00:27 PM CLT 
+// Generado el: 2023.05.21 a las 09:24:06 PM CLT 
 //
 
 
@@ -32,6 +32,8 @@ import org.w3._2001.xmlschema.Adapter1;
  *         &lt;element name="ID" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
  *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="tipo" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}TipoProducto"/&gt;
+ *         &lt;element name="unidadMedida" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}UnidadMedida"/&gt;
+ *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *         &lt;element name="registroInstante" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
  *         &lt;element name="imagen" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
@@ -47,6 +49,8 @@ import org.w3._2001.xmlschema.Adapter1;
     "id",
     "nombre",
     "tipo",
+    "unidadMedida",
+    "precio",
     "registroInstante",
     "imagen"
 })
@@ -65,6 +69,10 @@ public class ProductoType {
     @XmlElement(required = true)
     @XmlSchemaType(name = "string")
     protected TipoProducto tipo;
+    @XmlElement(required = true)
+    @XmlSchemaType(name = "string")
+    protected UnidadMedida unidadMedida;
+    protected long precio;
     @XmlElement(type = String.class)
     @XmlJavaTypeAdapter(Adapter1 .class)
     @XmlSchemaType(name = "dateTime")
@@ -141,6 +149,46 @@ public class ProductoType {
      */
     public void setTipo(TipoProducto value) {
         this.tipo = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad unidadMedida.
+     * 
+     * @return
+     *     possible object is
+     *     {@link UnidadMedida }
+     *     
+     */
+    public UnidadMedida getUnidadMedida() {
+        return unidadMedida;
+    }
+
+    /**
+     * Define el valor de la propiedad unidadMedida.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link UnidadMedida }
+     *     
+     */
+    public void setUnidadMedida(UnidadMedida value) {
+        this.unidadMedida = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad precio.
+     * 
+     */
+    public long getPrecio() {
+        return precio;
+    }
+
+    /**
+     * Define el valor de la propiedad precio.
+     * 
+     */
+    public void setPrecio(long value) {
+        this.precio = value;
     }
 
     /**

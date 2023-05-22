@@ -167,11 +167,25 @@
     	<sequence>
     		<element name="ID" type="long" maxOccurs="1"
     			minOccurs="0">
-    		</element>
-    		<element name="nombre" type="string" maxOccurs="1" minOccurs="1"></element>
-    		<element name="tipo" maxOccurs="1" minOccurs="1" type="tns:TipoProducto"></element>
-    		<element name="registroInstante" type="dateTime" maxOccurs="1" minOccurs="0"></element>
-    		<element name="imagen" type="boolean" maxOccurs="1" minOccurs="0"></element>
+    		</element>
+
+    		<element name="nombre" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="tipo" maxOccurs="1" minOccurs="1"
+    			type="tns:TipoProducto">
+    		</element>
+    		<element name="unidadMedida" type="tns:UnidadMedida"
+    			maxOccurs="1" minOccurs="1">
+    		</element>
+    		<element name="precio" type="long" maxOccurs="1" minOccurs="1"></element>
+    		<element name="registroInstante" type="dateTime"
+    			maxOccurs="1" minOccurs="0">
+    		</element>
+    		<element name="imagen" type="boolean" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+
     	</sequence>
     </complexType>
 
@@ -328,7 +342,11 @@
     <element name="InputProductoCrear">
     	<complexType>
     		<complexContent>
-    			<extension base="tns:ProductoType"></extension>
+    			<extension base="tns:ProductoType">
+    				<sequence>
+    					<element name="bytesImagen" type="base64Binary" maxOccurs="1" minOccurs="0"></element>
+    				</sequence>
+    			</extension>
     		</complexContent>
     	</complexType>
     </element>
