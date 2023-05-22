@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : FERIA_VIRTUAL
 -- ===
--- === Build : 69
+-- === Build : 72
 -- ======================================================================
 
 CREATE TABLE archivo
@@ -166,6 +166,7 @@ CREATE TABLE producto
     tipo               varchar(25)   not null,
     unidad_medida      varchar(25)   not null,
     precio             bigint        not null,
+    estado             varchar(25)   not null,
     registro_instante  datetime      not null,
     archivo_imagen     bigint,
 
