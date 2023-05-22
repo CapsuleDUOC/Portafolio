@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : FERIA_VIRTUAL
 -- ===
--- === Build : 72
+-- === Build : 75
 -- ======================================================================
 
 CREATE TABLE archivo
@@ -125,15 +125,16 @@ CREATE INDEX usuario_propiedadIDX1 ON usuario_propiedad(id);
 CREATE TABLE vehiculo
   (
     id                 bigint        unique not null auto_increment,
-    usuario_id         bigint        unique not null,
+    usuario_id         bigint        not null,
     tipo               varchar(25)   not null,
-    patente            varchar(10)   unique not null,
+    patente            varchar(10)   not null,
     marca              varchar(25)   not null,
     modelo             varchar(25)   not null,
     agno               varchar(4)    not null,
     registro_instante  datetime      not null,
 
     primary key(id),
+    unique(usuario_id,patente),
 
     foreign key(usuario_id) references usuario(id)
   )
@@ -160,8 +161,8 @@ CREATE TABLE vehiculo_archivo
 CREATE TABLE producto
   (
     id                 bigint        unique not null auto_increment,
-    usuario_id         bigint        unique not null,
-    codigo             varchar(50)   unique not null,
+    usuario_id         bigint        not null,
+    codigo             varchar(50)   not null,
     nombre             varchar(50)   not null,
     tipo               varchar(25)   not null,
     unidad_medida      varchar(25)   not null,
@@ -171,6 +172,7 @@ CREATE TABLE producto
     archivo_imagen     bigint,
 
     primary key(id),
+    unique(usuario_id,codigo),
 
     foreign key(usuario_id) references usuario(id),
     foreign key(archivo_imagen) references archivo(id)
@@ -286,8 +288,8 @@ CREATE TABLE pedido
     id                 bigint   unique not null auto_increment,
     despachador_id     bigint   not null,
     vehiculo_id        bigint,
-    direccion_origen   bigint   unique not null,
-    direccion_destino  bigint   unique not null,
+    direccion_origen   bigint   not null,
+    direccion_destino  bigint   not null,
     monto_despacho     bigint   not null,
     fecha              date     not null,
     hora               time     not null,
@@ -326,7 +328,7 @@ CREATE INDEX pedido_productoIDX1 ON pedido_producto(id);
 CREATE TABLE carrito
   (
     id                 bigint     unique not null auto_increment,
-    cliente_id         bigint     unique not null,
+    cliente_id         bigint     not null,
     registro_instante  datetime   not null,
 
     primary key(id),
@@ -413,8 +415,8 @@ CREATE TABLE transporte_cosecha
 CREATE TABLE venta
   (
     id            bigint   unique not null auto_increment,
-    locatario_id  bigint   unique not null,
-    cliente_id    bigint   unique not null,
+    locatario_id  bigint   not null,
+    cliente_id    bigint   not null,
     pedido_id     bigint,
     dte_id        bigint,
     monto_venta   bigint   not null,
