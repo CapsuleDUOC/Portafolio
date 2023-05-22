@@ -5,7 +5,7 @@
 Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 Visite https://eclipse-ee4j.github.io/jaxb-ri 
 Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-Generado el: 2023.05.21 a las 09:31:28 PM CLT 
+Generado el: 2023.05.21 a las 10:06:43 PM CLT 
 
   -->
   <bindings xmlns:tns="http://duoc.cl/portafolio/dto/v10/FeriaVirtual" if-exists="true" scd="x-schema::tns">
@@ -131,6 +131,9 @@ Generado el: 2023.05.21 a las 09:31:28 PM CLT
     </bindings>
     <bindings if-exists="true" scd="~tns:UnidadMedida">
       <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.UnidadMedida"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:EstadoProducto">
+      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.EstadoProducto"/>
     </bindings>
     <bindings if-exists="true" scd="~tns:TipoVehiculo">
       <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.TipoVehiculo"/>
