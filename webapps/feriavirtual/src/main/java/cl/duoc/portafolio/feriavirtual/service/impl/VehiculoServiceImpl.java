@@ -84,26 +84,28 @@ public class VehiculoServiceImpl implements VehiculoService {
 	@Override
 	public Vehiculo obtener(Usuario usuario, Long id) {
 		Optional<Vehiculo> _vehiculo = vehiculoRepository.findByUsuarioAndId(usuario, id);
-		Assert.isTrue(_vehiculo.isPresent(), "No existe el vehiculo para el Usuario [" + usuario.getIdentificacion() + "]");
+		Assert.isTrue(_vehiculo.isPresent(),
+				"No existe el vehiculo para el Usuario [" + usuario.getIdentificacion() + "]");
 		return _vehiculo.get();
 	}
 
 	@Override
 	public Vehiculo obtener(Usuario usuario, String patente) {
 		Optional<Vehiculo> _vehiculo = vehiculoRepository.findByUsuarioAndPatente(usuario, patente);
-		Assert.isTrue(_vehiculo.isPresent(), "No existe el vehiculo para el Usuario [" + usuario.getIdentificacion() + "]");
+		Assert.isTrue(_vehiculo.isPresent(),
+				"No existe el vehiculo para el Usuario [" + usuario.getIdentificacion() + "]");
 		return _vehiculo.get();
 	}
 
 	@Override
 	public Boolean actualizar(Vehiculo vehiculo, InputVehiculoActualizar inputDTO) {
-		
+
 		vehiculo.setMarca(inputDTO.getMarca());
 		vehiculo.setModelo(inputDTO.getModelo());
 		vehiculo.setAgno(inputDTO.getAgno());
 		vehiculo.setPatente(inputDTO.getPatente());
 		vehiculo.setTipo(inputDTO.getTipo());
-		
+
 		vehiculoRepository.save(vehiculo);
 		return true;
 	}
