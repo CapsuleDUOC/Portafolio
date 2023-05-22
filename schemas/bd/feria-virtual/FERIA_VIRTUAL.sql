@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : FERIA_VIRTUAL
 -- ===
--- === Build : 75
+-- === Build : 76
 -- ======================================================================
 
 CREATE TABLE archivo
@@ -148,8 +148,6 @@ CREATE TABLE vehiculo_archivo
   (
     vehiculo_id  bigint   not null,
     archivo_id   bigint   not null,
-
-    unique(vehiculo_id,archivo_id),
 
     foreign key(vehiculo_id) references vehiculo(id),
     foreign key(archivo_id) references archivo(id)
