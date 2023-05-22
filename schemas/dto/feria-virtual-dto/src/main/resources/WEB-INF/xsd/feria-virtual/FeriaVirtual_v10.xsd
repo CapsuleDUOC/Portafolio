@@ -462,4 +462,12 @@
     		</sequence>
     	</complexType>
     </element>
+
+    <simpleType name="EstadoArchivo">
+    	<restriction base="string">
+    		<enumeration value="LOCAL"></enumeration>
+    		<enumeration value="BASE_DATOS"></enumeration>
+    		<enumeration value="ELIMINADO"></enumeration>
+    	</restriction>
+    </simpleType>
 </schema>
