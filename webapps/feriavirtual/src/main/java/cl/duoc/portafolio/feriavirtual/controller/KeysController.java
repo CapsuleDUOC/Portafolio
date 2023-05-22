@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import cl.duoc.portafolio.dto.v10.feriavirtual.EstadoComision;
+import cl.duoc.portafolio.dto.v10.feriavirtual.EstadoProducto;
 import cl.duoc.portafolio.dto.v10.feriavirtual.EstadoUsuario;
 import cl.duoc.portafolio.dto.v10.feriavirtual.TipoIdentificacion;
 import cl.duoc.portafolio.dto.v10.feriavirtual.TipoOperacion;
@@ -101,6 +102,16 @@ public class KeysController {
 		List<String> response = new ArrayList<>();
 
 		for (UnidadMedida e : UnidadMedida.values())
+			response.add(e.name());
+
+		return ResponseEntity.ok(response);
+	}
+	
+	@GetMapping("/producto/estado")
+	ResponseEntity<List<String>> getEstadoProducto() {
+		List<String> response = new ArrayList<>();
+
+		for (EstadoProducto e : EstadoProducto.values())
 			response.add(e.name());
 
 		return ResponseEntity.ok(response);
