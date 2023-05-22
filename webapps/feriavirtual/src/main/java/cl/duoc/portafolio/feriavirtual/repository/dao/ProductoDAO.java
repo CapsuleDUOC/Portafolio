@@ -13,11 +13,13 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Repository;
 
 import cl.duoc.portafolio.feriavirtual.domain.Producto;
 import cl.duoc.portafolio.feriavirtual.repository.IProductoDAO;
 import cl.duoc.portafolio.feriavirtual.util.SearchCriteria;
 
+@Repository
 public class ProductoDAO implements IProductoDAO{
 
 	@PersistenceContext
