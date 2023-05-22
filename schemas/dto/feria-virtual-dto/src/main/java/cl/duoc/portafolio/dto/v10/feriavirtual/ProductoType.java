@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.05.21 a las 09:24:06 PM CLT 
+// Generado el: 2023.05.21 a las 09:31:28 PM CLT 
 //
 
 
@@ -30,6 +30,7 @@ import org.w3._2001.xmlschema.Adapter1;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="ID" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
+ *         &lt;element name="codigo" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="tipo" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}TipoProducto"/&gt;
  *         &lt;element name="unidadMedida" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}UnidadMedida"/&gt;
@@ -47,6 +48,7 @@ import org.w3._2001.xmlschema.Adapter1;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ProductoType", propOrder = {
     "id",
+    "codigo",
     "nombre",
     "tipo",
     "unidadMedida",
@@ -64,6 +66,8 @@ public class ProductoType {
 
     @XmlElement(name = "ID")
     protected Long id;
+    @XmlElement(required = true)
+    protected String codigo;
     @XmlElement(required = true)
     protected String nombre;
     @XmlElement(required = true)
@@ -101,6 +105,30 @@ public class ProductoType {
      */
     public void setID(Long value) {
         this.id = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad codigo.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCodigo() {
+        return codigo;
+    }
+
+    /**
+     * Define el valor de la propiedad codigo.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCodigo(String value) {
+        this.codigo = value;
     }
 
     /**

@@ -169,6 +169,7 @@
     			minOccurs="0">
     		</element>
 
+    		<element name="codigo" type="string" maxOccurs="1" minOccurs="1"></element>
     		<element name="nombre" type="string" maxOccurs="1"
     			minOccurs="1">
     		</element>
@@ -178,7 +179,9 @@
     		<element name="unidadMedida" type="tns:UnidadMedida"
     			maxOccurs="1" minOccurs="1">
     		</element>
-    		<element name="precio" type="long" maxOccurs="1" minOccurs="1"></element>
+    		<element name="precio" type="long" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
     		<element name="registroInstante" type="dateTime"
     			maxOccurs="1" minOccurs="0">
     		</element>

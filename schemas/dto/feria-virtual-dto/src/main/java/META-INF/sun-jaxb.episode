@@ -1,287 +1,148 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
-      
-    <!--
+  <!--
 
 Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 Visite https://eclipse-ee4j.github.io/jaxb-ri 
 Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-Generado el: 2023.05.21 a las 09:24:06 PM CLT 
+Generado el: 2023.05.21 a las 09:31:28 PM CLT 
 
   -->
-      
-    <bindings xmlns:tns="http://duoc.cl/portafolio/dto/v10/FeriaVirtual" if-exists="true" scd="x-schema::tns">
-            
-        <schemaBindings map="false">
-                  
-            <package name="cl.duoc.portafolio.dto.v10.feriavirtual"/>
-                
-        </schemaBindings>
-            
-        <bindings if-exists="true" scd="tns:InputAuthLogin">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputAuthLogin"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:InputAuthCrear">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputAuthCrear"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:UsuarioType">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.UsuarioType"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:OutputAuthCrear">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputAuthCrear"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:InputUsuarioActualizar">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputUsuarioActualizar"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:DireccionType">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.DireccionType"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:VehiculoType">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.VehiculoType"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:PropiedadType">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.PropiedadType"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:OutputUsuarioConsultar">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputUsuarioConsultar"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:OutputUsuarioObtener">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputUsuarioObtener"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:OutputConsultarBitacora">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputConsultarBitacora"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:BitacoraType">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.BitacoraType"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:InputProductoCrear">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputProductoCrear"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:ProductoType">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.ProductoType"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:OutputProductoCrear">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputProductoCrear"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:InputProductoActualizar">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputProductoActualizar"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:OutputProductoObtener">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputProductoObtener"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:OutputProductoConsultar">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputProductoConsultar"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:InputDireccionCrear">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputDireccionCrear"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:UbigeoType">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.UbigeoType"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:InputDireccionActualizar">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputDireccionActualizar"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:InputVehiculoCrear">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputVehiculoCrear"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:InputVehiculoActualizar">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputVehiculoActualizar"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:OutputDireccionCrear">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputDireccionCrear"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:OutputDireccionConsultar">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputDireccionConsultar"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:OutputDireccionObtener">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputDireccionObtener"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:OutputVehiculoCrear">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputVehiculoCrear"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:OutputVehiculoObtener">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputVehiculoObtener"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="tns:OutputVehiculoConsultar">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputVehiculoConsultar"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:TransporteType">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.TransporteType"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:ComisionType">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.ComisionType"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:ComisionOperacionType">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.ComisionOperacionType"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:OperacionType">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OperacionType"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:VentaType">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.VentaType"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:PedidoType">
-                  
-            <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.PedidoType"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:TipoUsuario">
-                  
-            <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.TipoUsuario"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:TipoIdentificacion">
-                  
-            <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.TipoIdentificacion"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:EstadoUsuario">
-                  
-            <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.EstadoUsuario"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:TipoProducto">
-                  
-            <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.TipoProducto"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:UnidadMedida">
-                  
-            <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.UnidadMedida"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:TipoVehiculo">
-                  
-            <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.TipoVehiculo"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:TipoOperacion">
-                  
-            <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.TipoOperacion"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:EstadoComision">
-                  
-            <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.EstadoComision"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:EstadoArchivo">
-                  
-            <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.EstadoArchivo"/>
-                
-        </bindings>
-          
+  <bindings xmlns:tns="http://duoc.cl/portafolio/dto/v10/FeriaVirtual" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="cl.duoc.portafolio.dto.v10.feriavirtual"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="tns:InputAuthLogin">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputAuthLogin"/>
     </bindings>
-    
+    <bindings if-exists="true" scd="tns:InputAuthCrear">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputAuthCrear"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:UsuarioType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.UsuarioType"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputAuthCrear">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputAuthCrear"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:InputUsuarioActualizar">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputUsuarioActualizar"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:DireccionType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.DireccionType"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:VehiculoType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.VehiculoType"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:PropiedadType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.PropiedadType"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputUsuarioConsultar">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputUsuarioConsultar"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputUsuarioObtener">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputUsuarioObtener"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputConsultarBitacora">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputConsultarBitacora"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:BitacoraType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.BitacoraType"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:InputProductoCrear">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputProductoCrear"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:ProductoType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.ProductoType"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputProductoCrear">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputProductoCrear"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:InputProductoActualizar">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputProductoActualizar"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputProductoObtener">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputProductoObtener"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputProductoConsultar">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputProductoConsultar"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:InputDireccionCrear">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputDireccionCrear"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:UbigeoType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.UbigeoType"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:InputDireccionActualizar">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputDireccionActualizar"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:InputVehiculoCrear">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputVehiculoCrear"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:InputVehiculoActualizar">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputVehiculoActualizar"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputDireccionCrear">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputDireccionCrear"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputDireccionConsultar">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputDireccionConsultar"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputDireccionObtener">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputDireccionObtener"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputVehiculoCrear">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputVehiculoCrear"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputVehiculoObtener">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputVehiculoObtener"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputVehiculoConsultar">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputVehiculoConsultar"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:TransporteType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.TransporteType"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:ComisionType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.ComisionType"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:ComisionOperacionType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.ComisionOperacionType"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:OperacionType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OperacionType"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:VentaType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.VentaType"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:PedidoType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.PedidoType"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:TipoUsuario">
+      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.TipoUsuario"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:TipoIdentificacion">
+      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.TipoIdentificacion"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:EstadoUsuario">
+      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.EstadoUsuario"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:TipoProducto">
+      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.TipoProducto"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:UnidadMedida">
+      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.UnidadMedida"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:TipoVehiculo">
+      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.TipoVehiculo"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:TipoOperacion">
+      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.TipoOperacion"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:EstadoComision">
+      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.EstadoComision"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:EstadoArchivo">
+      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.EstadoArchivo"/>
+    </bindings>
+  </bindings>
 </bindings>
