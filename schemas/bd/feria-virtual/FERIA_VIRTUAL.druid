@@ -2,8 +2,8 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">66</attrib>
-		<attrib name="serial">52691</attrib>
+		<attrib name="build">68</attrib>
+		<attrib name="serial">52949</attrib>
 	</attribs>
 	<database>
 		<attribs>
@@ -1814,9 +1814,9 @@
 					<attribs>
 						<attrib name="name">archivo</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">221</attrib>
+						<attrib name="locY">213</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">25</attrib>
+						<attrib name="locX">15</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1827,9 +1827,9 @@
 					<attribs>
 						<attrib name="name">usuario</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">755</attrib>
+						<attrib name="locY">723</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">860</attrib>
+						<attrib name="locX">954</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1864,24 +1864,11 @@
 				</erEntity>
 				<erEntity>
 					<attribs>
-						<attrib name="name">usuario_vehiculo</attrib>
-						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">6</attrib>
-						<attrib name="details">-</attrib>
-						<attrib name="locX">597</attrib>
-					</attribs>
-					<modsConfig/>
-					<tables>
-						<table id="7808"/>
-					</tables>
-				</erEntity>
-				<erEntity>
-					<attribs>
 						<attrib name="name">producto</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">168</attrib>
+						<attrib name="locY">30</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">495</attrib>
+						<attrib name="locX">583</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1905,9 +1892,9 @@
 					<attribs>
 						<attrib name="name">dte_producto</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">431</attrib>
+						<attrib name="locY">413</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">156</attrib>
+						<attrib name="locX">153</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1918,9 +1905,9 @@
 					<attribs>
 						<attrib name="name">direccion</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">178</attrib>
+						<attrib name="locY">173</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">990</attrib>
+						<attrib name="locX">1179</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1929,24 +1916,11 @@
 				</erEntity>
 				<erEntity>
 					<attribs>
-						<attrib name="name">usuario_direccion</attrib>
-						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">503</attrib>
-						<attrib name="details">-</attrib>
-						<attrib name="locX">1200</attrib>
-					</attribs>
-					<modsConfig/>
-					<tables>
-						<table id="27079"/>
-					</tables>
-				</erEntity>
-				<erEntity>
-					<attribs>
 						<attrib name="name">venta</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">620</attrib>
+						<attrib name="locY">585</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">284</attrib>
+						<attrib name="locX">314</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1957,9 +1931,9 @@
 					<attribs>
 						<attrib name="name">pedido</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">540</attrib>
+						<attrib name="locY">382</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">553</attrib>
+						<attrib name="locX">539</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1970,9 +1944,9 @@
 					<attribs>
 						<attrib name="name">pedido_producto</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">391</attrib>
+						<attrib name="locY">65</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">465</attrib>
+						<attrib name="locX">895</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1983,9 +1957,9 @@
 					<attribs>
 						<attrib name="name">carrito</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">570</attrib>
+						<attrib name="locY">529</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">921</attrib>
+						<attrib name="locX">1246</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1996,9 +1970,9 @@
 					<attribs>
 						<attrib name="name">carrito_producto</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">414</attrib>
+						<attrib name="locY">449</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">947</attrib>
+						<attrib name="locX">953</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -3871,6 +3845,62 @@
 						<attrib name="onUpdate">n</attrib>
 						<attrib name="refTable">0</attrib>
 						<attrib name="type">293</attrib>
+					</attribs>
+					<modsConfig/>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="86">false</attrib>
+							<attrib name="85">false</attrib>
+							<attrib name="84">false</attrib>
+							<attrib name="83">false</attrib>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="matchType">s</attrib>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">unidad_medida</attrib>
+						<attrib name="id">43273</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">293</attrib>
+					</attribs>
+					<modsConfig/>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="86">false</attrib>
+							<attrib name="85">false</attrib>
+							<attrib name="84">false</attrib>
+							<attrib name="83">false</attrib>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="matchType">s</attrib>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">precio</attrib>
+						<attrib name="id">52700</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">24</attrib>
 					</attribs>
 					<modsConfig/>
 				</field>
@@ -6191,62 +6221,6 @@
 						<attrib name="comment"/>
 						<attrib name="matchType">s</attrib>
 						<attrib name="refField">0</attrib>
-						<attrib name="name">cantidad</attrib>
-						<attrib name="id">43029</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">28</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">false</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">unidad_medida</attrib>
-						<attrib name="id">43273</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">293</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
 						<attrib name="name">fecha</attrib>
 						<attrib name="id">41691</attrib>
 						<attrib name="onDelete">n</attrib>
@@ -6335,6 +6309,34 @@
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="83">true</attrib>
+							<attrib name="17">true</attrib>
+							<attrib name="16">true</attrib>
+							<attrib name="15">true</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">true</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="name">id</attrib>
+						<attrib name="refField">0</attrib>
+						<attrib name="matchType">s</attrib>
+						<attrib name="id">52695</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">24</attrib>
+					</attribs>
+					<modsConfig/>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="86">false</attrib>
+							<attrib name="85">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -6382,6 +6384,34 @@
 						<attrib name="onUpdate">n</attrib>
 						<attrib name="refTable">15998</attrib>
 						<attrib name="type">0</attrib>
+					</attribs>
+					<modsConfig/>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="86">false</attrib>
+							<attrib name="85">false</attrib>
+							<attrib name="84">false</attrib>
+							<attrib name="83">false</attrib>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="matchType">s</attrib>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">cantidad</attrib>
+						<attrib name="id">43029</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">28</attrib>
 					</attribs>
 					<modsConfig/>
 				</field>

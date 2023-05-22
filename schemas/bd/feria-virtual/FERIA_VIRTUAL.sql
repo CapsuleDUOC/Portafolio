@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : FERIA_VIRTUAL
 -- ===
--- === Build : 66
+-- === Build : 68
 -- ======================================================================
 
 CREATE TABLE archivo
@@ -163,6 +163,8 @@ CREATE TABLE producto
     usuario_id         bigint        not null,
     nombre             varchar(50)   not null,
     tipo               varchar(25)   not null,
+    unidad_medida      varchar(25)   not null,
+    precio             bigint        not null,
     registro_instante  datetime      not null,
     archivo_imagen     bigint,
 
@@ -279,16 +281,14 @@ CREATE INDEX dteIDX1 ON dte(id);
 
 CREATE TABLE pedido
   (
-    id                 bigint        unique not null auto_increment,
-    despachador_id     bigint        not null,
+    id                 bigint   unique not null auto_increment,
+    despachador_id     bigint   not null,
     vehiculo_id        bigint,
-    direccion_origen   bigint        unique not null,
-    direccion_destino  bigint        unique not null,
-    monto_despacho     bigint        not null,
-    cantidad           double        not null,
-    unidad_medida      varchar(25),
-    fecha              date          not null,
-    hora               time          not null,
+    direccion_origen   bigint   unique not null,
+    direccion_destino  bigint   unique not null,
+    monto_despacho     bigint   not null,
+    fecha              date     not null,
+    hora               time     not null,
 
     primary key(id),
 
@@ -305,13 +305,19 @@ CREATE INDEX pedidoIDX1 ON pedido(id);
 
 CREATE TABLE pedido_producto
   (
+    id           bigint   unique not null auto_increment,
     pedido_id    bigint   not null,
     producto_id  bigint   not null,
+    cantidad     double   not null,
+
+    primary key(id),
 
     foreign key(pedido_id) references pedido(id),
     foreign key(producto_id) references producto(id)
   )
  ENGINE = InnoDB;
+
+CREATE INDEX pedido_productoIDX1 ON pedido_producto(id);
 
 -- ======================================================================
 
