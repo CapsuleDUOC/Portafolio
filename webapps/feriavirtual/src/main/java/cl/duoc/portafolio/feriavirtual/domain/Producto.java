@@ -10,8 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-
 import cl.duoc.portafolio.dto.v10.feriavirtual.EstadoProducto;
 import cl.duoc.portafolio.dto.v10.feriavirtual.TipoProducto;
 import cl.duoc.portafolio.dto.v10.feriavirtual.UnidadMedida;
