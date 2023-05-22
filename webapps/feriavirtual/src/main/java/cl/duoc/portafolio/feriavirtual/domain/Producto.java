@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import cl.duoc.portafolio.dto.v10.feriavirtual.EstadoProducto;
 import cl.duoc.portafolio.dto.v10.feriavirtual.TipoProducto;
@@ -40,5 +41,6 @@ public class Producto {
 	
 	private LocalDateTime registroInstante;
 	
+	@OneToOne
 	private Archivo archivoImagen;
 }
