@@ -352,7 +352,11 @@
     <element name="OutputProductoObtener">
     	<complexType>
     		<complexContent>
-    			<extension base="tns:ProductoType"></extension>
+    			<extension base="tns:ProductoType">
+    				<sequence>
+    					<element name="bytesImagen" type="base64Binary" maxOccurs="1" minOccurs="0"></element>
+    				</sequence>
+    			</extension>
     		</complexContent>
     	</complexType>
     </element>
