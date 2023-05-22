@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : FERIA_VIRTUAL
 -- ===
--- === Build : 76
+-- === Build : 77
 -- ======================================================================
 
 CREATE TABLE archivo
@@ -283,21 +283,18 @@ CREATE INDEX dteIDX1 ON dte(id);
 
 CREATE TABLE pedido
   (
-    id                 bigint   unique not null auto_increment,
-    despachador_id     bigint   not null,
-    vehiculo_id        bigint,
-    direccion_origen   bigint   not null,
-    direccion_destino  bigint   not null,
-    monto_despacho     bigint   not null,
-    fecha              date     not null,
-    hora               time     not null,
+    id                 bigint        unique not null auto_increment,
+    despachador_id     bigint        not null,
+    patente_vehiculo   varchar(10),
+    direccion_origen   varchar(50)   not null,
+    direccion_destino  varchar(50)   not null,
+    monto_despacho     bigint        not null,
+    fecha              date          not null,
+    hora               time          not null,
 
     primary key(id),
 
-    foreign key(despachador_id) references usuario(id),
-    foreign key(vehiculo_id) references vehiculo(id),
-    foreign key(direccion_origen) references direccion(id),
-    foreign key(direccion_destino) references direccion(id)
+    foreign key(despachador_id) references usuario(id)
   )
  ENGINE = InnoDB;
 
