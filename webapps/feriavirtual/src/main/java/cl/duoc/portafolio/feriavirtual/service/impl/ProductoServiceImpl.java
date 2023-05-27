@@ -17,8 +17,10 @@ import cl.duoc.portafolio.dto.v10.feriavirtual.TipoProducto;
 import cl.duoc.portafolio.dto.v10.feriavirtual.UnidadMedida;
 import cl.duoc.portafolio.feriavirtual.domain.Producto;
 import cl.duoc.portafolio.feriavirtual.domain.Usuario;
+import cl.duoc.portafolio.feriavirtual.domain.UsuarioBitacora;
 import cl.duoc.portafolio.feriavirtual.repository.IProductoDAO;
 import cl.duoc.portafolio.feriavirtual.repository.ProductoRepository;
+import cl.duoc.portafolio.feriavirtual.repository.UsuarioBitacoraRepository;
 import cl.duoc.portafolio.feriavirtual.service.ArchivoService;
 import cl.duoc.portafolio.feriavirtual.service.ProductoService;
 import cl.duoc.portafolio.feriavirtual.util.SearchCriteria;
@@ -29,13 +31,15 @@ public class ProductoServiceImpl implements ProductoService {
 	private ProductoRepository productoRepository;
 	private IProductoDAO productoDAO;
 	private ArchivoService archivoService;
+	private UsuarioBitacoraRepository bitacoraRepository;
 
 	@Autowired
 	public ProductoServiceImpl(final ProductoRepository productoRepository, final IProductoDAO productoDAO,
-			final ArchivoService archivoService) {
+			final ArchivoService archivoService, final UsuarioBitacoraRepository bitacoraRepository) {
 		this.productoRepository = productoRepository;
 		this.productoDAO = productoDAO;
 		this.archivoService = archivoService;
+		this.bitacoraRepository = bitacoraRepository;
 	}
 
 	@Override
@@ -60,6 +64,12 @@ public class ProductoServiceImpl implements ProductoService {
 			producto.setArchivoImagen(archivoService.crear(usuario.getIdentificacion() + "_" + inputDTO.getCodigo(),
 					inputDTO.getBytesImagen()));
 		}
+		
+		UsuarioBitacora bitacora = new UsuarioBitacora();
+		bitacora.setUsuario(usuario);
+		bitacora.setRegistroInstante(LocalDateTime.now());
+		bitacora.setRegistro("Se registra producto  [" + producto.getCodigo() + "]");
+		bitacoraRepository.save(bitacora);
 
 		return productoRepository.save(producto);
 	}
@@ -90,6 +100,13 @@ public class ProductoServiceImpl implements ProductoService {
 			producto.setArchivoImagen(archivoService.crear(
 					producto.getUsuario().getIdentificacion() + "_" + inputDTO.getCodigo(), inputDTO.getBytesImagen()));
 		}
+		
+		
+		UsuarioBitacora bitacora = new UsuarioBitacora();
+		bitacora.setUsuario(producto.getUsuario());
+		bitacora.setRegistroInstante(LocalDateTime.now());
+		bitacora.setRegistro("Se actualiza producto  [" + producto.getCodigo() + "]");
+		bitacoraRepository.save(bitacora);
 
 		productoRepository.save(producto);
 		return true;

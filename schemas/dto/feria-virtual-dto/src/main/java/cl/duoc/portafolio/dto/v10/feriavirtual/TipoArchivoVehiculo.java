@@ -13,31 +13,33 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para EstadoProducto.
+ * <p>Clase Java para TipoArchivoVehiculo.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * <pre>
- * &lt;simpleType name="EstadoProducto"&gt;
+ * &lt;simpleType name="TipoArchivoVehiculo"&gt;
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *     &lt;enumeration value="HABILITADO"/&gt;
- *     &lt;enumeration value="DESHABILITADO"/&gt;
+ *     &lt;enumeration value="INSCRIPCION"/&gt;
+ *     &lt;enumeration value="PERMISO"/&gt;
+ *     &lt;enumeration value="REV_TECNICA"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
  * 
  */
-@XmlType(name = "EstadoProducto")
+@XmlType(name = "TipoArchivoVehiculo")
 @XmlEnum
-public enum EstadoProducto {
+public enum TipoArchivoVehiculo {
 
-    HABILITADO,
-    DESHABILITADO;
+    INSCRIPCION,
+    PERMISO,
+    REV_TECNICA;
 
     public String value() {
         return name();
     }
 
-    public static EstadoProducto fromValue(String v) {
+    public static TipoArchivoVehiculo fromValue(String v) {
         return valueOf(v);
     }
 

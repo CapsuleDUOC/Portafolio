@@ -216,4 +216,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 		return true;
 	}
+
+	@Override
+	public List<UsuarioBitacora> consultarBitacora(Usuario usuario) {
+		return bitacoraRepository.findByUsuario(usuario);
+	}
 }

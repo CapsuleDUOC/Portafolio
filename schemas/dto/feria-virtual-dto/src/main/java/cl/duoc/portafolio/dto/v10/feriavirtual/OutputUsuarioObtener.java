@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.05.21 a las 10:07:45 PM CLT 
+// Generado el: 2023.05.27 a las 12:21:56 PM CLT 
 //
 
 
@@ -29,6 +29,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="direcciones" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}DireccionType" maxOccurs="unbounded" minOccurs="0"/&gt;
  *         &lt;element name="vehiculos" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}VehiculoType" maxOccurs="unbounded" minOccurs="0"/&gt;
  *         &lt;element name="propiedades" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}PropiedadType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="archivos" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}ArchivoUsuarioType" maxOccurs="unbounded" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
@@ -41,7 +42,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "direcciones",
     "vehiculos",
-    "propiedades"
+    "propiedades",
+    "archivos"
 })
 @XmlRootElement(name = "OutputUsuarioObtener")
 public class OutputUsuarioObtener
@@ -51,6 +53,7 @@ public class OutputUsuarioObtener
     protected List<DireccionType> direcciones;
     protected List<VehiculoType> vehiculos;
     protected List<PropiedadType> propiedades;
+    protected List<ArchivoUsuarioType> archivos;
 
     /**
      * Gets the value of the direcciones property.
@@ -137,6 +140,35 @@ public class OutputUsuarioObtener
             propiedades = new ArrayList<PropiedadType>();
         }
         return this.propiedades;
+    }
+
+    /**
+     * Gets the value of the archivos property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the archivos property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getArchivos().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link ArchivoUsuarioType }
+     * 
+     * 
+     */
+    public List<ArchivoUsuarioType> getArchivos() {
+        if (archivos == null) {
+            archivos = new ArrayList<ArchivoUsuarioType>();
+        }
+        return this.archivos;
     }
 
 }

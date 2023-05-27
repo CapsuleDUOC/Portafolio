@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.05.21 a las 10:07:45 PM CLT 
+// Generado el: 2023.05.27 a las 12:21:56 PM CLT 
 //
 
 
@@ -117,19 +117,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link OutputConsultarBitacora }
+     * Create an instance of {@link ArchivoUsuarioType }
      * 
      */
-    public OutputConsultarBitacora createOutputConsultarBitacora() {
-        return new OutputConsultarBitacora();
-    }
-
-    /**
-     * Create an instance of {@link BitacoraType }
-     * 
-     */
-    public BitacoraType createBitacoraType() {
-        return new BitacoraType();
+    public ArchivoUsuarioType createArchivoUsuarioType() {
+        return new ArchivoUsuarioType();
     }
 
     /**
@@ -261,11 +253,51 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ArchivoVehiculoType }
+     * 
+     */
+    public ArchivoVehiculoType createArchivoVehiculoType() {
+        return new ArchivoVehiculoType();
+    }
+
+    /**
      * Create an instance of {@link OutputVehiculoConsultar }
      * 
      */
     public OutputVehiculoConsultar createOutputVehiculoConsultar() {
         return new OutputVehiculoConsultar();
+    }
+
+    /**
+     * Create an instance of {@link InputUsuarioCargarArchivo }
+     * 
+     */
+    public InputUsuarioCargarArchivo createInputUsuarioCargarArchivo() {
+        return new InputUsuarioCargarArchivo();
+    }
+
+    /**
+     * Create an instance of {@link InputVehiculoCargarArchivo }
+     * 
+     */
+    public InputVehiculoCargarArchivo createInputVehiculoCargarArchivo() {
+        return new InputVehiculoCargarArchivo();
+    }
+
+    /**
+     * Create an instance of {@link OutputBitacoraConsultar }
+     * 
+     */
+    public OutputBitacoraConsultar createOutputBitacoraConsultar() {
+        return new OutputBitacoraConsultar();
+    }
+
+    /**
+     * Create an instance of {@link BitacoraType }
+     * 
+     */
+    public BitacoraType createBitacoraType() {
+        return new BitacoraType();
     }
 
     /**

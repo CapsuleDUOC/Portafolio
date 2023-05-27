@@ -2,8 +2,8 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">80</attrib>
-		<attrib name="serial">53959</attrib>
+		<attrib name="build">81</attrib>
+		<attrib name="serial">55465</attrib>
 	</attribs>
 	<database>
 		<attribs>
@@ -1310,9 +1310,9 @@
 					<attribs>
 						<attrib name="name">direccion</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">963</attrib>
+						<attrib name="locY">910</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">919</attrib>
+						<attrib name="locX">930</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1375,9 +1375,9 @@
 					<attribs>
 						<attrib name="name">pedido</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">611</attrib>
+						<attrib name="locY">636</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">656</attrib>
+						<attrib name="locX">627</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -4939,7 +4939,7 @@
 						<attrib name="onDelete">n</attrib>
 						<attrib name="onUpdate">n</attrib>
 						<attrib name="refTable">0</attrib>
-						<attrib name="type">292</attrib>
+						<attrib name="type">33</attrib>
 					</attribs>
 					<modsConfig/>
 				</field>
@@ -4967,7 +4967,7 @@
 						<attrib name="onDelete">n</attrib>
 						<attrib name="onUpdate">n</attrib>
 						<attrib name="refTable">0</attrib>
-						<attrib name="type">292</attrib>
+						<attrib name="type">33</attrib>
 					</attribs>
 					<modsConfig/>
 				</field>
@@ -4995,7 +4995,7 @@
 						<attrib name="onDelete">n</attrib>
 						<attrib name="onUpdate">n</attrib>
 						<attrib name="refTable">0</attrib>
-						<attrib name="type">292</attrib>
+						<attrib name="type">33</attrib>
 					</attribs>
 					<modsConfig/>
 				</field>
@@ -6172,7 +6172,7 @@
 						<attrib name="onDelete">n</attrib>
 						<attrib name="onUpdate">n</attrib>
 						<attrib name="refTable">0</attrib>
-						<attrib name="type">292</attrib>
+						<attrib name="type">33</attrib>
 					</attribs>
 					<modsConfig/>
 				</field>
@@ -6200,7 +6200,7 @@
 						<attrib name="onDelete">n</attrib>
 						<attrib name="onUpdate">n</attrib>
 						<attrib name="refTable">0</attrib>
-						<attrib name="type">292</attrib>
+						<attrib name="type">33</attrib>
 					</attribs>
 					<modsConfig/>
 				</field>

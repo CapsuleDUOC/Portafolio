@@ -7,6 +7,7 @@ import cl.duoc.portafolio.dto.v10.feriavirtual.InputAuthCrear;
 import cl.duoc.portafolio.dto.v10.feriavirtual.InputUsuarioActualizar;
 import cl.duoc.portafolio.dto.v10.feriavirtual.TipoIdentificacion;
 import cl.duoc.portafolio.feriavirtual.domain.Usuario;
+import cl.duoc.portafolio.feriavirtual.domain.UsuarioBitacora;
 
 public interface UsuarioService {
 
@@ -23,5 +24,7 @@ public interface UsuarioService {
 			final Integer limit);
 
 	Boolean actualizar(final Usuario usuario, final InputUsuarioActualizar inputDTO);
+
+	List<UsuarioBitacora> consultarBitacora(final Usuario usuario);
 
 }

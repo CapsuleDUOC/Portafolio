@@ -31,12 +31,6 @@
     	</restriction>
     </simpleType>
 
-    <complexType name="BitacoraType">
-    	<sequence>
-    		<element name="registro_instante" type="dateTime" maxOccurs="1" minOccurs="1"></element>
-    		<element name="nota" type="string" maxOccurs="1" minOccurs="1"></element>
-    	</sequence>
-    </complexType>
 
     <complexType name="VehiculoType">
     	<sequence>
@@ -330,20 +324,17 @@
     					<element name="vehiculos"
     						type="tns:VehiculoType" maxOccurs="unbounded" minOccurs="0">
     					</element>
-    					<element name="propiedades" type="tns:PropiedadType" maxOccurs="unbounded" minOccurs="0"></element>
+    					<element name="propiedades"
+    						type="tns:PropiedadType" maxOccurs="unbounded"
+    						minOccurs="0">
+    					</element>
+    					<element name="archivos" type="tns:ArchivoUsuarioType" maxOccurs="unbounded" minOccurs="0"></element>
     				</sequence>
     			</extension>
     		</complexContent>
     	</complexType>
     </element>
 
-    <element name="OutputConsultarBitacora">
-    	<complexType>
-    		<sequence>
-    			<element name="registro" type="tns:BitacoraType" maxOccurs="unbounded" minOccurs="0"></element>
-    		</sequence>
-    	</complexType>
-    </element>
 
     <element name="InputProductoCrear">
     	<complexType>
@@ -478,7 +469,11 @@
     <element name="OutputVehiculoObtener">
     	<complexType>
     		<complexContent>
-    			<extension base="tns:VehiculoType"></extension>
+    			<extension base="tns:VehiculoType">
+    				<sequence>
+    					<element name="archivos" type="tns:ArchivoVehiculoType" maxOccurs="unbounded" minOccurs="0"></element>
+    				</sequence>
+    			</extension>
     		</complexContent>
     	</complexType>
     </element>
@@ -505,4 +500,73 @@
     		<enumeration value="DESHABILITADO"></enumeration>
     	</restriction>
     </simpleType>
+
+    <element name="InputUsuarioCargarArchivo">
+    	<complexType>
+    		<sequence>
+                <element name="tipo" type="tns:TipoArchivoUsuario" maxOccurs="1" minOccurs="1"></element>
+                <element name="bytes" type="base64Binary" maxOccurs="1"
+    				minOccurs="1">
+    			</element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <simpleType name="TipoArchivoUsuario">
+    	<restriction base="string">
+    		<enumeration value="CERTIFICADO"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <simpleType name="TipoArchivoVehiculo">
+    	<restriction base="string">
+    		<enumeration value="INSCRIPCION"></enumeration>
+    		<enumeration value="PERMISO"></enumeration>
+    		<enumeration value="REV_TECNICA"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="ArchivoUsuarioType">
+    	<sequence>
+    		<element name="tipo" type="tns:TipoArchivoUsuario" maxOccurs="1" minOccurs="1"></element>
+            <element name="bytes" type="base64Binary" maxOccurs="1" minOccurs="1"></element>
+        </sequence>
+    </complexType>
+    
+    <complexType name="ArchivoVehiculoType">
+    	<sequence>
+    		<element name="tipo" type="tns:TipoArchivoVehiculo"
+    			maxOccurs="1" minOccurs="1">
+    		</element>
+    		<element name="bytes" type="base64Binary" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="InputVehiculoCargarArchivo">
+    	<complexType>
+    		<sequence>
+    			<element name="tipo" type="tns:TipoArchivoVehiculo"
+    				maxOccurs="1" minOccurs="1">
+    			</element>
+    			<element name="bytes" type="base64Binary" maxOccurs="1" minOccurs="1"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <complexType name="BitacoraType">
+    	<sequence>
+    		<element name="registroInstante" type="dateTime"
+    			maxOccurs="1" minOccurs="1">
+    		</element>
+    		<element name="nota" type="string" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="OutputBitacoraConsultar">
+    	<complexType>
+    		<sequence>
+    			<element name="registro" type="tns:BitacoraType" maxOccurs="unbounded" minOccurs="0"></element>
+    		</sequence>
+    	</complexType>
+    </element>
 </schema>

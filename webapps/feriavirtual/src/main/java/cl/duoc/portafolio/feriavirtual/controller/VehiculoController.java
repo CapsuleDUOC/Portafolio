@@ -15,15 +15,20 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import cl.duoc.portafolio.dto.JAXBUtil;
+import cl.duoc.portafolio.dto.v10.feriavirtual.ArchivoVehiculoType;
 import cl.duoc.portafolio.dto.v10.feriavirtual.InputVehiculoActualizar;
+import cl.duoc.portafolio.dto.v10.feriavirtual.InputVehiculoCargarArchivo;
 import cl.duoc.portafolio.dto.v10.feriavirtual.InputVehiculoCrear;
 import cl.duoc.portafolio.dto.v10.feriavirtual.OutputVehiculoConsultar;
 import cl.duoc.portafolio.dto.v10.feriavirtual.OutputVehiculoCrear;
 import cl.duoc.portafolio.dto.v10.feriavirtual.OutputVehiculoObtener;
+import cl.duoc.portafolio.dto.v10.feriavirtual.TipoArchivoVehiculo;
 import cl.duoc.portafolio.dto.v10.feriavirtual.TipoVehiculo;
 import cl.duoc.portafolio.dto.v10.feriavirtual.VehiculoType;
+import cl.duoc.portafolio.feriavirtual.domain.Archivo;
 import cl.duoc.portafolio.feriavirtual.domain.Usuario;
 import cl.duoc.portafolio.feriavirtual.domain.Vehiculo;
+import cl.duoc.portafolio.feriavirtual.service.ArchivoService;
 import cl.duoc.portafolio.feriavirtual.service.UsuarioService;
 import cl.duoc.portafolio.feriavirtual.service.VehiculoService;
 
@@ -33,13 +38,16 @@ public class VehiculoController {
 
 	private UsuarioService usuarioService;
 	private VehiculoService vehiculoService;
-	
+	private ArchivoService archivoService;
+
 	@Autowired
-	public VehiculoController(final UsuarioService usuarioService, final VehiculoService vehiculoService) {
+	public VehiculoController(final UsuarioService usuarioService, final VehiculoService vehiculoService,
+			final ArchivoService archivoService) {
 		this.usuarioService = usuarioService;
 		this.vehiculoService = vehiculoService;
+		this.archivoService = archivoService;
 	}
-	
+
 	@PostMapping
 	ResponseEntity<OutputVehiculoCrear> crear(
 			@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
@@ -104,7 +112,7 @@ public class VehiculoController {
 			vehiculoType.setPatente(vehiculo.getPatente());
 			vehiculoType.setTipo(vehiculo.getTipo());
 			vehiculoType.setRegistroInstante(vehiculo.getRegistroInstante());
-			
+
 			outputDTO.getRegistro().add(vehiculoType);
 		}
 
@@ -128,18 +136,38 @@ public class VehiculoController {
 		outputDTO.setTipo(vehiculo.getTipo());
 		outputDTO.setRegistroInstante(vehiculo.getRegistroInstante());
 
+		ArchivoVehiculoType archivoVehiculoType;
+		for (Archivo archivo : vehiculo.getArchivos()) {
+			archivoVehiculoType = new ArchivoVehiculoType();
+			archivoVehiculoType.setTipo(TipoArchivoVehiculo.fromValue(archivo.getNombre().split("_")[0]));
+			archivoVehiculoType.setBytes(archivo.getBytes());
+
+			outputDTO.getArchivos().add(archivoVehiculoType);
+		}
+
 		return ResponseEntity.ok(outputDTO);
 	}
 
 	@DeleteMapping("/{id}")
-	ResponseEntity<Boolean> eliminar(
-			@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
+	ResponseEntity<Boolean> eliminar(@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
 			@PathVariable(name = "id") final Long id) {
 
 		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
 		final Vehiculo vehiculo = vehiculoService.obtener(usuario, id);
 		final Boolean eliminar = vehiculoService.eliminar(usuario, vehiculo);
-		
+
 		return ResponseEntity.ok(eliminar);
+	}
+
+	@PostMapping("/archivo/{id}")
+	ResponseEntity<Boolean> cargarArchivo(@PathVariable(name = "id") final Long id,
+			@RequestBody InputVehiculoCargarArchivo inputDTO) {
+
+		JAXBUtil.validarSchema(InputVehiculoCargarArchivo.class, inputDTO);
+
+		Usuario usuario = usuarioService.obtener(id);
+		archivoService.crear(inputDTO.getTipo().name() + "_" + usuario.getIdentificacion(), inputDTO.getBytes());
+
+		return ResponseEntity.ok(true);
 	}
 }

@@ -14,8 +14,10 @@ import cl.duoc.portafolio.dto.v10.feriavirtual.InputVehiculoActualizar;
 import cl.duoc.portafolio.dto.v10.feriavirtual.TipoVehiculo;
 import cl.duoc.portafolio.dto.v10.feriavirtual.VehiculoType;
 import cl.duoc.portafolio.feriavirtual.domain.Usuario;
+import cl.duoc.portafolio.feriavirtual.domain.UsuarioBitacora;
 import cl.duoc.portafolio.feriavirtual.domain.Vehiculo;
 import cl.duoc.portafolio.feriavirtual.repository.IVehiculoDAO;
+import cl.duoc.portafolio.feriavirtual.repository.UsuarioBitacoraRepository;
 import cl.duoc.portafolio.feriavirtual.repository.VehiculoRepository;
 import cl.duoc.portafolio.feriavirtual.service.VehiculoService;
 import cl.duoc.portafolio.feriavirtual.util.SearchCriteria;
@@ -25,11 +27,14 @@ public class VehiculoServiceImpl implements VehiculoService {
 
 	private VehiculoRepository vehiculoRepository;
 	private IVehiculoDAO vehiculoDAO;
+	private UsuarioBitacoraRepository bitacoraRepository;
 
 	@Autowired
-	public VehiculoServiceImpl(final VehiculoRepository vehiculoRepository, final IVehiculoDAO vehiculoDAO) {
+	public VehiculoServiceImpl(final VehiculoRepository vehiculoRepository, final IVehiculoDAO vehiculoDAO,
+			final UsuarioBitacoraRepository bitacoraRepository) {
 		this.vehiculoRepository = vehiculoRepository;
 		this.vehiculoDAO = vehiculoDAO;
+		this.bitacoraRepository = bitacoraRepository;
 	}
 
 	@Override
@@ -48,6 +53,12 @@ public class VehiculoServiceImpl implements VehiculoService {
 		vehiculo.setAgno(vehiculoType.getAgno());
 		vehiculo.setRegistroInstante(LocalDateTime.now());
 
+		UsuarioBitacora bitacora = new UsuarioBitacora();
+		bitacora.setUsuario(usuario);
+		bitacora.setRegistroInstante(LocalDateTime.now());
+		bitacora.setRegistro("Se registra vehiculo  [" + vehiculo.getPatente() + "]");
+		bitacoraRepository.save(bitacora);
+
 		return vehiculoRepository.save(vehiculo);
 	}
 
@@ -55,6 +66,13 @@ public class VehiculoServiceImpl implements VehiculoService {
 	public Boolean eliminar(Usuario usuario, Vehiculo vehiculo) {
 
 		Assert.isTrue(vehiculo.getUsuario().equals(usuario), "El vehiculo a eliminar no corresponde al usuario");
+
+		UsuarioBitacora bitacora = new UsuarioBitacora();
+		bitacora.setUsuario(usuario);
+		bitacora.setRegistroInstante(LocalDateTime.now());
+		bitacora.setRegistro("Se elimina vehiculo  [" + vehiculo.getPatente() + "]");
+		bitacoraRepository.save(bitacora);
+
 		vehiculoRepository.delete(vehiculo);
 		return true;
 
@@ -100,10 +118,18 @@ public class VehiculoServiceImpl implements VehiculoService {
 	@Override
 	public Boolean actualizar(Vehiculo vehiculo, InputVehiculoActualizar inputDTO) {
 
+		Assert.isTrue(inputDTO.getPatente().equals(vehiculo.getPatente()),
+				"No se puede actualizar la patente de un vahiculo");
+
+		UsuarioBitacora bitacora = new UsuarioBitacora();
+		bitacora.setUsuario(vehiculo.getUsuario());
+		bitacora.setRegistroInstante(LocalDateTime.now());
+		bitacora.setRegistro("Se actualiza vehiculo  [" + vehiculo.getPatente() + "]");
+		bitacoraRepository.save(bitacora);
+
 		vehiculo.setMarca(inputDTO.getMarca());
 		vehiculo.setModelo(inputDTO.getModelo());
 		vehiculo.setAgno(inputDTO.getAgno());
-		vehiculo.setPatente(inputDTO.getPatente());
 		vehiculo.setTipo(inputDTO.getTipo());
 
 		vehiculoRepository.save(vehiculo);

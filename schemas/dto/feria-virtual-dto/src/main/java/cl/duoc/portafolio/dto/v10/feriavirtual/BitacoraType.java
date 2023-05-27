@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.05.21 a las 10:07:45 PM CLT 
+// Generado el: 2023.05.27 a las 12:21:56 PM CLT 
 //
 
 
@@ -28,7 +28,7 @@ import org.w3._2001.xmlschema.Adapter1;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="registro_instante" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
+ *         &lt;element name="registroInstante" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
  *         &lt;element name="nota" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -45,7 +45,7 @@ import org.w3._2001.xmlschema.Adapter1;
 })
 public class BitacoraType {
 
-    @XmlElement(name = "registro_instante", required = true, type = String.class)
+    @XmlElement(required = true, type = String.class)
     @XmlJavaTypeAdapter(Adapter1 .class)
     @XmlSchemaType(name = "dateTime")
     protected LocalDateTime registroInstante;
