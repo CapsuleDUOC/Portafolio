@@ -569,4 +569,12 @@
     		</sequence>
     	</complexType>
     </element>
+
+    <simpleType name="FormaPago">
+    	<restriction base="string">
+    		<enumeration value="CONTADO"></enumeration>
+    		<enumeration value="CREDITO"></enumeration>
+    		<enumeration value="ENTREGA_GRATUITA"></enumeration>
+    	</restriction>
+    </simpleType>
 </schema>

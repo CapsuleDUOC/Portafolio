@@ -2,8 +2,8 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">81</attrib>
-		<attrib name="serial">55465</attrib>
+		<attrib name="build">83</attrib>
+		<attrib name="serial">55967</attrib>
 	</attribs>
 	<database>
 		<attribs>
@@ -1154,9 +1154,9 @@
 					<attribs>
 						<attrib name="name">archivo</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">948</attrib>
+						<attrib name="locY">946</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">40</attrib>
+						<attrib name="locX">46</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1167,9 +1167,9 @@
 					<attribs>
 						<attrib name="name">usuario</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">279</attrib>
+						<attrib name="locY">290</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">357</attrib>
+						<attrib name="locX">341</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1206,9 +1206,9 @@
 					<attribs>
 						<attrib name="name">usuario_auth</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">230</attrib>
+						<attrib name="locY">223</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">51</attrib>
+						<attrib name="locX">28</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1232,7 +1232,7 @@
 					<attribs>
 						<attrib name="name">usuario_archivo</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">723</attrib>
+						<attrib name="locY">766</attrib>
 						<attrib name="details">-</attrib>
 						<attrib name="locX">58</attrib>
 					</attribs>
@@ -1245,9 +1245,9 @@
 					<attribs>
 						<attrib name="name">producto</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">652</attrib>
+						<attrib name="locY">626</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">1183</attrib>
+						<attrib name="locX">1215</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1258,7 +1258,7 @@
 					<attribs>
 						<attrib name="name">transporte</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">630</attrib>
+						<attrib name="locY">644</attrib>
 						<attrib name="details">-</attrib>
 						<attrib name="locX">260</attrib>
 					</attribs>
@@ -1271,9 +1271,9 @@
 					<attribs>
 						<attrib name="name">dte_producto</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">987</attrib>
+						<attrib name="locY">962</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">675</attrib>
+						<attrib name="locX">740</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1297,9 +1297,9 @@
 					<attribs>
 						<attrib name="name">transporte_cosecha</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">491</attrib>
+						<attrib name="locY">682</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">489</attrib>
+						<attrib name="locX">553</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1310,9 +1310,9 @@
 					<attribs>
 						<attrib name="name">direccion</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">910</attrib>
+						<attrib name="locY">907</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">930</attrib>
+						<attrib name="locX">1022</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1349,9 +1349,9 @@
 					<attribs>
 						<attrib name="name">venta</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">17</attrib>
+						<attrib name="locY">23</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">789</attrib>
+						<attrib name="locX">826</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1362,9 +1362,9 @@
 					<attribs>
 						<attrib name="name">dte</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">922</attrib>
+						<attrib name="locY">882</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">432</attrib>
+						<attrib name="locX">499</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1375,9 +1375,9 @@
 					<attribs>
 						<attrib name="name">pedido</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">636</attrib>
+						<attrib name="locY">295</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">627</attrib>
+						<attrib name="locX">661</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1388,9 +1388,9 @@
 					<attribs>
 						<attrib name="name">pedido_producto</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">661</attrib>
+						<attrib name="locY">636</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">888</attrib>
+						<attrib name="locX">844</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1401,9 +1401,9 @@
 					<attribs>
 						<attrib name="name">carrito</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">246</attrib>
+						<attrib name="locY">250</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">909</attrib>
+						<attrib name="locX">936</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1440,9 +1440,9 @@
 					<attribs>
 						<attrib name="name">vehiculo</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">398</attrib>
+						<attrib name="locY">402</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">894</attrib>
+						<attrib name="locX">923</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1594,9 +1594,9 @@
 					<attribs>
 						<attrib name="name">usuario</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">755</attrib>
+						<attrib name="locY">36</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">391</attrib>
+						<attrib name="locX">773</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1607,9 +1607,9 @@
 					<attribs>
 						<attrib name="name">archivo</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">13</attrib>
+						<attrib name="locY">656</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">309</attrib>
+						<attrib name="locX">30</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1620,9 +1620,9 @@
 					<attribs>
 						<attrib name="name">vehiculo_archivo</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">14</attrib>
+						<attrib name="locY">343</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">25</attrib>
+						<attrib name="locX">28</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1633,9 +1633,9 @@
 					<attribs>
 						<attrib name="name">vehiculo</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">380</attrib>
+						<attrib name="locY">26</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">35</attrib>
+						<attrib name="locX">29</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1646,9 +1646,9 @@
 					<attribs>
 						<attrib name="name">producto</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">10</attrib>
+						<attrib name="locY">305</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">1289</attrib>
+						<attrib name="locX">347</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1659,9 +1659,9 @@
 					<attribs>
 						<attrib name="name">transporte</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">306</attrib>
+						<attrib name="locY">570</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">689</attrib>
+						<attrib name="locX">1101</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1672,9 +1672,9 @@
 					<attribs>
 						<attrib name="name">usuario_archivo</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">272</attrib>
+						<attrib name="locY">173</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">192</attrib>
+						<attrib name="locX">271</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1685,9 +1685,9 @@
 					<attribs>
 						<attrib name="name">cosecha</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">833</attrib>
+						<attrib name="locY">325</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">1068</attrib>
+						<attrib name="locX">618</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1698,9 +1698,9 @@
 					<attribs>
 						<attrib name="name">transporte_cosecha</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">198</attrib>
+						<attrib name="locY">543</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">982</attrib>
+						<attrib name="locX">842</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1711,9 +1711,9 @@
 					<attribs>
 						<attrib name="name">direccion</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">590</attrib>
+						<attrib name="locY">92</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">920</attrib>
+						<attrib name="locX">1069</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1724,9 +1724,9 @@
 					<attribs>
 						<attrib name="name">dte</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">346</attrib>
+						<attrib name="locY">738</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">393</attrib>
+						<attrib name="locX">664</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1737,9 +1737,9 @@
 					<attribs>
 						<attrib name="name">dte_producto</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">132</attrib>
+						<attrib name="locY">601</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">593</attrib>
+						<attrib name="locX">421</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -4165,13 +4165,13 @@
 					<attribs>
 						<attrib name="comment"/>
 						<attrib name="matchType">s</attrib>
-						<attrib name="refField">27064</attrib>
+						<attrib name="refField">0</attrib>
 						<attrib name="name">direccion_origen</attrib>
 						<attrib name="id">14553</attrib>
 						<attrib name="onDelete">n</attrib>
 						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">27061</attrib>
-						<attrib name="type">0</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">33</attrib>
 					</attribs>
 					<modsConfig/>
 				</field>
@@ -4193,13 +4193,13 @@
 					<attribs>
 						<attrib name="comment"/>
 						<attrib name="matchType">s</attrib>
-						<attrib name="refField">27064</attrib>
+						<attrib name="refField">0</attrib>
 						<attrib name="name">direccion_destino</attrib>
 						<attrib name="id">15502</attrib>
 						<attrib name="onDelete">n</attrib>
 						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">27061</attrib>
-						<attrib name="type">0</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">33</attrib>
 					</attribs>
 					<modsConfig/>
 				</field>
