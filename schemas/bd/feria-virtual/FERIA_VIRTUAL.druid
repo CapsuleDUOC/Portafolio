@@ -2,7 +2,7 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">83</attrib>
+		<attrib name="build">84</attrib>
 		<attrib name="serial">55967</attrib>
 	</attribs>
 	<database>
@@ -1724,9 +1724,9 @@
 					<attribs>
 						<attrib name="name">dte</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">738</attrib>
+						<attrib name="locY">732</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">664</attrib>
+						<attrib name="locX">684</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -4306,7 +4306,7 @@
 						<attrib name="comment"/>
 						<attrib name="matchType">s</attrib>
 						<attrib name="refField">32408</attrib>
-						<attrib name="name">dte</attrib>
+						<attrib name="name">dte_id</attrib>
 						<attrib name="id">35188</attrib>
 						<attrib name="onDelete">n</attrib>
 						<attrib name="onUpdate">n</attrib>

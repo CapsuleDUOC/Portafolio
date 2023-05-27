@@ -37,7 +37,6 @@ public class Transporte {
 	private Usuario locatario;
 
 	@ManyToOne
-	@Column(name = "dte")
 	private Dte dte;
 
 	private String direccionOrigen;

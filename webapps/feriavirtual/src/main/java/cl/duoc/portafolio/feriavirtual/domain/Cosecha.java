@@ -14,8 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
 import cl.duoc.portafolio.dto.v10.feriavirtual.UnidadMedida;
 import lombok.Data;
 
@@ -30,7 +28,7 @@ public class Cosecha {
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	private Usuario agricutor;
 
-	@OneToMany
+	@ManyToOne
 	private Producto producto;
 
 	private Double cantidad;
