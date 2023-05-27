@@ -2,7 +2,7 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">79</attrib>
+		<attrib name="build">80</attrib>
 		<attrib name="serial">53959</attrib>
 	</attribs>
 	<database>
@@ -1646,9 +1646,9 @@
 					<attribs>
 						<attrib name="name">producto</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">13</attrib>
+						<attrib name="locY">10</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">1391</attrib>
+						<attrib name="locX">1289</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
