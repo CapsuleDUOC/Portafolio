@@ -1,10 +1,11 @@
 package cl.duoc.portafolio.feriavirtual.domain;
 
-import java.math.BigInteger;
 import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,17 +33,18 @@ public class Dte {
 	@JoinColumn(name = "xml")
 	private Archivo xml;
 	
-	private Integer tipoDTE;
+	private Integer tipoDte;
 	
-	private BigInteger folio;
+	private Long folio;
 	
+	@Enumerated(EnumType.STRING)
 	private FormaPago formaPago;
 	
 	private LocalDate fechaEmision;
 	
-	private BigInteger totalNeto;
+	private Long totalNeto;
 	
-	private BigInteger totalBruto;
+	private Long totalBruto;
 	
 	
 }

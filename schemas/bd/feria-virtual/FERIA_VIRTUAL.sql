@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : FERIA_VIRTUAL
 -- ===
--- === Build : 77
+-- === Build : 90
 -- ======================================================================
 
 CREATE TABLE archivo
@@ -186,6 +186,7 @@ CREATE TABLE cosecha
     id             bigint        unique not null auto_increment,
     agricultor_id  bigint        not null,
     producto_id    bigint        not null,
+    estado         varchar(25)   not null,
     cantidad       double        not null,
     unidad_medida  varchar(25),
     costo          bigint,
@@ -203,11 +204,11 @@ CREATE INDEX cosechaIDX1 ON cosecha(id);
 
 CREATE TABLE direccion
   (
-    id           bigint        unique not null auto_increment,
-    usuario_id   bigint        not null,
-    direccion    varchar(50)   not null,
-    comuna       varchar(50)   not null,
-    ciudad       varchar(50)   not null,
+    id           bigint         unique not null auto_increment,
+    usuario_id   bigint         not null,
+    direccion    varchar(255)   not null,
+    comuna       varchar(255)   not null,
+    ciudad       varchar(255)   not null,
     ubigeo_lat   double,
     ubigeo_long  double,
 
@@ -261,8 +262,8 @@ CREATE TABLE dte
     id             bigint        unique not null auto_increment,
     tipo_dte       int           not null,
     folio          bigint        not null,
-    emisor         bigint        not null,
-    receptor       bigint        not null,
+    emisor_id      bigint        not null,
+    receptor_id    bigint        not null,
     forma_pago     varchar(50),
     fecha_emision  date,
     total_neto     bigint        not null,
@@ -271,8 +272,8 @@ CREATE TABLE dte
 
     primary key(id),
 
-    foreign key(emisor) references usuario(id),
-    foreign key(receptor) references usuario(id),
+    foreign key(emisor_id) references usuario(id),
+    foreign key(receptor_id) references usuario(id),
     foreign key(xml) references archivo(id)
   )
  ENGINE = InnoDB;
@@ -283,14 +284,15 @@ CREATE INDEX dteIDX1 ON dte(id);
 
 CREATE TABLE pedido
   (
-    id                 bigint        unique not null auto_increment,
-    despachador_id     bigint        not null,
+    id                 bigint         unique not null auto_increment,
+    despachador_id     bigint         not null,
+    estado             varchar(25)    not null,
     patente_vehiculo   varchar(10),
-    direccion_origen   varchar(50)   not null,
-    direccion_destino  varchar(50)   not null,
-    monto_despacho     bigint        not null,
-    fecha              date          not null,
-    hora               time          not null,
+    direccion_origen   varchar(255)   not null,
+    direccion_destino  varchar(255)   not null,
+    monto_despacho     bigint         not null,
+    fecha              date           not null,
+    hora               time           not null,
 
     primary key(id),
 
@@ -322,9 +324,10 @@ CREATE INDEX pedido_productoIDX1 ON pedido_producto(id);
 
 CREATE TABLE carrito
   (
-    id                 bigint     unique not null auto_increment,
-    cliente_id         bigint     not null,
-    registro_instante  datetime   not null,
+    id                 bigint        unique not null auto_increment,
+    cliente_id         bigint        not null,
+    estado             varchar(25)   not null,
+    registro_instante  datetime      not null,
 
     primary key(id),
 
@@ -350,25 +353,24 @@ CREATE TABLE carrito_producto
 
 CREATE TABLE transporte
   (
-    id                 bigint   unique not null auto_increment,
-    agricultor_id      bigint   not null,
+    id                 bigint         unique not null auto_increment,
+    agricultor_id      bigint         not null,
     transportista_id   bigint,
-    locatario_id       bigint   not null,
-    direccion_origen   bigint   not null,
-    direccion_destino  bigint   not null,
+    locatario_id       bigint         not null,
+    direccion_origen   varchar(255)   not null,
+    direccion_destino  varchar(255)   not null,
+    estado             varchar(25)    not null,
     fecha_salida       date,
     fecha_llegada      date,
     costo              bigint,
-    dte                bigint,
+    dte_id             bigint,
 
     primary key(id),
 
     foreign key(agricultor_id) references usuario(id),
     foreign key(transportista_id) references usuario(id),
     foreign key(locatario_id) references usuario(id),
-    foreign key(direccion_origen) references direccion(id),
-    foreign key(direccion_destino) references direccion(id),
-    foreign key(dte) references dte(id)
+    foreign key(dte_id) references dte(id)
   )
  ENGINE = InnoDB;
 
@@ -409,14 +411,15 @@ CREATE TABLE transporte_cosecha
 
 CREATE TABLE venta
   (
-    id            bigint   unique not null auto_increment,
-    locatario_id  bigint   not null,
-    cliente_id    bigint   not null,
+    id            bigint        unique not null auto_increment,
+    locatario_id  bigint        not null,
+    cliente_id    bigint        not null,
     pedido_id     bigint,
     dte_id        bigint,
-    monto_venta   bigint   not null,
-    fecha         date     not null,
-    hora          time     not null,
+    estado        varchar(25)   not null,
+    monto_venta   bigint        not null,
+    fecha         date          not null,
+    hora          time          not null,
 
     primary key(id),
 

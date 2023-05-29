@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,12 +32,15 @@ public class Producto {
 	
 	private String nombre;
 	
+	@Enumerated(EnumType.STRING)
 	private TipoProducto tipo;
 	
+	@Enumerated(EnumType.STRING)
 	private UnidadMedida unidadMedida;
 	
 	private Long precio;
 	
+	@Enumerated(EnumType.STRING)
 	private EstadoProducto estado;
 	
 	private LocalDateTime registroInstante;

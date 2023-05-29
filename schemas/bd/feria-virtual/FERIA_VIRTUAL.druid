@@ -2,8 +2,8 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">84</attrib>
-		<attrib name="serial">55967</attrib>
+		<attrib name="build">90</attrib>
+		<attrib name="serial">56232</attrib>
 	</attribs>
 	<database>
 		<attribs>
@@ -75,6 +75,11 @@
 					<elem>0.92</elem>
 					<elem>2023-05-18 15:25:31</elem>
 					<elem>mudifica vehiculo: patente y usuario en multi unique</elem>
+				</row>
+				<row>
+					<elem>0.93</elem>
+					<elem>2023-05-29 18:15:44</elem>
+					<elem>agrega estados a entidades faltantes</elem>
 				</row>
 			</list>
 		</revisions>
@@ -1594,9 +1599,9 @@
 					<attribs>
 						<attrib name="name">usuario</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">36</attrib>
+						<attrib name="locY">9</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">773</attrib>
+						<attrib name="locX">725</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1607,9 +1612,9 @@
 					<attribs>
 						<attrib name="name">archivo</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">656</attrib>
+						<attrib name="locY">724</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">30</attrib>
+						<attrib name="locX">38</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1633,9 +1638,9 @@
 					<attribs>
 						<attrib name="name">vehiculo</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">26</attrib>
+						<attrib name="locY">14</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">29</attrib>
+						<attrib name="locX">28</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1646,9 +1651,9 @@
 					<attribs>
 						<attrib name="name">producto</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">305</attrib>
+						<attrib name="locY">267</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">347</attrib>
+						<attrib name="locX">313</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1659,9 +1664,9 @@
 					<attribs>
 						<attrib name="name">transporte</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">570</attrib>
+						<attrib name="locY">377</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">1101</attrib>
+						<attrib name="locX">836</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1672,9 +1677,9 @@
 					<attribs>
 						<attrib name="name">usuario_archivo</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">173</attrib>
+						<attrib name="locY">138</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">271</attrib>
+						<attrib name="locX">249</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1685,9 +1690,9 @@
 					<attribs>
 						<attrib name="name">cosecha</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">325</attrib>
+						<attrib name="locY">248</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">618</attrib>
+						<attrib name="locX">629</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1698,9 +1703,9 @@
 					<attribs>
 						<attrib name="name">transporte_cosecha</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">543</attrib>
+						<attrib name="locY">502</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">842</attrib>
+						<attrib name="locX">565</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1724,9 +1729,9 @@
 					<attribs>
 						<attrib name="name">dte</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">732</attrib>
+						<attrib name="locY">549</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">684</attrib>
+						<attrib name="locX">1225</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1737,9 +1742,9 @@
 					<attribs>
 						<attrib name="name">dte_producto</attrib>
 						<attrib name="colorId">17767</attrib>
-						<attrib name="locY">601</attrib>
+						<attrib name="locY">562</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">421</attrib>
+						<attrib name="locX">342</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -4210,6 +4215,34 @@
 							<attrib name="85">false</attrib>
 							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="name">estado</attrib>
+						<attrib name="refField">0</attrib>
+						<attrib name="matchType">s</attrib>
+						<attrib name="id">56222</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">293</attrib>
+					</attribs>
+					<modsConfig/>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="86">false</attrib>
+							<attrib name="85">false</attrib>
+							<attrib name="84">false</attrib>
+							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
 							<attrib name="15">false</attrib>
@@ -4626,6 +4659,34 @@
 						<attrib name="onUpdate">n</attrib>
 						<attrib name="refTable">15998</attrib>
 						<attrib name="type">0</attrib>
+					</attribs>
+					<modsConfig/>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="86">false</attrib>
+							<attrib name="85">false</attrib>
+							<attrib name="84">false</attrib>
+							<attrib name="83">false</attrib>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="matchType">s</attrib>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">estado</attrib>
+						<attrib name="id">56224</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">293</attrib>
 					</attribs>
 					<modsConfig/>
 				</field>
@@ -5627,6 +5688,34 @@
 					</fieldAttribs>
 					<attribs>
 						<attrib name="comment"/>
+						<attrib name="name">estado</attrib>
+						<attrib name="refField">0</attrib>
+						<attrib name="matchType">s</attrib>
+						<attrib name="id">56226</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">293</attrib>
+					</attribs>
+					<modsConfig/>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="86">false</attrib>
+							<attrib name="85">false</attrib>
+							<attrib name="84">false</attrib>
+							<attrib name="83">false</attrib>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
 						<attrib name="matchType">s</attrib>
 						<attrib name="refField">0</attrib>
 						<attrib name="name">monto_venta</attrib>
@@ -5842,7 +5931,7 @@
 						<attrib name="comment"/>
 						<attrib name="matchType">s</attrib>
 						<attrib name="refField">51</attrib>
-						<attrib name="name">emisor</attrib>
+						<attrib name="name">emisor_id</attrib>
 						<attrib name="id">32411</attrib>
 						<attrib name="onDelete">n</attrib>
 						<attrib name="onUpdate">n</attrib>
@@ -5870,7 +5959,7 @@
 						<attrib name="comment"/>
 						<attrib name="matchType">s</attrib>
 						<attrib name="refField">51</attrib>
-						<attrib name="name">receptor</attrib>
+						<attrib name="name">receptor_id</attrib>
 						<attrib name="id">32413</attrib>
 						<attrib name="onDelete">n</attrib>
 						<attrib name="onUpdate">n</attrib>
@@ -6117,6 +6206,34 @@
 						<attrib name="onUpdate">n</attrib>
 						<attrib name="refTable">49</attrib>
 						<attrib name="type">0</attrib>
+					</attribs>
+					<modsConfig/>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="86">false</attrib>
+							<attrib name="85">false</attrib>
+							<attrib name="84">false</attrib>
+							<attrib name="83">false</attrib>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="matchType">s</attrib>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">estado</attrib>
+						<attrib name="id">56228</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">293</attrib>
 					</attribs>
 					<modsConfig/>
 				</field>
@@ -6543,6 +6660,34 @@
 						<attrib name="onUpdate">n</attrib>
 						<attrib name="refTable">49</attrib>
 						<attrib name="type">0</attrib>
+					</attribs>
+					<modsConfig/>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="86">false</attrib>
+							<attrib name="85">false</attrib>
+							<attrib name="84">false</attrib>
+							<attrib name="83">false</attrib>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="name">estado</attrib>
+						<attrib name="refField">0</attrib>
+						<attrib name="matchType">s</attrib>
+						<attrib name="id">56230</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">293</attrib>
 					</attribs>
 					<modsConfig/>
 				</field>

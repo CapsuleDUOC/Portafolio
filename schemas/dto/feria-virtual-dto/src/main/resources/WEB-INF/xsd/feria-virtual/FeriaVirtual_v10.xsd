@@ -577,4 +577,16 @@
     		<enumeration value="ENTREGA_GRATUITA"></enumeration>
     	</restriction>
     </simpleType>
+
+    <simpleType name="EstadoCosecha">
+    	<restriction base="string">
+    		<enumeration value="GENERADA"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <simpleType name="EstadoTransporte">
+    	<restriction base="string">
+    		<enumeration value="GENERADO"></enumeration>
+    	</restriction>
+    </simpleType>
 </schema>

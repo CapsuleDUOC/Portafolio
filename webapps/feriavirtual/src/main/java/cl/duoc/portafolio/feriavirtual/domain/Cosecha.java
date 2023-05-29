@@ -1,11 +1,12 @@
 package cl.duoc.portafolio.feriavirtual.domain;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+
+import cl.duoc.portafolio.dto.v10.feriavirtual.EstadoCosecha;
 import cl.duoc.portafolio.dto.v10.feriavirtual.UnidadMedida;
 import lombok.Data;
 
@@ -26,16 +29,20 @@ public class Cosecha {
 	private Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-	private Usuario agricutor;
+	private Usuario agricultor;
 
 	@ManyToOne
 	private Producto producto;
 
 	private Double cantidad;
 
+	@Enumerated(EnumType.STRING)
 	private UnidadMedida unidadMedida;
+	
+	@Enumerated(EnumType.STRING)
+	private EstadoCosecha estado;
 
-	private BigInteger costo;
+	private Long costo;
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
 	@JoinTable(name = "transporte_cosecha", joinColumns = {

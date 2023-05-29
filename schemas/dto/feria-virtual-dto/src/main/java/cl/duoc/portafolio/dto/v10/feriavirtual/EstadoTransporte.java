@@ -13,37 +13,29 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para UnidadMedida.
+ * <p>Clase Java para EstadoTransporte.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * <pre>
- * &lt;simpleType name="UnidadMedida"&gt;
+ * &lt;simpleType name="EstadoTransporte"&gt;
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *     &lt;enumeration value="GRAMOS"/&gt;
- *     &lt;enumeration value="KILOGRAMOS"/&gt;
- *     &lt;enumeration value="MILILITROS"/&gt;
- *     &lt;enumeration value="LITROS"/&gt;
- *     &lt;enumeration value="UNIDADES"/&gt;
+ *     &lt;enumeration value="GENERADO"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
  * 
  */
-@XmlType(name = "UnidadMedida")
+@XmlType(name = "EstadoTransporte")
 @XmlEnum
-public enum UnidadMedida {
+public enum EstadoTransporte {
 
-    GRAMOS,
-    KILOGRAMOS,
-    MILILITROS,
-    LITROS,
-    UNIDADES;
+    GENERADO;
 
     public String value() {
         return name();
     }
 
-    public static UnidadMedida fromValue(String v) {
+    public static EstadoTransporte fromValue(String v) {
         return valueOf(v);
     }
 
