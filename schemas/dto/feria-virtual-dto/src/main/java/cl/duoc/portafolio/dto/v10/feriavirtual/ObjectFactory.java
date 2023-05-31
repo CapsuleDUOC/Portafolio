@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.05.29 a las 06:37:07 PM CLT 
+// Generado el: 2023.05.30 a las 10:33:36 PM CLT 
 //
 
 
@@ -301,11 +301,91 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link InputCosechaCrear }
+     * 
+     */
+    public InputCosechaCrear createInputCosechaCrear() {
+        return new InputCosechaCrear();
+    }
+
+    /**
+     * Create an instance of {@link CosechaType }
+     * 
+     */
+    public CosechaType createCosechaType() {
+        return new CosechaType();
+    }
+
+    /**
+     * Create an instance of {@link OutputCosechaCrear }
+     * 
+     */
+    public OutputCosechaCrear createOutputCosechaCrear() {
+        return new OutputCosechaCrear();
+    }
+
+    /**
+     * Create an instance of {@link OutputCosechaConsultar }
+     * 
+     */
+    public OutputCosechaConsultar createOutputCosechaConsultar() {
+        return new OutputCosechaConsultar();
+    }
+
+    /**
+     * Create an instance of {@link OutputCosechaObtener }
+     * 
+     */
+    public OutputCosechaObtener createOutputCosechaObtener() {
+        return new OutputCosechaObtener();
+    }
+
+    /**
      * Create an instance of {@link TransporteType }
      * 
      */
     public TransporteType createTransporteType() {
         return new TransporteType();
+    }
+
+    /**
+     * Create an instance of {@link InputTransporteCrear }
+     * 
+     */
+    public InputTransporteCrear createInputTransporteCrear() {
+        return new InputTransporteCrear();
+    }
+
+    /**
+     * Create an instance of {@link OutputTransporteCrear }
+     * 
+     */
+    public OutputTransporteCrear createOutputTransporteCrear() {
+        return new OutputTransporteCrear();
+    }
+
+    /**
+     * Create an instance of {@link OutputTransporteConsultar }
+     * 
+     */
+    public OutputTransporteConsultar createOutputTransporteConsultar() {
+        return new OutputTransporteConsultar();
+    }
+
+    /**
+     * Create an instance of {@link OutputTransporteObtener }
+     * 
+     */
+    public OutputTransporteObtener createOutputTransporteObtener() {
+        return new OutputTransporteObtener();
+    }
+
+    /**
+     * Create an instance of {@link InputTransporteActualizar }
+     * 
+     */
+    public InputTransporteActualizar createInputTransporteActualizar() {
+        return new InputTransporteActualizar();
     }
 
     /**

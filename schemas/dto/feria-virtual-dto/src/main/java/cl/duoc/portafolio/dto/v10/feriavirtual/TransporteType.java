@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.05.29 a las 06:37:07 PM CLT 
+// Generado el: 2023.05.30 a las 10:33:36 PM CLT 
 //
 
 
@@ -13,6 +13,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.w3._2001.xmlschema.Adapter2;
@@ -29,11 +30,12 @@ import org.w3._2001.xmlschema.Adapter2;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="ID" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
- *         &lt;element name="agricultor" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}UsuarioType" minOccurs="0"/&gt;
- *         &lt;element name="transportista" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}UsuarioType" minOccurs="0"/&gt;
- *         &lt;element name="locatario" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}UsuarioType" minOccurs="0"/&gt;
- *         &lt;element name="direccionOrigen" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}DireccionType"/&gt;
- *         &lt;element name="direccionDestino" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}DireccionType"/&gt;
+ *         &lt;element name="agricultor" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="transportista" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="locatario" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="estado" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}EstadoTransporte" minOccurs="0"/&gt;
+ *         &lt;element name="direccionOrigen" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="direccionDestino" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="fechaSalida" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
  *         &lt;element name="fechaLlegada" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/&gt;
  *         &lt;element name="costo" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
@@ -51,23 +53,32 @@ import org.w3._2001.xmlschema.Adapter2;
     "agricultor",
     "transportista",
     "locatario",
+    "estado",
     "direccionOrigen",
     "direccionDestino",
     "fechaSalida",
     "fechaLlegada",
     "costo"
 })
+@XmlSeeAlso({
+    InputTransporteActualizar.class,
+    OutputTransporteObtener.class,
+    OutputTransporteCrear.class,
+    InputTransporteCrear.class
+})
 public class TransporteType {
 
     @XmlElement(name = "ID")
     protected Long id;
-    protected UsuarioType agricultor;
-    protected UsuarioType transportista;
-    protected UsuarioType locatario;
+    protected String agricultor;
+    protected String transportista;
+    protected String locatario;
+    @XmlSchemaType(name = "string")
+    protected EstadoTransporte estado;
     @XmlElement(required = true)
-    protected DireccionType direccionOrigen;
+    protected String direccionOrigen;
     @XmlElement(required = true)
-    protected DireccionType direccionDestino;
+    protected String direccionDestino;
     @XmlElement(required = true, type = String.class)
     @XmlJavaTypeAdapter(Adapter2 .class)
     @XmlSchemaType(name = "date")
@@ -107,10 +118,10 @@ public class TransporteType {
      * 
      * @return
      *     possible object is
-     *     {@link UsuarioType }
+     *     {@link String }
      *     
      */
-    public UsuarioType getAgricultor() {
+    public String getAgricultor() {
         return agricultor;
     }
 
@@ -119,10 +130,10 @@ public class TransporteType {
      * 
      * @param value
      *     allowed object is
-     *     {@link UsuarioType }
+     *     {@link String }
      *     
      */
-    public void setAgricultor(UsuarioType value) {
+    public void setAgricultor(String value) {
         this.agricultor = value;
     }
 
@@ -131,10 +142,10 @@ public class TransporteType {
      * 
      * @return
      *     possible object is
-     *     {@link UsuarioType }
+     *     {@link String }
      *     
      */
-    public UsuarioType getTransportista() {
+    public String getTransportista() {
         return transportista;
     }
 
@@ -143,10 +154,10 @@ public class TransporteType {
      * 
      * @param value
      *     allowed object is
-     *     {@link UsuarioType }
+     *     {@link String }
      *     
      */
-    public void setTransportista(UsuarioType value) {
+    public void setTransportista(String value) {
         this.transportista = value;
     }
 
@@ -155,10 +166,10 @@ public class TransporteType {
      * 
      * @return
      *     possible object is
-     *     {@link UsuarioType }
+     *     {@link String }
      *     
      */
-    public UsuarioType getLocatario() {
+    public String getLocatario() {
         return locatario;
     }
 
@@ -167,11 +178,35 @@ public class TransporteType {
      * 
      * @param value
      *     allowed object is
-     *     {@link UsuarioType }
+     *     {@link String }
      *     
      */
-    public void setLocatario(UsuarioType value) {
+    public void setLocatario(String value) {
         this.locatario = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad estado.
+     * 
+     * @return
+     *     possible object is
+     *     {@link EstadoTransporte }
+     *     
+     */
+    public EstadoTransporte getEstado() {
+        return estado;
+    }
+
+    /**
+     * Define el valor de la propiedad estado.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link EstadoTransporte }
+     *     
+     */
+    public void setEstado(EstadoTransporte value) {
+        this.estado = value;
     }
 
     /**
@@ -179,10 +214,10 @@ public class TransporteType {
      * 
      * @return
      *     possible object is
-     *     {@link DireccionType }
+     *     {@link String }
      *     
      */
-    public DireccionType getDireccionOrigen() {
+    public String getDireccionOrigen() {
         return direccionOrigen;
     }
 
@@ -191,10 +226,10 @@ public class TransporteType {
      * 
      * @param value
      *     allowed object is
-     *     {@link DireccionType }
+     *     {@link String }
      *     
      */
-    public void setDireccionOrigen(DireccionType value) {
+    public void setDireccionOrigen(String value) {
         this.direccionOrigen = value;
     }
 
@@ -203,10 +238,10 @@ public class TransporteType {
      * 
      * @return
      *     possible object is
-     *     {@link DireccionType }
+     *     {@link String }
      *     
      */
-    public DireccionType getDireccionDestino() {
+    public String getDireccionDestino() {
         return direccionDestino;
     }
 
@@ -215,10 +250,10 @@ public class TransporteType {
      * 
      * @param value
      *     allowed object is
-     *     {@link DireccionType }
+     *     {@link String }
      *     
      */
-    public void setDireccionDestino(DireccionType value) {
+    public void setDireccionDestino(String value) {
         this.direccionDestino = value;
     }
 

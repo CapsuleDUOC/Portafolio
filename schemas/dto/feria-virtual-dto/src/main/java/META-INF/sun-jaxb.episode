@@ -5,7 +5,7 @@
 Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 Visite https://eclipse-ee4j.github.io/jaxb-ri 
 Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-Generado el: 2023.05.29 a las 06:37:07 PM CLT 
+Generado el: 2023.05.30 a las 10:33:36 PM CLT 
 
   -->
   <bindings xmlns:tns="http://duoc.cl/portafolio/dto/v10/FeriaVirtual" if-exists="true" scd="x-schema::tns">
@@ -111,8 +111,38 @@ Generado el: 2023.05.29 a las 06:37:07 PM CLT
     <bindings if-exists="true" scd="~tns:BitacoraType">
       <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.BitacoraType"/>
     </bindings>
+    <bindings if-exists="true" scd="tns:InputCosechaCrear">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputCosechaCrear"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:CosechaType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.CosechaType"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputCosechaCrear">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputCosechaCrear"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputCosechaConsultar">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputCosechaConsultar"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputCosechaObtener">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputCosechaObtener"/>
+    </bindings>
     <bindings if-exists="true" scd="~tns:TransporteType">
       <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.TransporteType"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:InputTransporteCrear">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputTransporteCrear"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputTransporteCrear">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputTransporteCrear"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputTransporteConsultar">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputTransporteConsultar"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputTransporteObtener">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputTransporteObtener"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:InputTransporteActualizar">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputTransporteActualizar"/>
     </bindings>
     <bindings if-exists="true" scd="~tns:ComisionType">
       <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.ComisionType"/>
@@ -156,6 +186,12 @@ Generado el: 2023.05.29 a las 06:37:07 PM CLT
     <bindings if-exists="true" scd="~tns:TipoArchivoVehiculo">
       <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.TipoArchivoVehiculo"/>
     </bindings>
+    <bindings if-exists="true" scd="~tns:EstadoCosecha">
+      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.EstadoCosecha"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:EstadoTransporte">
+      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.EstadoTransporte"/>
+    </bindings>
     <bindings if-exists="true" scd="~tns:TipoOperacion">
       <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.TipoOperacion"/>
     </bindings>
@@ -167,12 +203,6 @@ Generado el: 2023.05.29 a las 06:37:07 PM CLT
     </bindings>
     <bindings if-exists="true" scd="~tns:FormaPago">
       <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.FormaPago"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:EstadoCosecha">
-      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.EstadoCosecha"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:EstadoTransporte">
-      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.EstadoTransporte"/>
     </bindings>
   </bindings>
 </bindings>

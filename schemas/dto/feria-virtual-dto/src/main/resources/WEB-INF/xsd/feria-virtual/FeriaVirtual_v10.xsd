@@ -58,19 +58,21 @@
     		<element name="ID" type="long" maxOccurs="1"
     			minOccurs="0">
     		</element>
-    		<element name="agricultor" type="tns:UsuarioType"
-    			maxOccurs="1" minOccurs="0">
+    		<element name="agricultor" type="string" maxOccurs="1"
+    			minOccurs="0">
     		</element>
-    		<element name="transportista" type="tns:UsuarioType"
-    			maxOccurs="1" minOccurs="0">
+    		<element name="transportista" type="string" maxOccurs="1"
+    			minOccurs="0">
     		</element>
-    		<element name="locatario" type="tns:UsuarioType"
-    			maxOccurs="1" minOccurs="0">
+    		<element name="locatario" type="string" maxOccurs="1"
+    			minOccurs="0">
     		</element>
-    		<element name="direccionOrigen" type="tns:DireccionType" maxOccurs="1"
+
+    		<element name="estado" type="tns:EstadoTransporte" maxOccurs="1" minOccurs="0"></element>
+    		<element name="direccionOrigen" type="string" maxOccurs="1"
     			minOccurs="1">
     		</element>
-    		<element name="direccionDestino" type="tns:DireccionType" maxOccurs="1"
+    		<element name="direccionDestino" type="string" maxOccurs="1"
     			minOccurs="1">
     		</element>
     		<element name="fechaSalida" type="date" maxOccurs="1"
@@ -79,7 +81,9 @@
     		<element name="fechaLlegada" type="date" maxOccurs="1"
     			minOccurs="0">
     		</element>
-    		<element name="costo" type="long" maxOccurs="1" minOccurs="0"></element>
+    		<element name="costo" type="long" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
     	</sequence>
     </complexType>
 
@@ -589,4 +593,96 @@
     		<enumeration value="GENERADO"></enumeration>
     	</restriction>
     </simpleType>
+
+    <complexType name="CosechaType">
+    	<sequence>
+    		<element name="ID" type="long" maxOccurs="1" minOccurs="0"></element>
+    		<element name="codigoProducto" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="cantidad" type="decimal" maxOccurs="1" minOccurs="1"></element>
+    		<element name="unidadMeida" type="tns:UnidadMedida" maxOccurs="1" minOccurs="1"></element>
+    		<element name="estado" type="tns:EstadoCosecha" maxOccurs="1" minOccurs="0"></element>
+    		<element name="costo" type="long" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="InputCosechaCrear">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:CosechaType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+    
+    <element name="OutputCosechaCrear">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:CosechaType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="OutputCosechaConsultar">
+    	<complexType>
+    		<sequence>
+    			<element name="registro" type="tns:CosechaType" maxOccurs="unbounded" minOccurs="0"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <element name="OutputCosechaObtener">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:CosechaType">
+    				<sequence>
+    					<element name="transporte" type="tns:TransporteType" maxOccurs="unbounded" minOccurs="0"></element>
+    				</sequence>
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+
+    <element name="InputTransporteCrear">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:TransporteType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="OutputTransporteCrear">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:TransporteType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="OutputTransporteConsultar">
+    	<complexType>
+    		<sequence>
+    			<element name="registro" type="tns:TransporteType" maxOccurs="unbounded" minOccurs="0"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <element name="OutputTransporteObtener">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:TransporteType">
+    				<sequence>
+    					<element name="cosecha" type="tns:CosechaType" maxOccurs="unbounded" minOccurs="0"></element>
+    				</sequence>
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="InputTransporteActualizar">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:TransporteType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
 </schema>
