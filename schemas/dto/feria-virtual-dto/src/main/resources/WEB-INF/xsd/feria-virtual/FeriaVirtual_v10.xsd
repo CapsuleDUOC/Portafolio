@@ -599,7 +599,7 @@
     		<element name="ID" type="long" maxOccurs="1" minOccurs="0"></element>
     		<element name="codigoProducto" type="string" maxOccurs="1" minOccurs="1"></element>
     		<element name="cantidad" type="decimal" maxOccurs="1" minOccurs="1"></element>
-    		<element name="unidadMeida" type="tns:UnidadMedida" maxOccurs="1" minOccurs="1"></element>
+    		<element name="unidadMedida" type="tns:UnidadMedida" maxOccurs="1" minOccurs="1"></element>
     		<element name="estado" type="tns:EstadoCosecha" maxOccurs="1" minOccurs="0"></element>
     		<element name="costo" type="long" maxOccurs="1" minOccurs="1"></element>
     	</sequence>
