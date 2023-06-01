@@ -108,7 +108,7 @@ public class TransporteController {
 		return ResponseEntity.ok(outputDTO);
 	}
 
-	@GetMapping("/{id}")
+	@PostMapping("/{id}")
 	ResponseEntity<Boolean> actualizar(@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
 			@PathVariable(name = "id") final Long id, @RequestBody final InputTransporteActualizar inputDTO) {
 
