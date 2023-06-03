@@ -24,4 +24,6 @@ public interface ProductoService {
 
 	Producto obtener(final Usuario usuario, final String codigo);
 
+	Producto obtener(final Long productoID);
+
 }

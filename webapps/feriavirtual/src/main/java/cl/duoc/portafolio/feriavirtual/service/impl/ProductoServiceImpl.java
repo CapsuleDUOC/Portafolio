@@ -140,4 +140,13 @@ public class ProductoServiceImpl implements ProductoService {
 		return _producto.get();
 	}
 
+	@Override
+	public Producto obtener(Long productoID) {
+		
+		Optional<Producto> _producto = productoRepository.findById(productoID);
+		Assert.isTrue(_producto.isPresent(), "No existe producto ID [" + productoID + "]");
+
+		return _producto.get();
+	}
+
 }

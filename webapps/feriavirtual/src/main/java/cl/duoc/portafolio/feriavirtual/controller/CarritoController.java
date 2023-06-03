@@ -6,10 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import cl.duoc.portafolio.dto.JAXBUtil;
 import cl.duoc.portafolio.dto.v10.feriavirtual.CarritoType;
+import cl.duoc.portafolio.dto.v10.feriavirtual.InputCarritoProductoActualizar;
 import cl.duoc.portafolio.dto.v10.feriavirtual.OutputCarritoConsultar;
 import cl.duoc.portafolio.dto.v10.feriavirtual.OutputCarritoObtener;
 import cl.duoc.portafolio.dto.v10.feriavirtual.ProductoType;
@@ -25,21 +29,22 @@ public class CarritoController {
 
 	private UsuarioService usuarioService;
 	private CarritoService carritoService;
-	
+
 	@Autowired
 	public CarritoController(final UsuarioService usuarioService, final CarritoService carritoService) {
 		this.usuarioService = usuarioService;
 		this.carritoService = carritoService;
 	}
-	
+
 	@GetMapping
-	ResponseEntity<OutputCarritoConsultar> consultar(@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion){
-		
+	ResponseEntity<OutputCarritoConsultar> consultar(
+			@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion) {
+
 		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
 		final List<Carrito> carritos = carritoService.consultar(usuario);
-		
+
 		final OutputCarritoConsultar outputDTO = new OutputCarritoConsultar();
-		
+
 		CarritoType carritoType;
 		for (Carrito carrito : carritos) {
 			carritoType = new CarritoType();
@@ -47,23 +52,23 @@ public class CarritoController {
 			carritoType.setEstado(carrito.getEstado());
 			carritoType.setRegistroInstante(carrito.getRegistroInstante());
 		}
-		
+
 		return ResponseEntity.ok(outputDTO);
 	}
-	
+
 	@GetMapping("/{id}")
 	ResponseEntity<OutputCarritoObtener> obtener(
 			@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
 			@PathVariable(name = "id") final Long id) {
-		
+
 		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
 		final Carrito carrito = carritoService.obtener(usuario, id);
-		
+
 		final OutputCarritoObtener outputDTO = new OutputCarritoObtener();
 		outputDTO.setID(carrito.getId());
 		outputDTO.setEstado(carrito.getEstado());
 		outputDTO.setRegistroInstante(carrito.getRegistroInstante());
-		
+
 		ProductoType productoType;
 		for (Producto producto : carrito.getProducto()) {
 			productoType = new ProductoType();
@@ -78,10 +83,22 @@ public class CarritoController {
 
 			if (producto.getArchivoImagen() != null)
 				productoType.setImagen(true);
-			
+
 			outputDTO.getProducto().add(productoType);
 		}
-		
+
 		return ResponseEntity.ok(outputDTO);
+	}
+
+	@PostMapping("/{id}")
+	ResponseEntity<Boolean> actualizar(@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
+			@PathVariable(name = "id") final Long id, @RequestBody final InputCarritoProductoActualizar inputDTO) {
+
+		JAXBUtil.validarSchema(InputCarritoProductoActualizar.class, inputDTO);
+		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
+		final Boolean actualizar = carritoService.actualizar(usuario, id, inputDTO);
+
+		return ResponseEntity.ok(actualizar);
+
 	}
 }
