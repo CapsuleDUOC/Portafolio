@@ -51,6 +51,8 @@ public class CarritoController {
 			carritoType.setID(carrito.getId());
 			carritoType.setEstado(carrito.getEstado());
 			carritoType.setRegistroInstante(carrito.getRegistroInstante());
+			
+			outputDTO.getRegistro().add(carritoType);
 		}
 
 		return ResponseEntity.ok(outputDTO);
@@ -90,13 +92,13 @@ public class CarritoController {
 		return ResponseEntity.ok(outputDTO);
 	}
 
-	@PostMapping("/{id}")
+	@PostMapping
 	ResponseEntity<Boolean> actualizar(@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
-			@PathVariable(name = "id") final Long id, @RequestBody final InputCarritoProductoActualizar inputDTO) {
+			@RequestBody final InputCarritoProductoActualizar inputDTO) {
 
 		JAXBUtil.validarSchema(InputCarritoProductoActualizar.class, inputDTO);
 		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
-		final Boolean actualizar = carritoService.actualizar(usuario, id, inputDTO);
+		final Boolean actualizar = carritoService.actualizar(usuario, inputDTO);
 
 		return ResponseEntity.ok(actualizar);
 

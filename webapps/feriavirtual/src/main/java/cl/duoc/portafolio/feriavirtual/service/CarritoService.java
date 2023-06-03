@@ -12,6 +12,6 @@ public interface CarritoService {
 
 	Carrito obtener(final Usuario usuario, final Long id);
 
-	Boolean actualizar(final Usuario usuario, final Long id, final InputCarritoProductoActualizar inputDTO);
+	Boolean actualizar(final Usuario usuario, final InputCarritoProductoActualizar inputDTO);
 
 }

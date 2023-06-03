@@ -45,12 +45,12 @@ public class CarritoServiceImpl implements CarritoService {
 	}
 
 	@Override
-	public Boolean actualizar(Usuario usuario, Long id, InputCarritoProductoActualizar inputDTO) {
+	public Boolean actualizar(Usuario usuario, InputCarritoProductoActualizar inputDTO) {
 
 		Carrito carrito;
-		Optional<Carrito> _carrito = carritoRepository.findByClienteAndId(usuario, id);
-		if (_carrito.isPresent()) {
-			carrito = _carrito.get();
+		List<Carrito> carritos = consultar(usuario);
+		if (!carritos.isEmpty()) {
+			carrito = carritos.get(0);
 		} else {
 			carrito = crear(usuario);
 		}
