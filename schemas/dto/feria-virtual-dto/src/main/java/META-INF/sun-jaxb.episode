@@ -5,7 +5,7 @@
 Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 Visite https://eclipse-ee4j.github.io/jaxb-ri 
 Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-Generado el: 2023.06.02 a las 09:29:06 PM CLT 
+Generado el: 2023.06.03 a las 12:25:33 AM CLT 
 
   -->
   <bindings xmlns:tns="http://duoc.cl/portafolio/dto/v10/FeriaVirtual" if-exists="true" scd="x-schema::tns">
@@ -144,6 +144,18 @@ Generado el: 2023.06.02 a las 09:29:06 PM CLT
     <bindings if-exists="true" scd="tns:InputTransporteActualizar">
       <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputTransporteActualizar"/>
     </bindings>
+    <bindings if-exists="true" scd="tns:OutputCarritoConsultar">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputCarritoConsultar"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:CarritoType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.CarritoType"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputCarritoObtener">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputCarritoObtener"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:InputCarritoProductoActualizar">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputCarritoProductoActualizar"/>
+    </bindings>
     <bindings if-exists="true" scd="~tns:ComisionType">
       <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.ComisionType"/>
     </bindings>
@@ -191,6 +203,12 @@ Generado el: 2023.06.02 a las 09:29:06 PM CLT
     </bindings>
     <bindings if-exists="true" scd="~tns:EstadoTransporte">
       <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.EstadoTransporte"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:EstadoCarrito">
+      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.EstadoCarrito"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:TipoOperacionCarrito">
+      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.TipoOperacionCarrito"/>
     </bindings>
     <bindings if-exists="true" scd="~tns:TipoOperacion">
       <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.TipoOperacion"/>

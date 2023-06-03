@@ -24,11 +24,11 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
- *     &lt;extension base="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}TransporteType"&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="cosecha" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}CosechaType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="registro" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}CarritoType" maxOccurs="unbounded" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
- *     &lt;/extension&gt;
+ *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
@@ -37,42 +37,40 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "cosecha"
+    "registro"
 })
-@XmlRootElement(name = "OutputTransporteObtener")
-public class OutputTransporteObtener
-    extends TransporteType
-{
+@XmlRootElement(name = "OutputCarritoConsultar")
+public class OutputCarritoConsultar {
 
-    protected List<CosechaType> cosecha;
+    protected List<CarritoType> registro;
 
     /**
-     * Gets the value of the cosecha property.
+     * Gets the value of the registro property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the cosecha property.
+     * This is why there is not a <CODE>set</CODE> method for the registro property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getCosecha().add(newItem);
+     *    getRegistro().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CosechaType }
+     * {@link CarritoType }
      * 
      * 
      */
-    public List<CosechaType> getCosecha() {
-        if (cosecha == null) {
-            cosecha = new ArrayList<CosechaType>();
+    public List<CarritoType> getRegistro() {
+        if (registro == null) {
+            registro = new ArrayList<CarritoType>();
         }
-        return this.cosecha;
+        return this.registro;
     }
 
 }

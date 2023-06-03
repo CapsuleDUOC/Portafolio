@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.06.02 a las 09:29:06 PM CLT 
+// Generado el: 2023.06.03 a las 12:25:33 AM CLT 
 //
 
 
@@ -386,6 +386,38 @@ public class ObjectFactory {
      */
     public InputTransporteActualizar createInputTransporteActualizar() {
         return new InputTransporteActualizar();
+    }
+
+    /**
+     * Create an instance of {@link OutputCarritoConsultar }
+     * 
+     */
+    public OutputCarritoConsultar createOutputCarritoConsultar() {
+        return new OutputCarritoConsultar();
+    }
+
+    /**
+     * Create an instance of {@link CarritoType }
+     * 
+     */
+    public CarritoType createCarritoType() {
+        return new CarritoType();
+    }
+
+    /**
+     * Create an instance of {@link OutputCarritoObtener }
+     * 
+     */
+    public OutputCarritoObtener createOutputCarritoObtener() {
+        return new OutputCarritoObtener();
+    }
+
+    /**
+     * Create an instance of {@link InputCarritoProductoActualizar }
+     * 
+     */
+    public InputCarritoProductoActualizar createInputCarritoProductoActualizar() {
+        return new InputCarritoProductoActualizar();
     }
 
     /**

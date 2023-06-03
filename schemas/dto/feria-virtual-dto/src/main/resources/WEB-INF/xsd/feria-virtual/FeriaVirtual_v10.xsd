@@ -690,4 +690,61 @@
     		</complexContent>
     	</complexType>
     </element>
+
+    <simpleType name="EstadoCarrito">
+    	<restriction base="string">
+    		<enumeration value="PENDIENTE"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="CarritoType">
+    	<sequence>
+    		<element name="ID" type="long" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+
+    		<element name="estado" type="tns:EstadoCarrito"
+    			maxOccurs="1" minOccurs="1">
+    		</element>
+    		<element name="registroInstante" type="dateTime" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="OutputCarritoConsultar">
+    	<complexType>
+    		<sequence>
+    			<element name="registro" type="tns:CarritoType" maxOccurs="unbounded" minOccurs="0"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <element name="OutputCarritoObtener">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:CarritoType">
+    				<sequence>
+    					<element name="producto" type="tns:ProductoType" maxOccurs="unbounded" minOccurs="0"></element>
+    				</sequence>
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="InputCarritoProductoActualizar">
+    	<complexType>
+    		<sequence>
+    			<element name="productoID" type="long" maxOccurs="1"
+    				minOccurs="1">
+    			</element>
+    			<element name="operacion" type="tns:TipoOperacionCarrito" maxOccurs="1" minOccurs="1"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <simpleType name="TipoOperacionCarrito">
+    	<restriction base="string">
+    		<enumeration value="AGREGAR"></enumeration>
+    		<enumeration value="ELIMINAR"></enumeration>
+    	</restriction>
+    </simpleType>
 </schema>

@@ -2,7 +2,7 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">90</attrib>
+		<attrib name="build">91</attrib>
 		<attrib name="serial">56232</attrib>
 	</attribs>
 	<database>
@@ -1793,9 +1793,9 @@
 					<attribs>
 						<attrib name="name">archivo</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">852</attrib>
+						<attrib name="locY">15</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">197</attrib>
+						<attrib name="locX">288</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1806,9 +1806,9 @@
 					<attribs>
 						<attrib name="name">usuario</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">52</attrib>
+						<attrib name="locY">689</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">359</attrib>
+						<attrib name="locX">367</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1819,9 +1819,9 @@
 					<attribs>
 						<attrib name="name">vehiculo</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">306</attrib>
+						<attrib name="locY">224</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">39</attrib>
+						<attrib name="locX">13</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1832,9 +1832,9 @@
 					<attribs>
 						<attrib name="name">vehiculo_archivo</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">618</attrib>
+						<attrib name="locY">45</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">52</attrib>
+						<attrib name="locX">26</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1845,9 +1845,9 @@
 					<attribs>
 						<attrib name="name">producto</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">386</attrib>
+						<attrib name="locY">18</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">299</attrib>
+						<attrib name="locX">1393</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1858,9 +1858,9 @@
 					<attribs>
 						<attrib name="name">dte</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">637</attrib>
+						<attrib name="locY">242</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">827</attrib>
+						<attrib name="locX">244</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1871,9 +1871,9 @@
 					<attribs>
 						<attrib name="name">dte_producto</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">257</attrib>
+						<attrib name="locY">129</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">1030</attrib>
+						<attrib name="locX">558</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1884,9 +1884,9 @@
 					<attribs>
 						<attrib name="name">direccion</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">34</attrib>
+						<attrib name="locY">524</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">37</attrib>
+						<attrib name="locX">17</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1897,9 +1897,9 @@
 					<attribs>
 						<attrib name="name">venta</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">14</attrib>
+						<attrib name="locY">307</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">886</attrib>
+						<attrib name="locX">501</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1910,9 +1910,9 @@
 					<attribs>
 						<attrib name="name">pedido</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">170</attrib>
+						<attrib name="locY">203</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">635</attrib>
+						<attrib name="locX">780</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1923,9 +1923,9 @@
 					<attribs>
 						<attrib name="name">pedido_producto</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">441</attrib>
+						<attrib name="locY">182</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">739</attrib>
+						<attrib name="locX">1036</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1936,9 +1936,9 @@
 					<attribs>
 						<attrib name="name">carrito</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">542</attrib>
+						<attrib name="locY">590</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">516</attrib>
+						<attrib name="locX">805</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -1949,9 +1949,9 @@
 					<attribs>
 						<attrib name="name">carrito_producto</attrib>
 						<attrib name="colorId">32404</attrib>
-						<attrib name="locY">738</attrib>
+						<attrib name="locY">423</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">388</attrib>
+						<attrib name="locX">1087</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -4225,9 +4225,9 @@
 					</fieldAttribs>
 					<attribs>
 						<attrib name="comment"/>
-						<attrib name="name">estado</attrib>
-						<attrib name="refField">0</attrib>
 						<attrib name="matchType">s</attrib>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">estado</attrib>
 						<attrib name="id">56222</attrib>
 						<attrib name="onDelete">n</attrib>
 						<attrib name="onUpdate">n</attrib>
@@ -5688,9 +5688,9 @@
 					</fieldAttribs>
 					<attribs>
 						<attrib name="comment"/>
-						<attrib name="name">estado</attrib>
-						<attrib name="refField">0</attrib>
 						<attrib name="matchType">s</attrib>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">estado</attrib>
 						<attrib name="id">56226</attrib>
 						<attrib name="onDelete">n</attrib>
 						<attrib name="onUpdate">n</attrib>
@@ -6680,9 +6680,9 @@
 					</fieldAttribs>
 					<attribs>
 						<attrib name="comment"/>
-						<attrib name="name">estado</attrib>
-						<attrib name="refField">0</attrib>
 						<attrib name="matchType">s</attrib>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">estado</attrib>
 						<attrib name="id">56230</attrib>
 						<attrib name="onDelete">n</attrib>
 						<attrib name="onUpdate">n</attrib>
