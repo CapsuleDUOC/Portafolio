@@ -13,9 +13,9 @@ public interface TransporteService {
 
 	Transporte crear(final Usuario usuario, final InputTransporteCrear inputDTO);
 
-	List<Transporte> consultar(final Usuario usuario, final String agricultor, final String transportista,
-			final String locatario, final EstadoTransporte estado, final LocalDate fechaSalida,
-			final LocalDate fechaLlegada, final Integer offset, final Integer limit);
+	List<Transporte> consultar(final Usuario usuario, final String agricultor, final String locatario,
+			final EstadoTransporte estado, final LocalDate fechaSalida, final LocalDate fechaLlegada,
+			final Integer offset, final Integer limit);
 
 	Transporte obtener(final Usuario usuario, final Long id);
 

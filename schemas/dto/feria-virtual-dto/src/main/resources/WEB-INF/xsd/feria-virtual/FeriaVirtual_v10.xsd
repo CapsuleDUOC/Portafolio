@@ -645,7 +645,11 @@
     <element name="InputTransporteCrear">
     	<complexType>
     		<complexContent>
-    			<extension base="tns:TransporteType"></extension>
+    			<extension base="tns:TransporteType">
+    				<sequence>
+    					<element name="cosechaID" type="long" maxOccurs="1" minOccurs="1"></element>
+    				</sequence>
+    			</extension>
     		</complexContent>
     	</complexType>
     </element>
@@ -653,7 +657,8 @@
     <element name="OutputTransporteCrear">
     	<complexType>
     		<complexContent>
-    			<extension base="tns:TransporteType"></extension>
+    			<extension base="tns:TransporteType">
+    			</extension>
     		</complexContent>
     	</complexType>
     </element>

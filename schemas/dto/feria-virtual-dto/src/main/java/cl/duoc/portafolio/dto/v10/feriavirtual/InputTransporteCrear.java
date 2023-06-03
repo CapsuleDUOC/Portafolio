@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.05.31 a las 11:56:22 PM CLT 
+// Generado el: 2023.06.02 a las 09:29:06 PM CLT 
 //
 
 
@@ -23,6 +23,9 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
  *     &lt;extension base="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}TransporteType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="cosechaID" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *       &lt;/sequence&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -31,11 +34,30 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "")
+@XmlType(name = "", propOrder = {
+    "cosechaID"
+})
 @XmlRootElement(name = "InputTransporteCrear")
 public class InputTransporteCrear
     extends TransporteType
 {
 
+    protected long cosechaID;
+
+    /**
+     * Obtiene el valor de la propiedad cosechaID.
+     * 
+     */
+    public long getCosechaID() {
+        return cosechaID;
+    }
+
+    /**
+     * Define el valor de la propiedad cosechaID.
+     * 
+     */
+    public void setCosechaID(long value) {
+        this.cosechaID = value;
+    }
 
 }

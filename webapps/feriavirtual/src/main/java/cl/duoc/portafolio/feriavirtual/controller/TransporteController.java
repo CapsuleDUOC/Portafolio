@@ -83,8 +83,8 @@ public class TransporteController {
 			@RequestParam(name = "limit", defaultValue = "100") Integer limit) {
 
 		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
-		List<Transporte> transportes = transporteService.consultar(usuario, agricultor, transportista, locatario,
-				estado, fechaSalida, fechaLlegada, offset, limit);
+		List<Transporte> transportes = transporteService.consultar(usuario, agricultor, locatario, estado, fechaSalida,
+				fechaLlegada, offset, limit);
 
 		final OutputTransporteConsultar outputDTO = new OutputTransporteConsultar();
 
@@ -113,7 +113,7 @@ public class TransporteController {
 			@PathVariable(name = "id") final Long id, @RequestBody final InputTransporteActualizar inputDTO) {
 
 		JAXBUtil.validarSchema(InputTransporteCrear.class, inputDTO);
-		
+
 		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
 		final Transporte transporte = transporteService.obtener(usuario, id);
 		final Boolean actualizar = transporteService.actualizar(transporte, inputDTO);

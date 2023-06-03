@@ -64,7 +64,7 @@ public class ProductoServiceImpl implements ProductoService {
 			producto.setArchivoImagen(archivoService.crear(usuario.getIdentificacion() + "_" + inputDTO.getCodigo(),
 					inputDTO.getBytesImagen()));
 		}
-		
+
 		UsuarioBitacora bitacora = new UsuarioBitacora();
 		bitacora.setUsuario(usuario);
 		bitacora.setRegistroInstante(LocalDateTime.now());
@@ -100,8 +100,7 @@ public class ProductoServiceImpl implements ProductoService {
 			producto.setArchivoImagen(archivoService.crear(
 					producto.getUsuario().getIdentificacion() + "_" + inputDTO.getCodigo(), inputDTO.getBytesImagen()));
 		}
-		
-		
+
 		UsuarioBitacora bitacora = new UsuarioBitacora();
 		bitacora.setUsuario(producto.getUsuario());
 		bitacora.setRegistroInstante(LocalDateTime.now());
@@ -130,6 +129,15 @@ public class ProductoServiceImpl implements ProductoService {
 			params.add(new SearchCriteria("estado", null, SearchCriteria.OPERATION.equal, estado, null));
 
 		return productoDAO.search(params, PageRequest.of(offset, limit));
+	}
+
+	@Override
+	public Producto obtener(Usuario usuario, String codigo) {
+
+		Optional<Producto> _producto = productoRepository.findByUsuarioAndCodigo(usuario, codigo);
+		Assert.isTrue(_producto.isPresent(), "No existe producto con codigo [" + codigo + "]");
+
+		return _producto.get();
 	}
 
 }

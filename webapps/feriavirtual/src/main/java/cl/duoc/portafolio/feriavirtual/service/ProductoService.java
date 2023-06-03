@@ -22,4 +22,6 @@ public interface ProductoService {
 			final String partNombre, final UnidadMedida unidadMedida, final EstadoProducto estado, final Integer offset,
 			final Integer limit);
 
+	Producto obtener(final Usuario usuario, final String codigo);
+
 }
