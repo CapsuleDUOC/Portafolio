@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.06.03 a las 12:25:33 AM CLT 
+// Generado el: 2023.06.17 a las 04:36:40 PM CLT 
 //
 
 
@@ -32,7 +32,7 @@ import org.w3._2001.xmlschema.Adapter1;
  *         &lt;element name="ID" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
  *         &lt;element name="tipoIdentificacion" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}TipoIdentificacion"/&gt;
  *         &lt;element name="identificacion" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="estado" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}EstadoUsuario"/&gt;
+ *         &lt;element name="estado" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}EstadoUsuario" minOccurs="0"/&gt;
  *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="telefono" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="registroInstante" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
@@ -68,7 +68,6 @@ public class UsuarioType {
     protected TipoIdentificacion tipoIdentificacion;
     @XmlElement(required = true)
     protected String identificacion;
-    @XmlElement(required = true)
     @XmlSchemaType(name = "string")
     protected EstadoUsuario estado;
     @XmlElement(required = true)

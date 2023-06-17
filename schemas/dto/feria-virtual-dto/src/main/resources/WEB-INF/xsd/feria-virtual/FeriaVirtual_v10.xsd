@@ -10,7 +10,7 @@
     		</element>
             <element name="identificacion" type="string" maxOccurs="1" minOccurs="1">
     		</element>
-            <element name="estado" type="tns:EstadoUsuario" maxOccurs="1" minOccurs="1"></element>
+            <element name="estado" type="tns:EstadoUsuario" maxOccurs="1" minOccurs="0"></element>
             <element name="nombre" type="string" maxOccurs="1"
     			minOccurs="1">
     		</element>
