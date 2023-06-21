@@ -5,6 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -69,7 +71,8 @@ public class ProductoController {
 		outputDTO.setRegistroInstante(producto.getRegistroInstante());
 
 		if (producto.getArchivoImagen() != null)
-			outputDTO.setImagen(true);
+			outputDTO.setImagen(ServletUriComponentsBuilder.fromCurrentRequest().path("/img/")
+					.path(producto.getId().toString()).build().toUriString());
 
 		return ResponseEntity.created(
 				ServletUriComponentsBuilder.fromCurrentRequest().path(producto.getId().toString()).build().toUri())
@@ -119,7 +122,8 @@ public class ProductoController {
 			productoType.setRegistroInstante(producto.getRegistroInstante());
 
 			if (producto.getArchivoImagen() != null)
-				productoType.setImagen(true);
+				productoType.setImagen(ServletUriComponentsBuilder.fromCurrentRequest().path("/img/")
+						.path(producto.getId().toString()).replaceQuery(null).build().toUriString());
 
 			outputDTO.getRegistro().add(productoType);
 		}
@@ -146,20 +150,16 @@ public class ProductoController {
 		outputDTO.setRegistroInstante(producto.getRegistroInstante());
 
 		if (producto.getArchivoImagen() != null) {
-			outputDTO.setImagen(true);
-
-			if (producto.getArchivoImagen().getEstado().equals(EstadoArchivo.BASE_DATOS))
-				outputDTO.setBytesImagen(producto.getArchivoImagen().getBytes());
-
-			if (producto.getArchivoImagen().getEstado().equals(EstadoArchivo.LOCAL))
-				outputDTO.setBytesImagen(Files.readAllBytes(Paths.get(producto.getArchivoImagen().getPath())));
+			outputDTO.setImagen(ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString().replace("/" + id,
+					"/img/" + id));
 		}
 
 		return ResponseEntity.ok(outputDTO);
 	}
 
 	@GetMapping("/img/{id}")
-	ResponseEntity<byte[]> obtenerImagen(@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
+	ResponseEntity<byte[]> obtenerImagen(
+			@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
 			@PathVariable(name = "id") final Long id) throws Exception {
 
 		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);

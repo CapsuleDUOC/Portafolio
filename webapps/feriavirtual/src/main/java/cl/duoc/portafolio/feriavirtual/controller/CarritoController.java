@@ -2,6 +2,8 @@ package cl.duoc.portafolio.feriavirtual.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +32,9 @@ public class CarritoController {
 	private UsuarioService usuarioService;
 	private CarritoService carritoService;
 
+	@Autowired
+    private HttpServletRequest request;
+	
 	@Autowired
 	public CarritoController(final UsuarioService usuarioService, final CarritoService carritoService) {
 		this.usuarioService = usuarioService;
@@ -84,7 +89,7 @@ public class CarritoController {
 			productoType.setRegistroInstante(producto.getRegistroInstante());
 
 			if (producto.getArchivoImagen() != null)
-				productoType.setImagen(true);
+				productoType.setImagen(request.getRequestURI());
 
 			outputDTO.getProducto().add(productoType);
 		}
