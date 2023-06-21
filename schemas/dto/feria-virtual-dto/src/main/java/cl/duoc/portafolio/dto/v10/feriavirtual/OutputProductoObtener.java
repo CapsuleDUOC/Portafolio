@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.06.17 a las 04:36:40 PM CLT 
+// Generado el: 2023.06.21 a las 04:47:40 PM CLT 
 //
 
 
@@ -23,9 +23,6 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
  *     &lt;extension base="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}ProductoType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="bytesImagen" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -34,36 +31,11 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "bytesImagen"
-})
+@XmlType(name = "")
 @XmlRootElement(name = "OutputProductoObtener")
 public class OutputProductoObtener
     extends ProductoType
 {
 
-    protected byte[] bytesImagen;
-
-    /**
-     * Obtiene el valor de la propiedad bytesImagen.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
-     */
-    public byte[] getBytesImagen() {
-        return bytesImagen;
-    }
-
-    /**
-     * Define el valor de la propiedad bytesImagen.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
-     */
-    public void setBytesImagen(byte[] value) {
-        this.bytesImagen = value;
-    }
 
 }

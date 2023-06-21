@@ -6,6 +6,9 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -153,5 +156,31 @@ public class ProductoController {
 		}
 
 		return ResponseEntity.ok(outputDTO);
+	}
+
+	@GetMapping("/img/{id}")
+	ResponseEntity<byte[]> obtenerImagen(@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
+			@PathVariable(name = "id") final Long id) throws Exception {
+
+		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
+		final Producto producto = productoService.obtener(usuario, id);
+
+		if (producto.getArchivoImagen() == null
+				|| producto.getArchivoImagen().getEstado().equals(EstadoArchivo.ELIMINADO)) {
+			throw new Exception("Producto no posee imagen");
+		}
+
+		byte[] imageBytes;
+		if (producto.getArchivoImagen().getEstado().equals(EstadoArchivo.BASE_DATOS))
+			imageBytes = producto.getArchivoImagen().getBytes();
+
+		else
+			imageBytes = Files.readAllBytes(Paths.get(producto.getArchivoImagen().getPath()));
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.IMAGE_JPEG);
+		headers.setContentLength(imageBytes.length);
+
+		return new ResponseEntity<>(imageBytes, headers, HttpStatus.OK);
 	}
 }

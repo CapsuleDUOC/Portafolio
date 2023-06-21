@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.06.17 a las 04:36:40 PM CLT 
+// Generado el: 2023.06.21 a las 04:47:40 PM CLT 
 //
 
 
@@ -37,7 +37,7 @@ import org.w3._2001.xmlschema.Adapter1;
  *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *         &lt;element name="estado" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}EstadoProducto"/&gt;
  *         &lt;element name="registroInstante" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
- *         &lt;element name="imagen" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/&gt;
+ *         &lt;element name="imagen" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -86,7 +86,7 @@ public class ProductoType {
     @XmlJavaTypeAdapter(Adapter1 .class)
     @XmlSchemaType(name = "dateTime")
     protected LocalDateTime registroInstante;
-    protected Boolean imagen;
+    protected String imagen;
 
     /**
      * Obtiene el valor de la propiedad id.
@@ -277,10 +277,10 @@ public class ProductoType {
      * 
      * @return
      *     possible object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
-    public Boolean isImagen() {
+    public String getImagen() {
         return imagen;
     }
 
@@ -289,10 +289,10 @@ public class ProductoType {
      * 
      * @param value
      *     allowed object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
-    public void setImagen(Boolean value) {
+    public void setImagen(String value) {
         this.imagen = value;
     }
 
