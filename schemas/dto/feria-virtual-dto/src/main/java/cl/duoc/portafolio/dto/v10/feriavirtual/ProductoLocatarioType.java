@@ -15,17 +15,17 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para PropiedadType complex type.
+ * <p>Clase Java para ProductoLocatarioType complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="PropiedadType"&gt;
+ * &lt;complexType name="ProductoLocatarioType"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="llave" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="valor" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="producto" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}ProductoType"/&gt;
+ *         &lt;element name="locatario" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}UsuarioType"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,63 +35,63 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PropiedadType", propOrder = {
-    "llave",
-    "valor"
+@XmlType(name = "ProductoLocatarioType", propOrder = {
+    "producto",
+    "locatario"
 })
-public class PropiedadType {
+public class ProductoLocatarioType {
 
     @XmlElement(required = true)
-    protected String llave;
+    protected ProductoType producto;
     @XmlElement(required = true)
-    protected String valor;
+    protected UsuarioType locatario;
 
     /**
-     * Obtiene el valor de la propiedad llave.
+     * Obtiene el valor de la propiedad producto.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link ProductoType }
      *     
      */
-    public String getLlave() {
-        return llave;
+    public ProductoType getProducto() {
+        return producto;
     }
 
     /**
-     * Define el valor de la propiedad llave.
+     * Define el valor de la propiedad producto.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link ProductoType }
      *     
      */
-    public void setLlave(String value) {
-        this.llave = value;
+    public void setProducto(ProductoType value) {
+        this.producto = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad valor.
+     * Obtiene el valor de la propiedad locatario.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link UsuarioType }
      *     
      */
-    public String getValor() {
-        return valor;
+    public UsuarioType getLocatario() {
+        return locatario;
     }
 
     /**
-     * Define el valor de la propiedad valor.
+     * Define el valor de la propiedad locatario.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link UsuarioType }
      *     
      */
-    public void setValor(String value) {
-        this.valor = value;
+    public void setLocatario(UsuarioType value) {
+        this.locatario = value;
     }
 
 }

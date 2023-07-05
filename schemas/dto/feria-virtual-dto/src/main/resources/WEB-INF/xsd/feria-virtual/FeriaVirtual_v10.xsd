@@ -744,4 +744,21 @@
     		<enumeration value="ELIMINAR"></enumeration>
     	</restriction>
     </simpleType>
+
+    <element name="OutputProductoLocatariosConsultar">
+    	<complexType>
+    		<sequence>
+    			<element name="registro" type="tns:ProductoLocatarioType" maxOccurs="1" minOccurs="0"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <complexType name="ProductoLocatarioType">
+    	<sequence>
+    		<element name="producto" type="tns:ProductoType"
+    			maxOccurs="1" minOccurs="1">
+    		</element>
+    		<element name="locatario" type="tns:UsuarioType" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
 </schema>
