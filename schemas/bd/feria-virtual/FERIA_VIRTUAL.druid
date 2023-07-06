@@ -2,8 +2,8 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">91</attrib>
-		<attrib name="serial">56232</attrib>
+		<attrib name="build">93</attrib>
+		<attrib name="serial">57547</attrib>
 	</attribs>
 	<database>
 		<attribs>
@@ -1419,9 +1419,9 @@
 					<attribs>
 						<attrib name="name">carrito_producto</attrib>
 						<attrib name="colorId">45868</attrib>
-						<attrib name="locY">358</attrib>
+						<attrib name="locY">339</attrib>
 						<attrib name="details">-</attrib>
-						<attrib name="locX">1162</attrib>
+						<attrib name="locX">1217</attrib>
 					</attribs>
 					<modsConfig/>
 					<tables>
@@ -2085,6 +2085,226 @@
 					<modsConfig/>
 					<tables>
 						<table id="32198"/>
+					</tables>
+				</erEntity>
+			</erView>
+			<erView>
+				<attribs>
+					<attrib name="fieldsStyle">p</attrib>
+					<attrib name="nameSize">15</attrib>
+					<attrib name="nameStyle">bi</attrib>
+					<attrib name="name">simplificado</attrib>
+					<attrib name="details">co</attrib>
+					<attrib name="showBgColor">true</attrib>
+					<attrib name="showAttribs">true</attrib>
+					<attrib name="fieldsSize">10</attrib>
+					<attrib name="fieldsFamily">Default</attrib>
+					<attrib name="nameFamily">Default</attrib>
+				</attribs>
+				<modsConfig/>
+				<legend>
+					<attribs>
+						<attrib name="name">-UnNamed-</attrib>
+						<attrib name="fontStyle">p</attrib>
+						<attrib name="fontFamily">Default</attrib>
+						<attrib name="fontSize">10</attrib>
+						<attrib name="location">se</attrib>
+					</attribs>
+					<color>
+						<attribs>
+							<attrib name="name">-UnNamed-</attrib>
+							<attrib name="id">56233</attrib>
+						</attribs>
+						<values>
+							<name red="0" green="0" blue="0"/>
+							<nameBg red="180" green="230" blue="255"/>
+							<text red="0" green="0" blue="0"/>
+							<textBg red="230" green="230" blue="180"/>
+							<bg red="255" green="255" blue="200"/>
+							<border red="0" green="0" blue="0"/>
+						</values>
+					</color>
+				</legend>
+				<erEntity>
+					<attribs>
+						<attrib name="name">usuario</attrib>
+						<attrib name="colorId">56233</attrib>
+						<attrib name="locY">324</attrib>
+						<attrib name="details">on</attrib>
+						<attrib name="locX">321</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="49"/>
+					</tables>
+				</erEntity>
+				<erEntity>
+					<attribs>
+						<attrib name="name">venta</attrib>
+						<attrib name="colorId">56233</attrib>
+						<attrib name="locY">337</attrib>
+						<attrib name="details">on</attrib>
+						<attrib name="locX">636</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="32198"/>
+					</tables>
+				</erEntity>
+				<erEntity>
+					<attribs>
+						<attrib name="name">producto</attrib>
+						<attrib name="colorId">56233</attrib>
+						<attrib name="locY">90</attrib>
+						<attrib name="details">on</attrib>
+						<attrib name="locX">462</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="15998"/>
+					</tables>
+				</erEntity>
+				<erEntity>
+					<attribs>
+						<attrib name="name">pedido</attrib>
+						<attrib name="colorId">56233</attrib>
+						<attrib name="locY">438</attrib>
+						<attrib name="details">on</attrib>
+						<attrib name="locX">497</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="40276"/>
+					</tables>
+				</erEntity>
+				<erEntity>
+					<attribs>
+						<attrib name="name">vehiculo</attrib>
+						<attrib name="colorId">56233</attrib>
+						<attrib name="locY">510</attrib>
+						<attrib name="details">on</attrib>
+						<attrib name="locX">292</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="6003"/>
+					</tables>
+				</erEntity>
+				<erEntity>
+					<attribs>
+						<attrib name="name">usuario_archivo</attrib>
+						<attrib name="colorId">56233</attrib>
+						<attrib name="locY">519</attrib>
+						<attrib name="details">on</attrib>
+						<attrib name="locX">458</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="10229"/>
+					</tables>
+				</erEntity>
+				<erEntity>
+					<attribs>
+						<attrib name="name">carrito</attrib>
+						<attrib name="colorId">56233</attrib>
+						<attrib name="locY">292</attrib>
+						<attrib name="details">on</attrib>
+						<attrib name="locX">139</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="44704"/>
+					</tables>
+				</erEntity>
+				<erEntity>
+					<attribs>
+						<attrib name="name">direccion</attrib>
+						<attrib name="colorId">56233</attrib>
+						<attrib name="locY">467</attrib>
+						<attrib name="details">on</attrib>
+						<attrib name="locX">160</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="27061"/>
+					</tables>
+				</erEntity>
+				<erEntity>
+					<attribs>
+						<attrib name="name">usuario_rol</attrib>
+						<attrib name="colorId">56233</attrib>
+						<attrib name="locY">377</attrib>
+						<attrib name="details">on</attrib>
+						<attrib name="locX">144</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="2053"/>
+					</tables>
+				</erEntity>
+				<erEntity>
+					<attribs>
+						<attrib name="name">cosecha</attrib>
+						<attrib name="colorId">56233</attrib>
+						<attrib name="locY">175</attrib>
+						<attrib name="details">on</attrib>
+						<attrib name="locX">273</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="25949"/>
+					</tables>
+				</erEntity>
+				<erEntity>
+					<attribs>
+						<attrib name="name">dte</attrib>
+						<attrib name="colorId">56233</attrib>
+						<attrib name="locY">262</attrib>
+						<attrib name="details">on</attrib>
+						<attrib name="locX">542</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="32405"/>
+					</tables>
+				</erEntity>
+				<erEntity>
+					<attribs>
+						<attrib name="name">transporte</attrib>
+						<attrib name="colorId">56233</attrib>
+						<attrib name="locY">157</attrib>
+						<attrib name="details">on</attrib>
+						<attrib name="locX">517</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="13844"/>
+					</tables>
+				</erEntity>
+				<erEntity>
+					<attribs>
+						<attrib name="name">carrito_producto</attrib>
+						<attrib name="colorId">56233</attrib>
+						<attrib name="locY">120</attrib>
+						<attrib name="details">on</attrib>
+						<attrib name="locX">204</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="44715"/>
+					</tables>
+				</erEntity>
+				<erEntity>
+					<attribs>
+						<attrib name="name">dte_producto</attrib>
+						<attrib name="colorId">56233</attrib>
+						<attrib name="locY">112</attrib>
+						<attrib name="details">on</attrib>
+						<attrib name="locX">661</attrib>
+					</attribs>
+					<modsConfig/>
+					<tables>
+						<table id="17001"/>
 					</tables>
 				</erEntity>
 			</erView>
