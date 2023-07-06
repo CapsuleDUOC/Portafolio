@@ -2,7 +2,7 @@ package cl.duoc.portafolio.feriavirtual.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;import org.springframework.data.repository.util.ReactiveWrappers.ReactiveLibrary;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,17 +51,10 @@ public class ProductoLocatariosController {
 			for (Producto registro : productoService.consultarPorNombre(producto.getNombre())) {
 
 				LocatarioPrecioType locatarioPrecio = new LocatarioPrecioType();
-
-				UsuarioType locatario = new UsuarioType();
-				locatario.setID(registro.getUsuario().getId());
-				locatario.setIdentificacion(registro.getUsuario().getIdentificacion());
-				locatario.setTipoIdentificacion(registro.getUsuario().getTipoIdentificacion());
-				locatario.setEstado(registro.getUsuario().getEstado());
-				locatario.setNombre(registro.getUsuario().getNombre());
-				locatario.setTelefono(registro.getUsuario().getTelefono());
-				locatario.setRegistroInstante(registro.getUsuario().getRegistroInstante());
-
-				locatarioPrecio.setLocatario(locatario);
+				locatarioPrecio.setID(registro.getUsuario().getId());
+				locatarioPrecio.setIdentificacion(registro.getUsuario().getIdentificacion());
+				locatarioPrecio.setNombre(registro.getUsuario().getNombre());
+				locatarioPrecio.setEstado(registro.getUsuario().getEstado());
 				locatarioPrecio.setPrecio(registro.getPrecio());
 
 				productoLocatarioType.getLocatarios().add(locatarioPrecio);

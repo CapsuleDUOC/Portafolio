@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.07.06 a las 12:13:46 AM CLT 
+// Generado el: 2023.07.06 a las 12:24:52 AM CLT 
 //
 
 
@@ -11,6 +11,7 @@ package cl.duoc.portafolio.dto.v10.feriavirtual;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -24,7 +25,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="locatario" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}UsuarioType"/&gt;
+ *         &lt;element name="ID" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="identificacion" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="estado" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}EstadoUsuario"/&gt;
  *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -36,37 +40,111 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "LocatarioPrecioType", propOrder = {
-    "locatario",
+    "id",
+    "identificacion",
+    "nombre",
+    "estado",
     "precio"
 })
 public class LocatarioPrecioType {
 
+    @XmlElement(name = "ID")
+    protected long id;
     @XmlElement(required = true)
-    protected UsuarioType locatario;
+    protected String identificacion;
+    @XmlElement(required = true)
+    protected String nombre;
+    @XmlElement(required = true)
+    @XmlSchemaType(name = "string")
+    protected EstadoUsuario estado;
     protected long precio;
 
     /**
-     * Obtiene el valor de la propiedad locatario.
+     * Obtiene el valor de la propiedad id.
      * 
-     * @return
-     *     possible object is
-     *     {@link UsuarioType }
-     *     
      */
-    public UsuarioType getLocatario() {
-        return locatario;
+    public long getID() {
+        return id;
     }
 
     /**
-     * Define el valor de la propiedad locatario.
+     * Define el valor de la propiedad id.
+     * 
+     */
+    public void setID(long value) {
+        this.id = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad identificacion.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getIdentificacion() {
+        return identificacion;
+    }
+
+    /**
+     * Define el valor de la propiedad identificacion.
      * 
      * @param value
      *     allowed object is
-     *     {@link UsuarioType }
+     *     {@link String }
      *     
      */
-    public void setLocatario(UsuarioType value) {
-        this.locatario = value;
+    public void setIdentificacion(String value) {
+        this.identificacion = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad nombre.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * Define el valor de la propiedad nombre.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setNombre(String value) {
+        this.nombre = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad estado.
+     * 
+     * @return
+     *     possible object is
+     *     {@link EstadoUsuario }
+     *     
+     */
+    public EstadoUsuario getEstado() {
+        return estado;
+    }
+
+    /**
+     * Define el valor de la propiedad estado.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link EstadoUsuario }
+     *     
+     */
+    public void setEstado(EstadoUsuario value) {
+        this.estado = value;
     }
 
     /**
