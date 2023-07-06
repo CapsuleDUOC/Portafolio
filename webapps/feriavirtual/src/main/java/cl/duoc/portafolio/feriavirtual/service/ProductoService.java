@@ -26,4 +26,9 @@ public interface ProductoService {
 
 	Producto obtener(final Long productoID);
 
+	List<Producto> consultarDistintosNombres(final TipoProducto tipoProducto, final String partNombre,
+			final Integer offset, final Integer limit);
+
+	List<Producto> consultarPorNombre(final String nombre);
+
 }

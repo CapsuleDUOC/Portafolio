@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.07.05 a las 06:53:11 PM CLT 
+// Generado el: 2023.07.06 a las 12:13:46 AM CLT 
 //
 
 
@@ -474,6 +474,22 @@ public class ObjectFactory {
      */
     public PedidoType createPedidoType() {
         return new PedidoType();
+    }
+
+    /**
+     * Create an instance of {@link ResumenProductoType }
+     * 
+     */
+    public ResumenProductoType createResumenProductoType() {
+        return new ResumenProductoType();
+    }
+
+    /**
+     * Create an instance of {@link LocatarioPrecioType }
+     * 
+     */
+    public LocatarioPrecioType createLocatarioPrecioType() {
+        return new LocatarioPrecioType();
     }
 
 }

@@ -2,12 +2,14 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.07.05 a las 06:53:11 PM CLT 
+// Generado el: 2023.07.06 a las 12:13:46 AM CLT 
 //
 
 
 package cl.duoc.portafolio.dto.v10.feriavirtual;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -24,8 +26,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="producto" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}ProductoType"/&gt;
- *         &lt;element name="locatario" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}UsuarioType"/&gt;
+ *         &lt;element name="producto" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}ResumenProductoType"/&gt;
+ *         &lt;element name="locatarios" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}LocatarioPrecioType" maxOccurs="unbounded"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,24 +39,24 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ProductoLocatarioType", propOrder = {
     "producto",
-    "locatario"
+    "locatarios"
 })
 public class ProductoLocatarioType {
 
     @XmlElement(required = true)
-    protected ProductoType producto;
+    protected ResumenProductoType producto;
     @XmlElement(required = true)
-    protected UsuarioType locatario;
+    protected List<LocatarioPrecioType> locatarios;
 
     /**
      * Obtiene el valor de la propiedad producto.
      * 
      * @return
      *     possible object is
-     *     {@link ProductoType }
+     *     {@link ResumenProductoType }
      *     
      */
-    public ProductoType getProducto() {
+    public ResumenProductoType getProducto() {
         return producto;
     }
 
@@ -63,35 +65,40 @@ public class ProductoLocatarioType {
      * 
      * @param value
      *     allowed object is
-     *     {@link ProductoType }
+     *     {@link ResumenProductoType }
      *     
      */
-    public void setProducto(ProductoType value) {
+    public void setProducto(ResumenProductoType value) {
         this.producto = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad locatario.
+     * Gets the value of the locatarios property.
      * 
-     * @return
-     *     possible object is
-     *     {@link UsuarioType }
-     *     
-     */
-    public UsuarioType getLocatario() {
-        return locatario;
-    }
-
-    /**
-     * Define el valor de la propiedad locatario.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the locatarios property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link UsuarioType }
-     *     
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getLocatarios().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link LocatarioPrecioType }
+     * 
+     * 
      */
-    public void setLocatario(UsuarioType value) {
-        this.locatario = value;
+    public List<LocatarioPrecioType> getLocatarios() {
+        if (locatarios == null) {
+            locatarios = new ArrayList<LocatarioPrecioType>();
+        }
+        return this.locatarios;
     }
 
 }

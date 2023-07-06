@@ -2,6 +2,7 @@ package cl.duoc.portafolio.feriavirtual.service.impl;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -132,6 +133,46 @@ public class ProductoServiceImpl implements ProductoService {
 	}
 
 	@Override
+	public List<Producto> consultarDistintosNombres(TipoProducto tipoProducto, String partNombre, Integer offset,
+			Integer limit) {
+
+		List<String> nombres;
+		if (partNombre != null)
+			nombres = Collections.singletonList(partNombre);
+		else
+			nombres = productoRepository.findDistinctNombre();
+
+		List<Producto> productos = new ArrayList<>();
+		for (String nombre : nombres) {
+			if (tipoProducto == null) {
+
+				Optional<Producto> _producto = productoRepository.findFirstByNombreContaining(nombre);
+
+				if (_producto.isPresent())
+					productos.add(_producto.get());
+
+			} else {
+
+				Optional<Producto> _producto = productoRepository.findFirstByNombreContainingAndTipo(nombre,
+						tipoProducto);
+				if (_producto.isPresent())
+					productos.add(_producto.get());
+			}
+		}
+
+		return productos;
+	}
+
+	@Override
+	public List<Producto> consultarPorNombre(String nombre) {
+
+		List<SearchCriteria> params = new ArrayList<>();
+		params.add(new SearchCriteria("nombre", null, SearchCriteria.OPERATION.like, nombre, null));
+
+		return productoDAO.search(params, PageRequest.of(0, 500));
+	}
+
+	@Override
 	public Producto obtener(Usuario usuario, String codigo) {
 
 		Optional<Producto> _producto = productoRepository.findByUsuarioAndCodigo(usuario, codigo);
@@ -142,11 +183,10 @@ public class ProductoServiceImpl implements ProductoService {
 
 	@Override
 	public Producto obtener(Long productoID) {
-		
+
 		Optional<Producto> _producto = productoRepository.findById(productoID);
 		Assert.isTrue(_producto.isPresent(), "No existe producto ID [" + productoID + "]");
 
 		return _producto.get();
 	}
-
 }
