@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.07.06 a las 12:24:52 AM CLT 
+// Generado el: 2023.07.06 a las 11:32:24 PM CLT 
 //
 
 
@@ -27,6 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="productoID" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="cantidad" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *         &lt;element name="operacion" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}TipoOperacionCarrito"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -39,12 +40,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "productoID",
+    "cantidad",
     "operacion"
 })
 @XmlRootElement(name = "InputCarritoProductoActualizar")
 public class InputCarritoProductoActualizar {
 
     protected long productoID;
+    protected long cantidad;
     @XmlElement(required = true)
     @XmlSchemaType(name = "string")
     protected TipoOperacionCarrito operacion;
@@ -63,6 +66,22 @@ public class InputCarritoProductoActualizar {
      */
     public void setProductoID(long value) {
         this.productoID = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad cantidad.
+     * 
+     */
+    public long getCantidad() {
+        return cantidad;
+    }
+
+    /**
+     * Define el valor de la propiedad cantidad.
+     * 
+     */
+    public void setCantidad(long value) {
+        this.cantidad = value;
     }
 
     /**

@@ -11,22 +11,23 @@ package cl.duoc.portafolio.dto.v10.feriavirtual;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para ResumenProductoType complex type.
+ * <p>Clase Java para anonymous complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="ResumenProductoType"&gt;
+ * &lt;complexType&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="tipo" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}TipoProducto"/&gt;
+ *         &lt;element name="identificacion" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="tipoUsuario" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}TipoUsuario"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,64 +37,65 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ResumenProductoType", propOrder = {
-    "nombre",
-    "tipo"
+@XmlType(name = "", propOrder = {
+    "identificacion",
+    "tipoUsuario"
 })
-public class ResumenProductoType {
+@XmlRootElement(name = "OutputAuthLogin")
+public class OutputAuthLogin {
 
     @XmlElement(required = true)
-    protected String nombre;
+    protected String identificacion;
     @XmlElement(required = true)
     @XmlSchemaType(name = "string")
-    protected TipoProducto tipo;
+    protected TipoUsuario tipoUsuario;
 
     /**
-     * Obtiene el valor de la propiedad nombre.
+     * Obtiene el valor de la propiedad identificacion.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getNombre() {
-        return nombre;
+    public String getIdentificacion() {
+        return identificacion;
     }
 
     /**
-     * Define el valor de la propiedad nombre.
+     * Define el valor de la propiedad identificacion.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setNombre(String value) {
-        this.nombre = value;
+    public void setIdentificacion(String value) {
+        this.identificacion = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad tipo.
+     * Obtiene el valor de la propiedad tipoUsuario.
      * 
      * @return
      *     possible object is
-     *     {@link TipoProducto }
+     *     {@link TipoUsuario }
      *     
      */
-    public TipoProducto getTipo() {
-        return tipo;
+    public TipoUsuario getTipoUsuario() {
+        return tipoUsuario;
     }
 
     /**
-     * Define el valor de la propiedad tipo.
+     * Define el valor de la propiedad tipoUsuario.
      * 
      * @param value
      *     allowed object is
-     *     {@link TipoProducto }
+     *     {@link TipoUsuario }
      *     
      */
-    public void setTipo(TipoProducto value) {
-        this.tipo = value;
+    public void setTipoUsuario(TipoUsuario value) {
+        this.tipoUsuario = value;
     }
 
 }

@@ -733,7 +733,11 @@
     			<element name="productoID" type="long" maxOccurs="1"
     				minOccurs="1">
     			</element>
-    			<element name="operacion" type="tns:TipoOperacionCarrito" maxOccurs="1" minOccurs="1"></element>
+    			<element name="cantidad" type="long" maxOccurs="1" minOccurs="1"></element>
+    			<element name="operacion"
+    				type="tns:TipoOperacionCarrito" maxOccurs="1" minOccurs="1">
+    			</element>
+
     		</sequence>
     	</complexType>
     </element>
@@ -789,4 +793,15 @@
 
     	</sequence>
     </complexType>
+
+    <element name="OutputAuthLogin">
+    	<complexType>
+    		<sequence>
+    			<element name="identificacion" type="string"
+    				maxOccurs="1" minOccurs="1">
+    			</element>
+    			<element name="tipoUsuario" type="tns:TipoUsuario" maxOccurs="1" minOccurs="1"></element>
+    		</sequence>
+    	</complexType>
+    </element>
 </schema>

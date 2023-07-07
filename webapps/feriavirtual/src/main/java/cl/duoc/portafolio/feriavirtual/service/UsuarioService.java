@@ -16,6 +16,8 @@ public interface UsuarioService {
 	Usuario obtener(final Long id);
 
 	Usuario obtener(final String identificacion);
+	
+	Usuario obtenerPorEmail (final String email);
 
 	String authenticate(final String username, final String password);
 

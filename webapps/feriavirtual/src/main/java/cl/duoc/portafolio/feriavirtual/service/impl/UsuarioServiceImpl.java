@@ -163,6 +163,14 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 		return _usuario.get();
 	}
+	
+	@Override
+	public Usuario obtenerPorEmail(String email) {
+		Optional<UsuarioAuth> _auth = usuarioAuthRepository.findByEmail(email);
+		Assert.isTrue(_auth.isPresent(), "No existe usuario");
+
+		return _auth.get().getUsuario();
+	}
 
 	@Override
 	public List<Usuario> consultar(final String nombre, final TipoIdentificacion tipoIdentificacion,
