@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -17,11 +18,13 @@ import cl.duoc.portafolio.feriavirtual.domain.Direccion;
 import cl.duoc.portafolio.feriavirtual.domain.Dte;
 import cl.duoc.portafolio.feriavirtual.domain.Usuario;
 import cl.duoc.portafolio.feriavirtual.domain.Venta;
+import cl.duoc.portafolio.feriavirtual.repository.IVentaDAO;
 import cl.duoc.portafolio.feriavirtual.repository.VentaRepository;
 import cl.duoc.portafolio.feriavirtual.service.DireccionService;
 import cl.duoc.portafolio.feriavirtual.service.DteService;
 import cl.duoc.portafolio.feriavirtual.service.PedidoService;
 import cl.duoc.portafolio.feriavirtual.service.VentaService;
+import cl.duoc.portafolio.feriavirtual.util.SearchCriteria;
 
 @Service
 public class VentaServiceImpl implements VentaService {
@@ -30,14 +33,16 @@ public class VentaServiceImpl implements VentaService {
 	private DireccionService direccionService;
 	private PedidoService pedidoService;
 	private DteService dteService;
+	private IVentaDAO ventaDAO;
 
 	@Autowired
 	public VentaServiceImpl(final VentaRepository ventaRepository, final DireccionService direccionService,
-			final PedidoService pedidoService, final DteService dteService) {
+			final PedidoService pedidoService, final DteService dteService, final IVentaDAO ventaDAO) {
 		this.ventaRepository = ventaRepository;
 		this.direccionService = direccionService;
 		this.pedidoService = pedidoService;
 		this.dteService = dteService;
+		this.ventaDAO = ventaDAO;
 	}
 
 	@Override
@@ -79,5 +84,29 @@ public class VentaServiceImpl implements VentaService {
 		}
 
 		return ventas.get(0);
+	}
+
+	@Override
+	public List<Venta> consultar(Usuario locatario, Usuario cliente, EstadoVenta estado, LocalDate fechaDesde,
+			LocalDate fechaHasta, Integer offset, Integer limit) {
+
+		List<SearchCriteria> params = new ArrayList<>();
+		if (locatario != null)
+			params.add(new SearchCriteria("locatario", null, SearchCriteria.OPERATION.equal, locatario, null));
+		if (cliente != null)
+			params.add(new SearchCriteria("cliente", null, SearchCriteria.OPERATION.equal, cliente, null));
+		if (estado != null)
+			params.add(new SearchCriteria("estado", null, SearchCriteria.OPERATION.equal, estado, null));
+		if (fechaDesde != null && fechaHasta == null)
+			fechaHasta = fechaDesde;
+		if (fechaHasta != null && fechaDesde == null)
+			fechaDesde = fechaHasta;
+		if (fechaDesde != null) {
+			Assert.isTrue(fechaDesde.isBefore(fechaHasta) || fechaDesde.isEqual(fechaHasta),
+					"La fecha de inicio debe ser menor a la fecha fin");
+			params.add(new SearchCriteria("fecha", null, SearchCriteria.OPERATION.between, fechaDesde, fechaHasta));
+		}
+
+		return ventaDAO.search(params, PageRequest.of(offset, limit));
 	}
 }

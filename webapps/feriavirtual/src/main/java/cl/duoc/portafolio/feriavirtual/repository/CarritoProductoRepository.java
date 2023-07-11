@@ -1,4 +1,4 @@
-package cl.duoc.portafolio.feriavirtual.service.impl;
+package cl.duoc.portafolio.feriavirtual.repository;
 
 import org.springframework.data.repository.CrudRepository;
 

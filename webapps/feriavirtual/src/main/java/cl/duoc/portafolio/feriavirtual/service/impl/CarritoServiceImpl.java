@@ -16,6 +16,7 @@ import cl.duoc.portafolio.feriavirtual.domain.Carrito;
 import cl.duoc.portafolio.feriavirtual.domain.CarritoProducto;
 import cl.duoc.portafolio.feriavirtual.domain.Producto;
 import cl.duoc.portafolio.feriavirtual.domain.Usuario;
+import cl.duoc.portafolio.feriavirtual.repository.CarritoProductoRepository;
 import cl.duoc.portafolio.feriavirtual.repository.CarritoRepository;
 import cl.duoc.portafolio.feriavirtual.service.CarritoService;
 import cl.duoc.portafolio.feriavirtual.service.ProductoService;
