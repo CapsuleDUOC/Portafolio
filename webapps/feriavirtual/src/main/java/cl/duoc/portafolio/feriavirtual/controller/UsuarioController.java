@@ -54,7 +54,7 @@ public class UsuarioController {
 
 	@GetMapping
 	ResponseEntity<OutputUsuarioObtener> obtener(
-			@PathVariable(name = "identificacion") final String usuarioIdentificacion) {
+			@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion) {
 		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
 
 		final OutputUsuarioObtener outputDTO = new OutputUsuarioObtener();
@@ -125,7 +125,7 @@ public class UsuarioController {
 	}
 
 	@PostMapping
-	ResponseEntity<Boolean> actualizar(@PathVariable(name = "identificacion") final String usuarioIdentificacion,
+	ResponseEntity<Boolean> actualizar(@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion,
 			@RequestBody InputUsuarioActualizar inputDTO) {
 
 		JAXBUtil.validarSchema(InputUsuarioActualizar.class, inputDTO);
@@ -151,7 +151,7 @@ public class UsuarioController {
 
 	@GetMapping("/bitacora")
 	ResponseEntity<OutputBitacoraConsultar> consultarBitacora(
-			@PathVariable(name = "identificacion") final String usuarioIdentificacion) {
+			@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion) {
 
 		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
 		final List<UsuarioBitacora> bitacoras = usuarioService.consultarBitacora(usuario);
