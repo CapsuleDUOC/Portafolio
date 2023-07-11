@@ -203,27 +203,39 @@
 
     <complexType name="VentaType">
     	<sequence>
-    		<element name="ID" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="ID" type="long" maxOccurs="1" minOccurs="0"></element>
     		<element name="locatario" type="tns:UsuarioType" maxOccurs="1" minOccurs="1"></element>
     		<element name="cliente" type="tns:UsuarioType" maxOccurs="1" minOccurs="1"></element>
     		<element name="pedido" type="tns:PedidoType" maxOccurs="1" minOccurs="0"></element>
     		<element name="monto" type="long" maxOccurs="1" minOccurs="1"></element>
-    		<element name="fecha" type="date" maxOccurs="1" minOccurs="1"></element>
-    		<element name="hora" type="time" maxOccurs="1" minOccurs="1"></element>
+    		<element name="registroInstante" type="dateTime" maxOccurs="1" minOccurs="1"></element>
     	</sequence>
     </complexType>
     
     <complexType name="PedidoType">
     	<sequence>
-    		<element name="ID" type="string" maxOccurs="1" minOccurs="0"></element>
-    		<element name="despachador" type="tns:UsuarioType" maxOccurs="1" minOccurs="0"></element>
-    		<element name="direccionOrigen" type="tns:DireccionType" maxOccurs="1" minOccurs="1"></element>
-    		<element name="direccionDestino" type="tns:DireccionType" maxOccurs="1" minOccurs="1"></element>
-    		<element name="montoDespacho" type="long" maxOccurs="1" minOccurs="1"></element>
-    		<element name="cantidad" type="long" maxOccurs="1" minOccurs="1"></element>
-    		<element name="unidadMedida" type="tns:UnidadMedida" maxOccurs="1" minOccurs="1"></element>
-    		<element name="fecha" type="date" maxOccurs="1" minOccurs="1"></element>
-    		<element name="hora" type="time" maxOccurs="1" minOccurs="1"></element>
+    		<element name="ID" type="long" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="despachador" type="tns:UsuarioType"
+    			maxOccurs="1" minOccurs="0">
+    		</element>
+    		<element name="estado" type="tns:EstadoPedido" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="patenteVehiculo" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="direccionOrigen" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="direccionDestino" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="montoDespacho" type="long" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="registroInstante" type="dateTime"
+    			maxOccurs="1" minOccurs="1">
+    		</element>
     	</sequence>
     </complexType>
 
@@ -289,24 +301,6 @@
     	</complexType>
     </element>
 
-    <element name="InputUsuarioActualizar">
-    	<complexType>
-    		<complexContent>
-    			<extension base="tns:UsuarioType">
-    				<sequence>
-    					<element name="direcciones"
-    						type="tns:DireccionType" maxOccurs="unbounded"
-    						minOccurs="0">
-    					</element>
-    					<element name="vehiculos"
-    						type="tns:VehiculoType" maxOccurs="unbounded" minOccurs="0">
-    					</element>
-    					<element name="propiedades" type="tns:PropiedadType" maxOccurs="unbounded" minOccurs="0"></element>
-    				</sequence>
-    			</extension>
-    		</complexContent>
-    	</complexType>
-    </element>
 
     <element name="OutputUsuarioConsultar">
     	<complexType>
@@ -804,4 +798,49 @@
     		</sequence>
     	</complexType>
     </element>
+
+    <element name="InputUsuarioActualizar">
+    	<complexType>
+    		<sequence>
+    			<element name="nombre" type="string" maxOccurs="1" minOccurs="0"></element>
+    			<element name="telefono" type="string" maxOccurs="1" minOccurs="0"></element>
+    			<element name="propiedades" type="tns:PropiedadType" maxOccurs="unbounded" minOccurs="0"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <element name="InputVentaCrear">
+    	<complexType>
+    		<sequence>
+    			<element name="carritoID" type="long" maxOccurs="1"
+    				minOccurs="1">
+    			</element>
+    			<element name="direccionID" type="long" maxOccurs="1" minOccurs="1"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+    
+    <element name="OutputVentaCrear">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:VentaType"></extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <simpleType name="EstadoVenta">
+    	<restriction base="string">
+    		<enumeration value="GENERADA"></enumeration>
+    		<enumeration value="EN_DEPACHO"></enumeration>
+    		<enumeration value="FINALIZADA"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <simpleType name="EstadoPedido">
+    	<restriction base="string">
+    		<enumeration value="ACEPTADO"></enumeration>
+    		<enumeration value="RECHAZADO"></enumeration>
+    		<enumeration value="ENTREGADO"></enumeration>
+    	</restriction>
+    </simpleType>
 </schema>

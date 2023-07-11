@@ -2,21 +2,20 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.07.06 a las 11:32:24 PM CLT 
+// Generado el: 2023.07.10 a las 10:09:47 PM CLT 
 //
 
 
 package cl.duoc.portafolio.dto.v10.feriavirtual;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import javax.xml.datatype.XMLGregorianCalendar;
-import org.w3._2001.xmlschema.Adapter2;
+import org.w3._2001.xmlschema.Adapter1;
 
 
 /**
@@ -29,15 +28,14 @@ import org.w3._2001.xmlschema.Adapter2;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="ID" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="ID" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
  *         &lt;element name="despachador" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}UsuarioType" minOccurs="0"/&gt;
- *         &lt;element name="direccionOrigen" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}DireccionType"/&gt;
- *         &lt;element name="direccionDestino" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}DireccionType"/&gt;
+ *         &lt;element name="estado" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}EstadoPedido" minOccurs="0"/&gt;
+ *         &lt;element name="patenteVehiculo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="direccionOrigen" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="direccionDestino" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="montoDespacho" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
- *         &lt;element name="cantidad" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
- *         &lt;element name="unidadMedida" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}UnidadMedida"/&gt;
- *         &lt;element name="fecha" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
- *         &lt;element name="hora" type="{http://www.w3.org/2001/XMLSchema}time"/&gt;
+ *         &lt;element name="registroInstante" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -50,45 +48,40 @@ import org.w3._2001.xmlschema.Adapter2;
 @XmlType(name = "PedidoType", propOrder = {
     "id",
     "despachador",
+    "estado",
+    "patenteVehiculo",
     "direccionOrigen",
     "direccionDestino",
     "montoDespacho",
-    "cantidad",
-    "unidadMedida",
-    "fecha",
-    "hora"
+    "registroInstante"
 })
 public class PedidoType {
 
     @XmlElement(name = "ID")
-    protected String id;
+    protected Long id;
     protected UsuarioType despachador;
-    @XmlElement(required = true)
-    protected DireccionType direccionOrigen;
-    @XmlElement(required = true)
-    protected DireccionType direccionDestino;
-    protected long montoDespacho;
-    protected long cantidad;
-    @XmlElement(required = true)
     @XmlSchemaType(name = "string")
-    protected UnidadMedida unidadMedida;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter2 .class)
-    @XmlSchemaType(name = "date")
-    protected LocalDate fecha;
+    protected EstadoPedido estado;
+    protected String patenteVehiculo;
     @XmlElement(required = true)
-    @XmlSchemaType(name = "time")
-    protected XMLGregorianCalendar hora;
+    protected String direccionOrigen;
+    @XmlElement(required = true)
+    protected String direccionDestino;
+    protected long montoDespacho;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "dateTime")
+    protected LocalDateTime registroInstante;
 
     /**
      * Obtiene el valor de la propiedad id.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Long }
      *     
      */
-    public String getID() {
+    public Long getID() {
         return id;
     }
 
@@ -97,10 +90,10 @@ public class PedidoType {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Long }
      *     
      */
-    public void setID(String value) {
+    public void setID(Long value) {
         this.id = value;
     }
 
@@ -129,14 +122,62 @@ public class PedidoType {
     }
 
     /**
+     * Obtiene el valor de la propiedad estado.
+     * 
+     * @return
+     *     possible object is
+     *     {@link EstadoPedido }
+     *     
+     */
+    public EstadoPedido getEstado() {
+        return estado;
+    }
+
+    /**
+     * Define el valor de la propiedad estado.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link EstadoPedido }
+     *     
+     */
+    public void setEstado(EstadoPedido value) {
+        this.estado = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad patenteVehiculo.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPatenteVehiculo() {
+        return patenteVehiculo;
+    }
+
+    /**
+     * Define el valor de la propiedad patenteVehiculo.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPatenteVehiculo(String value) {
+        this.patenteVehiculo = value;
+    }
+
+    /**
      * Obtiene el valor de la propiedad direccionOrigen.
      * 
      * @return
      *     possible object is
-     *     {@link DireccionType }
+     *     {@link String }
      *     
      */
-    public DireccionType getDireccionOrigen() {
+    public String getDireccionOrigen() {
         return direccionOrigen;
     }
 
@@ -145,10 +186,10 @@ public class PedidoType {
      * 
      * @param value
      *     allowed object is
-     *     {@link DireccionType }
+     *     {@link String }
      *     
      */
-    public void setDireccionOrigen(DireccionType value) {
+    public void setDireccionOrigen(String value) {
         this.direccionOrigen = value;
     }
 
@@ -157,10 +198,10 @@ public class PedidoType {
      * 
      * @return
      *     possible object is
-     *     {@link DireccionType }
+     *     {@link String }
      *     
      */
-    public DireccionType getDireccionDestino() {
+    public String getDireccionDestino() {
         return direccionDestino;
     }
 
@@ -169,10 +210,10 @@ public class PedidoType {
      * 
      * @param value
      *     allowed object is
-     *     {@link DireccionType }
+     *     {@link String }
      *     
      */
-    public void setDireccionDestino(DireccionType value) {
+    public void setDireccionDestino(String value) {
         this.direccionDestino = value;
     }
 
@@ -193,91 +234,27 @@ public class PedidoType {
     }
 
     /**
-     * Obtiene el valor de la propiedad cantidad.
-     * 
-     */
-    public long getCantidad() {
-        return cantidad;
-    }
-
-    /**
-     * Define el valor de la propiedad cantidad.
-     * 
-     */
-    public void setCantidad(long value) {
-        this.cantidad = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad unidadMedida.
-     * 
-     * @return
-     *     possible object is
-     *     {@link UnidadMedida }
-     *     
-     */
-    public UnidadMedida getUnidadMedida() {
-        return unidadMedida;
-    }
-
-    /**
-     * Define el valor de la propiedad unidadMedida.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link UnidadMedida }
-     *     
-     */
-    public void setUnidadMedida(UnidadMedida value) {
-        this.unidadMedida = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad fecha.
+     * Obtiene el valor de la propiedad registroInstante.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDateTime getRegistroInstante() {
+        return registroInstante;
     }
 
     /**
-     * Define el valor de la propiedad fecha.
+     * Define el valor de la propiedad registroInstante.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setFecha(LocalDate value) {
-        this.fecha = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad hora.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getHora() {
-        return hora;
-    }
-
-    /**
-     * Define el valor de la propiedad hora.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setHora(XMLGregorianCalendar value) {
-        this.hora = value;
+    public void setRegistroInstante(LocalDateTime value) {
+        this.registroInstante = value;
     }
 
 }

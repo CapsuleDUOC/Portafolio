@@ -5,7 +5,7 @@
 Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 Visite https://eclipse-ee4j.github.io/jaxb-ri 
 Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-Generado el: 2023.07.06 a las 11:32:24 PM CLT 
+Generado el: 2023.07.10 a las 10:09:47 PM CLT 
 
   -->
   <bindings xmlns:tns="http://duoc.cl/portafolio/dto/v10/FeriaVirtual" if-exists="true" scd="x-schema::tns">
@@ -24,8 +24,11 @@ Generado el: 2023.07.06 a las 11:32:24 PM CLT
     <bindings if-exists="true" scd="tns:OutputAuthCrear">
       <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputAuthCrear"/>
     </bindings>
-    <bindings if-exists="true" scd="tns:InputUsuarioActualizar">
-      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputUsuarioActualizar"/>
+    <bindings if-exists="true" scd="tns:OutputUsuarioConsultar">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputUsuarioConsultar"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputUsuarioObtener">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputUsuarioObtener"/>
     </bindings>
     <bindings if-exists="true" scd="~tns:DireccionType">
       <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.DireccionType"/>
@@ -35,12 +38,6 @@ Generado el: 2023.07.06 a las 11:32:24 PM CLT
     </bindings>
     <bindings if-exists="true" scd="~tns:PropiedadType">
       <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.PropiedadType"/>
-    </bindings>
-    <bindings if-exists="true" scd="tns:OutputUsuarioConsultar">
-      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputUsuarioConsultar"/>
-    </bindings>
-    <bindings if-exists="true" scd="tns:OutputUsuarioObtener">
-      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputUsuarioObtener"/>
     </bindings>
     <bindings if-exists="true" scd="~tns:ArchivoUsuarioType">
       <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.ArchivoUsuarioType"/>
@@ -165,6 +162,21 @@ Generado el: 2023.07.06 a las 11:32:24 PM CLT
     <bindings if-exists="true" scd="tns:OutputAuthLogin">
       <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputAuthLogin"/>
     </bindings>
+    <bindings if-exists="true" scd="tns:InputUsuarioActualizar">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputUsuarioActualizar"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:InputVentaCrear">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.InputVentaCrear"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:OutputVentaCrear">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OutputVentaCrear"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:VentaType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.VentaType"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:PedidoType">
+      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.PedidoType"/>
+    </bindings>
     <bindings if-exists="true" scd="~tns:ComisionType">
       <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.ComisionType"/>
     </bindings>
@@ -173,12 +185,6 @@ Generado el: 2023.07.06 a las 11:32:24 PM CLT
     </bindings>
     <bindings if-exists="true" scd="~tns:OperacionType">
       <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.OperacionType"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:VentaType">
-      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.VentaType"/>
-    </bindings>
-    <bindings if-exists="true" scd="~tns:PedidoType">
-      <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.PedidoType"/>
     </bindings>
     <bindings if-exists="true" scd="~tns:ResumenProductoType">
       <class ref="cl.duoc.portafolio.dto.v10.feriavirtual.ResumenProductoType"/>
@@ -236,6 +242,12 @@ Generado el: 2023.07.06 a las 11:32:24 PM CLT
     </bindings>
     <bindings if-exists="true" scd="~tns:FormaPago">
       <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.FormaPago"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:EstadoVenta">
+      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.EstadoVenta"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:EstadoPedido">
+      <typesafeEnumClass ref="cl.duoc.portafolio.dto.v10.feriavirtual.EstadoPedido"/>
     </bindings>
   </bindings>
 </bindings>

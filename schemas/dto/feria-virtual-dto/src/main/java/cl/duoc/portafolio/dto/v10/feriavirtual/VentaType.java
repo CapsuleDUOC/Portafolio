@@ -2,21 +2,21 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.07.06 a las 11:32:24 PM CLT 
+// Generado el: 2023.07.10 a las 10:09:47 PM CLT 
 //
 
 
 package cl.duoc.portafolio.dto.v10.feriavirtual;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import javax.xml.datatype.XMLGregorianCalendar;
-import org.w3._2001.xmlschema.Adapter2;
+import org.w3._2001.xmlschema.Adapter1;
 
 
 /**
@@ -29,13 +29,12 @@ import org.w3._2001.xmlschema.Adapter2;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="ID" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="ID" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
  *         &lt;element name="locatario" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}UsuarioType"/&gt;
  *         &lt;element name="cliente" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}UsuarioType"/&gt;
  *         &lt;element name="pedido" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}PedidoType" minOccurs="0"/&gt;
  *         &lt;element name="monto" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
- *         &lt;element name="fecha" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
- *         &lt;element name="hora" type="{http://www.w3.org/2001/XMLSchema}time"/&gt;
+ *         &lt;element name="registroInstante" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -51,13 +50,15 @@ import org.w3._2001.xmlschema.Adapter2;
     "cliente",
     "pedido",
     "monto",
-    "fecha",
-    "hora"
+    "registroInstante"
+})
+@XmlSeeAlso({
+    OutputVentaCrear.class
 })
 public class VentaType {
 
     @XmlElement(name = "ID")
-    protected String id;
+    protected Long id;
     @XmlElement(required = true)
     protected UsuarioType locatario;
     @XmlElement(required = true)
@@ -65,22 +66,19 @@ public class VentaType {
     protected PedidoType pedido;
     protected long monto;
     @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter2 .class)
-    @XmlSchemaType(name = "date")
-    protected LocalDate fecha;
-    @XmlElement(required = true)
-    @XmlSchemaType(name = "time")
-    protected XMLGregorianCalendar hora;
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "dateTime")
+    protected LocalDateTime registroInstante;
 
     /**
      * Obtiene el valor de la propiedad id.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Long }
      *     
      */
-    public String getID() {
+    public Long getID() {
         return id;
     }
 
@@ -89,10 +87,10 @@ public class VentaType {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Long }
      *     
      */
-    public void setID(String value) {
+    public void setID(Long value) {
         this.id = value;
     }
 
@@ -185,51 +183,27 @@ public class VentaType {
     }
 
     /**
-     * Obtiene el valor de la propiedad fecha.
+     * Obtiene el valor de la propiedad registroInstante.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDateTime getRegistroInstante() {
+        return registroInstante;
     }
 
     /**
-     * Define el valor de la propiedad fecha.
+     * Define el valor de la propiedad registroInstante.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setFecha(LocalDate value) {
-        this.fecha = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad hora.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getHora() {
-        return hora;
-    }
-
-    /**
-     * Define el valor de la propiedad hora.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setHora(XMLGregorianCalendar value) {
-        this.hora = value;
+    public void setRegistroInstante(LocalDateTime value) {
+        this.registroInstante = value;
     }
 
 }

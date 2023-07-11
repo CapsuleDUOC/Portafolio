@@ -49,22 +49,17 @@ public class UsuarioServiceImpl implements UsuarioService {
 	private UsuarioAuthRepository usuarioAuthRepository;
 	private UsuarioBitacoraRepository bitacoraRepository;
 	private IUsuarioDAO usuarioDAO;
-	private DireccionService direccionService;
-	private VehiculoService vehiculoService;
 
 	@Value("${jwt.secret}")
 	private String jwtSecret;
 
 	public UsuarioServiceImpl(final UsuarioRepository usuarioRepository,
 			final UsuarioAuthRepository usuarioAuthRepository, final UsuarioBitacoraRepository bitacoraRepository,
-			final IUsuarioDAO usuarioDAO, final DireccionService direccionService,
-			final VehiculoService vehiculoService) {
+			final IUsuarioDAO usuarioDAO) {
 		this.usuarioRepository = usuarioRepository;
 		this.usuarioAuthRepository = usuarioAuthRepository;
 		this.bitacoraRepository = bitacoraRepository;
 		this.usuarioDAO = usuarioDAO;
-		this.direccionService = direccionService;
-		this.vehiculoService = vehiculoService;
 	}
 
 	@Override
@@ -198,9 +193,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Override
 	public Boolean actualizar(Usuario usuario, InputUsuarioActualizar inputDTO) {
 
-		log.info("ID: " + usuario.getId());
-
-		usuario.setEstado(inputDTO.getEstado());
 		usuario.setNombre(inputDTO.getNombre());
 		usuario.setTelefono(inputDTO.getTelefono());
 
@@ -208,19 +200,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 			usuario.getPropiedades().put(propiedadType.getLlave(), propiedadType.getValor());
 
 		usuario = usuarioRepository.save(usuario);
-
-		for (Direccion direccion : direccionService.consultar(usuario, null, null, null, 0, 100))
-			direccionService.eliminar(usuario, direccion);
-
-		for (DireccionType direccionType : inputDTO.getDirecciones())
-			direccionService.crear(usuario, direccionType);
-
-		for (Vehiculo vehiculo : vehiculoService.consultar(usuario, null, null, null, null, null, 0, 100))
-			vehiculoService.eliminar(usuario, vehiculo);
-
-		for (VehiculoType vehiculoType : inputDTO.getVehiculos()) {
-			vehiculoService.crear(usuario, vehiculoType);
-		}
 
 		return true;
 	}

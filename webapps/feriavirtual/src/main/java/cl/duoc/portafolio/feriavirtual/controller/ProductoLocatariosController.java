@@ -2,7 +2,7 @@ package cl.duoc.portafolio.feriavirtual.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;import org.springframework.data.repository.util.ReactiveWrappers.ReactiveLibrary;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,6 @@ import cl.duoc.portafolio.dto.v10.feriavirtual.OutputProductoLocatariosConsultar
 import cl.duoc.portafolio.dto.v10.feriavirtual.ProductoLocatarioType;
 import cl.duoc.portafolio.dto.v10.feriavirtual.ResumenProductoType;
 import cl.duoc.portafolio.dto.v10.feriavirtual.TipoProducto;
-import cl.duoc.portafolio.dto.v10.feriavirtual.UsuarioType;
 import cl.duoc.portafolio.feriavirtual.domain.Producto;
 import cl.duoc.portafolio.feriavirtual.service.ProductoService;
 

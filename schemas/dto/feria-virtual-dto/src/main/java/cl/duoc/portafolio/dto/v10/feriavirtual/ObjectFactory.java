@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.07.06 a las 11:32:24 PM CLT 
+// Generado el: 2023.07.10 a las 10:09:47 PM CLT 
 //
 
 
@@ -69,11 +69,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link InputUsuarioActualizar }
+     * Create an instance of {@link OutputUsuarioConsultar }
      * 
      */
-    public InputUsuarioActualizar createInputUsuarioActualizar() {
-        return new InputUsuarioActualizar();
+    public OutputUsuarioConsultar createOutputUsuarioConsultar() {
+        return new OutputUsuarioConsultar();
+    }
+
+    /**
+     * Create an instance of {@link OutputUsuarioObtener }
+     * 
+     */
+    public OutputUsuarioObtener createOutputUsuarioObtener() {
+        return new OutputUsuarioObtener();
     }
 
     /**
@@ -98,22 +106,6 @@ public class ObjectFactory {
      */
     public PropiedadType createPropiedadType() {
         return new PropiedadType();
-    }
-
-    /**
-     * Create an instance of {@link OutputUsuarioConsultar }
-     * 
-     */
-    public OutputUsuarioConsultar createOutputUsuarioConsultar() {
-        return new OutputUsuarioConsultar();
-    }
-
-    /**
-     * Create an instance of {@link OutputUsuarioObtener }
-     * 
-     */
-    public OutputUsuarioObtener createOutputUsuarioObtener() {
-        return new OutputUsuarioObtener();
     }
 
     /**
@@ -445,6 +437,46 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link InputUsuarioActualizar }
+     * 
+     */
+    public InputUsuarioActualizar createInputUsuarioActualizar() {
+        return new InputUsuarioActualizar();
+    }
+
+    /**
+     * Create an instance of {@link InputVentaCrear }
+     * 
+     */
+    public InputVentaCrear createInputVentaCrear() {
+        return new InputVentaCrear();
+    }
+
+    /**
+     * Create an instance of {@link OutputVentaCrear }
+     * 
+     */
+    public OutputVentaCrear createOutputVentaCrear() {
+        return new OutputVentaCrear();
+    }
+
+    /**
+     * Create an instance of {@link VentaType }
+     * 
+     */
+    public VentaType createVentaType() {
+        return new VentaType();
+    }
+
+    /**
+     * Create an instance of {@link PedidoType }
+     * 
+     */
+    public PedidoType createPedidoType() {
+        return new PedidoType();
+    }
+
+    /**
      * Create an instance of {@link ComisionType }
      * 
      */
@@ -466,22 +498,6 @@ public class ObjectFactory {
      */
     public OperacionType createOperacionType() {
         return new OperacionType();
-    }
-
-    /**
-     * Create an instance of {@link VentaType }
-     * 
-     */
-    public VentaType createVentaType() {
-        return new VentaType();
-    }
-
-    /**
-     * Create an instance of {@link PedidoType }
-     * 
-     */
-    public PedidoType createPedidoType() {
-        return new PedidoType();
     }
 
     /**
