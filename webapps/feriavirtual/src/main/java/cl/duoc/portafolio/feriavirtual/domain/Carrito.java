@@ -1,7 +1,6 @@
 package cl.duoc.portafolio.feriavirtual.domain;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,9 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import cl.duoc.portafolio.dto.v10.feriavirtual.EstadoCarrito;
 import lombok.Data;
@@ -36,9 +34,7 @@ public class Carrito {
 	
 	private LocalDateTime registroInstante;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-	@JoinTable(name = "carrito_producto", joinColumns = {
-			@JoinColumn(name = "carrito_id", referencedColumnName = "id") }, inverseJoinColumns = {
-					@JoinColumn(name = "producto_id", referencedColumnName = "id") })
-	List<Producto> producto = new ArrayList<>();
+	@OneToMany
+    @JoinColumn(name = "carrito_id")
+    private List<CarritoProducto> carritoProducto;
 }

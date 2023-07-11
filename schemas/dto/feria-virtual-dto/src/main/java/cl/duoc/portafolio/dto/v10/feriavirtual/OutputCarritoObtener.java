@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.07.10 a las 10:47:57 PM CLT 
+// Generado el: 2023.07.11 a las 12:49:46 AM CLT 
 //
 
 
@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;extension base="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}CarritoType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="producto" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}ProductoType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="producto" type="{http://duoc.cl/portafolio/dto/v10/FeriaVirtual}CarritoProductoType" maxOccurs="unbounded" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
@@ -44,7 +44,7 @@ public class OutputCarritoObtener
     extends CarritoType
 {
 
-    protected List<ProductoType> producto;
+    protected List<CarritoProductoType> producto;
 
     /**
      * Gets the value of the producto property.
@@ -64,13 +64,13 @@ public class OutputCarritoObtener
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ProductoType }
+     * {@link CarritoProductoType }
      * 
      * 
      */
-    public List<ProductoType> getProducto() {
+    public List<CarritoProductoType> getProducto() {
         if (producto == null) {
-            producto = new ArrayList<ProductoType>();
+            producto = new ArrayList<CarritoProductoType>();
         }
         return this.producto;
     }

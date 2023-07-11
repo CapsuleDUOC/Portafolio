@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import cl.duoc.portafolio.dto.JAXBUtil;
+import cl.duoc.portafolio.dto.v10.feriavirtual.CarritoProductoType;
 import cl.duoc.portafolio.dto.v10.feriavirtual.CarritoType;
 import cl.duoc.portafolio.dto.v10.feriavirtual.InputCarritoProductoActualizar;
 import cl.duoc.portafolio.dto.v10.feriavirtual.OutputCarritoConsultar;
 import cl.duoc.portafolio.dto.v10.feriavirtual.OutputCarritoObtener;
-import cl.duoc.portafolio.dto.v10.feriavirtual.ProductoType;
 import cl.duoc.portafolio.feriavirtual.domain.Carrito;
+import cl.duoc.portafolio.feriavirtual.domain.CarritoProducto;
 import cl.duoc.portafolio.feriavirtual.domain.Producto;
 import cl.duoc.portafolio.feriavirtual.domain.Usuario;
 import cl.duoc.portafolio.feriavirtual.service.CarritoService;
@@ -46,7 +47,7 @@ public class CarritoController {
 			@PathVariable(name = "usuarioIdentificacion") final String usuarioIdentificacion) {
 
 		final Usuario usuario = usuarioService.obtener(usuarioIdentificacion);
-		final List<Carrito> carritos = carritoService.consultar(usuario);
+		final List<Carrito> carritos = carritoService.consultarPendiente(usuario);
 
 		final OutputCarritoConsultar outputDTO = new OutputCarritoConsultar();
 
@@ -76,22 +77,27 @@ public class CarritoController {
 		outputDTO.setEstado(carrito.getEstado());
 		outputDTO.setRegistroInstante(carrito.getRegistroInstante());
 
-		ProductoType productoType;
-		for (Producto producto : carrito.getProducto()) {
-			productoType = new ProductoType();
-			productoType.setID(producto.getId());
-			productoType.setCodigo(producto.getCodigo());
-			productoType.setTipo(producto.getTipo());
-			productoType.setNombre(producto.getNombre());
-			productoType.setUnidadMedida(producto.getUnidadMedida());
-			productoType.setPrecio(producto.getPrecio());
-			productoType.setEstado(producto.getEstado());
-			productoType.setRegistroInstante(producto.getRegistroInstante());
+		CarritoProductoType carritoProductoType;
+		Producto producto;
+		for (CarritoProducto carritoProducto : carrito.getCarritoProducto()) {
+			
+			producto = carritoProducto.getProducto();
+			
+			carritoProductoType = new CarritoProductoType();
+			carritoProductoType.setID(producto.getId());
+			carritoProductoType.setCodigo(producto.getCodigo());
+			carritoProductoType.setTipo(producto.getTipo());
+			carritoProductoType.setNombre(producto.getNombre());
+			carritoProductoType.setUnidadMedida(producto.getUnidadMedida());
+			carritoProductoType.setPrecio(producto.getPrecio());
+			carritoProductoType.setEstado(producto.getEstado());
+			carritoProductoType.setRegistroInstante(producto.getRegistroInstante());
+			carritoProductoType.setCantidad(carritoProducto.getCantidad());
 
 			if (producto.getArchivoImagen() != null)
-				productoType.setImagen(request.getRequestURI());
+				carritoProductoType.setImagen(request.getRequestURI());
 
-			outputDTO.getProducto().add(productoType);
+			outputDTO.getProducto().add(carritoProductoType);
 		}
 
 		return ResponseEntity.ok(outputDTO);

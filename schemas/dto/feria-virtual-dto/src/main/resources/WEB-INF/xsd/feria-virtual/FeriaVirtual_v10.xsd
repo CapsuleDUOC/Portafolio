@@ -685,6 +685,7 @@
     <simpleType name="EstadoCarrito">
     	<restriction base="string">
     		<enumeration value="PENDIENTE"></enumeration>
+    		<enumeration value="COMPLETADO"></enumeration>
     	</restriction>
     </simpleType>
 
@@ -714,7 +715,7 @@
     		<complexContent>
     			<extension base="tns:CarritoType">
     				<sequence>
-    					<element name="producto" type="tns:ProductoType" maxOccurs="unbounded" minOccurs="0"></element>
+    					<element name="producto" type="tns:CarritoProductoType" maxOccurs="unbounded" minOccurs="0"></element>
     				</sequence>
     			</extension>
     		</complexContent>
@@ -844,4 +845,14 @@
     		<enumeration value="ENTREGADO"></enumeration>    		
     	</restriction>
     </simpleType>
+
+    <complexType name="CarritoProductoType">
+    	<complexContent>
+    		<extension base="tns:ProductoType">
+    			<sequence>
+    				<element name="cantidad" type="double" maxOccurs="1" minOccurs="1"></element>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
 </schema>

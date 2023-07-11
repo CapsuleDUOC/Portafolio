@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.07.10 a las 10:47:57 PM CLT 
+// Generado el: 2023.07.11 a las 12:49:46 AM CLT 
 //
 
 
@@ -59,6 +59,7 @@ import org.w3._2001.xmlschema.Adapter1;
     "imagen"
 })
 @XmlSeeAlso({
+    CarritoProductoType.class,
     OutputProductoObtener.class,
     InputProductoActualizar.class,
     OutputProductoCrear.class,

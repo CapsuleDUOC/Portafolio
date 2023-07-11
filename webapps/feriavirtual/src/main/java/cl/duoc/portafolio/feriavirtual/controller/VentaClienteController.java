@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import cl.duoc.portafolio.dto.JAXBUtil;
+import cl.duoc.portafolio.dto.v10.feriavirtual.EstadoCarrito;
 import cl.duoc.portafolio.dto.v10.feriavirtual.InputVentaCrear;
 import cl.duoc.portafolio.dto.v10.feriavirtual.OutputVentaCrear;
 import cl.duoc.portafolio.dto.v10.feriavirtual.PedidoType;
@@ -53,6 +54,8 @@ public class VentaClienteController {
 		final Direccion direccion = direccionService.obtener(usuario, inputDTO.getDireccionID());
 
 		final Venta venta = ventaService.crear(usuario, carrito, direccion);
+		
+		carritoService.actualizarEstado(usuario, inputDTO.getCarritoID(), EstadoCarrito.COMPLETADO);
 
 		final OutputVentaCrear outputDTO = new OutputVentaCrear();
 
@@ -75,17 +78,22 @@ public class VentaClienteController {
 		cliente.setRegistroInstante(venta.getCliente().getRegistroInstante());
 
 		if (venta.getPedido() != null) {
-
-			final UsuarioType despachador = new UsuarioType();
-			despachador.setID(venta.getPedido().getDespachador().getId());
-			despachador.setTipoIdentificacion(venta.getPedido().getDespachador().getTipoIdentificacion());
-			despachador.setIdentificacion(venta.getPedido().getDespachador().getIdentificacion());
-			despachador.setEstado(venta.getPedido().getDespachador().getEstado());
-			despachador.setNombre(venta.getPedido().getDespachador().getNombre());
-			despachador.setTelefono(venta.getPedido().getDespachador().getTelefono());
-			despachador.setRegistroInstante(venta.getPedido().getDespachador().getRegistroInstante());
-
 			final PedidoType pedido = new PedidoType();
+			
+			if (venta.getPedido().getDespachador() != null) {
+				final UsuarioType despachador = new UsuarioType();
+				despachador.setID(venta.getPedido().getDespachador().getId());
+				despachador.setTipoIdentificacion(venta.getPedido().getDespachador().getTipoIdentificacion());
+				despachador.setIdentificacion(venta.getPedido().getDespachador().getIdentificacion());
+				despachador.setEstado(venta.getPedido().getDespachador().getEstado());
+				despachador.setNombre(venta.getPedido().getDespachador().getNombre());
+				despachador.setTelefono(venta.getPedido().getDespachador().getTelefono());
+				despachador.setRegistroInstante(venta.getPedido().getDespachador().getRegistroInstante());
+				
+				pedido.setDespachador(despachador);
+				
+			}
+			
 			pedido.setID(venta.getPedido().getId());
 			pedido.setEstado(venta.getPedido().getEstado());
 			pedido.setPatenteVehiculo(venta.getPedido().getPatenteVehiculo());

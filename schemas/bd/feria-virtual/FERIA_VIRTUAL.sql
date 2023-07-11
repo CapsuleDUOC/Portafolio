@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : FERIA_VIRTUAL
 -- ===
--- === Build : 95
+-- === Build : 97
 -- ======================================================================
 
 CREATE TABLE archivo
@@ -268,7 +268,7 @@ CREATE TABLE dte
     fecha_emision  date,
     total_neto     bigint        not null,
     total_bruto    bigint        not null,
-    xml            bigint        not null,
+    xml            bigint,
 
     primary key(id),
 
@@ -285,7 +285,7 @@ CREATE INDEX dteIDX1 ON dte(id);
 CREATE TABLE pedido
   (
     id                 bigint         unique not null auto_increment,
-    despachador_id     bigint         not null,
+    despachador_id     bigint,
     estado             varchar(25)    not null,
     patente_vehiculo   varchar(10),
     direccion_origen   varchar(255)   not null,
