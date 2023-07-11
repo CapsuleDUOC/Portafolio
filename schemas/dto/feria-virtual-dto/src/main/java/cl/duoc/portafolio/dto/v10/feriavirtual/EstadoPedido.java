@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v2.3.7 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.07.10 a las 10:09:47 PM CLT 
+// Generado el: 2023.07.10 a las 10:47:57 PM CLT 
 //
 
 
@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;simpleType name="EstadoPedido"&gt;
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *     &lt;enumeration value="GENERADO"/&gt;
  *     &lt;enumeration value="ACEPTADO"/&gt;
  *     &lt;enumeration value="RECHAZADO"/&gt;
  *     &lt;enumeration value="ENTREGADO"/&gt;
@@ -31,6 +32,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum EstadoPedido {
 
+    GENERADO,
     ACEPTADO,
     RECHAZADO,
     ENTREGADO;

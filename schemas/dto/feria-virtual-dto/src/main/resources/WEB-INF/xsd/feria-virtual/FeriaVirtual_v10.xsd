@@ -838,9 +838,10 @@
 
     <simpleType name="EstadoPedido">
     	<restriction base="string">
+    		<enumeration value="GENERADO"></enumeration>
     		<enumeration value="ACEPTADO"></enumeration>
     		<enumeration value="RECHAZADO"></enumeration>
-    		<enumeration value="ENTREGADO"></enumeration>
+    		<enumeration value="ENTREGADO"></enumeration>    		
     	</restriction>
     </simpleType>
 </schema>

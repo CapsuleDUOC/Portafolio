@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : FERIA_VIRTUAL
 -- ===
--- === Build : 90
+-- === Build : 95
 -- ======================================================================
 
 CREATE TABLE archivo
@@ -341,13 +341,19 @@ CREATE INDEX carritoIDX1 ON carrito(id);
 
 CREATE TABLE carrito_producto
   (
+    id           bigint   unique not null auto_increment,
     carrito_id   bigint   not null,
     producto_id  bigint   not null,
+    cantidad     double   not null,
+
+    primary key(id),
 
     foreign key(carrito_id) references carrito(id),
     foreign key(producto_id) references producto(id)
   )
  ENGINE = InnoDB;
+
+CREATE INDEX carrito_productoIDX1 ON carrito_producto(id);
 
 -- ======================================================================
 
