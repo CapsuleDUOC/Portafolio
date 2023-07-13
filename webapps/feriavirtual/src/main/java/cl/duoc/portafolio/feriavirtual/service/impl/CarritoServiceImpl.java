@@ -1,7 +1,7 @@
 package cl.duoc.portafolio.feriavirtual.service.impl;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,7 +16,6 @@ import cl.duoc.portafolio.feriavirtual.domain.Carrito;
 import cl.duoc.portafolio.feriavirtual.domain.CarritoProducto;
 import cl.duoc.portafolio.feriavirtual.domain.Producto;
 import cl.duoc.portafolio.feriavirtual.domain.Usuario;
-import cl.duoc.portafolio.feriavirtual.repository.CarritoProductoRepository;
 import cl.duoc.portafolio.feriavirtual.repository.CarritoRepository;
 import cl.duoc.portafolio.feriavirtual.service.CarritoService;
 import cl.duoc.portafolio.feriavirtual.service.ProductoService;
@@ -28,14 +27,11 @@ public class CarritoServiceImpl implements CarritoService {
 
 	private CarritoRepository carritoRepository;
 	private ProductoService productoService;
-	private CarritoProductoRepository carritoProductoRepository;
 
 	@Autowired
-	public CarritoServiceImpl(final CarritoRepository carritoRepository, final ProductoService productoService,
-			final CarritoProductoRepository carritoProductoRepository) {
+	public CarritoServiceImpl(final CarritoRepository carritoRepository, final ProductoService productoService) {
 		this.carritoRepository = carritoRepository;
 		this.productoService = productoService;
-		this.carritoProductoRepository = carritoProductoRepository;
 	}
 
 	@Override
@@ -65,20 +61,40 @@ public class CarritoServiceImpl implements CarritoService {
 			}
 
 			Producto producto = productoService.obtener(inputDTO.getProductoID());
-			List<Producto> productosCarrito = new ArrayList<>();
+			Boolean isProducto = false;
 
-			for (CarritoProducto carritoProducto : carrito.getCarritoProducto())
-				productosCarrito.add(carritoProducto.getProducto());
+			Iterator<CarritoProducto> iterator = carrito.getCarritoProducto().iterator();
+			while (iterator.hasNext()) {
+				CarritoProducto carritoProducto = iterator.next();
 
-			if (productosCarrito.contains(producto))
-				actualizarCarritoProducto(carrito, producto, inputDTO.getCantidad(), inputDTO.getOperacion());
-			else
-				crearCarritoProducto(carrito, producto, inputDTO.getCantidad(), inputDTO.getOperacion());
+				// CARRITO TIENE EL PRODUCTO
+				if (carritoProducto.getProducto().equals(producto)
+						&& inputDTO.getOperacion().equals(TipoOperacionCarrito.AGREGAR)) {
+
+					carritoProducto.setCantidad(
+							carritoProducto.getCantidad() + Long.valueOf(inputDTO.getCantidad()).doubleValue());
+					isProducto = true;
+
+				} else if (carritoProducto.getProducto().equals(producto)
+						&& inputDTO.getOperacion().equals(TipoOperacionCarrito.ELIMINAR)) {
+					carritoProducto.setCantidad(
+							carritoProducto.getCantidad() - Long.valueOf(inputDTO.getCantidad()).doubleValue());
+
+					if (carritoProducto.getCantidad() <= 0)
+						carritoProducto.setCantidad(Long.valueOf(0).doubleValue());
+					iterator.remove();
+					isProducto = true;
+				}
+			}
+
+			// CARRITO NO TIENE EL PRODUCTO
+			if (!isProducto && inputDTO.getOperacion().equals(TipoOperacionCarrito.AGREGAR))
+				carrito.getCarritoProducto().add(getCarritoProducto(carrito, producto, inputDTO.getCantidad()));
 
 			carritoRepository.save(carrito);
 
 			return true;
-			
+
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 			throw new RuntimeException("Error actualizando carrito: " + e.getMessage(), e);
@@ -86,36 +102,15 @@ public class CarritoServiceImpl implements CarritoService {
 
 	}
 
-	private void crearCarritoProducto(Carrito carrito, Producto producto, Long cantidad,
-			TipoOperacionCarrito operacion) {
-
-		if (operacion.equals(TipoOperacionCarrito.ELIMINAR))
-			return;
+	private CarritoProducto getCarritoProducto(Carrito carrito, Producto producto, Long cantidad) {
 
 		CarritoProducto carritoProducto = new CarritoProducto();
 		carritoProducto.setCarrito(carrito);
 		carritoProducto.setProducto(producto);
 		carritoProducto.setCantidad(cantidad.doubleValue());
 
-		carritoProductoRepository.save(carritoProducto);
+		return carritoProducto;
 
-	}
-
-	private void actualizarCarritoProducto(Carrito carrito, Producto producto, Long cantidad,
-			TipoOperacionCarrito operacion) {
-
-		CarritoProducto carritoProducto = carritoProductoRepository.findByCarritoAndProducto(carrito, producto);
-
-		if (operacion.equals(TipoOperacionCarrito.AGREGAR)) {
-			carritoProducto.setCantidad(carritoProducto.getCantidad() + cantidad.doubleValue());
-			carritoProductoRepository.save(carritoProducto);
-		} else if (operacion.equals(TipoOperacionCarrito.ELIMINAR)) {
-			carritoProducto.setCantidad(carritoProducto.getCantidad() - cantidad.doubleValue());
-			if (carritoProducto.getCantidad() > 0)
-				carritoProductoRepository.save(carritoProducto);
-			else
-				carritoProductoRepository.delete(carritoProducto);
-		}
 	}
 
 	@Override
