@@ -20,7 +20,9 @@ import cl.duoc.portafolio.feriavirtual.repository.CarritoProductoRepository;
 import cl.duoc.portafolio.feriavirtual.repository.CarritoRepository;
 import cl.duoc.portafolio.feriavirtual.service.CarritoService;
 import cl.duoc.portafolio.feriavirtual.service.ProductoService;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class CarritoServiceImpl implements CarritoService {
 
@@ -53,28 +55,35 @@ public class CarritoServiceImpl implements CarritoService {
 	@Override
 	public Boolean actualizar(Usuario usuario, InputCarritoProductoActualizar inputDTO) {
 
-		Carrito carrito;
-		List<Carrito> carritos = consultarPendiente(usuario);
-		if (!carritos.isEmpty()) {
-			carrito = carritos.get(0);
-		} else {
-			carrito = crear(usuario);
+		try {
+			Carrito carrito;
+			List<Carrito> carritos = consultarPendiente(usuario);
+			if (!carritos.isEmpty()) {
+				carrito = carritos.get(0);
+			} else {
+				carrito = crear(usuario);
+			}
+
+			Producto producto = productoService.obtener(inputDTO.getProductoID());
+			List<Producto> productosCarrito = new ArrayList<>();
+
+			for (CarritoProducto carritoProducto : carrito.getCarritoProducto())
+				productosCarrito.add(carritoProducto.getProducto());
+
+			if (productosCarrito.contains(producto))
+				actualizarCarritoProducto(carrito, producto, inputDTO.getCantidad(), inputDTO.getOperacion());
+			else
+				crearCarritoProducto(carrito, producto, inputDTO.getCantidad(), inputDTO.getOperacion());
+
+			carritoRepository.save(carrito);
+
+			return true;
+			
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			throw new RuntimeException("Error actualizando carrito: " + e.getMessage(), e);
 		}
 
-		Producto producto = productoService.obtener(inputDTO.getProductoID());
-		List<Producto> productosCarrito = new ArrayList<>();
-
-		for (CarritoProducto carritoProducto : carrito.getCarritoProducto())
-			productosCarrito.add(carritoProducto.getProducto());
-
-		if (productosCarrito.contains(producto))
-			actualizarCarritoProducto(carrito, producto, inputDTO.getCantidad(), inputDTO.getOperacion());
-		else
-			crearCarritoProducto(carrito, producto, inputDTO.getCantidad(), inputDTO.getOperacion());
-
-		carritoRepository.save(carrito);
-
-		return true;
 	}
 
 	private void crearCarritoProducto(Carrito carrito, Producto producto, Long cantidad,
@@ -108,14 +117,14 @@ public class CarritoServiceImpl implements CarritoService {
 				carritoProductoRepository.delete(carritoProducto);
 		}
 	}
-	
+
 	@Override
 	public Boolean actualizarEstado(Usuario usuario, Long carritoID, EstadoCarrito estado) {
-		
+
 		Carrito carrito = obtener(usuario, carritoID);
 		carrito.setEstado(estado);
 		carritoRepository.save(carrito);
-		
+
 		return true;
 	}
 

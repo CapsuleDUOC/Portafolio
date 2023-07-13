@@ -1,6 +1,7 @@
 package cl.duoc.portafolio.feriavirtual.domain;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -36,5 +37,5 @@ public class Carrito {
 	
 	@OneToMany
     @JoinColumn(name = "carrito_id")
-    private List<CarritoProducto> carritoProducto;
+    private List<CarritoProducto> carritoProducto = new ArrayList<>();
 }
